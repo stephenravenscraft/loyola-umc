@@ -1,0 +1,111 @@
+/* charts */
+
+/* pie-chart */
+
+#panel-pie-chart {
+	.grid-item {
+		position: relative;
+	}
+	.pie-chart {
+		position: relative;
+		margin: 0;
+		width: 100%;
+		height: auto;
+		min-height: 350px;
+		outline: 0;
+		background:
+			radial-gradient(
+				circle closest-side,
+				transparent 50%,
+				white 0
+			),
+			conic-gradient(
+				#8d0034 0,
+				#8d0034 77.3%,
+				#cccccc 0,
+				#cccccc 100%
+			);
+			h2, h4, h5, h6, h7 {
+				position: relative;
+				top: 0;
+				margin: 0;
+				padding: 0;
+			}
+			h4 {
+				margin: 0 0 .25rem;
+			}
+			h5 {
+				top: 68%;
+				position: absolute !important;
+			}
+			figure {
+				background: none;
+			}
+			figcaption {
+				position: absolute;
+				bottom: 1rem;
+				text-align: left;
+				&:first-of-type {
+					top: 0;
+					p {
+						font-size: 1rem;
+						line-height: 1.45;
+						text-transform: none;
+					}
+				}
+			}
+	}
+	footnote { line-height: 1.25;
+	}
+}
+
+/* specific per pie chart */
+
+#panel-charts {
+	.grid-item #fifteen-percent.pie-chart {
+	background:
+		radial-gradient(
+			circle closest-side,
+			transparent 50%,
+			white 0
+		),
+		conic-gradient(
+			#8d0034 0,
+			#8d0034 15%,
+			#cccccc 0,
+			#cccccc 100%
+		);
+	}
+}
+#panel-charts {
+	.grid-item #sixty-five-percent.pie-chart {
+	background:
+		radial-gradient(
+			circle closest-side,
+			transparent 50%,
+			white 0
+		),
+		conic-gradient(
+			#8d0034 0,
+			#8d0034 65%,
+			#cccccc 0,
+			#cccccc 100%
+		);
+	}
+}
+#panel-charts {
+	.grid-item #eighty-five-percent.pie-chart {
+	background:
+		radial-gradient(
+			circle closest-side,
+			transparent 50%,
+			white 0
+		),
+		conic-gradient(
+			#8d0034 0,
+			#8d0034 85%,
+			#cccccc 0,
+			#cccccc 100%
+		);
+	}
+}

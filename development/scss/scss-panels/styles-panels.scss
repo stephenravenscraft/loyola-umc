@@ -1,0 +1,31 @@
+/* styles panels */
+
+//@import 'variables';
+//@import 'mixins';
+@import 'mixins/breakpoints';
+@import '../scss-typography/custom-variables';
+@import '../scss-typography/vertical-rhythm';
+@import 'accessible-accordion-aria';
+// @import 'accessible-carrousel-aria';
+@import 'accessible-tabs-aria';
+@import 'accessible-modaal-aria';
+@import 'aos';
+@import 'audio';
+@import 'cards';
+@import 'forms';
+@import 'tables';
+@import 'tables-adjust';
+@import 'charts';
+@import 'charts-pie';
+@import 'charts-bar';
+@import 'charts-column';
+@import 'charts-progress';
+@import 'charts-donut';
+@import 'panels';
+@import 'carousel';
+@import 'carousel-scroll';
+//@import 'uao panels'
+@import 'uao-hero-image';
+@import 'uao-hero-video';
+@import 'uao-image-quote';
+@import 'uao-tabs';

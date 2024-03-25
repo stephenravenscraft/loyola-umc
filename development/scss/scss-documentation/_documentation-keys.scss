@@ -1,0 +1,265 @@
+/* documentation */
+
+.relative-wrapper {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.focus-square {
+	width: 5%;
+	height: auto;
+	border: .25rem solid red;
+	background: rgba(0,0,0,.125);
+}
+
+.focus-square:before {
+	display: table;
+	content: ".";
+	line-height: 0;
+	width: 100% !important;
+	height: 100% !important;
+	height: auto;
+}
+
+.aspect-1-1:before {
+	padding-top: 100%;
+}
+
+.aspect-16-9:before {
+	padding-top: 56.2%;
+}
+
+.aspect-4-3:before {
+	padding-top: 75%;
+}
+
+/* scroll */
+
+html, body {
+	scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+/* images */
+
+.image-25 {
+	width: 25%;
+	@include phone-portrait {
+		width: 100%;
+	}
+}
+
+.image-50 {
+	width: 50%;
+	@include phone-portrait {
+		width: 100%;
+	}
+}
+
+.image-75 {
+	width: 75%;
+	@include phone-portrait {
+		width: 100%;
+	}
+}
+
+.image-box-shadow {
+	box-shadow: 0 0 .5rem rgba(0,0,0,.25);
+}
+
+#main-content-wrapper-full-width img.terminal-four-icon {
+  display: inline;
+  margin: 0 .5rem 0 0;
+  width: 2.75rem;
+  height: auto;
+}
+
+/* color */
+
+.circle-number-key.circle-key-red {
+  background: red;
+}
+
+.maroon-color {
+  color: #8d0034;
+}
+
+/* structure */
+
+#main-content-wrapper-full-width.main-content-wrapper-documentation {
+  padding: 4rem 20% 4rem 10%;
+}
+
+/* navigation */
+
+#documentation-navigation {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1.25rem 1.25rem 2rem;
+  width: 20%;
+	height: 100vh;
+  background: #8d0034;
+	overflow-x: scroll;
+  nav {
+    background: none;
+  }
+	h5 {
+		font-size: 1rem !important;
+		color: #bbbbbb;
+	}
+  h5:first-of-type {
+    margin-top: 0;
+  }
+  a {
+    display: block;
+    margin: 0 0 .5rem 0;
+		padding: 0 0 .5rem 0;
+    width: 100%;
+		font-family: 'Antenna Condensed Light', sans-serif;
+		font-size: .9rem !important;
+		color: #bbbbbb;
+		letter-spacing: .05rem;
+		word-spacing: .125rem;
+		text-transform: none;
+		text-decoration: none;
+		border-bottom: solid 1px rgba(255,255,255,.35);
+    background: none;
+		transition: .2s;
+		&:hover {
+			color: #ffffff;
+		}
+  }
+}
+
+nav.documentation-sub-nav {
+	margin: 0 0 .75rem 1rem;
+}
+
+#documentation-navigation-more {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	margin: 0;
+	padding: 2rem 1.25rem .75rem;
+	width: 20%;
+	background: rgb(141,0,52);
+	background:
+		linear-gradient(0deg,
+		rgba(141,0,52,1) 0%,
+		rgba(141,0,52,1) 50%,
+		rgba(255,255,255,0) 100%,
+		rgba(255,255,255,1) 100%)
+	;
+	img {
+		display: block;
+		margin: 0 auto;
+		width: 1rem;
+		height: .75rem;
+		opacity: .5;
+	}
+}
+
+.documentation-direction { margin: 0 0 0 2.5rem; }
+
+.documentation-direction .circle-number-key.circle-number-key-inline  { margin-left: -2.25rem; }
+
+/* cards */
+
+#documentation-card-elements {
+  .grid-wrapper-min-max.four-column-eight-column {
+    grid-gap: 4rem;
+  }
+}
+
+/* card elements */
+
+#documentation-card-elements .image-wrapper,
+#documentation-card-elements h6,
+#documentation-card-elements .flex-item.content h4,
+#documentation-card-elements h5,
+#documentation-card-elements .flex-item.content .explainer,
+#documentation-card-elements .flex-item.content p,
+#documentation-card-elements a.cta,
+#documentation-card-elements button,
+#documentation-card-elements a.cta {
+  position: relative;
+}
+
+/* card elements - key */
+
+#card-element-key-one {
+  top: 50%;
+}
+#card-element-key-two {
+  top: 0%;
+}
+#card-element-key-three {
+  top: 0%;
+}
+#card-element-key-four {
+  top: 0%;
+}
+#card-element-key-five {
+  top: 0%;
+}
+#card-element-key-six {
+  top: 20%;
+}
+#card-element-key-seven {
+  top: 0%;
+}
+#card-element-key-eight {
+  top: 0%;
+  left: 0%;
+}
+#card-element-key-nine {
+  top: 0%;
+}
+
+/* card variations - key */
+
+#card-variation-key-one {
+  top: 10%;
+  left: 30%;
+}
+#card-variation-key-two {
+  top: 50%;
+  left: 0%;
+}
+#card-variation-key-three {
+  top: 50%;
+  left: 0%;
+}
+
+/* typography */
+
+#documentation-typography h1,
+#documentation-typography h2,
+#documentation-typography h3,
+#documentation-typography h4,
+#documentation-typography h4,
+#documentation-typography h6,
+#documentation-typography .intro-paragraph {
+	position: relative;
+}
+
+/* typography - key */
+
+#typography-header-h1,
+#typography-header-h2,
+#typography-header-h3,
+#typography-header-h4,
+#typography-header-h5,
+#typography-header-h6,
+#typography-text-intro-paragraph {
+	right: 0;
+}

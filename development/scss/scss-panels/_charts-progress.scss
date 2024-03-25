@@ -1,0 +1,130 @@
+#panel-progress-chart {
+  .grid-item-min-max {
+    grid-gap: 0;
+  }
+  .grid-item {
+    margin: 0;
+  }
+}
+.progress-chart-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 4rem 0;
+  width: 80vw;
+  height: 100%;
+  background: none;
+  @include tablet-portrait {
+    display: block;
+    width: 100vw;
+  }
+}
+.progress-chart-circle {
+  display: grid;
+  grid-template-areas: "layer";
+  place-items: center;
+  width: calc(2.5 * var(--radius));
+  height: calc(2.5 * var(--radius));
+  background: none;
+  border-radius: 50%;
+  --radius: 30vmin;
+  @include phone-portrait {
+    display: block;
+    width: 100%;
+    height: auto;
+    --radius: 0;
+  }
+}
+.progress-chart-title {
+  position: absolute;
+  top: center;
+  left: calc(50% - 10%);
+  padding: 0;
+  width: 20%;
+  height: auto;
+  text-align: center;
+  color: #ffffff;
+  @include tablet-portrait {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.75vw;
+    line-height: 1.75rem !important;
+  }
+}
+.progress-chart-stat {
+  display: grid;
+  grid-area: layer;
+  grid-row: 1;
+  place-items: center;
+  width: 20vmin;
+  height: 20vmin;
+  border-radius: 50%;
+  background: #8d0034;
+  @include phone-portrait {
+    display: block;
+    box-sizing: border-box;
+    padding: 1.5rem;
+    margin: 1rem auto;
+    width: 60vw;
+    height: 60vw;
+  }
+}
+.progress-chart-stat:nth-child(even) {
+  width: 6vmin;
+  height: 6vmin;
+  @include phone-portrait {
+    width: 11vmin;
+    height: 11vmin;
+    text-align: center;
+  }
+}
+.progress-chart-stat h5 {
+  width: 50%;
+  line-height: 1.05;
+  color: $gray-extra-light;
+  text-align: center;
+}
+.progress-chart-stat a.cta {
+  display: block;
+  width: 100%;
+  font-size: 60%;
+  line-height: 1.125;
+  color: $gold;
+  text-transform: uppercase;
+}
+/* Decimal value, 0-1 based on the child's index */
+.progress-chart-stat { --d: calc(var(--i) / var(--total));}
+/* Offset to get better starting placement on the circle */
+.progress-chart-stat { --r-offset: -0.25turn; }
+/* Full circle */
+.progress-chart-stat { --r-amount: 1turn; }
+/* Rotation based on the decimal and r modifiers */
+.progress-chart-stat { --r: calc((var(--r-amount) * var(--d)) + var(--r-offset)); }
+/* Rotate, transform out, then negative rotation so the content appears upright */
+.progress-chart-stat { --transform: rotate(var(--r)) translate(var(--radius)) rotate(calc(-1 * var(--r)));
+  transform: var(--transform);
+  transition: transform 1.5s ease-in-out;
+}
+.progress-chart-stat:nth-child(even) { --transform: rotate(var(--r)) translate(var(--radius)) rotate(calc(0 * var(--r)));
+  padding: .5rem;
+  transform: var(--transform);
+  transition: transform 1.5s ease-in-out;
+  background: $gold;
+  z-index: +1;
+  box-shadow: 0 0 .5rem rgba(0,0,0,.35);
+  @include phone-portrait {
+    transform: rotate(0);
+  }
+}
+/* transition-delay: calc(0.1s * var(--i)); */
+/* .stat:hover { --radius: calc(-20vmin); } */
+/* Animate the rotation - 0.75turn */
+/* .stat:hover { --r-offset: -1.75turn; } */

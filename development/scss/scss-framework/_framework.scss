@@ -1,0 +1,463 @@
+/* FRAMEWORK */
+
+/* ALSO!!! - main-section styling is located in the side-navigation.scss  */
+
+* {
+  box-sizing: border-box;
+}
+
+.visibility-hidden { visibility: hidden;}
+
+html, body {
+  height: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  content:"";
+  width:100%;
+  height:100%;
+  min-height: 100%;
+  display:block;
+}
+
+:hover {
+  cursor: default;
+}
+
+/* skips to main content on page - main-section-wrapper */
+
+a.skip-main,
+a.skip-main:focus,
+a.skip-main:active  {
+  position: absolute;
+  left: 25vw;
+  /* left: 35%; */
+  top: auto;
+  margin: 0 auto;
+  padding: .75rem;
+  width: 50vw;
+  height: auto;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: .75rem;
+  color: $gray-extra-light;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 0 0 .25rem .25rem;
+  box-shadow: 0 0 10px rgba(0,0,0,.35);
+  background: $maroon;
+  overflow: hidden;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  z-index: 10000;
+//  display: none;
+  @include phone-landscape {
+    width: 70vw;
+  }
+}
+
+a.skip-main:focus, a.skip-main:active {
+  transform: translateY(0%);
+  outline-color: $gold;
+  outline-width: 2px;
+}
+
+/* header */
+
+header {
+  position: relative;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: 0 none;
+  border-radius: 0;
+  background: $bg-overlay-extra-dark;
+  box-shadow: 0px 2px 5px rgba(0,0,0,.35);
+  z-index: 2;
+}
+
+header #site-brand-wrapper {
+  padding: 20px 10px;
+  background: $gray-extra-dark;
+}
+
+header span {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+  img {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: 45px;
+    @include tablet-landscape {
+      display: block;
+      height: 40px;
+    }
+  }
+}
+
+/* site name */
+
+header #site-name,
+header #loyola-university-chicago {
+  position: relative;
+  display: block;
+  float: left;
+  bottom: -5px;
+  margin: 0 5px;
+  padding: 0;
+  width: 80%;
+  height: auto;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 2.25em;
+  color: $gray-light;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: none;
+  background: none;
+  a {
+    color: $gray-light;
+    text-decoration: none;
+    transition: color .2s;
+    &:hover {
+      color: $white;
+    }
+  }
+  @include desktop-small {
+		font-size: 1.65em;
+    margin: 0;
+	}
+  @include phone-portrait {
+    margin: 0;
+    width: 80%;
+    font-size: 1.5em;
+    line-height: 1.35;
+  }
+}
+
+header #loyola-university-chicago {
+  display: none;
+  bottom: auto;
+  float: left;
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: .95em;
+  letter-spacing: .035em;
+  line-height: 1;
+  text-transform: uppercase;
+  background: none;
+  @include tablet-portrait {
+    display: inline-block;
+		font-size: .75em;
+	}
+}
+
+header #brand {
+  float: right;
+  margin: 0 5px;
+  background: none;
+  a {
+    display: inline-block;
+  }
+  @include desktop-small {
+    margin: 0;
+	}
+  img {
+    float: right;
+    opacity: .8;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+/* containers */
+
+.container-fluid { width: 100%; }
+
+#main-section-wrapper.container:first-of-type:not(.container.container-80),
+#main-section-wrapper .container:first-of-type:not(.container, .container-80) {
+  width: 100% !important;
+  @include phone-landscape {
+    width: 100%;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+  width: 80%;
+  overflow: hidden;
+}
+.grid-item.container.container-100,
+.container.container-100 {
+  width: 100%;
+}
+.grid-item.container.container-80,
+.container.container-80 {
+  width: 80%;
+}
+.grid-item.container.container-50,
+.container.container-50 {
+  width: 50%;
+  @include tablet-portrait {
+    width: 80%;
+  }
+}
+
+/* standards - color-palette */
+
+#color-palette {
+  .grid-wrapper-min-max {
+    grid-template-columns: repeat(auto-fit, minmax(16%, 1fr));
+    grid-gap: 1rem;
+    @include phone-landscape {
+      display: block;
+    }
+    .grid-square {
+      padding: .75rem;
+      @include phone-landscape {
+        padding: 2rem;
+      }
+    }
+  }
+}
+
+.grid-item.grid-square.grid-square-hide {
+  @include phone-landscape {
+    display: none;
+  }
+}
+
+#main-content-wrapper-full-width {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  /*
+  @include phone-portrait {
+    padding: 0 2rem;
+  }
+  */
+}
+
+#main-content-wrapper-full-width aside {
+  display: none;
+}
+
+#main-wrapper {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: -2rem;
+  left: 0;
+  width: 100%;
+/*
+  -moz-transition: all 300ms;
+  -o-transition: all 300ms;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+*/
+  z-index: 1;
+}
+
+#main-content-wrapper {
+  overflow: visible;
+  display: grid;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 4rem 10%;
+  height: auto;
+  min-height: 100vh;
+  /* margin: 250px auto 200px; */
+  grid-template-columns: minmax(0, 3fr) 250px;
+  grid-template-areas: "main-section-wrapper main-aside-wrapper";
+  grid-gap: 3rem;
+  @include tablet-portrait {
+    grid-template-areas:
+    "main-aside-wrapper"
+    "main-section-wrapper";
+    grid-template-columns: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+}
+
+#main-content-start {
+  overflow: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#main-section-wrapper {
+  grid-area: main-section-wrapper;
+  min-height: 1000px;
+  overflow: hidden;
+  @include phone-landscape {
+    display: block;
+    margin: 0;
+    min-height: 750px;
+  }
+}
+
+#main-aside-wrapper {
+  grid-area: main-aside-wrapper;
+  @include phone-landscape {
+    display: block;
+    margin: 0;
+  }
+  .grid-wrapper-min-max {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
+
+#main-aside-wrapper[style] {
+  @include tablet-portrait {
+    margin-top: 0 !important;
+  }
+}
+
+/* footer */
+
+footer#footer-fixed {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 1.125em;
+  height: auto;
+  @include phone-portrait {
+    display: none;
+  }
+}
+
+footer#footer-fixed img { display: none; margin: 0; }
+footer#footer-fixed.footer-fixed-show { display: block; }
+footer#footer-fixed.footer-fixed-hide { display: none; }
+
+footer {
+  display: grid;
+  float: left;
+  margin: 0;
+  padding: 1rem 1.125rem 1.125rem;
+  width: 100%;
+  background: $brick;
+  z-index: 10000;
+  @include tablet-portrait {
+    padding: 15px 10px;
+    height: 75px;
+  }
+  a, p a {
+  color: $gray-extra-light !important;
+  text-decoration: underline !important;
+  background-image: none !important;
+    &:hover {
+      display: inline-block;
+      color: $gold-light !important;
+    }
+  }
+}
+
+footer .container-fluid {
+  background: none;
+  display: block;
+}
+
+footer span, footer p,
+footer#footer-fixed span, footer#footer-fixed p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -.015em;
+  color: $white;
+  margin-bottom: 0;
+}
+
+footer span#brand img {
+  a {
+    display: inline-block;
+    float: right;
+  }
+  height: 45px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+footer p {
+  @include tablet-portrait {
+    display: none;
+  }
+}
+
+#footer-address {
+  margin-top: 0;
+}
+
+#footercard,
+#footercard a,
+#footercard #street-address,
+#footercard #locality,
+#footercard .region,
+#footercard .postal-code {
+  font-size: 1em;
+  color: lighten($gray-extra-light,5%) !important;
+}
+
+footer#footer-not-fixed {
+  margin-bottom: 0;
+  padding: 1rem;
+  height: 100%;
+  .container-fluid {
+    display: -ms-grid;
+    display: grid;
+    padding: 0 !important;
+    width: 100%;
+    @include tablet-portrait {
+      grid-template-columns: 1fr;
+      padding: 1rem 1rem 1.25rem;
+      height: 100%;
+    }
+    .span {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      color: lighten($gray-extra-light,5%);
+    }
+    a {
+      color: $white;
+      font: inherit;
+      font-weight: bold;
+      text-decoration: none;
+      img {
+        margin: .5rem 0 0 0;
+        @include phone-landscape {
+          margin: 1rem 0 0 0;
+        }
+      }
+    }
+  }
+}
+
+footer#footer-not-fixed #brand {
+  grid-area: 1 / 2 / span 1 / span 1;
+  display: block;
+  width: 100%;
+  @include tablet-portrait {
+    grid-area: 3 / 1 / span 2 / span 1;
+  }
+}
+footer#footer-not-fixed img {
+  display: none;
+  float: right;
+  margin: 0;
+  width: auto;
+}
