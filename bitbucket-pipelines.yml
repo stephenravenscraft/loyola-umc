@@ -1,4 +1,4 @@
-image: node:10.2.5
+image: node:16.19.0
 
 pipelines:
   default:
