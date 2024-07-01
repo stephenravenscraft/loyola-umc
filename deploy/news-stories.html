@@ -256,7 +256,7 @@
                                         <div class="meta uppercase">September 1, 2024</div>
 
                                         <h4 class="grid-link"><a href="#">Lorem Ipsum Dolar Sit Amet Consectetur</a></h4>
-                                        <br/>
+                                        <br>
                                         <div>
                                             <p>Lorem ipsum dolor sit amet consectetur. Rhoncus sollicitudin viverra tincidunt accumsan elementum tellus viverra. Dignissim ipsum id dignissim tortor urna. Suspendisse placerat gravida.</p>
                                         </div>
@@ -277,7 +277,7 @@
                                         <div class="meta uppercase">September 1, 2024</div>
 
                                         <h4 class="grid-link"><a href="#">Lorem Ipsum Dolar Sit Amet Consectetur</a></h4>
-                                        <br/>
+                                        <br>
                                         <div>
                                             <p>Lorem ipsum dolor sit amet consectetur. Rhoncus sollicitudin viverra tincidunt accumsan elementum tellus viverra. Dignissim ipsum id dignissim tortor urna. Suspendisse placerat gravida.</p>
                                         </div>
@@ -298,7 +298,7 @@
                                         <div class="meta uppercase">September 1, 2024</div>
 
                                         <h4 class="grid-link"><a href="#">Lorem Ipsum Dolar Sit Amet Consectetur</a></h4>
-                                        <br/>
+                                        <br>
                                         <div>
                                             <p>Lorem ipsum dolor sit amet consectetur. Rhoncus sollicitudin viverra tincidunt accumsan elementum tellus viverra. Dignissim ipsum id dignissim tortor urna. Suspendisse placerat gravida.</p>
                                         </div>
@@ -308,7 +308,7 @@
                                 </div>
                             </div>
                         </div>
-                        <br/>
+                        <br>
                         <div class="grid-wrapper-min-max three-column card">
                             <div class="grid-item">
                                 <div class="image-wrapper">
@@ -322,7 +322,7 @@
                                         <div class="meta uppercase">September 1, 2024</div>
 
                                         <h4 class="grid-link"><a href="#">Lorem Ipsum Dolar Sit Amet Consectetur</a></h4>
-                                        <br/>
+                                        <br>
                                         <div>
                                             <p>Lorem ipsum dolor sit amet consectetur. Rhoncus sollicitudin viverra tincidunt accumsan elementum tellus viverra. Dignissim ipsum id dignissim tortor urna. Suspendisse placerat gravida.</p>
                                         </div>
@@ -343,7 +343,7 @@
                                         <div class="meta uppercase">September 1, 2024</div>
 
                                         <h4 class="grid-link"><a href="#">Lorem Ipsum Dolar Sit Amet Consectetur</a></h4>
-                                        <br/>
+                                        <br>
                                         <div>
                                             <p>Lorem ipsum dolor sit amet consectetur. Rhoncus sollicitudin viverra tincidunt accumsan elementum tellus viverra. Dignissim ipsum id dignissim tortor urna. Suspendisse placerat gravida.</p>
                                         </div>
@@ -364,7 +364,7 @@
                                         <div class="meta uppercase">September 1, 2024</div>
 
                                         <h4 class="grid-link"><a href="#">Lorem Ipsum Dolar Sit Amet Consectetur</a></h4>
-                                        <br/>
+                                        <br>
                                         <div>
                                             <p>Lorem ipsum dolor sit amet consectetur. Rhoncus sollicitudin viverra tincidunt accumsan elementum tellus viverra. Dignissim ipsum id dignissim tortor urna. Suspendisse placerat gravida.</p>
                                         </div>
@@ -396,9 +396,9 @@
                             <div class="content-grid-wrapper">
                                 <div class="flex-item content">
                                     <h4>Jane Thompson</h4>
-                                    <br/>
+                                    <br>
                                     <p>Lorem ipsum dolor sit amet consectetur. Rhoncus sollicitudin viverra tincidunt accumsan elementum tellus viverra. Dignissim ipsum id dignissim tortor urna. Suspendisse placerat gravida elementum orci.</p>
-                                    <br/>
+                                    <br>
                                     <button class="container-50" onclick="window.open('https://www.luc.edu','_blank')">Call to Action</button>
 
                                 </div>
@@ -566,19 +566,19 @@
 		</main>
 		<!-- inject:js -->
 		<script src="js/bundle.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('button.content-activate-symbol').click(function(){
+          $('.button.content-activate-symbol').not(this).removeClass('active');
+          $(this).toggleClass('active');
+          $('button.content-activate-symbol').not(this).parent('div.content-image-overlay').removeClass('active');
+          $(this).parent('div.content-image-overlay').toggleClass('active');
+        })
+      });
+      </script>
 		<!-- endinject -->
 	</div>
 </body>
 
 </html>
 
-<script>
-  $(document).ready(function(){
-    $('button.content-activate-symbol').click(function(){
-      $('.button.content-activate-symbol').not(this).removeClass('active');
-      $(this).toggleClass('active');
-      $('button.content-activate-symbol').not(this).parent('div.content-image-overlay').removeClass('active');
-      $(this).parent('div.content-image-overlay').toggleClass('active');
-    })
-  });
-  </script>

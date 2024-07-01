@@ -303,15 +303,8 @@
                     
 
                     <div class="grid-wrapper-min-max two-column">
-                        <div class="grid-item">
+                        <div class="grid-item card">
                             <div class="image-wrapper">
-                                <div class="image-wrapper-overlay">
-                                    <div class="image-wrapper-overlay-content">
-                                        <h4>The headline is lorem ipsum</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
-                                        <a class="cta" href="#####">CTA here</a>
-                                    </div>
-                                </div>
                                 <a href="###" target="_blank" title="Title goes here">
                                     <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
                                 </a>
@@ -319,21 +312,10 @@
                             <div class="content-grid-wrapper">
                                 <div class="flex-item content">
                                     <h4>The headline is lorem ipsum</h4>
-                                    <h5>Somebody Namehere</h5>
-                                    <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                                    <p>Readout here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida leo massa, at elementum orci consequat non. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                     <a class="cta" href="#####">CTA here</a>
                                 </div>
-                                <div class="flex-item links">
-                                    <div class="button-maroon">
-                                        <button onclick="window.open('###')">CTA here</button>
-                                    </div>
-                                    <h6 style="text-align: center;">Lorem ipsum unum</h6>
-                                    <h5>Also see:</h5>
-                                    <p><a href="#####">Link to related resource</a></p>
-                                    <p><a href="#####">Link to related resource</a></p>
-                                    <p><a href="#####">Link to related resource</a></p>
-                                </div>
+
                             </div>
                         </div>
                         <div class="grid-item">
@@ -533,19 +515,19 @@
 		</main>
 		<!-- inject:js -->
 		<script src="js/bundle.js"></script>
+        <script>
+            $(document).ready(function(){
+              $('button.content-activate-symbol').click(function(){
+                $('.button.content-activate-symbol').not(this).removeClass('active');
+                $(this).toggleClass('active');
+                $('button.content-activate-symbol').not(this).parent('div.content-image-overlay').removeClass('active');
+                $(this).parent('div.content-image-overlay').toggleClass('active');
+              })
+            });
+            </script>
 		<!-- endinject -->
 	</div>
 </body>
 
 </html>
 
-<script>
-  $(document).ready(function(){
-    $('button.content-activate-symbol').click(function(){
-      $('.button.content-activate-symbol').not(this).removeClass('active');
-      $(this).toggleClass('active');
-      $('button.content-activate-symbol').not(this).parent('div.content-image-overlay').removeClass('active');
-      $(this).parent('div.content-image-overlay').toggleClass('active');
-    })
-  });
-  </script>

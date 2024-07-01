@@ -7231,6 +7231,12 @@ section#panel-subnav {
     border-top: 2px solid var(--yellow);
     padding: 1rem 2rem 0 0;
     display: inline-block;
+    margin-bottom: 2rem;
+
+    cite {
+      display: block;
+      margin-bottom: 1rem;
+    }
   }
 
   @media (width >= 64em) {
