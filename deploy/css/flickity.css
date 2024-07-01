@@ -60,7 +60,7 @@
   
     &.previous {
       transform: rotate(180deg);
-      left: 1rem;
+      left: 0;
     }
   
   
@@ -83,16 +83,13 @@
     width: fit-content;
   }
   
-  .flickity-page-dots {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-  }
   
   .flickity-page-dots {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    align-items: center;
+    justify-content: center;
     & .flickity-page-dot {
       width: 15px;
       height: 15px;
@@ -115,62 +112,43 @@
       }
     }        
   }
-  
-  .flickity-custom {
-    .flickity-button {
-      position: absolute;
-      top: auto;
-      bottom: 0;
-      width: 3rem;
-      height: 3rem;
-      margin: 0;
-      transform: none;
-      border-radius: 50% !important;
-      background: var(--white) !important;
-      color: var(--black) !important;
-      outline-color: var(--white) !important;
-  
-      &.previous {
-        right: 4rem;
-        left: auto;
-      }
-  
+
+  .flickity-button {
+    color: var(--white);
+    left: unset;
+    right: 0;
+    margin-right: auto;
+    @media (width >= 64em) {
+      top: calc(50% - 3rem);
+      left: calc(100% - 3rem);
+    }
+    @media (width <= 64em) {
       &.next {
-        right: 0;
+        margin-left: 3rem;
       }
     }
-  
-    .flickity-button-icon {
-      position: static;
-      width: 1.25rem;
-      height: 1.25rem;
-      fill: currentColor;
-    }
-  
-    .flickity-page-dots {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      position: static;
-      max-width: calc(100% - 8rem);
-      min-height: 3rem;
-      margin-block: 2.5rem 1rem;
-  
-      .dot {
-        width: 1rem;
-        height: 1rem;
-        border: 0.125rem solid var(--white);
-        border-radius: 50%;
-        background: none;
-        margin: 0;
-        opacity: 1;
-        cursor: pointer;
-  
-        &.is-selected {
-          background: var(--white);
-        }
+    
+    &.previous {
+      right: 0;
+      @media (width >= 64em) {
+        right: 100%;
+        left: 0;
       }
+    }
+
+    &:hover {
+      background: url('../images/ui-arrow-carrousel-next-dark@2x.png') center no-repeat;
+      background-color: var(--yellow);
+      background-size: 32px;
+    }
+  }
+
+  
+
+  @media (width <= 64em) {
+    .flickity-prev-next-button {
+      background: url('../images/ui-arrow-carrousel-next-dark@2x.png') center no-repeat;
+      background-size: 32px;
     }
   }
   
