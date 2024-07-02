@@ -6440,7 +6440,9 @@ header {
 }
 
 .Subnav--sidebar{
+  padding-inline: 2rem;
   @media (width >= 64em) {
+    padding-inline: 0;
     background-color: var(--white) !important;
   }
 
@@ -6457,6 +6459,40 @@ header {
         border-bottom: 5px solid var(--yellow);
         padding-bottom: .25rem;
     }
+}
+
+.Subnav__list {
+  list-style-position: unset !important;
+  margin-top: 1rem !important;
+  li {
+    text-indent: 0 !important;
+    padding-block: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+    margin-bottom: 0 !important;
+    @media (width <= 64em) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+  }
+  &:last-of-type{
+    border-bottom: none;
+  }
+  
+  }
+  a {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5rem;
+    color: var(--black) !important;
+    &:hover {
+      color: var(--red) !important;;
+    }
+    @media (width <= 64em) {
+      color: var(--white) !important;
+      &:hover {
+        color: var(--yellow) !important;
+      }
+    }
+  }
 }
 
 }
@@ -7294,6 +7330,67 @@ section#panel-subnav {
 
 .grid-wrapper-min-max.three-column {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+}
+
+ #main-content-wrapper.full{
+  @media (width <= 64em) {
+    padding: 0 !important;
+  }
+}
+
+button.icon {
+  position: relative;
+  text-align: left;
+  padding-left: 50px;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: auto;
+    top: 9px;
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    mask-repeat: no-repeat;
+    background-color: var(--yellow);
+  }
+}
+
+.icon-target {
+  &:before {
+    mask-image: url("../images/icon-target.svg");
+  }
+}
+.icon-question {
+  &:before {
+  mask-image: url("../images/icon-question.svg");
+  }
+}
+.icon-nav {
+  &:before {
+  mask-image: url("../images/icon-nav.svg");
+  }
+}
+
+button.arrow {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    mask-repeat: no-repeat;
+  }
+}
+
+button.arrow {
+  &:after {
+    background-image: url("../images/ui-arrow-carrousel-next-yellow@2x.png");
+    background-size: contain;
+  }
 }
 
 }
