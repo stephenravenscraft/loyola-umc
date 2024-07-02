@@ -6472,7 +6472,8 @@ header {
     @media (width <= 64em) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.20);
   }
-  &.last{
+  &.last,
+  &:last-of-type{
     border-bottom: none;
   }
   &.list-button {
