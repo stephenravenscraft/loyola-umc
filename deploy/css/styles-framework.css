@@ -6373,7 +6373,7 @@ header {
     justify-content: space-around;
     height: 2.625rem;
     margin: 0;
-    padding: 0 var(--gutter);
+    padding: 0 0 0 var(--gutter);
     background: var(--gold);
     font-weight: bold;
   }
@@ -7410,6 +7410,13 @@ button.arrow {
   &:after {
     background-image: url("../images/ui-arrow-carrousel-next-yellow@2x.png");
     background-size: contain;
+  }
+}
+
+#main-section-wrapper p a {
+  background-image: none;
+  &:hover {
+    color: #8d0034;
   }
 }
 

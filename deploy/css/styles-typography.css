@@ -344,6 +344,9 @@ p, ul, ol {
 
 a {
   cursor: pointer !important;
+  &:hover{
+    cursor: pointer !important;
+  }
 }
 
 /* cursor - global */
