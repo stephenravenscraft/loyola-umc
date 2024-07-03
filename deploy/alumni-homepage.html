@@ -202,7 +202,7 @@
 </div>
 
 		</header>
-		<main id="main-content-start" alt="This is the beginning of the main content of the page">
+		<main id="main-content-start">
 			<div id="main-content-wrapper-full-width">
 
 				<!-- image-lead - full-overlay -->
@@ -257,16 +257,16 @@
                 <button type="button" data-role="none" class="slick-next slick-arrow bounce">Explore</button>
                 </div>
                     <button id="video-control" class="video-control playing">
-                        <div class="play-pause-container">
+                        <span class="play-pause-container">
                         <span class="video-control-play">
-                             <span class="video-control-symbol" aria-hidden="true"></span>
+                             <span class="video-control-symbol" aria-hidden="true"><span class="invis">Toggle</span></span>
                             <!--<span class="video-control-label">Play</span> -->
                         </span>
                         <span class="video-control-pause">
-                            <span class="video-control-symbol" aria-hidden="true"></span>
+                            <span class="video-control-symbol" aria-hidden="true"><span class="invis">Toggle</span></span>
                             <!-- <span class="video-control-label">Pause</span> -->
                         </span>
-                        </div>
+                      </span>
                     </button>
             </div>
         </div>
@@ -281,8 +281,12 @@
 					<div class="grid-item">
 					<div class="panel-label uppercase"><h5>Featured Event</h5></div>
 					<div class="content-image-text-image">
-					<img src="https://www.luc.edu/media/home/images/standard-image-placeholder.jpg" alt="Image Alt Text Here" title="Image Alt Text Here">
-					</div>
+            <div class="image-wrapper" style="background-image:url('https://www.luc.edu/media/lucedu/sample-site/1000x560.jpg');">
+              <a href="#" target="_blank" title="Title goes here">
+                 <img src="https://www.luc.edu/media/lucedu/sample-site/1000x560.jpg" alt="Feature Story Image Caption Goes Here" title="Feature Story Image Caption Goes Here">
+               </a>
+            </div>					
+          </div>
 					<div class="content-image-text">
 						<div class="calendar-card">
 					
@@ -491,15 +495,22 @@
 
 					<div class="grid-item">
 							
-							<div class="image-wrapper " style="background-image:url('https://www.luc.edu/media/home/images/standard-image-placeholder-1000-1000.jpg');"><img src="https://www.luc.edu/media/home/images/standard-image-placeholder-1000-1000.jpg"></div>
 							
+              <div class="image-wrapper" style="background-image:url('https://www.luc.edu/media/home/images/standard-image-placeholder-1000-1000.jpg');">
+                <a href="#" target="_blank" title="Title goes here">
+                   <img src="https://www.luc.edu/media/home/images/standard-image-placeholder-1000-1000.jpg" alt="Feature Story Image Caption Goes Here" title="Feature Story Image Caption Goes Here">
+                 </a>
+              </div>
+
 					<div class="content-grid-wrapper ">
 								
 							<div class="flex-item content">
 									<h4>Lorem Ipsum Dolar</h4> 
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida leo massa, at elementum orci consequat non. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <br>
 									<p><button onclick="window.open('https://lucweb.luc.edu/newsevents/public/calendar.cfm?view=mw&amp;siteid=0','_blank')">Call to Action</button></p>
-									<p><a href="#">Secondary Call to Action</a></p>
+									<br>
+                  <p><a href="#">Secondary Call to Action</a></p>
 										
 									
 									
@@ -542,7 +553,7 @@
 						</div>
 						</section>
 
-						<section class="container-fluid bg-gray-extra-light">
+						<section class="container-fluid bg-gray-extra-light footer-cta">
 							<div class="container">
 							<div class="padding-xsm"></div>
 							<div class="grid-wrapper-min-max three-column">
@@ -638,6 +649,16 @@
 		</main>
 		<!-- inject:js -->
 		<script src="js/bundle.js"></script>
+    <script>
+      document.querySelector('.uao-scroll-arrow').addEventListener('click', function() {
+          const fullOverlayElement = document.querySelector('.full-overlay');
+          const overlayBottom = fullOverlayElement.getBoundingClientRect().bottom + window.scrollY;
+          window.scrollTo({
+              top: overlayBottom,
+              behavior: 'smooth'
+          });
+      });
+  </script>
 		<!-- endinject -->
 	</div>
 </body>

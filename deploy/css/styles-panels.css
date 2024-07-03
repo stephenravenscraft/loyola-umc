@@ -8362,6 +8362,14 @@ button.slick-arrow.slick-next.bounce:hover {
   position: relative;
   width: 100%;
   height: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+  & span {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .video-control-pause {

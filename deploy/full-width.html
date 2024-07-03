@@ -501,7 +501,12 @@
                     <div class="grid-wrapper-min-max card card-horizontal">
                         <!-- card -->
                         <div class="grid-item">
-                                    <img src="images/feature-panel.jpg" alt="Alternate description goes here" title="Title goes here">
+
+                            <div class="image-wrapper" style="background-image:url('images/feature-panel.jpg');">
+                                <a href="#" target="_blank" title="Title goes here">
+                                 <img src="images/feature-panel.jpg" alt="Feature Story Image Caption Goes Here" title="Feature Story Image Caption Goes Here">
+                                </a>
+                            </div>
                                 
                         
                             <div class="content-grid-wrapper">
@@ -528,7 +533,12 @@
                 <h2>News & Stories</h2>
                 <div class="grid-wrapper-min-max card four-column">
                     <div class="grid-item">
-            <div class="image-wrapper" style="background-image:url('images/news-1.jpg');"><img src="images/news-1.jpg" alt="Feature Story Image Caption Goes Here" title="Feature Story Image Caption Goes Here"></div>
+                        
+            <div class="image-wrapper" style="background-image:url('images/news-1.jpg');">
+                <a href="#" target="_blank" title="Title goes here">
+                 <img src="images/news-1.jpg" alt="Feature Story Image Caption Goes Here" title="Feature Story Image Caption Goes Here">
+                </a>
+            </div>
         <div class="content-grid-wrapper">
         <div class="flex-item content">
         <h6 class="category-light">January 30, 2024</h6>
@@ -541,8 +551,11 @@
             </div>
                     </div>
                     <div class="grid-item">
-                            <div class="image-wrapper" style="background-image:url('images/news-2.jpg');"><img src="images/news-2.jpg" alt=""></div>
-                        <div class="content-grid-wrapper">
+                        <div class="image-wrapper" style="background-image:url('images/news-2.jpg');">
+                            <a href="#" target="_blank" title="Title goes here">
+                             <img src="images/news-2.jpg" alt="Feature Story Image Caption Goes Here" title="Feature Story Image Caption Goes Here">
+                            </a>
+                        </div>                        <div class="content-grid-wrapper">
                             <div class="flex-item content">
                                 <h6 class="category-light">January 30, 2024</h6>
                                 
@@ -556,8 +569,11 @@
                         </div>
                     </div>
                     <div class="grid-item">
-                        <div class="image-wrapper" style="background-image:url('images/news-3.jpg');"><img src="images/news-3.jpg"  alt=""></div>
-                    <div class="content-grid-wrapper">
+                        <div class="image-wrapper" style="background-image:url('images/news-3.jpg');">
+                            <a href="#" target="_blank" title="Title goes here">
+                             <img src="images/news-3.jpg" alt="Feature Story Image Caption Goes Here" title="Feature Story Image Caption Goes Here">
+                            </a>
+                        </div>                    <div class="content-grid-wrapper">
                     <div class="flex-item content">
                     <h6 class="category-light">January 30, 2024</h6>
                     
@@ -570,8 +586,13 @@
                     </div>
 
                     <div class="grid-item">
-                        <div class="image-wrapper" style="background-image:url('images/news-4.jpg');"><img src="images/news-4.jpg" alt="Feature Story Image Caption Goes Here" title="Feature Story Image Caption Goes Here"></div>
-                    <div class="content-grid-wrapper">
+                        <div class="image-wrapper" style="background-image:url('images/news-4.jpg');">
+                            <a href="#" target="_blank" title="Title goes here">
+                             <img src="images/news-4.jpg" alt="Feature Story Image Caption Goes Here" title="Feature Story Image Caption Goes Here">
+                            </a>
+                        </div>
+                        
+                        <div class="content-grid-wrapper">
                     <div class="flex-item content">
                     <h6 class="category-light">January 30, 2024</h6>
                     
@@ -595,7 +616,12 @@
             <div class="grid-item">
             <div class="panel-label"><h2>Featured Event</h2></div>
             <div class="content-image-text-image">
-            <img src="images/featured-event.jpg" alt="Image Alt Text Here" title="Image Alt Text Here">
+                <div class="image-wrapper" style="background-image:url('images/featured-event.jpg');">
+                    <a href="#" target="_blank" title="Title goes here">
+                     <img src="images/featured-event.jpg" alt="Feature Story Image Caption Goes Here" title="Feature Story Image Caption Goes Here">
+                    </a>
+                </div>
+
             </div>
             <div class="content-image-text">
                 <div class="calendar-card">
@@ -1047,7 +1073,7 @@
 						</div>
 						</section>
 
-						<section class="container-fluid bg-gray-extra-light">
+						<section class="container-fluid bg-gray-extra-light footer-cta">
 							<div class="container">
 							<div class="padding-xsm"></div>
 							<div class="grid-wrapper-min-max three-column">
@@ -1359,6 +1385,17 @@
               })
             });
             </script>
+
+        <script>
+            document.querySelector('.uao-scroll-arrow').addEventListener('click', function() {
+                const fullOverlayElement = document.querySelector('.full-overlay');
+                const overlayBottom = fullOverlayElement.getBoundingClientRect().bottom + window.scrollY;
+                window.scrollTo({
+                    top: overlayBottom,
+                    behavior: 'smooth'
+                });
+            });
+        </script>
 		<!-- endinject -->
 	</div>
 </body>
