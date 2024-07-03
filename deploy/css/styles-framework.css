@@ -6443,7 +6443,7 @@ header {
   @media (width >= 64em) {
     --heading: var(--white);
     --link: var(--white);
-    padding: 2rem 10% 2.25rem;
+    padding: 2rem 10% 4.25rem;
   }
 }
 
@@ -7440,6 +7440,15 @@ button.arrow {
   h6{
     text-transform: capitalize;
   }
+}
+.minimalist-accordion__header:after{
+  transition: transform 0.3s;
+
+}
+.minimalist-accordion__header:hover::after {
+  margin: 0.4rem -1.25rem 0 0;
+    transform: rotate(90deg);
+    transform-origin: 50% 50%;
 }
 
 }
