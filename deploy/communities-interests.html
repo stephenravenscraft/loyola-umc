@@ -211,13 +211,13 @@
           <div class="grid-wrapper-min-max">
             <div class="grid-item">
               <div class="hero-image-content">
-                <div class="Breadcrumbs"> 
+                <nav aria-label="Breadcrumb" class="Breadcrumbs"> 
                   <div class="inner">
                     <a href="#" class="link-underline">Home</a>
                     <span class="Breadcrumbs__separator">/</span>
                     Communities & Interests
                   </div>
-              </div>
+                </nav>
                 <h1>Communities & Interests</h1>
                 <div class="intro-paragraph sans-serif">
                   <p class="max-65">Lorem ipsum dolor sit amet consectetur. Rhoncus sollicitudin viverra tincidunt accumsan elementum tellus viverra. </p>
@@ -230,7 +230,7 @@
 			<section id="panel-subnav" class="container-fluid">
         <div class="container">
         <nav class="Subnav Subnav--full" aria-label="Sub navigation"> 
-          <h2 class="Subnav__heading">Explore This Section</h2> 
+          <div class="Subnav__heading">Explore This Section</div> 
           <button class="Subnav__toggle" data-height data-expand aria-expanded="false">Explore This Section</button> 
             <ul class="Subnav__list underline" style=""> 
               <li> <a href="#">Sub-navigation</a>  </li>
@@ -267,16 +267,17 @@
                 <span class="caption-overlay-name">Somebody Namehere</span>
                 <span>Affinity Networks</span>
               </p>
-              <button class="content-activate-symbol"></button>
+              <button class="content-activate-symbol" tabindex="0"><span class="invis">Toggle</span></button>
               <div class="content-image-overlay">
                 <h6>Category lorem ipsum unum hereum</h6>
                 <h4>Somebody Namehere</h4>
                 <h3 class="teaser">Headline lorem ipsum unum hereum.</h3>
                 <p style="margin-top: 20px;">
-                  <a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more
-                  </a>
+                  <a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more</a>
+
                 </p>
-                <button class="content-activate-symbol"></button>
+                <button class="content-activate-symbol" tabindex="-1"> <span class="invis">Toggle</span>
+                </button>
               </div>
             </div>
           <!-- image-02 -->
@@ -286,7 +287,7 @@
                 <span class="caption-overlay-name">Somebody Namehere</span>
                 <span>Regional Networks</span>
               </p>
-              <button class="content-activate-symbol"></button>
+              <button class="content-activate-symbol" tabindex="0"><span class="invis">Toggle</span></button>
               <div class="content-image-overlay">
                 <h6>Category lorem ipsum unum hereum</h6>
                 <h4>Somebody Namehere</h4>
@@ -295,7 +296,7 @@
                   <a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more
                   </a>
                 </p>
-                <button class="content-activate-symbol"></button>
+                <button class="content-activate-symbol" tabindex="-1"><span class="invis">Toggle</span></button>
               </div>
             </div>
           <!-- image-03 -->
@@ -305,7 +306,7 @@
               <span class="caption-overlay-name">Somebody Namehere</span>
               <span>Gold</span>
             </p>
-            <button class="content-activate-symbol"></button>
+            <button class="content-activate-symbol" tabindex="0"><span class="invis">Toggle</span></button>
             <div class="content-image-overlay">
               <h6>Category lorem ipsum unum hereum</h6>
               <h4>Somebody Namehere</h4>
@@ -314,7 +315,7 @@
                 <a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more
                 </a>
               </p>
-              <button class="content-activate-symbol"></button>
+              <button class="content-activate-symbol" tabindex="-1"><span class="invis">Toggle</span></button>
             </div>
             </div>
           <!-- image-04 -->
@@ -324,7 +325,7 @@
               <span class="caption-overlay-name">Somebody Namehere</span>
               <span>Alumni 55+</span>
             </p>
-            <button class="content-activate-symbol"></button>
+            <button class="content-activate-symbol" tabindex="0"><span class="invis">Toggle</span></button>
             <div class="content-image-overlay">
               <h6>Category lorem ipsum unum hereum</h6>
               <h4>Somebody Namehere</h4>
@@ -333,7 +334,7 @@
                 <a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more
                 </a>
               </p>
-              <button class="content-activate-symbol"></button>
+              <button class="content-activate-symbol" tabindex="-1"><span class="invis">Toggle</span></button>
             </div>
           </div>
         <!-- image-05 -->
@@ -343,7 +344,7 @@
               <span class="caption-overlay-name">Somebody Namehere</span>
               <span>JRFC</span>
             </p>
-            <button class="content-activate-symbol"></button>
+            <button class="content-activate-symbol" tabindex="0"><span class="invis">Toggle</span></button>
             <div class="content-image-overlay">
               <h6>Category lorem ipsum unum hereum</h6>
               <h4>Somebody Namehere</h4>
@@ -352,7 +353,7 @@
                 <a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more
                 </a>
               </p>
-              <button class="content-activate-symbol"></button>
+              <button class="content-activate-symbol" tabindex="-1"><span class="invis">Toggle</span></button>
             </div>
           </div>
         <!-- image-06 -->
@@ -362,7 +363,7 @@
             <span class="caption-overlay-name">Somebody Namehere</span>
             <span>Graduate Alumni</span>
           </p>
-          <button class="content-activate-symbol"></button>
+          <button class="content-activate-symbol" tabindex="0"><span class="invis">Toggle</span></button>
           <div class="content-image-overlay">
             <h6>Category lorem ipsum unum hereum</h6>
             <h4>Somebody Namehere</h4>
@@ -371,7 +372,7 @@
               <a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more
               </a>
             </p>
-            <button class="content-activate-symbol"></button>
+            <button class="content-activate-symbol" tabindex="-1"><span class="invis">Toggle</span></button>
           </div>
           </div>
             <!-- modal -->
@@ -651,15 +652,49 @@
 		<!-- inject:js -->
 		<script src="js/bundle.js"></script>
     <script>
-      $(document).ready(function(){
-        $('button.content-activate-symbol').click(function(){
-          $('.button.content-activate-symbol').not(this).removeClass('active');
-          $(this).toggleClass('active');
-          $('button.content-activate-symbol').not(this).parent('div.content-image-overlay').removeClass('active');
-          $(this).parent('div.content-image-overlay').toggleClass('active');
-        })
+      $(document).ready(function() {
+        function toggleActiveState(element) {
+          // Find the parent grid item
+          var gridItem = $(element).closest('.grid-item');
+    
+          // Remove 'active' class from all buttons and overlays outside the current grid item
+          $('.grid-item').not(gridItem).find('.content-activate-symbol').removeClass('active').attr('tabindex', -1);
+          $('.grid-item').not(gridItem).find('.content-image-overlay').removeClass('active').find('a').attr('tabindex', -1);
+    
+          // Toggle 'active' class on all buttons within the same grid item
+          var buttons = gridItem.find('.content-activate-symbol');
+          buttons.toggleClass('active');
+          
+          // Update the tabindex for buttons and links within the same grid item
+          var isActive = buttons.hasClass('active');
+          buttons.attr('tabindex', isActive ? 0 : -1);
+          gridItem.find('.content-image-overlay').toggleClass('active').find('a').attr('tabindex', isActive ? 0 : -1);
+    
+          // Ensure the first button always has tabindex 0 when inactive in all grid items
+          $('.grid-item').each(function() {
+            $(this).find('.content-activate-symbol').first().attr('tabindex', 0);
+          });
+        }
+    
+        $('button.content-activate-symbol').on('click', function() {
+          toggleActiveState(this);
+        });
+    
+        $('button.content-activate-symbol').on('keydown', function(event) {
+          if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent the default action (if any)
+            toggleActiveState(this);
+          }
+        });
+    
+        // Initialize tabindex for content-activate-symbol buttons and links
+        $('div.content-image-overlay .content-activate-symbol').attr('tabindex', -1);
+        $('div.content-image-overlay a').attr('tabindex', -1);
+        $('button.content-activate-symbol:not(div.content-image-overlay .content-activate-symbol)').attr('tabindex', 0);
       });
-      </script>
+    </script>
+    
+    
 		<!-- endinject -->
 	</div>
 </body>

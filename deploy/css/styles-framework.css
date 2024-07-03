@@ -5914,7 +5914,7 @@ header {
 @media (width >= 64em) {
   .Header {
     display: block;
-    height: calc(9.8rem + 2.625rem);
+    height: calc(9.8rem + 1.625rem);
     padding-top: 2.625rem;
   }
 }
@@ -5940,7 +5940,7 @@ header {
 }
 @media (width >= 64em) {
   .Header__brand {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
 }
 
@@ -6425,6 +6425,14 @@ header {
 }
 
 
+#panel-image.hero.full-overlay{
+  max-height: calc(100vh - 182px);
+}
+
+#panel-image.full-overlay img {
+  max-height: 100% !important;
+}
+
 .Subnav--full {
   --text: var(--white);
   background: var(--red);
@@ -6704,6 +6712,7 @@ section#panel-subnav {
     line-height: 0.7125rem; /* 95% */
     text-transform: uppercase;
 		color: var(--black);
+    background: transparent;
     a {
       color: var(--black);
       text-decoration: underline;
@@ -6947,6 +6956,7 @@ section#panel-subnav {
     justify-content: center;
     align-items: center;
     position: relative;
+    background-color: #000;
   }
   & > div > img {
     width: 100%;

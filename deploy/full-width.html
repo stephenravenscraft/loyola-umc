@@ -213,13 +213,13 @@
           <div class="grid-wrapper-min-max">
             <div class="grid-item">
               <div class="hero-image-content">
-                <div class="Breadcrumbs"> 
-                  <div class="inner">
+                <nav aria-label="Breadcrumb" class="Breadcrumbs"> 
+                    <div class="inner">
                     <a href="#" class="link-underline">Home</a>
                     <span class="Breadcrumbs__separator">/</span>
                     Full-Width
                   </div>
-              </div>
+                </nav>
                 <h1>Full-Width</h1>
                 <div class="intro-paragraph sans-serif">
                   <p class="max-65">Lorem ipsum dolor sit amet consectetur. Rhoncus sollicitudin viverra tincidunt accumsan elementum tellus viverra. </p>
@@ -231,7 +231,7 @@
 
 	<section id="panel-subnav" class="container-fluid">
         <nav class="Subnav Subnav--full" aria-label="Sub navigation"> 
-          <h2 class="Subnav__heading">Explore This Section</h2> 
+          <div class="Subnav__heading">Explore This Section</div> 
           <button class="Subnav__toggle" data-height data-expand aria-expanded="false">Explore This Section</button> 
             <ul class="Subnav__list underline" style=""> 
               <li> <a href="#">Sub-navigation</a>  </li>
@@ -805,11 +805,17 @@
                                     <a href="#" class="image-link">Lorem Ipsum Dolar Sit Amet Consectetur</a>
                                 </div>
                             </div>
-                            <div>
+                            <div class="overlay">
                                 <img src="images/grid-masonry-3.jpg" alt="" >
+                                <div class="Masonry__card-details flush">
+                                    <a href="#" class="image-link">Lorem Ipsum Dolar Sit Amet Consectetur</a>
+                                </div>
                             </div>
-                            <div>
+                            <div class="overlay">
                                 <img src="images/grid-masonry-4.jpg" alt="" >
+                                <div class="Masonry__card-details flush">
+                                    <a href="#" class="image-link">Lorem Ipsum Dolar Sit Amet Consectetur</a>
+                                </div>
                             </div>
                             <div class="tall overlay">
                                 <img src="images/grid-tall-3.jpg" alt="" >
@@ -881,7 +887,9 @@
 
 
 
-                    <div class="TestimonialSlider">
+                    <div class="TestimonialSlider">                        
+                        <div class="padding-sm"></div>
+
                     <div class="block-header">
                         <div class="h2 container container-80">Testimonial (New Full-Width Component)</div>
                         <div class="padding-sm"></div>
