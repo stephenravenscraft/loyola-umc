@@ -5848,6 +5848,10 @@ header #site-brand-wrapper.light #site-name {
 }
 .alumni-theme footer .footer-main .footer-social a {
   display: block;
+  transition: var(--transition);
+}
+.alumni-theme footer .footer-main .footer-social a:hover {
+  transform: scale(1.2);
 }
 .alumni-theme footer .footer-main .footer-social a i {
   font-size: 28px;
@@ -6986,6 +6990,10 @@ section#panel-subnav {
     grid-column: span 2;
     grid-row: span 2;
   }
+  .small{
+    grid-column: span 2;
+    grid-row: span 1;
+  }
 }
   .overlay {
     &:before{
@@ -7443,17 +7451,37 @@ button.arrow {
 }
 .minimalist-accordion__header:after{
   transition: transform 0.3s;
+  margin: 0.4rem -1.25rem 0 0;
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
 
 }
 .minimalist-accordion__header:hover::after {
-  margin: 0.4rem -1.25rem 0 0;
-    transform: rotate(90deg);
-    transform-origin: 50% 50%;
+  background-image: url(../images/ui-arrow-carrousel-next-red@2x.png);
+}
+[aria-expanded=true].minimalist-accordion__header::after,
+[aria-expanded=true].minimalist-noanim-accordion__header::after,
+[aria-expanded=true].minimalist-css-accordion__header::after {
+  transform: rotate(269deg);
+  transition: transform 0.3s;
+  background-image: url(../images/ui-arrow-carrousel-next-red@2x.png);
+
 }
 
 }
 
+.content-activate-symbol.hover-state {
+  outline: 3px solid #febc18;
+  outline-offset: -3px;
+}
 
+#panel-image-grid.image-grid-highlights .grid-wrapper-min-max .grid-item .content-image-overlay:not(.active) {
+  width: 2rem;
+  margin: 0 auto;
+}
+.grid-item .content-image-overlay h3.teaser {
+  padding: 1rem 0;
+}
 
 button.slick-arrow:focus-visible {
   outline: var(--yellow) dashed .25rem;

@@ -653,47 +653,57 @@
 		<script src="js/bundle.js"></script>
     <script>
       $(document).ready(function() {
-        function toggleActiveState(element) {
-          // Find the parent grid item
-          var gridItem = $(element).closest('.grid-item');
-    
-          // Remove 'active' class from all buttons and overlays outside the current grid item
-          $('.grid-item').not(gridItem).find('.content-activate-symbol').removeClass('active').attr('tabindex', -1);
-          $('.grid-item').not(gridItem).find('.content-image-overlay').removeClass('active').find('a').attr('tabindex', -1);
-    
-          // Toggle 'active' class on all buttons within the same grid item
-          var buttons = gridItem.find('.content-activate-symbol');
-          buttons.toggleClass('active');
-          
-          // Update the tabindex for buttons and links within the same grid item
-          var isActive = buttons.hasClass('active');
-          buttons.attr('tabindex', isActive ? 0 : -1);
-          gridItem.find('.content-image-overlay').toggleClass('active').find('a').attr('tabindex', isActive ? 0 : -1);
-    
-          // Ensure the first button always has tabindex 0 when inactive in all grid items
-          $('.grid-item').each(function() {
-            $(this).find('.content-activate-symbol').first().attr('tabindex', 0);
-          });
-        }
-    
-        $('button.content-activate-symbol').on('click', function() {
-          toggleActiveState(this);
-        });
-    
-        $('button.content-activate-symbol').on('keydown', function(event) {
-          if (event.key === 'Enter') {
-            event.preventDefault(); // Prevent the default action (if any)
-            toggleActiveState(this);
+          function toggleActiveState(element) {
+              // Find the parent grid item
+              var gridItem = $(element).closest('.grid-item');
+      
+              // Remove 'active' class from all buttons and overlays outside the current grid item
+              $('.grid-item').not(gridItem).find('.content-activate-symbol').removeClass('active').attr('tabindex', -1);
+              $('.grid-item').not(gridItem).find('.content-image-overlay').removeClass('active').find('a').attr('tabindex', -1);
+      
+              // Toggle 'active' class on all buttons within the same grid item
+              var buttons = gridItem.find('.content-activate-symbol');
+              buttons.toggleClass('active');
+      
+              // Update the tabindex for buttons and links within the same grid item
+              var isActive = buttons.hasClass('active');
+              buttons.attr('tabindex', isActive ? 0 : -1);
+              gridItem.find('.content-image-overlay').toggleClass('active').find('a').attr('tabindex', isActive ? 0 : -1);
+      
+              // Ensure the first button always has tabindex 0 when inactive in all grid items
+              $('.grid-item').each(function() {
+                  $(this).find('.content-activate-symbol').first().attr('tabindex', 0);
+              });
           }
-        });
-    
-        // Initialize tabindex for content-activate-symbol buttons and links
-        $('div.content-image-overlay .content-activate-symbol').attr('tabindex', -1);
-        $('div.content-image-overlay a').attr('tabindex', -1);
-        $('button.content-activate-symbol:not(div.content-image-overlay .content-activate-symbol)').attr('tabindex', 0);
+      
+          $('button.content-activate-symbol').on('click', function() {
+              toggleActiveState(this);
+          });
+      
+          $('button.content-activate-symbol').on('keydown', function(event) {
+              if (event.key === 'Enter') {
+                  event.preventDefault(); // Prevent the default action (if any)
+                  toggleActiveState(this);
+              }
+          });
+      
+          // Initialize tabindex for content-activate-symbol buttons and links
+          $('div.content-image-overlay .content-activate-symbol').attr('tabindex', -1);
+          $('div.content-image-overlay a').attr('tabindex', -1);
+          $('button.content-activate-symbol:not(div.content-image-overlay .content-activate-symbol)').attr('tabindex', 0);
+      
+          // Add hover state class to the parent content-activate-symbol
+          $('.content-image-overlay').hover(
+              function() {
+                  $(this).closest('.grid-item').find('.content-activate-symbol').addClass('hover-state');
+              },
+              function() {
+                  $(this).closest('.grid-item').find('.content-activate-symbol').removeClass('hover-state');
+              }
+          );
       });
-    </script>
-    
+  </script>
+  
     
 		<!-- endinject -->
 	</div>
