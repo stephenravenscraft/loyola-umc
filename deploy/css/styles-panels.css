@@ -3041,7 +3041,7 @@ audio::-webkit-media-controls-fullscreen-volume-max-button {
   margin: 0;
   width: auto;
   height: 100%;
-  min-height: 350px;
+  min-height: 400px;
   line-height: 0;
   overflow: hidden;
   background-image: url("http://via.placeholder.com/1000x560");
@@ -5613,7 +5613,6 @@ p.chart-key span {
 }
 #panel-cards .grid-wrapper-min-max .grid-item {
   margin: 0;
-  border-top: 10px solid #febc18;
 }
 
 #panel-cards #facultyList.grid-wrapper-min-max .grid-item.filterRow,
@@ -6577,7 +6576,7 @@ button.content-activate-symbol.activate-symbol-close {
   color: #eeeeee;
   text-align: center;
   text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.35);
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 @media (max-width: 1023px) {
   #panel-image-grid.image-grid-highlights p.caption-overlay span {
@@ -6596,6 +6595,16 @@ button.content-activate-symbol.activate-symbol-close {
 }
 #panel-image-grid.image-grid-highlights p.caption-overlay span.caption-overlay-name {
   display: none;
+}
+
+#panel-image-grid.image-grid-highlights {
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  #panel-image-grid .grid-wrapper-min-max .grid-item {
+    max-height: 300px;
+  }
 }
 
 /* gradient overlay */

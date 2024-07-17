@@ -98,8 +98,8 @@
       overflow: hidden;
       cursor: pointer;
       background: var(--white);
-      border: 1px solid var(--black);
-      color: var(--black);
+      border: 2px solid var(--red);
+      color: var(--red);
       margin: 0;
       padding: 0;
       -webkit-border-radius: 10px;
@@ -107,8 +107,8 @@
       transition: all var(--transition);
       &.is-selected {
         opacity: 1;
-        background: var(--black);
-        color: var(--black);
+        background: var(--red);
+        color: var(--red);
       }
     }        
   }

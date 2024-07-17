@@ -899,7 +899,7 @@ footer {
   margin: 0;
   padding: 1rem 1.125rem 1.125rem;
   width: 100%;
-  background: #5d0024;
+  background: #5A0722;
   z-index: 10000;
 }
 @media (max-width: 1023px) {
@@ -2205,7 +2205,7 @@ nav#secondary .currentbranch4 button.minimalist-accordion__header:hover,
 nav#secondary .currentbranch4 button.minimalist-noanim-accordion__header:hover,
 nav#secondary .currentbranch4 button.minimalist-css-accordion__header:hover {
   color: #eeeeee !important;
-  background: #5d0024 !important;
+  background: #5A0722 !important;
 }
 nav#secondary .currentbranch0 button.minimalist-accordion__header:after,
 nav#secondary .currentbranch0 button.minimalist-noanim-accordion__header:after,
@@ -4585,7 +4585,7 @@ body#pattern-library {
 }
 #chapter-top ul li a:hover {
   color: #ffffff;
-  background-image: linear-gradient(120deg, #5d0024 0%, #5d0024 100%);
+  background-image: linear-gradient(120deg, #5A0722 0%, #5A0722 100%);
 }
 #chapter-top ul li.divider-bullets {
   letter-spacing: 0.125rem;
@@ -5030,7 +5030,7 @@ ul#site-nav button, ul#site-nav button:hover {
   font-size: 0.725rem;
 }
 #t4-navigation .t4-navigation-wrapper ul li button.show:hover {
-  background-color: #5d0024;
+  background-color: #5A0722;
 }
 #t4-navigation .t4-navigation-wrapper ul li button.show.hide-btn {
   display: none;
@@ -5283,7 +5283,7 @@ ul#site-nav button, ul#site-nav button:hover {
 }
 
 .bg-brick .tabs-images .tab .active::before, .bg-brick .tabs-images .tab .active::after {
-  border-bottom-color: #5d0024;
+  border-bottom-color: #5A0722;
 }
 
 .bg-gold .tabs-images .tab .active::before, .bg-gold .tabs-images .tab .active::after {
@@ -5627,7 +5627,7 @@ ul#site-nav button, ul#site-nav button:hover {
   --white-20: RGBA(255, 255, 255, 0.2);
   --black: #000;
   --black-20: RGBA(0,0,0,0.2);
-  --red: #5d0024;
+  --red: #5A0722;
   --yellow: #FEBC18;
   /* layout */
   --gutter: 2rem;
@@ -5656,7 +5656,7 @@ header #site-brand-wrapper.light {
   background: #ffffff;
 }
 header #site-brand-wrapper.light nav {
-  background-color: #5d0024;
+  background-color: #5A0722;
 }
 header #site-brand-wrapper.light #site-name {
   color: #000000;
@@ -5683,7 +5683,7 @@ header #site-brand-wrapper.light #site-name {
     text-transform: none;
   }
   h3, .h3{
-    font-family: "Antenna Condensed Bold", sans-serif;
+    font-family: "Antenna Condensed Light", sans-serif;
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;
@@ -5714,10 +5714,10 @@ header #site-brand-wrapper.light #site-name {
   width: auto;
 }
 .alumni-theme nav, .alumni-theme #site-brand-wrapper, .alumni-theme #audience-navigation, .alumni-theme #directory-navigation {
-  background-color: #5d0024;
+  background-color: #5A0722;
 }
 .alumni-theme ul#audience-nav[role=menubar] li a[role=menuitem], .alumni-theme ul#audience-nav[role=menubar] li button, .alumni-theme ul#directory-nav[role=menubar] li a[role=menuitem], .alumni-theme ul#directory-nav[role=menubar] li button {
-  background-color: #5d0024;
+  background-color: #5A0722;
   color: #fff !important;
   font-family: "Antenna Condensed Bold";
   font-size: 0.875rem;
@@ -5746,7 +5746,7 @@ header #site-brand-wrapper.light #site-name {
 }
 .alumni-theme ul[role=menubar] li a[role=menuitem], .alumni-theme ul[role=menubar] li a,
 .alumni-theme ul[role=menubar] button {
-  color: #5d0024 !important;
+  color: #5A0722 !important;
   font-family: "Antenna Condensed Bold";
   font-size: 1rem;
   background-color: #eeeeee;
@@ -5771,7 +5771,7 @@ header #site-brand-wrapper.light #site-name {
   padding: 1.25rem 2.5rem 1.25rem 1.25rem;
 }
 .alumni-theme ul[role=menubar] ul[role=menu] {
-  background-color: #5d0024;
+  background-color: #5A0722;
   padding: 2rem;
 }
 .alumni-theme ul[role=menubar] ul[role=menu][style] {
@@ -5792,12 +5792,12 @@ header #site-brand-wrapper.light #site-name {
   position: absolute;
   top: -11px;
   left: 3rem;
-  border-bottom: 11px solid #5d0024;
+  border-bottom: 11px solid #5A0722;
   border-left: 11px solid transparent;
   border-right: 11px solid transparent;
 }
 .alumni-theme ul[role=menubar] ul[role=menu] li a {
-  background-color: #5d0024;
+  background-color: #5A0722;
   color: #fff !important;
   border: none;
   border-left: 1px solid rgba(255, 255, 255, 0.16);
@@ -5932,7 +5932,7 @@ header {
 }
 @media (width >= 64em) {
   .Header::before {
-    background-image: linear-gradient(#5d0024 2.625rem, #ffffff 2.625rem);
+    background-image: linear-gradient(#5A0722 2.625rem, #ffffff 2.625rem);
   }
 }
 
@@ -5953,6 +5953,7 @@ header {
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
+  font-family: "Antenna Condensed Bold", sans-serif;
 }
 @media (width >= 64em) {
   .Header__title {
@@ -5989,7 +5990,7 @@ header {
   display: block;
   width: 2.25rem;
   height: 2.25rem;
-  background: #5d0024;
+  background: #5A0722;
   mask-image: url("../images/images-alumni/menu.svg");
 }
 .Header__menu-toggle[aria-expanded=true]::before {
@@ -6011,7 +6012,7 @@ header {
     height: calc(100dvh - 4rem);
     padding: 1rem;
     transition: transform var(--transition), visibility var(--transition);
-    background: #5d0024;
+    background: #5A0722;
     color: #fff !important;
     overflow: auto;
   }
@@ -6032,7 +6033,7 @@ header {
 }
 @media (width >= 64em) {
   .Header__menu a {
-    color: #5d0024 !important;
+    color: #5A0722 !important;
   }
 }
 
@@ -6087,7 +6088,7 @@ header {
     padding: 2rem;
     border-top: 2px solid #febc18;
     transition: transform var(--transition), opacity var(--transition), visibility var(--transition);
-    background: #5d0024;
+    background: #5A0722;
     box-shadow: var(--shadow);
     white-space: normal;
     z-index: -2;
@@ -6111,7 +6112,7 @@ header {
   background: transparent;
   border-bottom: 1px solid transparent;
   border-radius: 0;
-  color: #5d0024 !important;
+  color: #5A0722 !important;
   vertical-align: top;
   display: flex;
   align-items: center;
@@ -6120,13 +6121,13 @@ header {
   transition: none;
 }
 .Header__sub-toggle:hover {
-  border-bottom: 1px solid #5d0024;
+  border-bottom: 1px solid #5A0722;
   border-radius: 0;
 }
 @media (width < 64em) {
   .Header__sub-toggle {
     padding: 0.5rem;
-    font-size: 22px;
+    font-size: 18px;
     color: var(--white) !important;
   }
   .Header__sub-toggle::after {
@@ -6151,7 +6152,7 @@ header {
   height: 6px;
   transform: rotate(180deg);
   transition: transform var(--transition);
-  background: #5d0024;
+  background: #5A0722;
   mask-image: url("../images/images-alumni/ui-arrow-down.svg");
   mask-position: center;
   mask-size: 100% auto;
@@ -6245,7 +6246,7 @@ header {
   display: block;
   width: 2.25rem;
   height: 2.25rem;
-  background: #5d0024;
+  background: #5A0722;
   mask-image: url("../images/images-alumni/close.svg");
 }
 .Header__search-toggle:hover {
@@ -6281,7 +6282,7 @@ header {
   left: 0;
   padding: 36px 36px;
   transition: transform var(--transition), opacity var(--transition), visibility var(--transition);
-  background: #5d0024;
+  background: #5A0722;
   box-shadow: var(--shadow);
   z-index: 0;
 }
@@ -6409,7 +6410,7 @@ header {
 .Header__actions-mobile a {
   display: block;
   background: #febc18;
-  color: #5d0024 !important;
+  color: #5A0722 !important;
   padding: 1rem;
   border-radius: 4px;
   text-align: center;
@@ -6422,7 +6423,7 @@ header {
     visibility: hidden;
   }
 }
-@media (width >= 64em) {
+@media (width >= 80em) {
   .max-65 {
     max-width: 65%;
   }
@@ -6448,6 +6449,7 @@ header {
     --heading: var(--white);
     --link: var(--white);
     padding: 2rem 10% 4.25rem;
+    border-top: 10px solid var(--yellow);
   }
 }
 
@@ -6491,6 +6493,13 @@ header {
   &.list-button {
     border-bottom: none;
     padding: .025rem 0;
+    button{
+      color: var(--white);
+      &:after {
+        background: url(../images/ui-arrow-carrousel-next@2x.png) center no-repeat;
+        background-size: contain;
+      }
+    }
   }
   
   }
@@ -6716,7 +6725,7 @@ section#panel-subnav {
     font-weight: 700;
     line-height: 0.7125rem; /* 95% */
     text-transform: uppercase;
-		color: var(--black);
+		color: var(--red);
     background: transparent;
     a {
       color: var(--black);
@@ -6743,7 +6752,7 @@ section#panel-subnav {
   }
 
   .js-accordion__header{
-    font-family: "Antenna Condensed Bold", sans-serif;
+    font-family: "Antenna Condensed Light", sans-serif;
     font-size: 1.25rem;
     font-style: normal;
     font-weight: 700;
@@ -7101,10 +7110,10 @@ section#panel-subnav {
   .flickity-page-dots {
     & .flickity-page-dot {
       background: transparent;
-      border: 1px solid var(--yellow);
+      border: 2px solid var(--white);
       &.is-selected {
         opacity: 1;
-        background: var(--yellow);
+        background: var(--white);
         color: var(--black);
       }
     }        
@@ -7125,7 +7134,7 @@ section#panel-subnav {
   margin-right: 1.25rem;
   height: auto;
   @media (width >= 64em) {
-    max-width: 25%;
+    max-width: 24%;
   }
   img {
     display: block;
@@ -7186,6 +7195,9 @@ section#panel-subnav {
 
 .Feed__text {
   margin: auto 0;
+  p {
+  color: var(--white);
+  }
 }
 
 .Feed__bottom {
@@ -7203,10 +7215,10 @@ section#panel-subnav {
   .flickity-page-dots {
     & .flickity-page-dot {
       background: transparent;
-      border: 1px solid var(--yellow);
+      border: 2px solid var(--white);
       &.is-selected {
         opacity: 1;
-        background: var(--yellow);
+        background: var(--white);
         color: var(--black);
       }
     }        
@@ -7277,15 +7289,19 @@ section#panel-subnav {
   .BlockQuote__text {
     margin: 0;
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 1.325rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 2.125rem;
+    line-height: 2.75rem;
     width: 100%;
     letter-spacing: 0;
     border-top: 0;
     border-bottom: 0;
     padding: 2rem 0;
+
+    @media (width >= 64em) {
+      padding: 2rem 4rem 2rem 0;
+    }
 
     &:before{
       content: "“";
