@@ -835,6 +835,10 @@
     }
   }
 
+  .video-control {
+    border: none !important;
+  }
+
   
   .Subnav--full {
     --text: var(--white);
@@ -1944,3 +1948,12 @@
     cursor: auto;
   }
   
+  .grid-wrapper-min-max.card-horizontal .grid-item .image-wrapper {
+    min-height: 300px;
+  }
+
+  #panel-image.panel-uao-hero-image.hero-image-lead.full-overlay .hero-image-content .headline-buttons {
+    @media (width <= 64em) {
+      width: 75%;
+    }
+  }
