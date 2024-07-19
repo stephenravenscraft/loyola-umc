@@ -62,6 +62,8 @@
 	<link rel="stylesheet" href="css/styles-panels.css">
 	<link rel="stylesheet" href="css/styles-typography.css">
 	<link rel="stylesheet" href="css/css-alert/styles-alert.css">
+  <link rel="stylesheet" href="css/alumni.css">
+
 	<!-- endinject -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -71,12 +73,11 @@
 		<!-- HEADER -->
 		<header id="luc-header">
 			<div class="Header" data-sticky data-stuck>
-  <div class="Header__brand">
-    <div class="Header__title">Loyola Alumni & Friends</div>
-    <a class="Header__logo" href="#">
-      <img src="images/LUC_stacked_color.svg" alt="Loyola University Chicago logo in header of site">
-    </a>
-  </div>
+        <div class="Header__brand">
+          <a class="Header__logo" href="#">
+            <img src="images/loyola-alumni-logo.svg" alt="Loyola University Chicago logo in header of site">
+          </a>
+        </div>
   <div class="Header__search-wrap">
     <button class="Header__search-toggle Header__search-toggle--mobile" aria-label="Toggle search" data-expand="popup" aria-expanded="false"></button>
     <form class="Header__search">
@@ -169,7 +170,7 @@
       </li>
     </ul>
     <ul class="Header__actions-mobile">
-      <li><a href="#">Make a Gift</a></li>
+      <li><a href="#" class="gift">Make a Gift</a></li>
       <li><a href="#">Volunteer</a></li>
       <li><a href="#">Become a Mentor</a></li>
     </ul>
@@ -648,16 +649,8 @@
 		</main>
 		<!-- inject:js -->
 		<script src="js/bundle.js"></script>
-    <script>
-      document.querySelector('.uao-scroll-arrow').addEventListener('click', function() {
-          const fullOverlayElement = document.querySelector('.full-overlay');
-          const overlayBottom = fullOverlayElement.getBoundingClientRect().bottom + window.scrollY;
-          window.scrollTo({
-              top: overlayBottom,
-              behavior: 'smooth'
-          });
-      });
-  </script>
+    <script src="js/alumni.js"></script>
+
 		<!-- endinject -->
 	</div>
 </body>

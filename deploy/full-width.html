@@ -59,11 +59,13 @@
 	<link rel="stylesheet" href="css/antenna-terminal-four.css">
 	<link rel="stylesheet" href="css/styles-documentation.css">
 	<link rel="stylesheet" href="css/styles-framework.css">
-    <link rel="stylesheet" href="css/flickity.css">
+  <link rel="stylesheet" href="css/flickity.css">
 	<link rel="stylesheet" href="css/styles-grid.css">
 	<link rel="stylesheet" href="css/styles-panels.css">
 	<link rel="stylesheet" href="css/styles-typography.css">
 	<link rel="stylesheet" href="css/css-alert/styles-alert.css">
+  <link rel="stylesheet" href="css/alumni.css">
+
 	<!-- endinject -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -73,12 +75,11 @@
 		<!-- HEADER -->
 		<header id="luc-header">
 			<div class="Header" data-sticky data-stuck>
-  <div class="Header__brand">
-    <div class="Header__title">Loyola Alumni & Friends</div>
-    <a class="Header__logo" href="#">
-      <img src="images/LUC_stacked_color.svg" alt="Loyola University Chicago logo in header of site">
-    </a>
-  </div>
+    <div class="Header__brand">
+      <a class="Header__logo" href="#">
+        <img src="images/loyola-alumni-logo.svg" alt="Loyola University Chicago logo in header of site">
+      </a>
+    </div>
   <div class="Header__search-wrap">
     <button class="Header__search-toggle Header__search-toggle--mobile" aria-label="Toggle search" data-expand="popup" aria-expanded="false"></button>
     <form class="Header__search">
@@ -171,7 +172,7 @@
       </li>
     </ul>
     <ul class="Header__actions-mobile">
-      <li><a href="#">Make a Gift</a></li>
+      <li><a href="#" class="gift">Make a Gift</a></li>
       <li><a href="#">Volunteer</a></li>
       <li><a href="#">Become a Mentor</a></li>
     </ul>
@@ -251,18 +252,18 @@
 
             <div class="padding-md"></div>
               <h2>Heading 2</h2>
-            <p>Etiam eu odio nibh. Nunc et erat sed tellus ullamcorper mollis eu quis ante. Cras facilisis sed magna in volutpat. Proin feugiat aliquam justo
+            <p class="max-65">Etiam eu odio nibh. Nunc et erat sed tellus ullamcorper mollis eu quis ante. Cras facilisis sed magna in volutpat. Proin feugiat aliquam justo
                 maximus consequat. <a href="#">Sed rutrum lacus ac laoreet bibendum.</a> Donec venenatis, nibh eget lacinia ultricies, mi massa fermentum elit, nec varius ante
                 mauris at erat. Nullam porta purus id lectus porta molestie. Fusce porta luctus mi sit amet volutpat. Nulla auctor congue porttitor. Class aptent taciti
                 sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
                 <div class="padding-sm"></div>
             
                 <h3>Heading 3</h3>
-              <p>Etiam eu odio nibh. Nunc et erat sed tellus ullamcorper mollis eu quis ante. Cras facilisis sed magna in volutpat. Proin feugiat aliquam justo
+              <p class="max-65">Etiam eu odio nibh. Nunc et erat sed tellus ullamcorper mollis eu quis ante. Cras facilisis sed magna in volutpat. Proin feugiat aliquam justo
                 maximus consequat. Sed rutrum lacus ac laoreet bibendum. Donec venenatis, nibh eget lacinia ultricies, mi massa fermentum elit, nec varius ante
                 mauris at erat. Nullam porta purus id lectus porta molestie. Fusce porta luctus mi sit amet volutpat. Nulla auctor congue porttitor. Class aptent taciti
                 sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                <p>Etiam eu odio nibh. Nunc et erat sed tellus ullamcorper mollis eu quis ante. Cras facilisis sed magna in volutpat. Proin feugiat aliquam justo
+                <p class="max-65">Etiam eu odio nibh. Nunc et erat sed tellus ullamcorper mollis eu quis ante. Cras facilisis sed magna in volutpat. Proin feugiat aliquam justo
                     maximus consequat. Sed rutrum lacus ac laoreet bibendum. Donec venenatis, nibh eget lacinia ultricies, mi massa fermentum elit, nec varius ante
                     mauris at erat. Nullam porta purus id lectus porta molestie. Fusce porta luctus mi sit amet volutpat. Nulla auctor congue porttitor. Class aptent taciti
                     sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
@@ -270,7 +271,7 @@
                     <div class="padding-sm"></div>
 
                 <h4>Heading 4</h4>
-                    <p>Etiam eu odio nibh. Nunc et erat sed tellus ullamcorper mollis eu quis ante. Cras facilisis sed magna in volutpat. Proin feugiat aliquam justo
+                    <p class="max-65">Etiam eu odio nibh. Nunc et erat sed tellus ullamcorper mollis eu quis ante. Cras facilisis sed magna in volutpat. Proin feugiat aliquam justo
                         maximus consequat. Sed rutrum lacus ac laoreet bibendum. Donec venenatis, nibh eget lacinia ultricies, mi massa fermentum elit, nec varius ante
                         mauris at erat. Nullam porta purus id lectus porta molestie. Fusce porta luctus mi sit amet volutpat. Nulla auctor congue porttitor. Class aptent taciti
                         sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
@@ -504,7 +505,6 @@
 
                             <div class="image-wrapper" style="background-image:url('images/feature-panel.jpg');">
                                 <a href="#" target="_blank" title="Title goes here">
-                                 <img src="images/feature-panel.jpg" alt="Feature Story Image Caption Goes Here" title="Feature Story Image Caption Goes Here">
                                 </a>
                             </div>
                                 
@@ -1165,233 +1165,8 @@
 		</main>
 		<!-- inject:js -->
 		<script src="js/bundle.js"></script>
-        <script>
-            $(document).ready(function () {
-          
-              const carousels = $('.Feed__carousel');
-          
-          const template = (item) => {
-            const node = $('<div>').addClass('Feed__item').html(`
-              <img src="${item.image}" width="640" height="640" alt="">
-              <div class="Feed__overlay">
-                <div class="Feed__top">
-                  <span class="Feed__group">
-                    <span class="Feed__icon Feed__icon--instagram"></span> ${item.poster_name}
-                  </span>
-                </div>
-                <div class="Feed__text zero">
-                  ${item.message}
-                </div>
-                <div class="Feed__bottom">
-                  <a class="Feed__group" href="${item.full_url}" target="_blank" tabindex="-1">
-                    <span class="invis">View post</span>
-                    <span class="Feed__icon Feed__icon--link"></span>
-                  </a>
-                </div>
-              </div>
-            `);
-            return node;
-          };
-          
-          const load = async (feed, flkty) => {
-            const elements = [];
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 5000); // Set timeout to 5000 ms (5 seconds)
-          
-            try {
-              const response = await fetch(feed, { signal: controller.signal });
-              clearTimeout(timeoutId);
-              const json = await response.json();
-              const { items } = json.posts;
-              items.forEach((item) => {
-                const node = template(item);
-                elements.push(node[0]);
-              });
-              flkty.insert(elements, 0);
-            } catch (error) {
-              if (error.name === 'AbortError') {
-                console.error('Fetch request timed out');
-              } else {
-                console.error('Fetch error:', error);
-              }
-            }
-          };
-          
-          carousels.each(function () {
-            const element = $(this);
-            const carousel = element.find('.slider').get(0);
-            const feed = element.data('feed');
-            const flkty = new Flickity(carousel, {
-              imagesLoaded: true,
-              pageDots: true,
-              contain: true,
-              groupCells: true,
-              resize: false,
-              wrapAround: true,
-              accessibility: false,
-            });
-          
-            if (feed) load(feed, flkty);
-            $(window).on('load', function () {
-              flkty.resize();
-            });
-          
-            flkty.on('change', function (index) {
-              const activeSlides = $(carousel).find('.is-selected');
-              const links = $(carousel).find('a[tabindex]');
-              links.attr('tabindex', '-1');
-              activeSlides.find('a').attr('tabindex', '0');
-              updateStatus();
-            });
-          
-            const onResize = () => {
-              flkty.resize();
-              const activeSlides = $(carousel).find('.is-selected');
-              const links = $(carousel).find('a[tabindex]');
-              links.attr('tabindex', '-1');
-              activeSlides.find('a').attr('tabindex', '0');
-              setTimeout(function () {
-                $(carousel).addClass('loaded');
-              }, 500);
-            };
-          
-            $(window).on('resize', onResize);
-          
-            $(window).on('load', function () {
-              onResize();
-              $(carousel).removeClass('loaded');
-              setTimeout(function () {
-                $(carousel).addClass('loaded');
-              }, 500);
-            });
-          });
-          
-          
-            $('.ImageSlider').each(function() {
-              var $element = $(this);
-              var $carousel = $element.find('.slider');
-              var flkty = new Flickity($carousel[0], {
-                cellAlign: 'center',
-                pageDots: true,
-                prevNextButtons: true,
-                wrapAround: true,
-                accessibility: false,
-              });
-          
-              flkty.resize;
-              flkty.on('change', function(index) {
-                var $activeSlides = $carousel.find('.is-selected');
-                var $links = $carousel.find('a[tabindex]');
-                if ($links.length) {
-                  $links.attr('tabindex', '-1');
-                }
-                $activeSlides.each(function() {
-                  var $activeLink = $(this).find('a');
-                  if ($activeLink.length) {
-                    $activeLink.attr('tabindex', '0');
-                  }
-                });
-              });
-          
-              $(window).on('load', function() {
-                flkty.resize;
-                $(window).trigger('resize');
-                var $activeSlides = $carousel.find('.is-selected');
-                var $links = $carousel.find('a[tabindex]');
-                if ($links.length) {
-                  $links.attr('tabindex', '-1');
-                }
-                $activeSlides.each(function() {
-                  var $activeLink = $(this).find('a');
-                  if ($activeLink.length) {
-                    $activeLink.attr('tabindex', '0');
-                  }
-                });
-                setTimeout(function() {
-                  $carousel.addClass('loaded');
-                });
-              });
-          
-              $(window).on('resize', function() {
-                $carousel.removeClass('loaded');
-                setTimeout(function() {
-                  $carousel.addClass('loaded');
-                }, 500);
-              });
-            });
-          
-            $('.TestimonialSlider').each(function() {
-              var $element = $(this);
-              var $carousel = $element.find('.slider');
-              var flkty = new Flickity($carousel[0], {
-                cellAlign: 'center',
-                pageDots: true,
-                prevNextButtons: true,
-                wrapAround: true,
-                accessibility: false,
-              });
-          
-              flkty.resize;
-              flkty.on('change', function(index) {
-                var $activeSlides = $carousel.find('.is-selected');
-                var $links = $carousel.find('a[tabindex]');
-                if ($links.length) {
-                  $links.attr('tabindex', '-1');
-                }
-                $activeSlides.each(function() {
-                  var $activeLink = $(this).find('a');
-                  if ($activeLink.length) {
-                    $activeLink.attr('tabindex', '0');
-                  }
-                });
-              });
-          
-              $(window).on('load', function() {
-                flkty.resize;
-                $(window).trigger('resize');
-                var $activeSlides = $carousel.find('.is-selected');
-                var $links = $carousel.find('a[tabindex]');
-                if ($links.length) {
-                  $links.attr('tabindex', '-1');
-                }
-                $activeSlides.each(function() {
-                  var $activeLink = $(this).find('a');
-                  if ($activeLink.length) {
-                    $activeLink.attr('tabindex', '0');
-                  }
-                });
-                setTimeout(function() {
-                  $carousel.addClass('loaded');
-                });
-              });
-          
-              $(window).on('resize', function() {
-                $carousel.removeClass('loaded');
-                setTimeout(function() {
-                  $carousel.addClass('loaded');
-                }, 500);
-              });
-            });
-          
-              $('button.content-activate-symbol').click(function(){
-                $('.button.content-activate-symbol').not(this).removeClass('active');
-                $(this).toggleClass('active');
-                $('button.content-activate-symbol').not(this).parent('div.content-image-overlay').removeClass('active');
-                $(this).parent('div.content-image-overlay').toggleClass('active');
-              })
-            });
-            </script>
+    <script src="js/alumni.js"></script>
 
-        <script>
-            document.querySelector('.uao-scroll-arrow').addEventListener('click', function() {
-                const fullOverlayElement = document.querySelector('.full-overlay');
-                const overlayBottom = fullOverlayElement.getBoundingClientRect().bottom + window.scrollY;
-                window.scrollTo({
-                    top: overlayBottom,
-                    behavior: 'smooth'
-                });
-            });
-        </script>
 		<!-- endinject -->
 	</div>
 </body>

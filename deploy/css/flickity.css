@@ -118,6 +118,7 @@
     left: unset;
     right: 0;
     margin-right: auto;
+    border: none !important;
     @media (width >= 64em) {
       top: calc(50% - 3rem);
       left: calc(100% - 3rem);
