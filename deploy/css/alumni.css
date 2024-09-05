@@ -839,6 +839,120 @@
     border: none !important;
   }
 
+
+  .alumni-theme {
+
+    #interiorpagenav {
+      margin: 0;
+    }
+    .intro-grid-area-aside-navigation:has(#t4-navigation) {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      @media (width >= 64em) {
+        padding-top: 3rem;
+      }
+  }
+    #t4-navigation {
+      border-radius: 0 !important;
+    }
+
+    #t4-navigation nav.t4-navigation-wrapper {
+      background-color: #5A0722 !important;
+      color: inherit !important;
+      border-bottom: 0;
+      border-radius: 0;
+      border-bottom-left-radius: 0;
+      @media (width >= 64em) {
+        background-color: #FFF !important;
+      }
+    } 
+    #t4-navigation .t4-navigation-wrapper ul li:after {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+    }
+      @media (width >= 64em) {
+        #t4-navigation .t4-navigation-wrapper ul li:after {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+      }
+    }
+
+    #t4-navigation .t4-navigation-wrapper ul li.last:after,
+    #t4-navigation .t4-navigation-wrapper ul li.list-button:after {
+      border-bottom: 0;
+    }
+
+    #t4-navigation .t4-navigation-wrapper ul li {
+      grid-template-columns: 100%;
+    }
+    #t4-navigation .t4-navigation-wrapper ul li button {
+      display: block;
+      margin: 0.75rem 0;
+      padding: 0.625rem 1rem 0.5rem;
+      width: auto;
+      height: auto;
+      font-family: "Antenna Condensed Bold", "Arial", sans-serif;
+      font-size: 18px;
+      line-height: 1.35;
+      color: #FFF;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none !important;
+      border: none;
+      border-radius: 4px;
+      background: #5d0024;
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s;
+      border: .125rem solid var(--white);
+      &:hover {
+        background-color: #8d0034;
+      }
+  }
+
+      #t4-navigation .t4-navigation-wrapper ul li a, #t4-navigation .t4-navigation-wrapper ul li span {
+        display: block;
+        margin: 0;
+        width: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 600;
+        line-height: inherit;
+        color: inherit;
+        text-indent: 0 !important;
+        text-transform: inherit;
+        text-decoration: none;
+        padding: 0;
+        @media (width >= 64em) {
+          padding: 0;
+        }
+    }
+
+    #t4-navigation .t4-navigation-wrapper ul {
+      padding-inline: 2rem;
+      padding-bottom: 1rem;
+      @media (width >= 64em) {
+        padding: 0;
+      }
+  }
+
+      .Subnav__toggle {
+        padding-inline: 2rem;
+        padding-block: 1rem;
+      }
+  
+      #t4-navigation .t4-navigation-wrapper ul li:hover {
+        background: transparent;
+    }
+
+    #t4-navigation ul.t4-navigation-list{
+      background: transparent !important;
+    }
+  }
+
+  .t4-navigation-wrapper {
+    @media (width >= 64em) {
+      padding-top: 4rem;
+    }
+  }
   
   .Subnav--full {
     --text: var(--white);
@@ -856,7 +970,7 @@
     }
   }
   
-  .Subnav--sidebar{
+ .t4-navigation-wrapper {
     padding-inline: 2rem;
     padding-block: 1rem;
     @media (width >= 64em) {
@@ -871,11 +985,12 @@
           font-size: 1.25rem;
           font-style: normal;
           font-weight: 700;
-          line-height: 1.875rem; /* 150% */
+          line-height: 3.875rem; /* 150% */
           letter-spacing: 0.03125rem;
           text-transform: none;
           border-bottom: 5px solid var(--yellow);
           padding-bottom: .25rem;
+          margin-bottom: 4rem;
       }
   }
   
@@ -1032,6 +1147,7 @@
       [aria-expanded="false"] + & {
         height: var(--height, 0);
         visibility: hidden;
+        padding: 0 !important;
       }
     }
   
@@ -1803,9 +1919,10 @@
   }
   
   button.icon {
-    position: relative;
-    text-align: left;
-    padding-left: 50px;
+    position: relative !important;
+    text-align: left !important;
+    padding-left: 50px !important;
+    
     &:before {
       content: "";
       position: absolute;
