@@ -563,7 +563,20 @@
   }
   
   .Header__sub-menu-collapse {
-    min-height: 0;
+    display: grid; 
+    grid-template-rows: 0fr;
+    @media (width < 64em) {
+      height: 0;
+    }
+  }
+
+  .Header__sub-toggle[aria-expanded=true] + .Header__sub-menu-collapse{
+    grid-template-rows: 1fr;
+    visibility: visible;
+    @media (width < 64em) {
+      height: auto;
+      padding-block: 1rem;
+    }
   }
   
   .Header__sub-overview {
