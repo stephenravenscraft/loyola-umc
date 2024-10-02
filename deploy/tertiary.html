@@ -95,66 +95,67 @@
   <nav class="Header__menu" aria-label="Navigation menu">
     <ul class="Header__nav">
       <li>
-        <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">About Us</span>
+        <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">About Us
             <ul>
-              <li><span class="currentbranch1"><a href="#">Link Overview</a></span></li>
+              <li><a href="#">Link Overview</a></li>
               <li><a href="#">Link One</a></li>
               <li><a href="#">Link Two</a></li>
               <li><a href="#">Link Three</a></li>
               <li><a href="#">Link Four</a></li>
               <li><a href="#">Link Five</a></li>
             </ul>
-
+          </span>
       </li>
       <li>
-        <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">Events</span>
+        <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">Events
             <ul>
-              <li><span class="currentbranch1"><a href="#">Link Overview</a></span></li>
+              <li><a href="#">Link Overview</a></li>
               <li><a href="#">Link One</a></li>
               <li><a href="#">Link Two</a></li>
               <li><a href="#">Link Three</a></li>
               <li><a href="#">Link Four</a></li>
               <li><a href="#">Link Five</a></li>
             </ul>
-
+          </span>
       </li>
       <li>
-        <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">Communities & Interests</span>
+        <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">Communities & Interests
             <ul>
-              <li><span class="currentbranch1"><a href="#">Link Overview</a></span></li>
+              <li><a href="#">Link Overview</a></li>
               <li><a href="#">Link One</a></li>
               <li><a href="#">Link Two</a></li>
               <li><a href="#">Link Three</a></li>
               <li><a href="#">Link Four</a></li>
               <li><a href="#">Link Five</a></li>
             </ul>
-
+          </span>
       </li>
       
       <li>
-        <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">Resources & Benefits</span>
+        <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">Resources & Benefits
             <ul>
-              <li><span class="currentbranch1"><a href="#">Link Overview</a></span></li>
+              <li><a href="#">Link Overview</a></li>
               <li><a href="#">Link One</a></li>
               <li><a href="#">Link Two</a></li>
               <li><a href="#">Link Three</a></li>
               <li><a href="#">Link Four</a></li>
               <li><a href="#">Link Five</a></li>
             </ul>
-
+          </span>
       </li>
       <li>
-        <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">News & Stories</span>
+        <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">News & Stories
             <ul>
-              <li><span class="currentbranch1"><a href="#">Link Overview</a></span></li>
+              <li><a href="#">Link Overview</a></li>
               <li><a href="#">Link One</a></li>
               <li><a href="#">Link Two</a></li>
               <li><a href="#">Link Three</a></li>
               <li><a href="#">Link Four</a></li>
               <li><a href="#">Link Five</a></li>
             </ul>
-
+          </span>
       </li>
+
     </ul>
     <ul class="Header__actions-mobile">
       <li><a href="#" class="gift">Make a Gift</a></li>
@@ -702,7 +703,42 @@
 			</footer>
 		</main>
 		<!-- inject:js -->
-		<script src="js/bundle.js"></script>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var headerToggles = document.querySelectorAll('.Header__sub-toggle');
+          
+          headerToggles.forEach(function(headerToggle) {
+
+            var ul = headerToggle.querySelector('ul');
+            
+            if (ul) {
+              headerToggle.parentNode.insertBefore(ul, headerToggle.nextSibling);
+                var firstLi = ul.querySelector('li:first-child');
+                
+                if (firstLi) {
+                  var span = document.createElement('span');
+                  span.classList.add('currentbranch1');
+                  
+                  while (firstLi.firstChild) {
+                    span.appendChild(firstLi.firstChild);
+                  }
+                  
+                  firstLi.appendChild(span);
+                }
+            }
+          });
+
+        // Delay execution by .5 sec
+        setTimeout(function() {
+          var script = document.createElement('script');
+          script.src = 'js/bundle.js';
+          document.body.appendChild(script);
+        }, 500);  
+      });
+
+      </script>
+
     <script src="js/alumni.js"></script>
 
 		<!-- endinject -->
@@ -710,4 +746,3 @@
 </body>
 
 </html>
-
