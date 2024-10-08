@@ -96,7 +96,7 @@
     <ul class="Header__nav">
       <li>
         <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">About Us
-            <ul>
+            <ul class="multilevel-linkul-0">
               <li><a href="#">Link Overview</a></li>
               <li><a href="#">Link One</a></li>
               <li><a href="#">Link Two</a></li>
@@ -108,7 +108,7 @@
       </li>
       <li>
         <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">Events
-            <ul>
+            <ul class="multilevel-linkul-0">
               <li><a href="#">Link Overview</a></li>
               <li><a href="#">Link One</a></li>
               <li><a href="#">Link Two</a></li>
@@ -709,33 +709,38 @@
           var headerToggles = document.querySelectorAll('.Header__sub-toggle');
           
           headerToggles.forEach(function(headerToggle) {
-
             var ul = headerToggle.querySelector('ul');
             
             if (ul) {
+              // Remove the class 'multilevel-linkul-0' if it exists
+              if (ul.classList.contains('multilevel-linkul-0')) {
+                ul.classList.remove('multilevel-linkul-0');
+              }
+
               headerToggle.parentNode.insertBefore(ul, headerToggle.nextSibling);
-                var firstLi = ul.querySelector('li:first-child');
+              
+              var firstLi = ul.querySelector('li:first-child');
+              
+              if (firstLi) {
+                var span = document.createElement('span');
+                span.classList.add('currentbranch1');
                 
-                if (firstLi) {
-                  var span = document.createElement('span');
-                  span.classList.add('currentbranch1');
-                  
-                  while (firstLi.firstChild) {
-                    span.appendChild(firstLi.firstChild);
-                  }
-                  
-                  firstLi.appendChild(span);
+                while (firstLi.firstChild) {
+                  span.appendChild(firstLi.firstChild);
                 }
+                
+                firstLi.appendChild(span);
+              }
             }
           });
 
-        // Delay execution by .5 sec
-        setTimeout(function() {
-          var script = document.createElement('script');
-          script.src = 'js/bundle.js';
-          document.body.appendChild(script);
-        }, 500);  
-      });
+          // Delay execution by .5 sec
+          setTimeout(function() {
+            var script = document.createElement('script');
+            script.src = 'js/bundle.js';
+            document.body.appendChild(script);
+          }, 500);  
+        });
 
       </script>
 
