@@ -144,7 +144,7 @@
           </span>
       </li>
       <li>
-        <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false">News & Stories
+        <span class="Header__sub-toggle" data-expand="popup" aria-expanded="false"><a href="/alumni-dev/newsstories/">News &amp; Stories</a>
             <ul>
               <li><a href="#">Link Overview</a></li>
               <li><a href="#">Link One</a></li>
@@ -719,18 +719,6 @@
 
               headerToggle.parentNode.insertBefore(ul, headerToggle.nextSibling);
               
-              var firstLi = ul.querySelector('li:first-child');
-              
-              if (firstLi) {
-                var span = document.createElement('span');
-                span.classList.add('currentbranch1');
-                
-                while (firstLi.firstChild) {
-                  span.appendChild(firstLi.firstChild);
-                }
-                
-                firstLi.appendChild(span);
-              }
             }
           });
 

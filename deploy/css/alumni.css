@@ -185,7 +185,6 @@
     background-color: #5A0722;
     color: #fff !important;
     border: none;
-    border-left: 1px solid rgba(255, 255, 255, 0.16);
   }
   .alumni-theme .content-image-text-image {
     margin-bottom: 2rem;
@@ -451,11 +450,6 @@
   .Header__nav > li > ul ul {
     margin-block: 1rem;
   }
-  .Header__nav .Header__sub-menu li,
-  .Header__nav > li > ul li {
-    border-left: 1px solid rgba(255, 255, 255, 0.16);
-    padding-left: 1rem;
-  }
   .Header__nav .Header__sub-menu a,
   .Header__nav > li > ul a {
     color: #fff !important;
@@ -596,19 +590,12 @@
     }
   }
   
-  .Header__nav > li > ul li:has(.currentbranch1):first-child{
+  .Header__sub-overview{
     padding-left: 0 !important;
     border-left: none !important;
     margin-bottom: 0.5rem;
   }
-  .Header__sub-overview,
-  .currentbranch1 {
-    padding-left: 0 !important;
-    border-left: none !important;
-    margin-bottom: 0.5rem;
-  }
-  .Header__sub-overview a,
-  .currentbranch1 a {
+  .Header__sub-overview a{
     font-size: 1rem !important;
   }
   
