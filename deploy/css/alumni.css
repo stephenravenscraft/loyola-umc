@@ -2125,3 +2125,9 @@
       width: 75%;
     }
   }
+
+  @media (max-width: 1023px) {
+    #panel-image .hero-image-content, #panel-image-lead-resize .hero-image-content {
+      background: #5A0722;
+    }
+  }
