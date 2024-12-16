@@ -31,6 +31,7 @@ targets.forEach((target) => {
     const body = target.getAttribute('data-expand-body');
     const lock = target.hasAttribute('data-expand-lock');
     const next = target.nextElementSibling;
+  
     target.addEventListener('click', () => {
       target.setAttribute('aria-expanded', !expanded());
       if (body) {
@@ -40,7 +41,7 @@ targets.forEach((target) => {
           document.body.classList.remove(body);
         }
       }
-      if (lock) {
+      if (lock && next) { // Check if 'next' exists
         if (expanded()) {
           focusLock.on(next.parentNode);
         } else {
@@ -48,24 +49,30 @@ targets.forEach((target) => {
         }
       }
     });
+  
     document.addEventListener('click', (e) => {
-      if (expanded() && !target.contains(e.target) && !next.contains(e.target)) {
+      if (
+        expanded() &&
+        !target.contains(e.target) &&
+        (!next || !next.contains(e.target)) // Add a check for 'next'
+      ) {
         target.setAttribute('aria-expanded', false);
         if (body) {
           document.body.classList.remove(body);
         }
-        if (lock) {
+        if (lock && next) { 
           focusLock.off(next.parentNode);
         }
       }
     });
+  
     document.addEventListener('keydown', (e) => {
       if (expanded() && e.key === 'Escape') {
         target.setAttribute('aria-expanded', false);
         if (body) {
           document.body.classList.remove(body);
         }
-        if (lock) {
+        if (lock && next) { 
           focusLock.off(next.parentNode);
         }
       }

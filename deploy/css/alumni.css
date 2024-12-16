@@ -1290,29 +1290,34 @@
         color: white;
         a{
           color: white;
+          &:last-child {
+            color: var(--white);
+          }
         }
       }
     }
     .Breadcrumbs {
-          padding-block: 24px 16px;
+      padding-block: 24px 16px;
       font-size: 0.75rem;
       font-style: normal;
       font-weight: 700;
       line-height: 0.7125rem; /* 95% */
       text-transform: uppercase;
-          color: var(--red);
+      color: var(--red);
       background: transparent;
-      a {
-        color: var(--black);
-        text-decoration: underline;
-        &:hover {
-            text-decoration: none;      
-        }
-        &:last-child {
-          color: var(--red);
+        a {
+          color: var(--black);
+          text-decoration: underline;
+          &:hover {
+              text-decoration: none;      
+          }
+          &:last-child {
+            color: var(--red);
+          }
         }
       }
-      }
+      
+
       .Breadcrumbs__separator {
           margin: 0 0.2em;
       }
