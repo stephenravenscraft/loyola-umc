@@ -1,0 +1,66 @@
+/* PAGE LAYOUT - FACULTY PROFILE */
+
+/* wrapper - grid - container - adjustments */
+#main-content-wrapper.grid-wrapper-min-max {
+    grid-template-columns: repeat(12, [col-start] 1fr) !important;
+    grid-template-areas:
+        "main-section-wrapper"
+        "main-aside-wrapper-navigation"
+        "main-aside-wrapper-content";
+    grid-rows: repeat(4, [col-start] 1fr);
+    grid-gap: 0;
+    grid-row-gap: 2rem;
+    padding: 4rem 10%;
+    @include phone-portrait {
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: auto;
+        grid-gap: 1rem !important;
+        grid-row-gap: 2rem;
+        margin: 0;
+        padding: 2rem !important;
+        width: 100%;
+    }
+}
+#main-content-wrapper #main-section-wrapper {
+    margin: 0 2.5%;
+    width: 95%;
+}
+#main-content-wrapper #main-aside-wrapper-navigation .container,
+#main-content-wrapper #main-aside-wrapper-content .container {
+    margin: 0 5%;
+    width: 90%;
+    @include phone-portrait {
+        margin: 0 5%;
+        width: 90%;
+    }
+    .container-100 {
+        margin: 0;
+        width: 100%;
+    }
+}
+#main-content-wrapper #main-section-wrapper {
+    grid-column: 1 / span 8;
+    grid-row: 1 / span 4 ;
+    @include phone-portrait {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+    }
+}
+#main-content-wrapper #main-aside-wrapper-navigation {
+    grid-column: 10 / span 3;
+    grid-row: 1;
+    @include phone-landscape {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+    }
+}
+#main-content-wrapper #main-aside-wrapper-content {
+    grid-column: 10 / span 3;
+    @include phone-portrait {
+        grid-column: 1 / span 1;
+        grid-row: 3 / span 1;
+    }
+}
+#main-content-wrapper #main-aside-wrapper-content .grid-wrapper-min-max  {
+    display: block;
+}

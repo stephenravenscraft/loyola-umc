@@ -4,6 +4,9 @@ table {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100% !important;
+  @include phone-portrait {
+    display: block;
+  }
 }
 
 tbody, th, tr {
@@ -54,9 +57,20 @@ table {
       width: calc(100% + 1rem);
       font-family: 'Antenna Condensed Bold', sans-serif;
       font-size: 1rem;
-      color: #ffffff;
+      color: $white;
       text-transform: uppercase;
       background-color: $gray-dark;
+    }
+    tr td:first-of-type p {
+      color: $white;
+      font-weight: 700;
+    }
+    tr td:first-of-type p strong {
+      color: $white;
+      font-weight: 700;
+    }
+    td a {
+      word-wrap: break-word;
     }
     td:last-of-type span:last-of-type {
       margin: .5rem 0 -.5rem -.5rem;
@@ -95,12 +109,6 @@ table td {
     height: auto;
     max-width: 8rem;
   }
-  span {
-    display: none;
-    @include tablet-portrait {
-      display: block;
-    }
-  }
 }
 
 th {
@@ -118,6 +126,21 @@ th {
     border-left: none;
     border-left: solid 1px $gray-extra-light;
   }
+  p, p strong {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    line-height: rvr(1.35) !important;
+    margin: 0;
+    color: $gray-extra-light;
+  }
+}
+
+tr th:nth-child(1),
+tr th:nth-child(1) p,
+tr th:nth-child(1) p strong {
+  color: $white;
 }
 
 thead tr {
@@ -140,7 +163,7 @@ tr {
 
 th.span.sub-category,
 tr:first-child th.span.sub-category {
-  color: inherit !important;
+  color: $white !important;
   background: darken($gray,1%) !important;
 }
 
@@ -151,7 +174,7 @@ tr:first-child th:first-child,
 
 tbody tr:first-child th:first-child {
   color: $black;
-  background: $gray-light;
+  background: lighten($gray-light,5%);
 }
 
 tr:first-child th:first-child,
@@ -161,7 +184,7 @@ tr:not(:first-child):not(:last-child) th {
 
 tr:not(:first-child) th {
   color: $black;
-  background: $gray-light;
+  background: lighten($gray-light,5%);
 }
 
 caption {
@@ -206,7 +229,15 @@ table > tbody > tr > td:nth-child(1) {
   }
 }
 
-/* table accordion */
+/* table link fix - span */
+.panel-table span {
+  display: none;
+  @include phone-landscape {
+    display: block;
+  }
+}
+
+/* table accordion and accordion with nested table */
 
 td p, td ul, #panel-table-accordion ul, #panel-table-accordion p {
   margin: .5rem 0 !important;
@@ -217,7 +248,11 @@ td p, #panel-table-accordion p {
   &:last-of-type { margin-bottom: 0 !important; }
 }
 
-td, td p, td ul li, #panel-table-accordion ul li, #panel-table-accordion p {
+table tbody th, table tbody th strong,
+td, td strong, td p, td p strong, td ul li, td ul li strong,
+#panel-table-accordion ul li, #panel-table-accordion p, #panel-table-accordion ul li strong, #panel-table-accordion p strong,
+.minimalist-accordion__panel table tbody th, .minimalist-accordion__panel table tbody th strong,
+.minimalist-accordion__panel table tbody tr td p, .minimalist-accordion__panel table tbody tr td p strong {
   font-size: .85rem !important;
   letter-spacing: -.025rem;
   text-align: left;

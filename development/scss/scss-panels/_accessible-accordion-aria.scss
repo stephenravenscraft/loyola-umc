@@ -26,8 +26,6 @@ h3.minimalist-css-accordion__title {
   margin: 0 !important;
   padding: 0;
   width: 100%;
-  font-family: 'Antenna Condensed Light', sans-serif;
-  line-height: 0;
 }
 
 h4.js-accordion-no-panel,
@@ -35,12 +33,14 @@ button.minimalist-accordion__header,
 button.minimalist-noanim-accordion__header,
 button.minimalist-css-accordion__header {
   margin: 0;
-  padding: 1rem 2rem 1rem 1rem;
+  padding: 1rem 2.5rem 1rem 1rem;
 /* padding: .85rem 2rem 1rem 1rem; Sentence Case */
   color: $black !important;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1.25rem;
+  letter-spacing: -.05rem !important;
   text-transform: none;
-  border-radius: 0;
+  border-radius: 0 !important;
   border: none !important;
   border-bottom: solid 1px $gray !important;
   outline: none;
@@ -80,6 +80,10 @@ h4.js-accordion-no-panel,
   border: 0;
   background: none;
   cursor: pointer;
+  a.cta {
+    font-size: 85%;
+    font-weight: 800;
+  }
   @include phone-portrait {
     font-size: 1.125rem;
   }
@@ -89,17 +93,28 @@ h4.js-accordion-no-panel,
   font-size: 1.75em;
 }
 
-button.minimalist-accordion__header:hover,
-button.minimalist-noanim-accordion__header:hover,
-button.minimalist-css-accordion__header:hover {
-  background: $white !important;
+button.minimalist-accordion__header,
+button.minimalist-noanim-accordion__header,
+button.minimalist-css-accordion__header {
+  &:hover {
+    background: $gray-extra-light !important;
+  }
+  &:focus {
+    outline: solid $maroon;
+    color: #ffffff;
+  }
 }
 
-button.minimalist-accordion__header:focus,
-button.minimalist-noanim-accordion__header:focus,
-button.minimalist-css-accordion__header:focus {
-  outline: solid $maroon;
-  color: #ffffff;
+#panel-accordion [aria-expanded=true].minimalist-accordion__header,
+#panel-accordion [aria-expanded=true].minimalist-noanim-accordion__header,
+#panel-accordion [aria-expanded=true].minimalist-css-accordion__header {
+  color: $white !important;
+  background: $maroon !important;
+  font-weight: 600;
+  &:hover {
+    color: $white;
+    background: $gray !important;
+  }
 }
 
 #side-nav button.minimalist-accordion__header:focus,
@@ -107,6 +122,8 @@ button.minimalist-css-accordion__header:focus {
 #side-nav button.minimalist-css-accordion__header:focus {
   outline: solid $gold;
 }
+
+/* state of accordion header - caret image */
 
 .minimalist-accordion__header::after,
 .minimalist-noanim-accordion__header::after,
@@ -135,6 +152,7 @@ button.minimalist-css-accordion__header:focus {
   margin: .4rem -1.25rem 0 0;
   transform: rotate(90deg);
   transform-origin: 50% 50%;
+  filter: invert(1);
 }
 
 /* accordion panel - content */
@@ -146,9 +164,8 @@ nav#secondary .minimalist-accordion__panel,
   margin: 2em;
   padding: 0;
   height: auto;
-  max-height: 100em;
   visibility: visible;
-  overflow: scroll;
+  overflow: hidden;
   opacity: 1;
   /* animation */
   -webkit-transition: visibility 0s ease, max-height 1s ease, opacity 1s ease;
@@ -200,16 +217,12 @@ nav#secondary [aria-hidden=true].minimalist-accordion__panel {
   margin-bottom: 0 !important;
 }
 
-.js-accordion__panel.minimalist-accordion__panel p:first-of-type {
-  margin-bottom: 1rem !important;
-}
-
 .js-accordion__panel.minimalist-accordion__panel h5:first-of-type {
   margin-top: 0rem !important;
 }
 
 /* This is the hidden state */
-
+/*
 [aria-hidden=true].minimalist-css-accordion__panel {
   display: block;
   margin: 0;
@@ -221,6 +234,7 @@ nav#secondary [aria-hidden=true].minimalist-accordion__panel {
   -webkit-transition-delay: 1s, 0s, 0s, 0s;
   transition-delay: 1s, 0s, 0s, 0s;
 }
+*/
 
 .minimalist-noanim-accordion__panel {
   display: block;

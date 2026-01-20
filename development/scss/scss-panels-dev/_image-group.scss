@@ -1,0 +1,191 @@
+/* image group */
+
+.panel-image-group {
+  display: block;
+  padding: 0;
+  text-align: center;
+}
+
+.panel-image-group .container-100 { width: 100%; }
+.panel-image-group .container-80 { width: 80% !important;
+  @include phone-portrait {
+    width: 100% !important;
+  }
+}
+.panel-image-group .container-50 { width: 50% !important;
+  @include phone-portrait {
+    width: 100% !important;
+  }
+}
+.panel-image-group .grid-wrapper-grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-auto-rows: 20vw;
+  grid-gap: .5rem;
+  grid-auto-flow: dense;
+  @include tablet-portrait {
+    grid-template-columns: repeat(4,1fr);
+  }
+  @include phone-portrait {
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+.panel-image-group .container-100 .grid-wrapper-grid-wrapper {
+  grid-auto-rows: 20vw;
+    @include phone-portrait {
+      grid-auto-rows: 22vw;
+    }
+}
+.panel-image-group .container-80 .grid-wrapper-grid-wrapper {
+  grid-auto-rows: 20vw;
+    @include phone-portrait {
+      grid-auto-rows: 22vw;
+    }
+}
+.panel-image-group .container-50 .grid-wrapper-grid-wrapper {
+  grid-auto-rows: 12.5vw;
+    @include phone-portrait {
+      grid-auto-rows: 22vw;
+    }
+}
+.panel-image-group .container div.bg-gray-extra-light {
+  padding: 1rem 1.25rem 1.5rem;
+    p {
+    margin: 0;
+    font-style: italic;
+    text-align: left;
+  }
+}
+.gallery-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: $gray-extra-dark;
+  h5 {
+    display: none;
+    position: absolute;
+    top: 10%;
+    margin: 0;
+    font-size: clamp(#{$font-step-1-125}, #{$font-step-1-125} + 3.5vw, #{$font-step-1-125});
+    line-height: clamp(#{$line-step-1-75}, #{$line-step-1-75} + 3.5vw, #{$line-step-1-75});
+    text-align: center;
+    text-shadow: 0 0 3rem rgba(0,0,0,1);
+    color: $white;
+    text-transform: none;
+  }
+  .image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    img {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+      cursor: default;
+    }
+  }
+  .caption {
+    display: absolute;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: clamp(#{$font-step-1-125}, #{$font-step-1-125} + 3.5vw, #{$font-step-1-125});
+    line-height: clamp(#{$line-step-1-75}, #{$line-step-1-75} + 3.5vw, #{$line-step-1-75});
+    color: $gray-extra-light;
+    pointer-events: none;
+    opacity: 0;
+    z-index: +4;
+    p {
+      position: absolute;
+      top: 40%;
+      margin: 0 0 .75rem;
+      padding: 0 1rem;
+      width: 100%;
+      font-family: 'Open Sans', sans-serif;
+      letter-spacing: .0125rem;
+      word-spacing: .0125rem;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(0,0,0,.35);
+      color: $white;
+      span {
+        display: block;
+        margin: 0;
+        padding: 0 1rem;
+        width: 100%;
+        a {
+          color: $gold;
+        }
+      }
+    }
+  }
+  #main-content-wrapper-full-width div.bg-gray-extra-light.padding-sm > p,
+  #main-content-wrapper-full-width > section > div > div > section:nth-child(5) > div > div.bg-gray-extra-light.padding-sm > p
+  /* all hover is through gallery-item */
+  &:hover {
+    .image
+    img {
+        display: block;
+        margin: 0;
+        width: 100%;
+        opacity: 1;
+        -webkit-filter: grayscale(0%);
+        -moz-filter:    grayscale(0%);
+        -ms-filter:     grayscale(0%);
+        -o-filter:      grayscale(0%);
+        cursor: default;
+        }
+    }
+}
+
+.panel-image-group {
+    .w-1 {
+    grid-column: span 1;
+    }
+    .w-2 {
+    grid-column: span 2;
+    }
+    .w-3 {
+    grid-column: span 3;
+    }
+    .w-4 {
+    grid-column: span 4;
+    }
+    .w-1, .w-2, .w-3, .w-4 {
+        @include phone-portrait {
+            grid-column: span 1;
+        }
+    }
+    .h-0 {
+        grid-row: span .5;
+    }
+    .h-1 {
+        grid-row: span 1;
+    }
+    .h-2 {
+        grid-row: span 2;
+    }
+    .h-3 {
+        grid-row: span 3;
+    }
+    @include phone-portrait {
+      .h-0, .h-1, .h-2, .h-3 {
+          grid-row: span 2;
+      }
+    }
+}
+
+@keyframes caption-fade-in {
+  0% {
+    top: 25%;
+    opacity: 0;
+  }
+  100% {
+    top: 40%;
+    opacity: 1;
+  }
+}

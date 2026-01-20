@@ -55,10 +55,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<!-- inject:css -->
-	<link rel="stylesheet" href="css/antenna-terminal-four.css">
+	<link rel="stylesheet" href="css/antenna-template.css">
 	<link rel="stylesheet" href="css/styles-documentation.css">
 	<link rel="stylesheet" href="css/styles-framework.css">
 	<link rel="stylesheet" href="css/styles-grid.css">
+	<link rel="stylesheet" href="css/styles-panels-dev.css">
 	<link rel="stylesheet" href="css/styles-panels.css">
 	<link rel="stylesheet" href="css/styles-typography.css">
 	<link rel="stylesheet" href="css/css-alert/styles-alert.css">
@@ -194,16 +195,27 @@
 		Headlines
 	</h3>
 	<div class="padding-xsm"></div>
-	<div class="display">
+	<!-- breadcrumbs -->
+	<section id="panel-pagination">
+		<div id="content-pagination-breadcrumbs">
+			<div class="grid-wrapper-min-max">
+				<div class="grid-item">
+					<nav role="navigation" aria-label="Pagination Breadcrumbs">
+						<a href="###">Link lorem ipsum</a>
+						<a href="###">Link lorem ipsum</a>
+						<a href="###">Link lorem ipsum</a>
+						<a href="###">Link current page lorem</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- headlines -->
 	<h1>
-		H1 hedgeline used as a first-level headline
-	</h1>
-	</div>
-	<h1>
-		H1 hedgeline used as a first-level headline
+		H1 hedgeline used as a first-level page or story headline
 	</h1>
 	<h2>
-		H2 headline used as a first-level headline
+		H2 headline used as a first-level headline combined with h1
 	</h2>
 	<div class="intro-paragraph">
 		<p>
@@ -226,7 +238,24 @@
 	<hr class="padding-divider">
 	</hr>
 	<footnote>Use on lede story, overview or announcement</footnote>
-	<div class="padding-sm"></div>
+	<div class="padding-lg"></div>
+		<section id="panel-text" class="container-fluid">
+			<div class="container container-100 ">
+				<div class="grid-wrapper-min-max one-column">
+					<div class="grid-item">
+						<div class="content-grid-wrapper">
+							<div class="flex-item content center uppercase">
+								<h2 class="section-label">This is a Section Label</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	<hr class="padding-divider">
+	</hr>
+	<footnote>Use to organize on landing pages</footnote>
+	<div class="padding-lg"></div>
 	<h3>
 		H3 hedgeline used as a second-level headline
 	</h3>
@@ -326,12 +355,59 @@
 	</hr>
 	<footnote>General unordered list</footnote>
 	<div class="padding-sm"></div>
+	<h5>Unordered Lists - Nested Lists</h5>
+	<div class="padding-xsm"></div>
+	<ul>
+		<li>List item one lorem ipsum dolor sit amet consectetur adipiscing elit.</li>
+		<li>List item two lorem ipsum dolor sit amet consectetur adipiscing elit.
+			<ul>
+				<li>List item one lorem ipsum.</li>
+				<li>List item two lorem.</li>
+				<li>List item three lorem ipsum.</li>
+			</ul>
+		</li>
+		<li>List item three lorem ipsum dolor sit amet consectetur adipiscing elit.
+			<ol>
+				<li>List item one lorem ipsum.</li>
+				<li>List item two lorem.</li>
+				<li>List item three lorem ipsum.</li>
+			</ol>
+		</li>
+	</ul>
+	<hr class="padding-divider">
+	</hr>
+	<footnote>General unordered list with a nested unordered list and general unordered list with a nested ordered list</footnote>
+	<div class="padding-sm"></div>
 	<h5>Ordered Lists</h5>
 	<div class="padding-xsm"></div>
 	<ol>
 		<li>List item one lorem ipsum dolor sit amet consectetur adipiscing elit.</li>
 		<li>List item two lorem ipsum dolor sit amet consectetur adipiscing elit.</li>
 		<li>List item three lorem ipsum dolor sit amet consectetur adipiscing elit.</li>
+	</ol>
+	<hr class="padding-divider">
+	</hr>
+	<footnote>General ordered list with bold number</footnote>
+	<div class="padding-sm"></div>
+	<div class="padding-sm"></div>
+	<h5>Ordered Lists - Nested Lists</h5>
+	<div class="padding-xsm"></div>
+	<ol>
+		<li>List item one lorem ipsum dolor sit amet consectetur adipiscing elit.</li>
+		<li>List item two lorem ipsum dolor sit amet consectetur adipiscing elit.
+			<ol>
+				<li>List item one lorem ipsum.</li>
+				<li>List item two lorem.</li>
+				<li>List item three lorem ipsum.</li>
+			</ol>
+		</li>
+		<li>List item three lorem ipsum dolor sit amet consectetur adipiscing elit.
+			<ul>
+				<li>List item one lorem ipsum.</li>
+				<li>List item two lorem.</li>
+				<li>List item three lorem ipsum.</li>
+			</ul>
+		</li>
 	</ol>
 	<hr class="padding-divider">
 	</hr>
@@ -366,6 +442,7 @@
 			<li>List item lorem ipsum here.</li>
 			<li>List item lorem here.</li>
 		</ul>
+		<button class="container-100" onclick="window.open('#', '_self')" title="CTA Here">CTA Here</button>
 	</div>
 	<hr class="padding-divider">
 	</hr>
@@ -492,6 +569,13 @@
 	<hr class="padding-divider">
 	</hr>
 	<footnote>Standard button style</footnote>
+	<div class="grid-wrapper-min-max">
+		<div class="grid-item button-maroon">
+			<a href="###">
+				<button id="###" onclick="window.open('###','_blank')">CTA with a tag wrap</button>
+			</a>
+		</div>
+	</div>
 	<div class="padding-md"></div>
 	<div class="grid-wrapper-min-max">
 		<div class="grid-item button-maroon">
@@ -512,15 +596,6 @@
 	<footnote>Standard open button style - Add class button-open</footnote>
 	<div class="padding-md"></div>
 	<div class="grid-wrapper-min-max">
-		<div class="grid-item button-patina">
-			<button id="###" onclick="window.open('###','_blank')">CTA here</button>
-		</div>
-	</div>
-	<hr class="padding-divider">
-	</hr>
-	<footnote>Standard patina button style  - Add class button-patina</footnote>
-	<div class="padding-md"></div>
-	<div class="grid-wrapper-min-max">
 		<div class="grid-item button-gold">
 			<button id="###" onclick="window.open('###','_blank')">CTA here</button>
 		</div>
@@ -528,6 +603,24 @@
 	<hr class="padding-divider">
 	</hr>
 	<footnote>Standard gold button style - Add class button-gold</footnote>
+	<div class="padding-md"></div>
+	<div class="grid-wrapper-min-max four-column">
+		<div class="grid-item button-maroon">
+			<button id="###" onclick="window.open('###','_blank')">CTA multiple lines equal height</button>
+		</div>
+		<div class="grid-item button-maroon">
+			<button id="###" onclick="window.open('###','_blank')">CTA here equal height</button>
+		</div>
+		<div class="grid-item button-maroon">
+			<button id="###" onclick="window.open('###','_blank')">CTA multiple lines equal height</button>
+		</div>
+		<div class="grid-item button-maroon">
+			<button id="###" onclick="window.open('###','_blank')">CTA here equal height</button>
+		</div>
+	</div>
+	<hr class="padding-divider">
+	</hr>
+	<footnote>Standard button height - Columns</footnote>
 	<div class="padding-md"></div>
 </section>
 

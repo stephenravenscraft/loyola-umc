@@ -11,9 +11,10 @@
 html { font-size: 100%; } /* matches browsers default */
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Arial', sans-serif;
   color: $black;
   background-color: none;
+  overflow-wrap: break-word;
 }
 
 p, ul, ol {
@@ -35,7 +36,7 @@ h2.antenna-compressed-headline,
 h3.antenna-compressed-headline,
 h4.antenna-compressed-headline,
 h5.antenna-compressed-headline {
-  font-family: 'Antenna Comp Bold', sans-serif !important;
+  font-family: 'Antenna Comp Bold', 'Arial', sans-serif !important;
   letter-spacing: .0125rem;
   word-spacing: .1rem;
   text-transform: uppercase;
@@ -55,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 1rem;
   margin-bottom: rvr(1);
   width: 100%;
-  font-family: 'Antenna Condensed Bold', sans-serif;
+  font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
   font-weight: 400;
   letter-spacing: -.02rem;
   word-spacing: .125rem;
@@ -63,6 +64,35 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
   }
 }
+
+/* universal font-sizes */
+
+h1, .display h1 {
+  font-size: #{fluid(36px, 58px)};
+  line-height: #{fluid(42px, 64px)};
+}
+h2 {
+  font-size: #{fluid(22px, 38px)};
+  line-height: #{fluid(30px, 42px)};
+}
+h3 {
+  font-size: #{fluid(22px, 38px)};
+  line-height: #{fluid(30px, 42px)};
+}
+h4 {
+  font-size: #{fluid(20px, 28px)};
+  line-height: #{fluid(26px, 36px)};
+}
+h5 {
+  font-size: #{fluid(16px, 22px)};
+  line-height: #{fluid(22px, 28px)};
+}
+h6 {
+  font-size: #{fluid(14px, 16px)};
+  line-height: #{fluid(20px, 24px)};
+}
+
+/* headlines margins and other unique values */
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .65rem;
@@ -72,72 +102,16 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   margin-bottom: 1rem;
   margin-bottom: rvr(1);
-  font-size: 3.25rem;
-  line-height: 3.25;
-  line-height: rvr(3.25);
-  @include phone-portrait {
-    font-size: 3rem;
-    line-height: 3;
-    line-height: rvr(3);
-  }
-}
-
-.display h1 {
-  font-size: 4.25rem;
-  line-height: 4.125;
-  line-height: rvr(4.125);
-  @include phone-portrait {
-    font-size: 3rem;
-    line-height: 3;
-    line-height: rvr(3);
-  }
 }
 
 h2 {
-  margin-bottom: 1.5rem;
-  margin-bottom: rvr(1.5);
-  font-size: 1.85rem;
-  line-height: 2;
-  line-height: rvr(2);
-  text-transform: uppercase;
+  margin-bottom: 1rem;
+  margin-bottom: rvr(1);
+  text-transform: none;
 }
 
 h3 {
-  margin-top: rvr(1.25);
-  font-family: 'Antenna Condensed Light', sans-serif;
-  font-size: 2.25rem;
-  line-height: 2.5;
-  line-height: rvr(2.5);
-  @include phone-portrait {
-    margin-top: rvr(1.5);
-    font-size: 2rem;
-    line-height: 2.125;
-    line-height: rvr(2.125);
-  }
-}
-
-h4 {
-  margin-top: rvr(1.25);
-  font-size: 1.75rem;
-  line-height: 1.75;
-  line-height: rvr(1.75);
-  @include phone-portrait {
-    font-size: 1.6rem;
-    line-height: 1.75;
-    line-height: rvr(1.75);
-  }
-}
-
-.content-columns-varied.four-column-build h4,
-.content-columns-varied.one-column-build.media-cards h4 {
-  font-size: 1.75rem;
-  line-height: 1.75;
-  line-height: rvr(1.75);
-  @include phone-portrait {
-    font-size: 1.6rem;
-    line-height: 1.7;
-    line-height: rvr(1.7);
-  }
+  font-family: 'Antenna Condensed Light', 'Arial', sans-serif;
 }
 
 .uppercase h2, .uppercase h3, .uppercase h4 {
@@ -145,42 +119,42 @@ h4 {
 }
 
 h5, details summary {
-  margin-top: rvr(1.25);
   margin-bottom: rvr(.35);
-  font-size: 1.25rem;
-  line-height: 1.45;
-  line-height: rvr(1.45);
   letter-spacing: 0rem;
   text-transform: uppercase;
-  @include phone-portrait {
-    font-size: 1.125rem;
-    line-height: 1.3;
-    line-height: rvr(1.3);
-  }
 }
 
 h5 span[style] {
-  font-family: 'Antenna Condensed Light', sans-serif !important;
+  font-family: 'Antenna Condensed Light', 'Arial', sans-serif !important;
 }
 
 h6 {
   margin-bottom: .5rem;
   margin-bottom: rvr(.75);
-  font-family: 'Antenna Condensed Light', sans-serif;
-  font-size: .95rem;
-  line-height: 1.25;
-  line-height: rvr(1.25);
+  font-family: 'Antenna Condensed Light', 'Arial', sans-serif;
   letter-spacing: 0rem;
   text-transform: uppercase;
-  @include phone-portrait {
-    font-size: 1rem;
-    line-height: 1;
-    line-height: rvr(1);
-  }
 }
 
 h6.category-bold {
-  font-family: 'Antenna Condensed Bold', sans-serif;
+  font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
+}
+
+/* section label */
+
+#panel-text h2.section-label {
+  margin: 0 auto;
+  padding: 1rem 0;
+  width: 65%;
+  font-size: clamp(1.25rem, 1.125rem + 0.6667vw, 1.75rem);
+  color: $black;
+  border-top: solid .5rem $maroon;
+  background: darken($gray-extra-light,10%);
+}
+@media (orientation: portrait) {
+  #panel-text h2.section-label {
+    width: 100%;
+  }
 }
 
 /* paragraphs */
@@ -204,23 +178,13 @@ p strong, .standard-paragraph p strong, li strong, li a strong, ol strong, ol a 
 #panel-intro .intro-paragraph > p strong, .intro-paragraph > p strong,
 #panel-intro .caption p, .caption p, .leadin, .caption .leadin,
 #panel-table-accordion p {
-  font-family: 'Open Sans', sans-serif !important;
-  font-size: 1.1rem;
+  font-family: 'Open Sans', 'Arial', sans-serif !important;
+  font-size: #{fluid(14px, 16px)};
+  line-height: #{fluid(22px, 28px)};
   font-weight: 400;
-  line-height: 1.65;
-  line-height: rvr(1.65);
   letter-spacing: -.045rem;
   word-spacing: .125rem;
   color: $black;
-  @include phone-portrait {
-    font-size: 1.125rem;
-    line-height: 1.65;
-    line-height: rvr(1.65);
-  }
-}
-a.cta {
-  line-height: 1.65;
-  line-height: rvr(1.65);
 }
 
 p a, a.cta, li a, p a strong, li a strong, a.cta, strong a.cta {
@@ -231,11 +195,27 @@ p a, a.cta, li a, p a strong, li a strong, a.cta, strong a.cta {
   }
 }
 
+/* paragraphs */
+.bg-maroon p strong, .bg-maroon .standard-paragraph p strong,
+/* list items */
+.bg-maroon li, .bg-maroon ol,
+#main-content-wrapper .bg-maroon ol li,
+#main-content-wrapper .bg-maroon ul li,
+#main-content-wrapper-full-width .bg-maroon ol li,
+#main-content-wrapper-full-width .bg-maroon ul li,
+.bg-maroon li strong, .bg-maroon ol strong,
+#main-content-wrapper .bg-maroon ol li strong,
+#main-content-wrapper .bg-maroon ul li strong,
+#main-content-wrapper-full-width .bg-maroon ol li strong,
+#main-content-wrapper-full-width .bg-maroon ul li strong,
+/* cards */
+.bg-maroon .flex-item.content p, .bg-maroon .flex-item.content p.explainer,
+/* panels */
 #panel-intro.bg-maroon .intro-paragraph > h1,
 #panel-intro.bg-maroon .intro-paragraph > p,
 #panel-intro.bg-maroon .intro-paragraph > p strong,
 #panel-intro.bg-maroon .caption p,
-#panel-table-accordion.bg-maroon p {
+#panel-table-accordion.bg-maroon p{
   color: $white;
   a, a.cta, li a, li em a, li a em {
     color: $gold;
@@ -243,6 +223,10 @@ p a, a.cta, li a, p a strong, li a strong, a.cta, strong a.cta {
       color: $opus;
     }
   }
+}
+/* bg-maroon - global */
+.bg-maroon a {
+  color: lighten($gold, 10%);
 }
 
 /* cards */
@@ -263,7 +247,7 @@ li strong, li a strong, ol strong, ol a strong,
 #panel-intro .intro-paragraph > p strong,
 .intro-paragraph > p strong, #panel-intro.bg-maroon {
   font-size: inherit;
-  font-family: 'open-sans', sans-serif;
+  font-family: 'open-sans', 'Arial', sans-serif;
   font-weight: 700;
   &:hover, &:visited {
     font-weight: 700;
@@ -290,40 +274,30 @@ li em, li em a, li a em, {
 .modaal-content-container .intro-paragraph > p {
   margin: 0;
   margin-bottom: rvr(1.5);
-  font-size: 1.3rem;
-  line-height: 1.85;
-  line-height: rvr(1.85);
-  @include phone-portrait {
-    font-size: 1.25rem;
-    line-height: 1.65;
-    line-height: rvr(1.65);
-  }
+  font-size: #{fluid(16px, 20px)};
+  line-height: #{fluid(26px, 34px)};
 }
 
 #panel-intro .caption p {
-  line-height: 1.35;
-  line-height: rvr(1.35);
+  line-height: #{fluid(22px, 28px)};
   a { cursor: pointer;
   }
 }
 
 .caption p {
-  line-height: 1.35;
-  line-height: rvr(1.35);
+  margin: .75rem 0;
+  font-size: #{fluid(14px, 16px)};
+  line-height: #{fluid(22px, 28px)};
+  font-style: italic;
   a { cursor: pointer;
   }
-}
-
-.line-height-tight p {
-  line-height: 1.45;
-  line-height: rvr(1.45);
 }
 
 #panel-table-accordion p {
   @include phone-portrait {
     margin-bottom: 1.25rem;
     margin-bottom: rvr(1.25);
-    font-size: 1.125rem;
+    font-size: #{fluid(14px, 16px)};
   }
 }
 
@@ -332,8 +306,7 @@ li em, li em a, li a em, {
 .leadin, .caption .leadin {
   font-weight: 700;
   letter-spacing: -.05rem;
-  line-height: 1;
-  line-height: rvr(1);
+  line-height: #{fluid(22px, 28px)};
   text-transform: uppercase;
 }
 
@@ -362,7 +335,7 @@ table tr a {
 }
 
 p a {
-  text-decoration: none;
+  text-decoration: underline;
   font-size: inherit;
   font-weight: 700;
 }
@@ -371,8 +344,9 @@ a.cta {
   display: block;
   margin: .25rem auto 1.5rem;
   width: 100%;
-  font-family: 'Antenna Condensed Bold', sans-serif;
-  font-size: 1.05rem;
+  font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
+  font-size: #{fluid(14px, 16px)};
+  line-height: inherit;
   font-weight: 800;
   text-transform: uppercase;
   background-size: 0 0;
@@ -380,14 +354,10 @@ a.cta {
     background: none !important;
     color: $brick;
   }
-  @include phone-portrait {
-    line-height: 1.125;
-    line-height: rvr(1.125);
-  }
 }
 
 #main-section-wrapper a.cta {
-  font-family: 'Antenna Condensed Bold', sans-serif;
+  font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
   margin-bottom: 1.5rem;
   margin-bottom: rvr(1.5);
   background-image: none !important;
@@ -403,88 +373,88 @@ footnote, .footnote p {
   margin: 1rem 0 0 0;
   padding: .75rem 0 0 0;
   width: 100%;
+  font-size: #{fluid(13px, 15px)};
+  line-height: #{fluid(18px, 20px)};
   font-style: italic;
-  font-size: .875rem;
-  line-height: 1.25;
-  line-height: rvr(1.25) !important;
   border-top: solid 1px $gray;
 }
 
 .footnote p strong {
-  line-height: calc(var(--baseline) * 1.25 * 1rem) !important;
+  line-height: #{fluid(18px, 20px)};
 }
 
 /* typographic specific */
 
-#home h1 {
-  font-size: 4.5rem;
-  line-height: 4.5;
-  line-height: rvr(4.5);
-}
-
 .panel-label {
   margin-bottom: 2rem;
   margin-bottom: rvr(2);
+  @include phone-portrait {
+    margin-bottom: 1.5rem;
+    margin-bottom: rvr(1.5);
+  }
 }
 
 #main-content-wrapper ol,
 #main-content-wrapper ul,
 #main-content-wrapper-full-width ol,
-#main-content-wrapper-full-width ul {
+#main-content-wrapper-full-width ul,
+.modaal-content ul,
+.modaal-content ol {
   margin: 0 0 1rem 1.5rem;
-  line-height: 1.45;
-  line-height: rvr(1.45);
+  line-height: #{fluid(22px, 24px)};
   list-style-position: inside;
 }
 
 #main-content-wrapper ol li,
 #main-content-wrapper ul li,
 #main-content-wrapper-full-width ol li,
-#main-content-wrapper-full-width ul li {
+#main-content-wrapper-full-width ul li,
+.modaal-content ul li {
   margin: 0 0 .65rem;
 }
 
 #main-content-wrapper ol li,
-#main-content-wrapper-full-width ol li {
-  text-indent: -1.5rem;
+#main-content-wrapper-full-width ol li
+.modaal-content ol li {
+  text-indent: -1.25rem;
+  @include phone-portrait {
+    text-indent: -1rem;
+  }
+  &::marker {
+    font-weight: 700;
+  }
+}
+
+#main-content-wrapper ol li ol li,
+#main-content-wrapper-full-width ol li ol li,
+.modaal-content ol li ol li {
+  &::marker {
+    font-weight: 400;
+  }
 }
 
 #main-content-wrapper ul li,
-#main-content-wrapper-full-width ul li {
-  text-indent: -1.5rem;
+#main-content-wrapper-full-width ul li,
+.modaal-content ul li {
+  text-indent: -1.25rem;
 }
 
 #main-content-wrapper ol li ul,
 #main-content-wrapper ul li ul,
 #main-content-wrapper-full-width ol li ul,
-#main-content-wrapper-full-width ul li ul {
-  margin-top: .5rem;
+#main-content-wrapper-full-width ul li ul,
+#main-content-wrapper ol li ol,
+#main-content-wrapper ul li ol,
+#main-content-wrapper-full-width ol li ol,
+#main-content-wrapper-full-width ul li ol
+.modaal-content ul li ul,
+.modaal-content ol li ul {
+  margin: .75rem 0 .75rem 1.5rem;
+  margin-top: .75rem !important;
 }
 
 #main-content-wrapper #content-pagination-breadcrumbs ul {
   margin: 0;
-}
-
-ol li {
-  counter-increment: circle-numbers;
-}
-
-/* ol circle numbers */
-
-ol {
-  list-style: none;
-  counter-reset: circle-numbers;
-}
-
-ol li {
-  counter-increment: circle-numbers;
-}
-
-ol li::before {
-  content: counter(circle-numbers) '.';
-  margin: 0 .5em 0 0;
-  font-weight: bold;
-  font-weight: 700;
 }
 
 #main-section-wrapper #panel-intro img,
@@ -502,27 +472,58 @@ img, .grid-item img {
   width: 100%;
 }
 
+img.image-xsm, .grid-item img.image-xsm,
+#main-section-wrapper .container .grid-wrapper-min-max img.image-xsm {
+  width: 25%;
+  height: auto;
+  @include phone-portrait {
+    width: 50%;
+  }
+}
+img.image-sm, .grid-item img.image-sm,
+#main-section-wrapper .container .grid-wrapper-min-max img.image-sm {
+  width: 50%;
+  height: auto;
+  @include phone-portrait {
+    width: 100%;
+  }
+}
+img.image-md, .grid-item img.image-md,
+#main-section-wrapper .container .grid-wrapper-min-max img.image-md {
+  width: 75%;
+  height: auto;
+  @include phone-portrait {
+    width: 100%;
+  }
+}
+
 /* unique typographic patterns */
 
 #main-content-wrapper .circle-number ol,
-#main-section-wrapper .circle-number ol {
+#main-section-wrapper .circle-number ol,
+#main-content-wrapper .grid-area-content .circle-number ol,
+#main-section-wrapper .grid-area-content .circle-number ol {
   list-style: none;
   counter-reset: circle-numbers;
   margin: 0 0 1rem 0;
 }
 
 #main-content-wrapper .circle-number ol li,
-#main-section-wrapper .circle-number ol li {
+#main-section-wrapper .circle-number ol li,
+#main-content-wrapper .grid-area-content .circle-number ol li,
+#main-section-wrapper .grid-area-content .circle-number ol li {
   counter-increment: circle-numbers;
   margin: 0 0 1.25rem 2.25rem;
-  font-size: 1.1rem;
   text-indent: 0;
-  line-height: 1.35;
-  line-height: rvr(1.35);
+  font-size: #{fluid(14px, 16px)};
+  line-height: #{fluid(28px, 28px)};
+  
 }
 
 #main-content-wrapper .circle-number ol li::before,
-#main-section-wrapper .circle-number ol li::before {
+#main-section-wrapper .circle-number ol li::before,
+#main-content-wrapper .grid-area-content .circle-number ol li::before,
+#main-section-wrapper .grid-area-content .circle-number ol li::before {
   content: counter(circle-numbers);
   display: inline-block;
   float: left;
@@ -530,18 +531,26 @@ img, .grid-item img {
   padding: 0;
   width: 24px;
   height: 24px;
-  font-family: 'Antenna Condensed Bold', sans-serif;
-  font-size: .85rem;
-  line-height: 1.25;
-  line-height: rvr(1.25);
+  font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
+  line-height: #{fluid(22px, 26px)};
   text-align: center;
   color: $white;
   background-color: $black;
   border-radius: 50%;
 }
 
+#main-content-wrapper .circle-number.circle-number-gold ol li::before,
+#main-section-wrapper .circle-number.circle-number-gold ol li::before,
+#main-content-wrapper .grid-area-content .circle-number.circle-number-gold ol li::before,
+#main-section-wrapper .grid-area-content .circle-number.circle-number-gold ol li::before {
+  color: $black;
+  background-color: $gold;
+}
+
 #main-content-wrapper .circle-number.circle-number-patina ol li::before,
-#main-section-wrapper .circle-number.circle-number-patina ol li::before {
+#main-section-wrapper .circle-number.circle-number-patina ol li::before,
+#main-content-wrapper .grid-area-content .circle-number.circle-number-patina ol li::before,
+#main-section-wrapper .grid-area-content .circle-number.circle-number-patina ol li::before {
   background-color: $patina;
 }
 
@@ -551,10 +560,9 @@ img, .grid-item img {
   padding: 0;
   width: 24px;
   height: 24px;
-  font-family: 'Antenna Condensed Bold', sans-serif;
-  font-size: .85rem;
-  line-height: 1.25;
-  line-height: rvr(1.25);
+  font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
+  font-size: #{fluid(14px, 16px)};
+  line-height: #{fluid(16px, 18px)};
   text-align: center;
   color: $white;
   background-color: #000;
@@ -570,7 +578,7 @@ img, .grid-item img {
 /* details - summary */
 
 details summary {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Arial', sans-serif;
   font-weight: 700;
   color: $maroon;
   text-decoration: underline;
@@ -594,11 +602,10 @@ blockquote, blockquote p {
   margin: 2em auto;
   padding: 2em 0;
   width: 80%;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.85rem;
+  font-family: 'Open Sans', 'Arial', sans-serif;
   font-weight: 700 !important;
-  line-height: 2.85;
-  line-height: rvr(2.85);
+  font-size: #{fluid(18px, 24px)};
+  line-height: #{fluid(36px, 40px)};
   letter-spacing: -0.075rem;
   text-align: center;
   border-top: solid 1px $gray;
@@ -606,9 +613,7 @@ blockquote, blockquote p {
   @include phone-portrait {
     margin: 1em auto;
     padding: 0;
-    font-size: 1.45rem;
-    line-height: 2.25;
-    line-height: rvr(2.25);
+    width: 90%;
     border: 0;
   }
 }
@@ -624,6 +629,9 @@ div.uppercase > blockquote,
 div.uppercase > blockquote p {
   width: 80%;
   text-transform: uppercase;
+  @include phone-portrait {
+    width: 90%;
+  }
 }
 
 blockquote cite,
@@ -632,11 +640,10 @@ blockquote p cite {
   margin: 1em auto;
   padding: 0;
   width: 100%;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1rem;
+  font-family: 'Open Sans', 'Arial', sans-serif;
   font-weight: 400;
-  line-height: 1.35;
-  line-height: rvr(1.35);
+  font-size: #{fluid(12px, 16px)};
+  line-height: #{fluid(16px, 20px)};
   letter-spacing: -.0125em;
   text-align: center;
   text-transform: uppercase;
@@ -647,25 +654,40 @@ blockquote p cite:before {
   content: "— ";
 }
 
-#panel-intro .grid-area-three blockquote {
+#panel-intro .grid-area-three blockquote,
+#panel-intro .intro-grid-area-aside-content blockquote {
   margin: 0;
   padding: 0;
-  font-size: 1.235rem;
-  line-height: 1.85;
-  line-height: rvr(1.85);
+  font-size: #{fluid(16px, 18px)};
+  line-height: #{fluid(22px, 26px)};
   text-align: left;
   border: 0;
-  @include phone-portrait {
-    font-size: 1.75rem;
-    line-height: 2.125;
-    line-height: rvr(2.125);
-  }
   cite {
-    font-size: .975rem;
+    font-size: #{fluid(10px, 12px)};
+    line-height: #{fluid(12px, 14px)};
     text-align: left;
-    @include phone-portrait {
-      font-size: 1rem;
-    }
+  }
+}
+
+#panel-intro .intro-grid-area-aside-content .number-lg h1 {
+  font-size: #{fluid(56px, 64px)};
+  line-height: #{fluid(48px, 48px)};
+}
+#panel-intro .intro-grid-area-aside-content .number-md h2 {
+  font-size: #{fluid(42px, 48px)};
+  line-height: #{fluid(32px, 32px)};
+}
+#panel-intro .intro-grid-area-aside-content .number-sm h3 {
+  font-size: #{fluid(28px, 32px)};
+  line-height: #{fluid(32px, 32px)};
+}
+#panel-intro .intro-grid-area-aside-content .number-lg,
+#panel-intro .intro-grid-area-aside-content .number-md,
+#panel-intro .intro-grid-area-aside-content .number-sm,
+#panel-intro .intro-grid-area-aside-content {
+  h6 {
+    font-size: #{fluid(11px, 13px)};
+    line-height: #{fluid(12px, 14px)};
   }
 }
 
@@ -676,74 +698,57 @@ blockquote p cite:before {
 .number-md h2,
 .number-sm h3 {
   margin: 0 0 .125em 0;
-  font-family: 'Antenna Condensed Bold', sans-serif !important;
+  font-family: 'Antenna Condensed Bold', 'Arial', sans-serif !important;
   letter-spacing: -.0125em;
   text-transform: uppercase;
 }
 
 .number-lg h1 {
-  font-size: 4.5rem;
-  @include phone-portrait {
-    font-size: 3.5rem !important;
-  }
+  font-size: #{fluid(56px, 64px)};
+  line-height: #{fluid(48px, 48px)};
 }
 
 .number-md h2 {
-  font-size: 3.5rem;
+  font-size: #{fluid(42px, 48px)};
+  line-height: #{fluid(32px, 32px)};
 }
 
 .number-sm h3 {
-  font-size: 2.5rem;
-  @include phone-portrait {
-    font-size: 3.5rem !important;
-  }
+  font-size: #{fluid(28px, 32px)};
+  line-height: #{fluid(32px, 32px)};
 }
 
 .number-display h1 {
-  font-size: 6.25rem;
-  line-height: 1 !important;
+  font-size: #{fluid(80px, 90px)};
+  line-height: #{fluid(50px, 70px)};
   letter-spacing: -.025em;
-  @include phone-portrait {
-    font-size: 3.5rem;
-  }
 }
 
 /* cards */
 
-.flex-item.content h1 {
-  margin-bottom: rvr(.5);
-  line-height: 1.125;
-}
-
-.flex-item.content h2 {
-  line-height: 1.125;
-}
-
-.flex-item.content h4 {
+.flex-item.content h4,
+.flex-item.content.uppercase h4 {
   margin-top: rvr(.5);
   margin-bottom: rvr(.5);
-  font-size: 1.75rem;
-}
-
-.flex-item.content.uppercase h4 {
-  font-size: 2.5rem;
-  @include tablet-landscape {
-    font-size: 1.75rem;
-    line-height: 1.85;
-    line-height: rvr(1.85) !important;
-  }
+  font-size: #{fluid(20px, 28px)};
+  line-height: #{fluid(26px, 36px)};
 }
 
 .flex-item.content h5 {
   margin-top: rvr(.5);
   margin-bottom: rvr(.5);
-  font-size: 1.125rem;
+  font-size: #{fluid(14px, 16px)};
+  line-height: #{fluid(22px, 22px)};
+  @include phone-portrait {
+    font-size: #{fluid(14px, 14px)} !important;
+    line-height: #{fluid(20px, 20px)};
+  }
 }
 
 .flex-item.content p, .flex-item.content p.explainer {
   margin-top: rvr(0) !important;
   margin-bottom: rvr(.25) !important;
-  line-height: 1.45;
+  line-height: #{fluid(22px, 26px)};
 }
 
 .flex-item.content p.explainer {
@@ -753,35 +758,34 @@ blockquote p cite:before {
 .flex-item.content ul li {
   margin: 0 .125rem;
   .flex-item.content ul li strong {
-    line-height: 1.125;
+    line-height: #{fluid(22px, 26px)};
   }
 }
 
 .card a.cta,
 .flex-item.content a.cta {
-  font-family: 'Antenna Condensed Bold', sans-serif;
-  font-size: 1.05rem;
   margin-top: rvr(.75) !important;
   margin-bottom: rvr(1.125);
+  font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
+  font-size: #{fluid(14px, 16px)};
+  line-height: #{fluid(16px, 18px)};
 }
 
 /* infobox */
 
 .infobox {
   padding: 3.5rem;
-  background-color: lighten($gray-light,15%);
+  background-color: $gray-extra-light;
   @include phone-portrait {
     padding:2.5rem;
+  }
+  h4 {
+    margin-bottom: calc(var(--baseline)* 1.125* 1rem);
   }
 }
 
 .infobox h4:first-of-type {
   margin-top: 0;
-}
-
-.infobox p:last-of-type {
-  margin-bottom: 0;
-  margin-bottom: rvr(0);
 }
 
 .infobox p:first-of-type {
@@ -803,8 +807,8 @@ p span.highlight.bg-danger { color: $white; background: $maroon; }
   p span.highlight.bg-warning,
   p span.highlight.bg-danger {
     color: $maroon;
-    font-family: 'Open Sans', sans-serif;
-    background-image: linear-gradient(120deg, $gray-light 0%, $gray-light 100%);
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    background-image: linear-gradient(120deg, $gray-extra-light 0%, $gray-extra-light 100%);
     background-repeat: no-repeat;
     background-size: 106% 0.1rem;
     background-position: -3% 103%;
@@ -830,10 +834,26 @@ p span.highlight.bg-danger { color: $white; background: $maroon; }
     background-position: -3% 103%;
     transition: all 0.25s ease-in;
     &:hover {
-      color: $white !important;
+      color: lighten($gold, 20%) !important;
       background-size: 100% 106%;
     }
+    &:visited {
+      color: $gold;
+    }
   }
+}
+
+#main-section-wrapper {
+  .bg-maroon h4 a {
+    color: $gray-extra-light;
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+#panel-modaal h4 {
+  margin-top: 0;
 }
 
 /* MS - IE11 */
@@ -898,9 +918,8 @@ blockquote cite { line-height: 1.35; }
 #main-aside-wrapper blockquote {
   margin: 0 auto;
   padding: 0 auto;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  line-height: calc(var(--baseline) * 1.5 * 1rem);
+  font-size: #{fluid(16px, 20px)};
+  line-height: #{fluid(20px, 24px)};
   letter-spacing: -0.05rem;
   border: none !important;
 }
@@ -913,9 +932,9 @@ blockquote cite { line-height: 1.35; }
 #main-aside-wrapper .grid-wrapper-min-max.number-lg h5,
 #main-aside-wrapper h6,
 #main-aside-wrapper a.cta,
-#main-aside-wrapper .card a.cta,
-.flex-item.content a.cta {
-  font-size: 0.825rem !important;
+#main-aside-wrapper .card a.cta {
+  font-size: #{fluid(14px, 16px)};
+  line-height: #{fluid(16px, 18px)};
 }
 
 #main-aside-wrapper a.cta,
@@ -926,7 +945,6 @@ blockquote cite { line-height: 1.35; }
   background-image: none;
 }
 
-
 #main-aside-wrapper {
   p a, a.cta, p.open-sans, p em, p,
   .explainer p .standard-paragraph p, .sans-serif, .sans-serif p,
@@ -935,11 +953,27 @@ blockquote cite { line-height: 1.35; }
   li strong, li a strong, ol strong, ol a strong,
   .flex-item.content p, .flex-item.content p.explainer,
   .caption p, .leadin, .caption .leadin {
-    font-size: .95rem;
-    line-height: 1.125;
-    line-height: calc(var(--baseline) * 1.125 * 1rem);
+    font-size: #{fluid(14px, 16px)};
+    line-height: #{fluid(16px, 18px)};
   }
 }
 
+/* specicic application */
+
+#faculty-box {
+  .center {
+    margin-bottom: calc(var(--baseline) * 1 * 1rem) !important;
+    img {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+  .info {
+  margin-bottom: calc(var(--baseline) * 1.25 * 1rem) !important;
+    p {
+      margin-bottom: calc(var(--baseline) * .125 * 1rem) !important;
+    }
+  }
+}
 
 /* END - TYPOGRAPHY - CSS */

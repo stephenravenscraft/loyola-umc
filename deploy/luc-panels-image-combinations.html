@@ -55,10 +55,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<!-- inject:css -->
-	<link rel="stylesheet" href="css/antenna-terminal-four.css">
+	<link rel="stylesheet" href="css/antenna-template.css">
 	<link rel="stylesheet" href="css/styles-documentation.css">
 	<link rel="stylesheet" href="css/styles-framework.css">
 	<link rel="stylesheet" href="css/styles-grid.css">
+	<link rel="stylesheet" href="css/styles-panels-dev.css">
 	<link rel="stylesheet" href="css/styles-panels.css">
 	<link rel="stylesheet" href="css/styles-typography.css">
 	<link rel="stylesheet" href="css/css-alert/styles-alert.css">
@@ -95,161 +96,45 @@
   <nav class="multi-level-sliding-navigation" id="nav" aria-labelledby="multi-level-sliding-navigation-heading">
     <div class="multi-level-sliding-navigation-body">
       <div class="multi-level-sliding-navigation-main">
-        <ul class="multi-level-sliding-navigation-menu" id="menu-0">
-        <h5>Main Menu</h5>
-          <!-- menu 01-01 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#menu-1" class="multi-level-sliding-navigation-link" aria-controls="menu-1">
-              <span id="menu-1-heading">Sub Menu 01</span>
-              <svg class="multi-level-sliding-navigation-icon" width="16" height="16" viewBox="0 0 16 16" aria-role="presentation">
-                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-              </svg>
-            </a>
+
+        <ul class="t4-mobile-navigation multi-level-sliding-navigation-menu" data-level="Main Menu"
+        aria-hidden="false">
+          <li class="heading"><span>Main Menu</span></li>
+          <li><a href="#">About</a>
+            <ul class="multilevel-linkul-0">
+              <li><a href="#">Loyola at Glance</a>
+                <ul class="multilevel-linkul-1">
+                  <li><a href="#">Accreditation</a>
+                  <li><a href="#">Board if Trustees</a>
+                </ul>
+              </li>
+              <li><a href="#">Office of the President</a></li>
+            </ul>
           </li>
-          <!-- menu 01-02 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#menu-2" class="multi-level-sliding-navigation-link" aria-controls="menu-2">
-              <span id="menu-2-heading">Sub Menu 02</span>
-              <svg class="multi-level-sliding-navigation-icon" width="16" height="16" viewBox="0 0 16 16" aria-role="presentation">
-                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-              </svg>
-            </a>
+          <li><a href="#">Admissions</a></li>
+          <li><a href="#">Academics</a>
+            <ul class="multilevel-linkul-0">
+              <li><a href="#">Professional Certificates</a></li>
+              <li><a href="#">Undergraduate Degrees</a>
+                <ul class="multilevel-linkul-1">
+                  <li><a href="#">Applied Psychology</a></li>
+                    <li><a href="#">Applied Studies</a></li>
+                    <li><a href="#">Information Technology</a></li>
+                    <li><a href="#">Paralegal Studies</a>
+                    <ul class="multilevel-linkul-2">
+                      <li><a href="#">Curriculum</a></li>
+                      <li><a href="#">Program Learning Outcomes</a></li>
+                      <li><a href="#">Faculty</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Web Technologies</a></li>
+                </ul>
+              </li>
+            </ul>
           </li>
-          <!-- menu 01-03 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 03</a>
-          </li>
+          <li><a href="#">Student Experience</a></li>
         </ul>
-        <!-- sub menu 01 -->
-        <ul class="multi-level-sliding-navigation-menu" id="menu-1" aria-labelledby="menu-1-heading">
-        <h5 style="margin: .5rem 0;">Sub Menu 01</h5>
-          <li class="multi-level-sliding-navigation-item">
-            <!-- back 01 - main -->
-            <a href="#menu-0" class="multi-level-sliding-navigation-link" aria-controls="menu-1">
-              <svg class="multi-level-sliding-navigation-icon" width="16" height="16" viewBox="0 0 16 16" aria-role="presentation">
-                <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-              </svg>
-              <span class="menu-return">Back MAIN</span>
-              <span class="Hidden menu-return">to main menu</span>
-            </a>
-          </li>
-          <!-- sub menu 01-01 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#menu-3" class="multi-level-sliding-navigation-link" aria-controls="menu-3">
-              <span id="menu-3-heading">Menu Item 01-01 - To Sub 03</span>
-              <svg class="multi-level-sliding-navigation-icon" width="16" height="16" viewBox="0 0 16 16" aria-role="presentation">
-                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-              </svg>
-            </a>
-          </li>
-          <!-- sub menu 01-02 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 01-02</a>
-          </li>
-          <!-- sub menu 01-03 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 01-03</a>
-          </li>
-          <!-- sub menu 01-04 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 01-04</a>
-          </li>
-        </ul>
-        <!-- sub menu 02 -->
-        <ul class="multi-level-sliding-navigation-menu" id="menu-2" aria-labelledby="menu-2-heading">
-        <h5 style="margin: .5rem 0;">Sub Menu 02</h5>
-          <li class="multi-level-sliding-navigation-item">
-            <!-- back 01 - main -->
-            <a href="#menu-0" class="multi-level-sliding-navigation-link" aria-controls="menu-2">
-              <svg class="multi-level-sliding-navigation-icon" width="16" height="16" viewBox="0 0 16 16" aria-role="presentation">
-                <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-              </svg>
-              <span class="menu-return">Back MAIN</span>
-              <span class="Hidden">to main menu</span>
-            </a>
-          </li>
-          <!-- sub menu 02-01 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 02-01</a>
-          </li>
-          <!-- sub menu 02-02 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 02-02</a>
-          </li>
-          <!-- sub menu 02-03 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 02-03</a>
-          </li>
-          <!-- sub menu 02-04 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 02-04</a>
-          </li>
-          <!-- sub menu 02-05 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 02-05</a>
-          </li>
-          <!-- sub menu 02-06 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 02-06</a>
-          </li>
-        </ul>
-        <!-- sub menu 03 -->
-        <ul class="multi-level-sliding-navigation-menu" id="menu-3" aria-labelledby="menu-3-heading">
-        <h5 style="margin: .5rem 0;">Sub Menu 03</h5>
-          <li class="multi-level-sliding-navigation-item">
-            <!-- back 02 -->
-            <a href="#menu-1" class="multi-level-sliding-navigation-link" aria-controls="menu-3">
-              <svg class="multi-level-sliding-navigation-icon" width="16" height="16" viewBox="0 0 16 16" aria-role="presentation">
-                <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-              </svg>
-              <span class="menu-return">Back Sub 01</span>
-              <span class="Hidden">to parent menu</span>
-            </a>
-          </li>
-          <!-- sub menu 03-01 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#menu-4" class="multi-level-sliding-navigation-link" aria-controls="menu-4">
-              <span id="menu-4-heading">Menu Item 03-01 - To Sub 04</span>
-              <svg class="multi-level-sliding-navigation-icon" width="16" height="16" viewBox="0 0 16 16" aria-role="presentation">
-                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-              </svg>
-            </a>
-          </li>
-          <!-- sub menu 03-02 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 03-02</a>
-          </li>
-          <!-- sub menu 03-03 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 03-03</a>
-          </li>
-        </ul>
-        <!-- nested sub menu 03 > nested sub menu 04 -->
-        <ul class="multi-level-sliding-navigation-menu" id="menu-4" aria-labelledby="menu-4-heading">
-        <h5 style="margin: .5rem 0;">Sub Menu 04</h5>
-          <li class="multi-level-sliding-navigation-item">
-            <!-- back 03 -->
-            <a href="#menu-3" class="multi-level-sliding-navigation-link" aria-controls="menu-4">
-              <svg class="multi-level-sliding-navigation-icon" width="16" height="16" viewBox="0 0 16 16" aria-role="presentation">
-                <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-              </svg>
-              <span class="menu-return">Back Sub 03</span>
-              <span class="Hidden">to menu 03</span>
-            </a>
-          </li>
-          <!-- sub menu 04-01 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 04-01</a>
-          </li>
-          <!-- sub menu 04-02 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 04-02</a>
-          </li>
-          <!-- sub menu 04-03 -->
-          <li class="multi-level-sliding-navigation-item">
-            <a href="#" class="multi-level-sliding-navigation-link">Menu Item 04-03</a>
-          </li>
-        </ul>
+
       </div>
       <!--/Nav__main-->
     </div>
@@ -263,179 +148,46 @@
 			<button>Get info</button>
 			<button>Come visit</button>
 		</div>
-		<!--
-		<a href="https://www.luc.edu/">Item 01</a>
-		<a href="https://www.luc.edu/">Item 02</a>
-		<a href="https://www.luc.edu/">Item 03</a>
-		<div class="js-accordion" data-accordion-prefix-classes="minimalist" data-accordion-cool-selectors="1">
-			<h4 class="js-accordion__header">Item 04</h4>
-			<div class="js-accordion__panel">
-				<a href="https://www.luc.edu/">Link one</a>
-				<a href="https://www.luc.edu/">Link two</a>
-				<a href="https://www.luc.edu/">Link three</a>
-			</div>
-		</div>
-		<div class="js-accordion" data-accordion-prefix-classes="minimalist" data-accordion-cool-selectors="1">
-			<h4 class="js-accordion__header">Item 05</h4>
-			<div class="js-accordion__panel">
-				<a href="https://www.luc.edu/">Link one</a>
-				<a href="https://www.luc.edu/">Link two</a>
-				<a href="https://www.luc.edu/">Link three</a>
-			</div>
-		</div>
-		-->
-		<!--
-		<div class="side-nav-text sans-serif" style="margin: 20px 0">
-			<p style="font-size: .95em; line-height: 1.5; color: #aaaaaa;">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae feugiat velit. Aliquam ut nisi sagittis, cursus leo at, auctor diam. Ut ut odio non massa consequat porta eget vel ligula. Cras vitae vulputate justo. In et orci justo.
-				Donec vel nulla eu leo ultricies rhoncus non ultrices ante. Morbi blandit cursus ex, ac gravida purus venenatis et.
-			</p>
-		</div>
-		<div id="footer-address" class="vcard">
-			<div id="footercard">
-				<span id="fnorg">
-					School of Law
-				</span>
-				<span id="adr">
-					<span id="name">
-						Philip H. Corboy Law Center
-					</span>
-					<span id="street-address">
-						25 E. Pearson Street
-					</span>
-					<span id="locality">
-						Chicago
-					</span>,
-					<span class="region">
-						Il
-					</span>,
-					<span class="postal-code">
-						60611
-					</span>
-				</span>
-				<span class="tel">
-					312.915.7120
-				</span>
-				<a class="email" href="mailto:umc@luc.edu.com">Contact Us</a>
-			</div>
-			<div class="copyright">
-				<p>&copy; Copyright &amp; Disclaimer 20XX</p>
-			</div>
-		</div>
-		-->
 	</div>
 </nav>
-
 		<!-- HEADER -->
 		<header id="luc-header">
 			<!-- header - nav -->
-<a class="skip-main" href="#main-content-start">Skip to main content</a>
-<!-- audience directory -->
-<nav id="audience-directory">
-  <div class="container-fluid">
-    <nav>
-      <ul id="audience-nav" class="disclosure-nav" role="menubar">
-        <li role="menuitem">
-          <button type="button"
-                  onclick="location.href='http://www.luc.edu.com'">
-            Prospective students
-          </button>
-        </li>
-        <li role="menuitem">
-          <button type="button"
-                  onclick="location.href='http://www.luc.edu.com'">
-            Current students
-          </button>
-        </li>
-        <li role="menuitem">
-          <button type="button"
-                  role="menuitem"
-                  onclick="location.href='http://www.luc.edu.com'">
-            Alumni
-          </button>
-        </li>
-      </ul>
-      <ul id="directory-nav" role="menubar">
-        <li role="menuitem">
-          <button type="button"
-                  onclick="location.href='http://www.luc.edu.com'">
-            A-Z
-          </button>
-        </li>
-        <li role="menuitem">
-          <button type="button"
-                  onclick="location.href='http://www.luc.edu.com'">
-            Contact
-          </button>
-        </li>
-        <li role="menuitem">
-          <button type="button"
-                  onclick="location.href='http://www.luc.edu.com'">
-            Directory
-          </button>
-        </li>
-        <li role="menuitem">
-          <button type="button"
-                  onclick="location.href='http://www.luc.edu.com'">
-            Locus
-          </button>
-        </li>
-        <li role="menuitem">
-          <button type="button"
-                  onclick="location.href='http://www.luc.edu.com'">
-            Support LUC
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</nav>
-<script type="text/javascript">
-  var menubar = new Menubar(document.getElementById('audience-nav'));
-  menubar.init();
-</script>
-<script type="text/javascript">
-  var menubar = new Menubar(document.getElementById('directory-nav'));
-  menubar.init();
-</script>
-
-<!-- brand -->
-<div id="site-brand-wrapper" class="container-fluid">
-  <span id="loyola-university-chicago">
-    <a href="https://www.luc.edu/">
-      Loyola University Chicago
-    </a>
-  </span>
-  <span id="site-name">
-    <a href="https://www.luc.edu/">
-      Loyola University Chicago
-      <!-- School of Continuing and Professional Studies -->
-    </a>
-  </span>
-  <span id="brand">
-    <a href="https://www.luc.edu/">
-      <img src="images/LUC_stacked_reverse.svg" alt="Loyola University Chicago logo in header of site">
-    </a>
-  </span>
-  <nav id="main-mobile">
-    <button id="menu-button-mobile" aria-controls="side-nav" aria-haspopup="true" tabindex="0" type="button" role="menuitem">
-      <span class="menu-bar menu-bar-one"></span>
-      <span class="menu-bar menu-bar-two"></span>
-      <span class="menu-bar menu-bar-three"></span>
-      <span class="menu-bar menu-bar-four"></span>
-      <span class="menu-text">Menu</span>
-    </button>
+<div id="header-white">
+  <a class="skip-main" href="#main-content-start">Skip to main content</a>
+  
+  <!-- brand -->
+  <div id="site-brand-wrapper" class="container-fluid">
     <span id="brand">
       <a href="https://www.luc.edu/">
-        <img src="images/luc-logo-reverse.svg" alt="Loyola University Chicago logo in footer of site">
+        <img src="images/loy-3color-main.svg" alt="Loyola University Chicago logo">
       </a>
     </span>
-  </nav>
+    <span id="loyola-university-chicago">
+      <a href="https://www.luc.edu/">
+        Loyola University Chicago
+      </a>
+    </span>
+    <span id="site-name">
+      <span class="subsite-label">Department of Fine and Performing Arts</span>
+      <a href="https://www.luc.edu/">
+        Sitename Goeshere
+      </a>
+    </span>
+    <nav id="main-mobile" aria-label="Menu" role="menu">
+      <button id="menu-button-mobile" aria-label="Menu Item" aria-controls="side-nav" aria-haspopup="true" tabindex="0" type="button" role="menuitem">
+        <span class="menu-bar menu-bar-one"></span>
+        <span class="menu-bar menu-bar-two"></span>
+        <span class="menu-bar menu-bar-three"></span>
+        <span class="menu-bar menu-bar-four"></span>
+        <span class="menu-text">Menu</span>
+      </button>
+    </nav>
+  </div>
 </div>
-
 		</header>
 		<!-- nav-accessible -->
-<nav id="main">
+<nav id="main" aria-labelledby="site-nav">
   <!-- site menu -->
   <ul id="site-nav" class="disclosure-nav" role="menubar">
     <li>
@@ -540,7 +292,7 @@
     <li id="information" role="none">
       <button id="information-button"
               type="button"
-              aria-expanded="true"
+              aria-expanded="false"
               aria-controls="information-nav">
           i
       </button>
@@ -595,7 +347,7 @@
 					</div>
 					<!-- image-lead -->
 <section id="panel-image" class="container-fluid hero-image-lead">
-	<img src="http://via.placeholder.com/1800x735"/>
+	<img src="./images/images-image-lead-random/1800x800_1.jpg"/>
 	<div class="grid-wrapper-min-max">
 		<div class="grid-item">
 			<div class="hero-image-content">
@@ -613,7 +365,7 @@
 
 <!-- image-lead - full-overlay -->
 <section id="panel-image" class="container-fluid hero-image-lead full-overlay">
-	<img src="http://via.placeholder.com/1800x1000"/>
+	<img src="./images/images-image-lead-random/1800x800_1.jpg"/>
 	<div class="grid-wrapper-min-max">
 		<div class="grid-item">
 			<div class="hero-image-content">
@@ -638,7 +390,7 @@
 					</div>
 					<!-- image-caption -->
 <section id="panel-image" class="container-fluid hero-image-caption">
-	<img src="http://via.placeholder.com/1800x435"/>
+	<img src="/images/images-image-hero-random/1800x450_1.jpg"/>
 	<div class="grid-wrapper-min-max">
 		<div class="grid-item">
 			<div class="hero-image-content sans-serif">
@@ -656,7 +408,7 @@
 					</div>
 					<!-- image-caption -->
 <section id="panel-image" class="container-fluid hero-image">
-	<img src="http://via.placeholder.com/1800x435"/>
+	<img src="/images/images-image-hero-random/1800x450_1.jpg"/>
 	<div class="grid-wrapper-min-max">
 		<div class="grid-item">
 			<div class="hero-image-content sans-serif">
@@ -677,7 +429,7 @@
 	<div class="grid-wrapper-grid-area">
 		<div class="grid-area grid-area-image">
 			<div class="content-image-text-image">
-				<img src="http://via.placeholder.com/1000x1000"/>
+				<img src="./images/images-image-grid-highlights/highlight-plant-detail-2000x2000.jpg"/>
 			</div>
 		</div>
 		<div class="grid-area grid-area-content">
@@ -696,7 +448,7 @@
 	<div class="grid-wrapper-grid-area toggle-grid-area">
 		<div class="grid-area grid-area-image">
 			<div class="content-image-text-image">
-				<img src="http://via.placeholder.com/1000x1000"/>
+				<img src="./images/images-image-grid-highlights/highlight-plant-detail-2000x2000.jpg"/>
 			</div>
 		</div>
 		<div class="grid-area grid-area-content">
@@ -709,80 +461,561 @@
 	</div>
 </section>
 
-					<!-- image highlights panel -->
-					<div id="panel-top" class="container-fluid">
-						<div class="container"><h5>Image Highlights</h5></div>
-					</div>
-					<!-- image-hightlights -->
-<section id="panel-image-highlights" class="container-fluid">
-	<div class="grid-wrapper-min-max three-column">
-		<!-- image-01 -->
-		<div class="grid-item">
-			<div class="image-highlight-wrapper">
-				<h2>Keyword-01</h2>
-				<img src="http://via.placeholder.com/1000x1000" />
-				<button class="content-activate-symbol"></button>
-				<div class="content-image-overlay">
-					<h4>Headline lorem ipsum hereum sit amet lorem herum</h4>
-					<!-- <p>Lorem ipsum dolor sit amet.</p> -->
-					<a class="cta" href="#">Link here</a>
-					<button class="content-activate-symbol" class="content-activate-symbol"></button>
-				</div>
-			</div>
-			<div class="image-highlight-teaser-panel">
-				<h6>Readout teaser 01</h6>
-				<button class="content-activate-symbol activate-symbol-plus" href="###"></button>
+<div class="padding-md"></div>
+
+<section id="panel-image-text" class="container-fluid bg-white">
+	<div class="grid-wrapper-grid-area toggle-grid-area">
+		<div class="grid-area grid-area-image">
+			<div class="content-image-text-image show-full-image">
+				<img src="./images/images-image-grid/chicago-ramblin-around-map-2500x3660.jpg"/>
 			</div>
 		</div>
-		<!-- image-02 -->
-		<div class="grid-item">
-			<div class="image-highlight-wrapper">
-				<h2>Keyword-02</h2>
-				<img src="http://via.placeholder.com/1000x1000" />
-				<button class="content-activate-symbol"></button>
-				<div class="content-image-overlay">
-					<h4>Headline lorem ipsum hereum sit amet lorem herum</h4>
-					<!-- <p>Lorem ipsum dolor sit amet.</p> -->
-					<a class="cta" href="#">Link here</a>
-					<button class="content-activate-symbol" class="content-activate-symbol"></button>
+		<div class="grid-area grid-area-content">
+			<div class="content-image-text">
+				<h4>Get to Know our city and learn about all the things you can do in Chicago</h4>
+				<div class="circle-number circle-number-gold">
+					<ol>
+						<li><strong>Lake Shore Campus: </strong>Our primary campus which houses most of our Residence Halls and classrooms.</li>
+						<li><strong>Loyola Red Line: </strong>We&rsquo;re the only university in Chicago with a train line stop named after them!</li>
+						<li><strong>Little India/Devon: </strong>Neighborhood known for its South Asian restaurants, salons, and shops.</li>
+						<li><strong>Andersonville: </strong>Neighborhood known for its Swedish heritage and cafes.</li>
+						<li><strong>Asia on Argyle: </strong>Neighborhood known for its Vietnamese and Southeast Asian heritage.</li>
+						<li><strong>Kathy Osterman Beach: </strong>Public beach along Lake Michigan.</li>
+						<li><strong>Foster Beach: </strong>Public beach along Lake Michigan.</li>
+						<li><strong>Montrose Beach: </strong>Public beach along Lake Michigan.</li>
+						<li><strong>Wrigley Field: </strong>Historic stadium, home to the Chicago Cubs.</li>
+						<li><strong>Northalsted: </strong>Neighborhood known for its cafes, comedy clubs, and nightlife. Home to one of the largest LGBT communities in the Midwest.</li>
+						<li><strong>Lincoln Park: </strong>The city&rsquo;s largest public park that includes several museums and the Lincoln Park Zoo.</li>
+						<li><strong>Logan Square: </strong>A multi-cultural neighborhood filled with arts organizations, music venues, local shops, and more.</li>
+						<li><strong>Bucktown: </strong>Young, artsy neighborhood filled with trendy restaurants, thrift shops, and cafes.</li>
+						<li><strong>Humboldt Park: </strong>Historic neighborhood known for its Puerto Rican heritage and 207-acre park.</li>
+						<li><strong>Wicker Park: </strong>Young neighborhood filled with thrift stores, record shops, music venues, and trendy cafes and restaurants.</li>
+						<li><strong>Ukrainian Village: </strong>Neighborhood known for its trendy cafes and nightlife.</li>
+						<li><strong>West Loop: </strong>Neighborhood known for its thriving food scene. Notable landmarks include United Center, home to the Blackhawks and Bulls, and Fulton Market, a hub for trendy restaurants.</li>
+						<li><strong>Magnificent Mile: </strong>13-block commercial district featuring over 400 stores, 200 restaurants, and many iconic buildings.</li>
+						<li><strong>Chicago Red Line: </strong>The train stop that gets you closest to our downtown campus.</li>
+						<li><strong>Water Tower Campus: </strong>Our downtown campus next to Chicago&rsquo;s historic Water Tower.</li>
+						<li><strong>Navy Pier: </strong>Pier on the shoreline of Lake Michigan that hosts cruises, shows, fireworks, and cultural events.</li>
+						<li><strong>Riverwalk: </strong>Scenic walking path along the Chicago River.</li>
+						<li><strong>Millennium Park: </strong>Park featuring many iconic Chicago landmarks including the Best, Crown Fountain, and Pritzker Pavillion.</li>
+						<li><strong>Grant Park: </strong>Park featuring landmarks like Buckingham Fountain and the Art Institute of Chicago. Lollapalooza takes place here!</li>
+						<li><strong>Museum Campus: </strong>Home to the Shedd Aquarium, Field Museum, and Adler Planetarium.</li>
+						<li><strong>Pilsen: </strong>Artsy neighborhood known for music, murals, and Latino eateries.</li>
+						<li><strong>Chinatown: </strong>Historic Chinese neighborhood filled with specialty shops and restaurants.</li>
+						<li><strong>Henry C. Palmisano Nature Park: </strong>Scenic 27-acre park where you can fish, run, and enjoy city views.</li>
+						<li><strong style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Guaranteed Rate Field: </strong><span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Historic stadium, home to the Chicago White Sox.</span></li>
+						<li><strong style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Bronzeville: </strong><span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Historic neighborhood known as the city&rsquo;s &ldquo;Black Metropolis.&rdquo;</span></li>
+						<li><strong>Midway International Airport: </strong>Major commercial airport and base for Southwest Airlines.</li>
+						<li><strong>DuSable Black History Museum: </strong>Museum dedicated to the study and conservation of African-American history, culture, and art.</li>
+						<li><strong>Hyde Park:</strong> Culturally diverse neighborhood known to be the home of the University of Chicago.</li>
+						<li><strong>Promontory Point: </strong>A man-made peninsula jutting into Lake Michigan offering picnic areas and scenic views of the city.</li>
+						<li><strong>Museum of Science and Industry: </strong>A world-class science museum, the largest of its kind in the Western Hemisphere.</li>
+						<li><strong>Jackson Park: </strong>A 550-acre historic urban park with boat harbors, playing fields, a beach, and the Barack Obama Presidential Center.</li>
+						<li><strong>South Shore: </strong>Historic neighborhood with a beautiful lakefront along Lake Michigan.</li>
+						<li><strong>Rainbow Beach: </strong>Public beach along Lake Michigan.</li>
+					</ol>
 				</div>
-			</div>
-			<div class="image-highlight-teaser-panel">
-				<h6>Readout teaser 02</h6>
-				<button class="content-activate-symbol activate-symbol-plus" href="###"></button>
-			</div>
-		</div>
-		<!-- image-03 -->
-		<div class="grid-item">
-			<div class="image-highlight-wrapper">
-				<h2>Keyword-03</h2>
-				<img src="http://via.placeholder.com/1000x1000" />
-				<button class="content-activate-symbol"></button>
-				<div class="content-image-overlay">
-					<h4>Headline lorem ipsum hereum sit amet lorem herum</h4>
-					<!-- <p>Lorem ipsum dolor sit amet.</p> -->
-					<a class="cta" href="#">Link here</a>
-					<button id="content-activate-symbol-overlay" class="content-activate-symbol"></button>
-				</div>
-			</div>
-			<div class="image-highlight-teaser-panel">
-				<h6>Readout teaser 03</h6>
-				<button class="content-activate-symbol activate-symbol-plus" href="###"></button>
 			</div>
 		</div>
 	</div>
 </section>
 
-					<!-- image grid highlights -->
+					<!-- numbers overlay -->
 					<div id="panel-top" class="container-fluid">
-						<div class="container"><h5>Image Grid Highlights</h5></div>
+						<div class="container"><h5>Numbers Overlay</h5></div>
 					</div>
-					<!-- image-grid -->
+					<!-- numbers overlay -->
+<!-- default -->
+<section>
+    <div class="container-fluid">
+      <div class="container">
+        <h5>
+          Numbers - <span style="font-family: 'Antenna Light', sans-serif;">Overlay - Default</span>
+        </h5>
+      </div>
+    </div>
+  </section>
+  
+  <section id="panel-numbers" class="container-fluid bg-overlay">
+    <div class="container container-100">
+      <div class="grid-wrapper-min-max four-column number numbers-md">
+        <!-- card -->
+        <div class="grid-item">
+          <div class="image-wrapper">
+            <div class="image-wrapper-overlay">
+              <div class="image-wrapper-overlay-content">
+                <h4>The headline is lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                <a class="cta" href="#####">CTA here</a>
+              </div>
+            </div>
+            <a href="###" target="_blank" title="Title goes here">
+              <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
+            </a>
+          </div>
+          <div class="content-grid-wrapper">
+            <div class="flex-item content">
+              <h6>0/0/0000: 0:00PM-0:00PM</h6>
+              <h4>00.0%</h4>
+              <h5>Somebody Namehere</h5>
+              <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+              <a class="cta" href="#####">CTA here</a>
+            </div>
+            <div class="flex-item links">
+              <div class="button-maroon">
+                <button onclick="window.open('###')">CTA here</button>
+              </div>
+              <h6 style="text-align: center;">Lorem ipsum unum</h6>
+              <h5>Also see:</h5>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+            </div>
+          </div>
+        </div>
+        <!-- card -->
+        <div class="grid-item">
+          <div class="image-wrapper">
+            <div class="image-wrapper-overlay">
+              <div class="image-wrapper-overlay-content">
+                <h4>The headline is lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                <a class="cta" href="#####">CTA here</a>
+              </div>
+            </div>
+            <a href="###" target="_blank" title="Title goes here">
+              <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
+            </a>
+          </div>
+          <div class="content-grid-wrapper">
+            <div class="flex-item content">
+              <h6>0/0/0000: 0:00PM-0:00PM</h6>
+              <h4>00M</h4>
+              <h5>Somebody Namehere</h5>
+              <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+              <a class="cta" href="#####">CTA here</a>
+            </div>
+            <div class="flex-item links">
+              <div class="button-maroon">
+                <button onclick="window.open('###')">CTA here</button>
+              </div>
+              <h6 style="text-align: center;">Lorem ipsum unum</h6>
+              <h5>Also see:</h5>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+            </div>
+          </div>
+        </div>
+        <!-- card -->
+        <div class="grid-item">
+          <div class="image-wrapper">
+            <div class="image-wrapper-overlay">
+              <div class="image-wrapper-overlay-content">
+                <h4>The headline is lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                <a class="cta" href="#####">CTA here</a>
+              </div>
+            </div>
+            <a href="###" target="_blank" title="Title goes here">
+              <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
+            </a>
+          </div>
+          <div class="content-grid-wrapper">
+            <div class="flex-item content">
+              <h6>0/0/0000: 0:00PM-0:00PM</h6>
+              <h4>00.0%</h4>
+              <h5>Somebody Namehere</h5>
+              <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+              <a class="cta" href="#####">CTA here</a>
+            </div>
+            <div class="flex-item links">
+              <div class="button-maroon">
+                <button onclick="window.open('###')">CTA here</button>
+              </div>
+              <h6 style="text-align: center;">Lorem ipsum unum</h6>
+              <h5>Also see:</h5>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+            </div>
+          </div>
+        </div>
+        <!-- card -->
+        <div class="grid-item">
+          <div class="image-wrapper">
+            <div class="image-wrapper-overlay">
+              <div class="image-wrapper-overlay-content">
+                <h4>The headline is lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                <a class="cta" href="#####">CTA here</a>
+              </div>
+            </div>
+            <a href="###" target="_blank" title="Title goes here">
+              <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
+            </a>
+          </div>
+          <div class="content-grid-wrapper">
+            <div class="flex-item content">
+              <h6>0/0/0000: 0:00PM-0:00PM</h6>
+              <h4>0000</h4>
+              <h5>Somebody Namehere</h5>
+              <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+              <a class="cta" href="#####">CTA here</a>
+            </div>
+            <div class="flex-item links">
+              <div class="button-maroon">
+                <button onclick="window.open('###')">CTA here</button>
+              </div>
+              <h6 style="text-align: center;">Lorem ipsum unum</h6>
+              <h5>Also see:</h5>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+            </div>
+          </div>
+        </div>
+      </div> <!-- row closed -->
+    </div>
+  </section>
+  
+  <div class="padding-sm"></div>
+
+  <!-- padding-md - use to open up panel -->
+
+  <section>
+    <div class="container-fluid">
+      <div class="container">
+        <h5>
+          Numbers - <span style="font-family: 'Antenna Light', sans-serif;">Overlay - Padding Medium</span>
+        </h5>
+      </div>
+    </div>
+  </section>
+  
+  <section id="panel-numbers" class="container-fluid bg-overlay">
+    <div class="container container-100 padding-md">
+      <div class="grid-wrapper-min-max four-column number numbers-md">
+        <!-- card -->
+        <div class="grid-item">
+          <div class="image-wrapper">
+            <div class="image-wrapper-overlay">
+              <div class="image-wrapper-overlay-content">
+                <h4>The headline is lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                <a class="cta" href="#####">CTA here</a>
+              </div>
+            </div>
+            <a href="###" target="_blank" title="Title goes here">
+              <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
+            </a>
+          </div>
+          <div class="content-grid-wrapper">
+            <div class="flex-item content">
+              <h6>0/0/0000: 0:00PM-0:00PM</h6>
+              <h4>00.0%</h4>
+              <h5>Somebody Namehere</h5>
+              <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+              <a class="cta" href="#####">CTA here</a>
+            </div>
+            <div class="flex-item links">
+              <div class="button-maroon">
+                <button onclick="window.open('###')">CTA here</button>
+              </div>
+              <h6 style="text-align: center;">Lorem ipsum unum</h6>
+              <h5>Also see:</h5>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+            </div>
+          </div>
+        </div>
+        <!-- card -->
+        <div class="grid-item">
+          <div class="image-wrapper">
+            <div class="image-wrapper-overlay">
+              <div class="image-wrapper-overlay-content">
+                <h4>The headline is lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                <a class="cta" href="#####">CTA here</a>
+              </div>
+            </div>
+            <a href="###" target="_blank" title="Title goes here">
+              <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
+            </a>
+          </div>
+          <div class="content-grid-wrapper">
+            <div class="flex-item content">
+              <h6>0/0/0000: 0:00PM-0:00PM</h6>
+              <h4>00M</h4>
+              <h5>Somebody Namehere</h5>
+              <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+              <a class="cta" href="#####">CTA here</a>
+            </div>
+            <div class="flex-item links">
+              <div class="button-maroon">
+                <button onclick="window.open('###')">CTA here</button>
+              </div>
+              <h6 style="text-align: center;">Lorem ipsum unum</h6>
+              <h5>Also see:</h5>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+            </div>
+          </div>
+        </div>
+        <!-- card -->
+        <div class="grid-item">
+          <div class="image-wrapper">
+            <div class="image-wrapper-overlay">
+              <div class="image-wrapper-overlay-content">
+                <h4>The headline is lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                <a class="cta" href="#####">CTA here</a>
+              </div>
+            </div>
+            <a href="###" target="_blank" title="Title goes here">
+              <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
+            </a>
+          </div>
+          <div class="content-grid-wrapper">
+            <div class="flex-item content">
+              <h6>0/0/0000: 0:00PM-0:00PM</h6>
+              <h4>00.0%</h4>
+              <h5>Somebody Namehere</h5>
+              <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+              <a class="cta" href="#####">CTA here</a>
+            </div>
+            <div class="flex-item links">
+              <div class="button-maroon">
+                <button onclick="window.open('###')">CTA here</button>
+              </div>
+              <h6 style="text-align: center;">Lorem ipsum unum</h6>
+              <h5>Also see:</h5>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+            </div>
+          </div>
+        </div>
+        <!-- card -->
+        <div class="grid-item">
+          <div class="image-wrapper">
+            <div class="image-wrapper-overlay">
+              <div class="image-wrapper-overlay-content">
+                <h4>The headline is lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                <a class="cta" href="#####">CTA here</a>
+              </div>
+            </div>
+            <a href="###" target="_blank" title="Title goes here">
+              <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
+            </a>
+          </div>
+          <div class="content-grid-wrapper">
+            <div class="flex-item content">
+              <h6>0/0/0000: 0:00PM-0:00PM</h6>
+              <h4>0000</h4>
+              <h5>Somebody Namehere</h5>
+              <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+              <a class="cta" href="#####">CTA here</a>
+            </div>
+            <div class="flex-item links">
+              <div class="button-maroon">
+                <button onclick="window.open('###')">CTA here</button>
+              </div>
+              <h6 style="text-align: center;">Lorem ipsum unum</h6>
+              <h5>Also see:</h5>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+            </div>
+          </div>
+        </div>
+      </div> <!-- row closed -->
+    </div>
+  </section>
+  
+  <div class="padding-sm"></div>
+
+  <!-- padding-lg - use to open up panel -->
+
+  <section>
+    <div class="container-fluid">
+      <div class="container">
+        <h5>
+          Numbers - <span style="font-family: 'Antenna Light', sans-serif;">Overlay - Padding Large</span>
+        </h5>
+      </div>
+    </div>
+  </section>
+  
+  <section id="panel-numbers" class="container-fluid bg-overlay">
+    <div class="container container-100 padding-lg">
+      <div class="grid-wrapper-min-max four-column number numbers-md">
+        <!-- card -->
+        <div class="grid-item">
+          <div class="image-wrapper">
+            <div class="image-wrapper-overlay">
+              <div class="image-wrapper-overlay-content">
+                <h4>The headline is lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                <a class="cta" href="#####">CTA here</a>
+              </div>
+            </div>
+            <a href="###" target="_blank" title="Title goes here">
+              <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
+            </a>
+          </div>
+          <div class="content-grid-wrapper">
+            <div class="flex-item content">
+              <h6>0/0/0000: 0:00PM-0:00PM</h6>
+              <h4>00.0%</h4>
+              <h5>Somebody Namehere</h5>
+              <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+              <a class="cta" href="#####">CTA here</a>
+            </div>
+            <div class="flex-item links">
+              <div class="button-maroon">
+                <button onclick="window.open('###')">CTA here</button>
+              </div>
+              <h6 style="text-align: center;">Lorem ipsum unum</h6>
+              <h5>Also see:</h5>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+            </div>
+          </div>
+        </div>
+        <!-- card -->
+        <div class="grid-item">
+          <div class="image-wrapper">
+            <div class="image-wrapper-overlay">
+              <div class="image-wrapper-overlay-content">
+                <h4>The headline is lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                <a class="cta" href="#####">CTA here</a>
+              </div>
+            </div>
+            <a href="###" target="_blank" title="Title goes here">
+              <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
+            </a>
+          </div>
+          <div class="content-grid-wrapper">
+            <div class="flex-item content">
+              <h6>0/0/0000: 0:00PM-0:00PM</h6>
+              <h4>00M</h4>
+              <h5>Somebody Namehere</h5>
+              <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+              <a class="cta" href="#####">CTA here</a>
+            </div>
+            <div class="flex-item links">
+              <div class="button-maroon">
+                <button onclick="window.open('###')">CTA here</button>
+              </div>
+              <h6 style="text-align: center;">Lorem ipsum unum</h6>
+              <h5>Also see:</h5>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+            </div>
+          </div>
+        </div>
+        <!-- card -->
+        <div class="grid-item">
+          <div class="image-wrapper">
+            <div class="image-wrapper-overlay">
+              <div class="image-wrapper-overlay-content">
+                <h4>The headline is lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                <a class="cta" href="#####">CTA here</a>
+              </div>
+            </div>
+            <a href="###" target="_blank" title="Title goes here">
+              <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
+            </a>
+          </div>
+          <div class="content-grid-wrapper">
+            <div class="flex-item content">
+              <h6>0/0/0000: 0:00PM-0:00PM</h6>
+              <h4>00.0%</h4>
+              <h5>Somebody Namehere</h5>
+              <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+              <a class="cta" href="#####">CTA here</a>
+            </div>
+            <div class="flex-item links">
+              <div class="button-maroon">
+                <button onclick="window.open('###')">CTA here</button>
+              </div>
+              <h6 style="text-align: center;">Lorem ipsum unum</h6>
+              <h5>Also see:</h5>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+            </div>
+          </div>
+        </div>
+        <!-- card -->
+        <div class="grid-item">
+          <div class="image-wrapper">
+            <div class="image-wrapper-overlay">
+              <div class="image-wrapper-overlay-content">
+                <h4>The headline is lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+                <a class="cta" href="#####">CTA here</a>
+              </div>
+            </div>
+            <a href="###" target="_blank" title="Title goes here">
+              <img src="http://via.placeholder.com/1000x560" alt="Alternate description goes here" title="Title goes here">
+            </a>
+          </div>
+          <div class="content-grid-wrapper">
+            <div class="flex-item content">
+              <h6>0/0/0000: 0:00PM-0:00PM</h6>
+              <h4>0000</h4>
+              <h5>Somebody Namehere</h5>
+              <div class="explainer"><p>Lorem ipsum dolor sit amet</p></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet.</p>
+              <a class="cta" href="#####">CTA here</a>
+            </div>
+            <div class="flex-item links">
+              <div class="button-maroon">
+                <button onclick="window.open('###')">CTA here</button>
+              </div>
+              <h6 style="text-align: center;">Lorem ipsum unum</h6>
+              <h5>Also see:</h5>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+              <p><a href="#####">Link to related resource</a></p>
+            </div>
+          </div>
+        </div>
+      </div> <!-- row closed -->
+    </div>
+  </section>
+
+
+					<!-- image grid highlights - three-columns -->
+					<div id="panel-top" class="container-fluid">
+						<div class="container"><h5>Image Grid Highlights - Default - Three Columns</h5></div>
+					</div>
+					<!-- image-grid-highlights -->
 <section id="panel-image-grid" class="container-fluid image-grid-highlights">
 	<div class="grid-wrapper-min-max">
 <!-- image-01 -->
 	<div class="grid-item">
-		<img src="http://via.placeholder.com/1000x1000"/>
+		<img src="./images/images-image-grid-highlights/highlight-bell-detail-2000x2000.jpg"/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Keyword 01</span>
@@ -801,7 +1034,7 @@
 	</div>
 <!-- image-02 -->
 	<div class="grid-item">
-		<img src="http://via.placeholder.com/1000x1000"/>
+		<img src="./images/images-image-grid-highlights/highlight-plant-detail-2000x2000.jpg"/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Keyword 02</span>
@@ -820,7 +1053,7 @@
 	</div>
 <!-- image-03 -->
 	<div class="grid-item">
-	<img src="http://via.placeholder.com/1000x1000"/>
+	<img src="./images/images-image-grid-highlights/highlight-cudahy-detail-2000x2000.jpg"/>
 	<p class="caption-overlay">
 	  <span class="caption-overlay-name">Somebody Namehere</span>
 	  <span>Keyword 03</span>
@@ -876,27 +1109,120 @@
 	    </div>
 	</section>
 </section>
-
+					<!-- image grid highlights - two-columns -->
+					<div id="panel-top" class="container-fluid">
+						<div class="container"><h5>Image Grid Highlights - Two Column</h5></div>
+					</div>
+					<!-- image-grid-highlights - two-column -->
+<section id="panel-image-grid" class="container-fluid image-grid-highlights">
+	<div class="grid-wrapper-min-max two-column">
+<!-- image-01 -->
+	<div class="grid-item">
+		<img src="./images/images-image-grid-highlights/highlight-bell-detail-2000x2000.jpg"/>
+	  <p class="caption-overlay">
+	    <span class="caption-overlay-name">Somebody Namehere</span>
+	    <span>Keyword 01</span>
+	  </p>
+		<button class="content-activate-symbol"></button>
+		<div class="content-image-overlay">
+	    <h6>Category lorem ipsum unum hereum</h6>
+	    <h4>Somebody Namehere</h4>
+	    <h3 class="teaser">Headline lorem ipsum unum hereum.</h3>
+	    <p style="margin-top: 20px;">
+				<a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more
+				</a>
+			</p>
+	    <button class="content-activate-symbol"></button>
+		</div>
+	</div>
+<!-- image-02 -->
+	<div class="grid-item">
+		<img src="./images/images-image-grid-highlights/highlight-plant-detail-2000x2000.jpg"/>
+	  <p class="caption-overlay">
+	    <span class="caption-overlay-name">Somebody Namehere</span>
+	    <span>Keyword 02</span>
+	  </p>
+		<button class="content-activate-symbol"></button>
+		<div class="content-image-overlay">
+	    <h6>Category lorem ipsum unum hereum</h6>
+	    <h4>Somebody Namehere</h4>
+	    <h3 class="teaser">Headline lorem ipsum unum hereum.</h3>
+	    <p style="margin-top: 20px;">
+				<a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more
+				</a>
+			</p>
+	    <button class="content-activate-symbol"></button>
+		</div>
+	</div>
+<!-- image-03 -->
+	<div class="grid-item">
+	<img src="./images/images-image-grid-highlights/highlight-cudahy-detail-2000x2000.jpg"/>
+	<p class="caption-overlay">
+	  <span class="caption-overlay-name">Somebody Namehere</span>
+	  <span>Keyword 03</span>
+	</p>
+	<button class="content-activate-symbol"></button>
+	<div class="content-image-overlay">
+	  <h6>Category lorem ipsum unum hereum</h6>
+	  <h4>Somebody Namehere</h4>
+	  <h3 class="teaser">Headline lorem ipsum unum hereum.</h3>
+	  <p style="margin-top: 20px;">
+			<a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more
+			</a>
+		</p>
+	  <button class="content-activate-symbol"></button>
+	</div>
+	</div>
+<!-- image-04 -->
+	<div class="grid-item">
+		<img src="http://via.placeholder.com/1000x1000"/>
+	  <p class="caption-overlay">
+	    <span class="caption-overlay-name">Somebody Namehere</span>
+	    <span>Lorem ipsum unum hereum</span>
+	  </p>
+		<button class="content-activate-symbol"></button>
+		<div class="content-image-overlay">
+	    <h6>Category lorem ipsum unum hereum</h6>
+	    <h4>Somebody Namehere</h4>
+	    <h3 class="teaser">Headline lorem ipsum unum hereum.</h3>
+	    <p style="margin-top: 20px;">
+				<a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more
+				</a>
+			</p>
+	    <button class="content-activate-symbol"></button>
+		</div>
+	</div>
+<!-- modal -->
+  <section id="modaal-content-example" style="display: none;">
+	  <div class="container-fluid">
+	    <div class="divider-sm"></div>
+	      <div class="container commencement-container">
+	        <div class="grid-wrapper-min-max">
+	          <div class="grid-item">
+	            <!-- content -->
+	            <h3>H3 headline here</h3>
+	            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida leo massa, at elementum orci consequat non. Vestibulum quis sapien metus. Nam porta est in metus imperdiet, nec finibus enim viverra. Ut ultricies orci vel dapibus pharetra. Morbi in purus id erat sollicitudin pulvinar. Donec a consequat magna, quis iaculis nisi. Duis nec luctus justo. Proin hendrerit, ex non malesuada interdum, mauris felis sodales ligula, eget fermentum dui metus sit amet dolor.</p>
+	            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida leo massa, at elementum orci consequat non. Vestibulum quis sapien metus. Nam porta est in metus imperdiet, nec finibus enim viverra. Ut ultricies orci vel dapibus pharetra. Morbi in purus id erat sollicitudin pulvinar. Donec a consequat magna, quis iaculis nisi. Duis nec luctus justo. Proin hendrerit, ex non malesuada interdum, mauris felis sodales ligula, eget fermentum dui metus sit amet dolor.</p>
+	            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida leo massa, at elementum orci consequat non. Vestibulum quis sapien metus. Nam porta est in metus imperdiet, nec finibus enim viverra. Ut ultricies orci vel dapibus pharetra. Morbi in purus id erat sollicitudin pulvinar. Donec a consequat magna, quis iaculis nisi. Duis nec luctus justo. Proin hendrerit, ex non malesuada interdum, mauris felis sodales ligula, eget fermentum dui metus sit amet dolor.</p>
+	            <!-- content end -->
+	          </div>
+	        </div>
+	      <div class="divider-sm"></div>
+	      </div>
+	    </div>
+	</section>
+</section>
 					<!-- image grid -->
 					<div id="panel-top" class="container-fluid">
 						<div class="container"><h5>Image Grid</h5></div>
 					</div>
 					<!-- image-grid -->
-<script>
-$(document).ready(function(){
-  $('button.content-activate-symbol').click(function(){
-    $('.button.content-activate-symbol').not(this).removeClass('active');
-    $(this).toggleClass('active');
-    $('button.content-activate-symbol').not(this).parent('div.content-image-overlay').removeClass('active');
-    $(this).parent('div.content-image-overlay').toggleClass('active');
-  })
-});
-</script>
+
 <section id="panel-image-grid" class="container-fluid">
 	<div class="grid-wrapper-min-max">
 <!-- image-01 -->
 	<div class="grid-item">
-		<img src="http://via.placeholder.com/1350x1800"/>
+		<img src="./images/images-portraits-1000x1000/medallion-2023-jonathan-larbi-arrupe-1000x1000.jpg"/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -915,7 +1241,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-02 -->
 	<div class="grid-item">
-		<img src="http://via.placeholder.com/1350x1800"/>
+		<img src="./images/images-portraits-1000x1000/medallion-2023-joshua-jones-cas-1000x1000.jpg"/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -934,7 +1260,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-03 -->
 	<div class="grid-item">
-	<img src="http://via.placeholder.com/1350x1800"/>
+	<img src="./images/images-portraits-1000x1000/medallion-2023-juanita-vivas-bastidas-graduate-1000x1000.jpg"/>
 	<p class="caption-overlay">
 	  <span class="caption-overlay-name">Somebody Namehere</span>
 	  <span>Lorem ipsum unum hereum</span>
@@ -953,7 +1279,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-04 -->
 	<div class="grid-item">
-		<img src="http://via.placeholder.com/1350x1800"/>
+		<img src="./images/images-portraits-1000x1000/medallion-2023-belen-morales-ips-1000x1000.jpg"/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -972,7 +1298,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-05 -->
 	<div class="grid-item">
-		<img src="http://via.placeholder.com/1350x1800"/>
+		<img src="./images/images-portraits-1000x1000/medallion-2023-jason-janiga-quinlan-1000x1000.jpg"/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -991,7 +1317,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-06 -->
 	<div class="grid-item">
-		<img src="http://via.placeholder.com/1350x1800"/>
+		<img src="./images/images-portraits-1000x1000/medallion-2023-amanda-demaree-wayne-law-1000x1000.jpg"/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1010,7 +1336,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-07 -->
 	<div class="grid-item">
-	<img src="http://via.placeholder.com/1350x1800"/>
+	<img src="./images/images-portraits-1000x1000/medallion-2023-grace-nelson-nursing-1000x1000.jpg"/>
 	<p class="caption-overlay">
 	  <span class="caption-overlay-name">Somebody Namehere</span>
 	  <span>Lorem ipsum unum hereum</span>
@@ -1029,7 +1355,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-08 -->
 	<div class="grid-item">
-		<img src="http://via.placeholder.com/1350x1800"/>
+		<img src="./images/images-portraits-1000x1000/medallion-2023-daniel-gans-parkinson-1000x1000.jpg"/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1048,7 +1374,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-09 -->
 	<div class="grid-item">
-		<img src="http://via.placeholder.com/1350x1800"/>
+		<img src="./images/images-portraits-1000x1000/medallion-2023-chisa-santiago-scps-1000x1000.jpg"/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1067,7 +1393,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-10 -->
 	<div class="grid-item">
-		<img src="http://via.placeholder.com/1350x1800"/>
+		<img src="./images/images-portraits-1000x1000/medallion-2023-mereya-riopedre-ses-1000x1000.jpg"/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1086,7 +1412,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-11 -->
 	<div class="grid-item">
-	<img src="http://via.placeholder.com/1350x1800"/>
+	<img src="./images/images-portraits-1000x1000/medallion-2023-natalie-collison-soc-1000x1000.jpg"/>
 	<p class="caption-overlay">
 	  <span class="caption-overlay-name">Somebody Namehere</span>
 	  <span>Lorem ipsum unum hereum</span>
@@ -1105,7 +1431,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-12 -->
 	<div class="grid-item">
-		<img src="http://via.placeholder.com/1350x1800"/>
+		<img src="./images/images-portraits-1000x1000/medallion-2023-maeve-donlin-soe-1000x1000.jpg"/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1122,6 +1448,44 @@ $(document).ready(function(){
 	    <button class="content-activate-symbol"></button>
 		</div>
 	</div>
+<!-- image-13 -->
+<div class="grid-item">
+	<img src="./images/images-portraits-1000x1000/medallion-2023-charlotte-adema-ssom-1000x1000.jpg"/>
+  <p class="caption-overlay">
+	<span class="caption-overlay-name">Somebody Namehere</span>
+	<span>Lorem ipsum unum hereum</span>
+  </p>
+	<button class="content-activate-symbol"></button>
+	<div class="content-image-overlay">
+	<h6>Category lorem ipsum unum hereum</h6>
+	<h4>Somebody Namehere</h4>
+	<h3 class="teaser">Headline lorem ipsum unum hereum.</h3>
+	<p style="margin-top: 20px;">
+			<a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more
+			</a>
+		</p>
+	<button class="content-activate-symbol"></button>
+	</div>
+</div>
+<!-- image-14 -->
+<div class="grid-item">
+	<img src="./images/images-portraits-1000x1000/medallion-2023-zaynab-berety-ssw-1000x1000.jpg"/>
+  <p class="caption-overlay">
+	<span class="caption-overlay-name">Somebody Namehere</span>
+	<span>Lorem ipsum unum hereum</span>
+  </p>
+	<button class="content-activate-symbol"></button>
+	<div class="content-image-overlay">
+	<h6>Category lorem ipsum unum hereum</h6>
+	<h4>Somebody Namehere</h4>
+	<h3 class="teaser">Headline lorem ipsum unum hereum.</h3>
+	<p style="margin-top: 20px;">
+			<a href="#modaal-content-example" data-modaal-type="inline" data-modaal-animation="fade" data-modaal-accessible-title="Inline content example 01" class="cta modaal" data-modaal-scope="">Read more
+			</a>
+		</p>
+	<button class="content-activate-symbol"></button>
+	</div>
+</div>
 	<section id="modaal-content-example" style="display: none;">
 	  <div class="container-fluid">
 	    <div class="divider-sm"></div>
@@ -1151,7 +1515,7 @@ $(document).ready(function(){
 	<div class="grid-wrapper-min-max">
 <!-- image-01 -->
 	<div class="grid-item">
-		<img src="https://source.unsplash.com/1600x900/?trash" alt="trash"/>
+		<img src="./images/images-image-grid/japani-doan-1000x560.jpg" alt=""/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1170,7 +1534,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-02 -->
 	<div class="grid-item">
-		<img src="https://source.unsplash.com/1600x900/?dessert" alt="dessert"/>
+		<img src="./images/images-image-grid/khalil-webb-1000x560.jpg" alt=""/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1189,7 +1553,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-03 -->
 	<div class="grid-item hide-1200">
-	<img src="https://source.unsplash.com/1600x900/?people" alt="people"/>
+	<img src="./images/images-image-grid/cerag-pince-1000x560.jpg" alt=""/>
 	<p class="caption-overlay">
 	  <span class="caption-overlay-name">Somebody Namehere</span>
 	  <span>Lorem ipsum unum hereum</span>
@@ -1208,7 +1572,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-04 -->
 	<div class="grid-item">
-		<img src="https://source.unsplash.com/1600x900/?bike" alt="bike"/>
+		<img src="./images/images-image-grid/dominique-turner-1000x560.jpg" alt=""/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1227,7 +1591,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-05 -->
 	<div class="grid-item hide-1500">
-		<img src="https://source.unsplash.com/1600x900/?art" alt="art"/>
+		<img src="./images/images-image-grid/tania-schusler-1000x560.jpg" alt=""/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1246,7 +1610,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-06 -->
 	<div class="grid-item">
-		<img src="https://source.unsplash.com/1600x900/?animal" alt="animal"/>
+		<img src="./images/images-image-grid/cameron-anderson-1000x560.jpg" alt=""/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1265,7 +1629,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-07 -->
 	<div class="grid-item">
-	<img src="https://source.unsplash.com/1600x900/?flower" alt="flower"/>
+	<img src="./images/images-image-grid/syeda-aaidah-1000x560.jpg" alt=""/>
 	<p class="caption-overlay">
 	  <span class="caption-overlay-name">Somebody Namehere</span>
 	  <span>Lorem ipsum unum hereum</span>
@@ -1284,7 +1648,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-08 -->
 	<div class="grid-item hide-1200">
-		<img src="https://source.unsplash.com/1600x900/?space" alt="space"/>
+		<img src="./images/images-image-grid/maya-watson-1000x560.jpg" alt=""/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1303,7 +1667,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-09 -->
 	<div class="grid-item">
-		<img src="https://source.unsplash.com/1600x900/?tools" alt="tools"/>
+		<img src="./images/images-image-grid/amy-liesemeyer-1000x560.jpg" alt=""/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1322,7 +1686,7 @@ $(document).ready(function(){
 	</div>
 <!-- image-10 -->
 	<div class="grid-item hide-1500">
-		<img src="https://source.unsplash.com/1600x900/?water" alt="water"/>
+		<img src="./images/images-image-grid/george-villanueva-1000x560.jpg" alt=""/>
 	  <p class="caption-overlay">
 	    <span class="caption-overlay-name">Somebody Namehere</span>
 	    <span>Lorem ipsum unum hereum</span>
@@ -1351,11 +1715,11 @@ $(document).ready(function(){
 		<div class="grid-wrapper-grid-wrapper">
 
 <!-- image-01 -->
-			<div class="gallery-container w-6 h-2">
+			<div class="gallery-container w-4 h-2">
 				<div class="gallery-item">
 					<div class="image">
 						<h5>Label Hedline here</h5>
-						<img src="https://source.unsplash.com/1600x900/?building" alt="building"/>
+						<img src="./images/images-image-grid-gallery/umc-work-envisioning-future-2000x1120.jpg" alt=""/>
 					</div>
 					<div class="caption">
 						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
@@ -1364,11 +1728,11 @@ $(document).ready(function(){
 			</div>
 
 <!-- image-02 -->
-			<div class="gallery-container w-2 h-2">
+			<div class="gallery-container w-2 h-1">
 				<div class="gallery-item">
 					<div class="image">
 						<h5>Label Hedline here</h5>
-						<img src="https://source.unsplash.com/1600x900/?dessert" alt="dessert"/>
+						<img src="./images/images-image-grid-gallery/LOY-3color-main-1000x1350.jpg" alt=""/>
 					</div>
 					<div class="caption">
 						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
@@ -1377,11 +1741,11 @@ $(document).ready(function(){
 			</div>
 
 <!-- image-03 -->
-			<div class="gallery-container w-2 h-2">
+			<div class="gallery-container w-2 h-1">
 				<div class="gallery-item">
 					<div class="image">
 						<h5>Label Hedline here</h5>
-						<img src="https://source.unsplash.com/1600x900/?people" alt="people"/>
+						<img src="./images/images-image-grid-gallery/umc-work-we-are-called-2000x1120.jpg" alt=""/>
 					</div>
 					<div class="caption">
 						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
@@ -1390,11 +1754,11 @@ $(document).ready(function(){
 			</div>
 
 <!-- image-04 -->
-			<div class="gallery-container w-4 h-2">
+			<div class="gallery-container w-2 h-1">
 				<div class="gallery-item">
 					<div class="image">
 						<h5>Label Hedline here</h5>
-						<img src="https://source.unsplash.com/1600x900/?bike" alt="bike"/>
+						<img src="./images/images-image-grid-gallery/umc-work-chicago-river-skyline-2000x1120.jpg" alt=""/>
 					</div>
 					<div class="caption">
 						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
@@ -1403,11 +1767,11 @@ $(document).ready(function(){
 			</div>
 
 <!-- image-05 -->
-			<div class="gallery-container w-1 h-1">
+			<div class="gallery-container w-2 h-2">
 				<div class="gallery-item">
 					<div class="image">
 						<h5>Label Hedline here</h5>
-						<img src="https://source.unsplash.com/1600x900/?art" alt="art"/>
+						<img src="./images/images-image-grid-gallery/umc-work-spring-magazine-cover-1000x1350.jpg" alt=""/>
 					</div>
 					<div class="caption">
 						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
@@ -1420,7 +1784,7 @@ $(document).ready(function(){
 				<div class="gallery-item">
 					<div class="image">
 						<h5>Label Hedline here</h5>
-						<img src="https://source.unsplash.com/1600x900/?animal" alt="animal"/>
+						<img src="./images/images-image-grid-gallery/umc-work-web-mobile-1000x1350.jpg" alt=""/>
 					</div>
 					<div class="caption">
 						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
@@ -1429,11 +1793,11 @@ $(document).ready(function(){
 			</div>
 
 <!-- image-07 -->
-			<div class="gallery-container w-2 h-2">
+			<div class="gallery-container w-1 h-1">
 				<div class="gallery-item">
 					<div class="image">
 						<h5>Label Hedline here</h5>
-						<img src="https://source.unsplash.com/1600x900/?flower" alt="flower"/>
+						<img src="./images/images-image-grid-gallery/umc-work-loyola-glance-1000x1350.jpg" alt=""/>
 					</div>
 					<div class="caption">
 						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
@@ -1446,7 +1810,85 @@ $(document).ready(function(){
 				<div class="gallery-item">
 					<div class="image">
 						<h5>Label Hedline here</h5>
-						<img src="https://source.unsplash.com/1600x900/?space" alt="space"/>
+						<img src="./images/images-image-grid-gallery/umc-work-alumni-craft-brew-1000x1350.jpg" alt=""/>
+					</div>
+					<div class="caption">
+						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
+					</div>
+				</div>
+			</div>
+
+<!-- image-09 -->
+			<div class="gallery-container w-2 h-1">
+				<div class="gallery-item">
+					<div class="image">
+						<h5>Label Hedline here</h5>
+						<img src="./images/images-image-grid-gallery/umc-work-shield-cornerstone-1000x1350.jpg" alt=""/>
+					</div>
+					<div class="caption">
+						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
+					</div>
+				</div>
+			</div>
+
+<!-- image-10 -->
+			<div class="gallery-container w-2 h-2">
+				<div class="gallery-item">
+					<div class="image">
+						<h5>Label Hedline here</h5>
+						<img src="./images/images-image-grid-gallery/umc-work-lu-wolf-1000x1350.jpg" alt=""/>
+					</div>
+					<div class="caption">
+						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
+					</div>
+				</div>
+			</div>
+
+<!-- image-11 -->
+			<div class="gallery-container w-1 h-1">
+				<div class="gallery-item">
+					<div class="image">
+						<h5>Label Hedline here</h5>
+						<img src="./images/images-image-grid-gallery/umc-work-research-lab-1000x1350.jpg" alt=""/>
+					</div>
+					<div class="caption">
+						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
+					</div>
+				</div>
+			</div>
+
+<!-- image-12 -->
+			<div class="gallery-container w-1 h-1">
+				<div class="gallery-item">
+					<div class="image">
+						<h5>Label Hedline here</h5>
+						<img src="./images/images-image-grid-gallery/umc-work-spring-magazine-interior-1000x1350.jpg" alt=""/>
+					</div>
+					<div class="caption">
+						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
+					</div>
+				</div>
+			</div>
+
+<!-- image-13 -->
+			<div class="gallery-container w-2 h-2">
+				<div class="gallery-item">
+					<div class="image">
+						<h5>Label Hedline here</h5>
+						<img src="./images/images-image-grid-gallery/umc-work-daca-portraits-1000x1350.jpg" alt=""/>
+					</div>
+					<div class="caption">
+						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
+					</div>
+				</div>
+			</div>
+
+<!-- image-14 -->
+			<div class="gallery-container w-2 h-1">
+				<div class="gallery-item">
+					<div class="image">
+						<h5>Label Hedline here</h5>
+						<img src="./images/images-image-grid-gallery/umc-work-elevated-train-2000x1120.jpg" alt=""/>
 					</div>
 					<div class="caption">
 						<p>Caption lorem ipsum hereum<span><a class="cta">CTA here</a></span></p>
@@ -1465,10 +1907,13 @@ $(document).ready(function(){
 					</div>
 					<!-- image-overlay -->
 <section id="panel-image-overlay" class="container-fluid">
-	<img src="http://via.placeholder.com/1800x800"/>
+	<img src="./images/images-image-grid-highlights/highlight-cudahy-detail-2000x2000.jpg"/>
 	<div class="grid-wrapper-min-max">
 		<div class="grid-item">
-			<div class="content-image-overlay">
+			<div class="content-image-overlay flex-item content uppercase center">
+				<h4 class="m-b-lg">
+					This is an H4 headline
+				</h4>
 				<blockquote>
 					“This is a blockquote breakout, ipsum dolor sit amet. Consectetur adipiscing elit ipsum dolor sit amet, consectetur adipiscing elit. Consectetur adipiscing elit ipsum dolor sit amet, consectetur adipiscing elit.” <cite>Blockquote cite, CEO, <a href="#">Link here</a></cite>
 				</blockquote>
@@ -1478,13 +1923,13 @@ $(document).ready(function(){
 </section>
 
 					<!-- video embed panel -->
-					<div id="panel-top" class="container-fluid">
-						<div class="container"><h5>Video Embed</h5></div>
-					</div>
-					<!-- video-embed -->
+					<!-- video-embed - with background image -->
+<div id="panel-top" class="container-fluid">
+	<div class="container"><h5>Panel - Video Embed - With Background Image</h5></div>
+</div>
 <section id="panel-video-embed" class="container-fluid">
 	<div class="background-image">
-		<img src="https://source.unsplash.com/1600x900/?building" alt="building"/>
+		<img src="images/images-carousel-scroll/carousel-scroll-01.jpg" alt="chicago"/>
 	</div>
 	<div class="content-image-overlay"></div>
 	<div class="container">
@@ -1502,16 +1947,96 @@ $(document).ready(function(){
 			</div>
 		</div>
 </section>
-
-					<!-- video embed panel - two columns -->
-					<div id="panel-top" class="container-fluid">
-						<div class="container"><h5>Video Embed - Two Columns</h5></div>
+<!-- video-embed - without background image -->
+<div id="panel-top" class="container-fluid">
+	<div class="container"><h5>Panel - Video Embed - Without Background Image</h5></div>
+</div>
+<section id="panel-video-embed" class="container-fluid hide-background-image">
+	<div class="background-image">
+		<img src="images/images-carousel-scroll/carousel-scroll-01.jpg" alt="chicago"/>
+	</div>
+	<div class="content-image-overlay"></div>
+	<div class="container">
+			<div class="grid-wrapper-min-max">
+				<div class="grid-item">
+					<div class="video-wrapper">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/RVQMsaoHuaY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
-					<div id="panel-video-embed" class="container-fluid">
-						<!-- video-embed -->
+					<div class="content-caption sans-serif">
+						<h4>Subhead here lorem ipsum unum</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<a class="cta" href="###">CTA here here</a>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+<!-- video-embed - without background image - maroon -->
+<div id="panel-top" class="container-fluid">
+	<div class="container"><h5>Panel - Video Embed - Without Background Image - Maroon</h5></div>
+</div>
+<section id="panel-video-embed" class="container-fluid hide-background-image bg-maroon">
+	<div class="background-image">
+		<img src="images/images-carousel-scroll/carousel-scroll-01.jpg" alt="chicago"/>
+	</div>
+	<div class="content-image-overlay"></div>
+	<div class="container">
+			<div class="grid-wrapper-min-max">
+				<div class="grid-item">
+					<div class="video-wrapper">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/RVQMsaoHuaY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="content-caption sans-serif">
+						<h4>Subhead here lorem ipsum unum</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<a class="cta" href="###">CTA here here</a>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+					<!-- video embed panel - two columns -->
+					<!-- video-embed - two-columns - with background-image -->
+<div id="panel-top" class="container-fluid">
+	<div class="container"><h5>Panel - Video Embed - Two Columns - With Background Image</h5></div>
+</div>
 <section id="panel-video-embed" class="container-fluid">
 	<div class="background-image">
-		<img src="https://source.unsplash.com/1600x900/?building" alt="building"/>
+		<img src="images/images-carousel-scroll/carousel-scroll-01.jpg" alt="chicago"/>
+	</div>
+	<div class="content-image-overlay"></div>
+	<div class="container">
+			<div class="grid-wrapper-min-max two-columns">
+				<div class="grid-item">
+					<div class="video-wrapper">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/RVQMsaoHuaY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="content-caption sans-serif">
+						<h4>Subhead here lorem ipsum unum</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida leo massa, at elementum orci consequat non.</p>
+						<a class="cta" href="###">CTA here here</a>
+					</div>
+				</div>
+				<div class="grid-item">
+					<div class="video-wrapper">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/RVQMsaoHuaY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="content-caption sans-serif">
+						<h4>Subhead here lorem ipsum unum</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida leo massa, at elementum orci consequat non.</p>
+						<a class="cta" href="###">CTA here here</a>
+					</div>
+				</div>
+			</div>
+	</div>
+</section>
+<!-- video-embed - two-columns - without background-image -->
+<div id="panel-top" class="container-fluid">
+	<div class="container"><h5>Panel - Video Embed - Two Columns - Without Background Image</h5></div>
+</div>
+<section id="panel-video-embed" class="container-fluid hide-background-image">
+	<div class="background-image">
+		<img src="images/images-carousel-scroll/carousel-scroll-01.jpg" alt="chicago"/>
 	</div>
 	<div class="content-image-overlay"></div>
 	<div class="container">
@@ -1539,8 +2064,40 @@ $(document).ready(function(){
 			</div>
 		</div>
 </section>
-
+<!-- video-embed - two-columns - without background-image - maroon -->
+<div id="panel-top" class="container-fluid">
+	<div class="container"><h5>Panel - Video Embed - Two Columns - Without Background Image - Maroon</h5></div>
+</div>
+<section id="panel-video-embed" class="container-fluid hide-background-image bg-maroon">
+	<div class="background-image">
+		<img src="images/images-carousel-scroll/carousel-scroll-01.jpg" alt="chicago"/>
+	</div>
+	<div class="content-image-overlay"></div>
+	<div class="container">
+			<div class="grid-wrapper-min-max two-columns">
+				<div class="grid-item">
+					<div class="video-wrapper">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/RVQMsaoHuaY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
+					<div class="content-caption sans-serif">
+						<h4>Subhead here lorem ipsum unum</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida leo massa, at elementum orci consequat non.</p>
+						<a class="cta" href="###">CTA here here</a>
+					</div>
+				</div>
+				<div class="grid-item">
+					<div class="video-wrapper">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/RVQMsaoHuaY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="content-caption sans-serif">
+						<h4>Subhead here lorem ipsum unum</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida leo massa, at elementum orci consequat non.</p>
+						<a class="cta" href="###">CTA here here</a>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
 					<!-- add image scroll panel -->
 				</section>
 				<aside id="main-aside-wrapper-navigation">
@@ -1548,119 +2105,34 @@ $(document).ready(function(){
 					<!-- sidebar content here -->
 				</aside>
 			</div>
-			<aside id="social-icon-bar" class="social-not-fixed">
-				<!-- social-media-bar -->
-<article>
-  <!-- calendar -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-sharp fa-calendar-days" title="A link to the Loyola University Chicago Calendar"></i></a>
-  <!-- news -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-sharp fa-newspaper" title="A link to the Loyola University Chicago News"></i></a>
-  <!-- rss -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-sharp fa-rss" title="A link to the Loyola University Chicago RSS feed"></i></a>
-  <!-- facebook -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-brands fa-facebook" title="A link to the Loyola University Chicago Facebook account"></i></a>
-  <!-- twitter -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-brands fa-x-twitter" title="A link to the Loyola University Chicago Twitter account"></i></a>
-  <!-- youtube -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-brands fa-youtube" title="A link to the Loyola University Chicago YouTube account"></i></a>
-  <!-- flickr -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-brands fa-flickr" title="A link to the Loyola University Chicago Flickr account"></i></a>
-  <!-- linkedin -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-brands fa-linkedin" title="A link to the Loyola University Chicago Linkedin account"></i></a>
-    <!-- instagram -->
-    <a target="_blank" href="https://www.luc.edu/"><i class="fa-brands fa-tiktok" title="A link to the Loyola University Chicago TikTok account"></i></a>
-  <!-- pinterest -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-brands fa-pinterest" title="A link to the Loyola University Chicago Pinterest account"></i></a>
-  <!-- instagram -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-brands fa-instagram" title="A link to the Loyola University Chicago Instagram account"></i></a>
-  <!-- threads -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-brands fa-threads" title="A link to the Loyola University Chicago Threads account"></i></a>
-  <!-- blog -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-sharp fa-blog" title="A link to the Loyola University Chicago Blog account"></i></a>
-  <!-- google plus -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-brands fa-google-plus" title="A link to the Loyola University Chicago Google Plus account"></i></a>
-  <!-- contact -->
-  <a target="_blank" href="https://www.luc.edu/"><i class="fa-sharp fa-regular fa-at" title="Contact Us at 773-274-3000"></i></a>
-</article>
-
-			</aside>
-			<footer id="footer-not-fixed">
+			<footer>
 				<!-- footer -->
 <div class="container-fluid p-0">
-  <span id="brand">
-    <a href="https://www.luc.edu/">
-      <img src="images/LUC_stacked_reverse.svg" alt="Loyola University Chicago logo in footer of site">
-    </a>
-  </span>
-  <div id="footer-address" class="vcard">
-    <div id="footercard">
-      <span id="fn org">
-        Loyola University Chicago
-      </span>&middot;
-      <span id="adr">
-        <span id="street-address">
-          1032 W. Sheridan Rd.
-        </span>,
-        <span id="locality">
-          Chicago
-        </span>,
-        <span class="region">
-          Il
-        </span>
-        <span class="postal-code">
-          60660
-        </span>
-      </span>&middot;
-      <span class="tel">
-        773.274.3000
-      </span>&middot;
-      <span calss="email-address">
-        <a class="email" href="mailto:">umc@luc.edu</a>
-      </span>
+  <div>
+    <div id="footer-icon-bar">
+      <!-- FACEBOOK --><a target="_blank" title="Facebook Link" href="https://www.facebook.com/LoyolaChicago"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+      <!-- X/TWITTER --><a target="_blank" title="X Link" href="https://twitter.com/LoyolaChicago"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+      <!-- INSTAGRAM --><a target="_blank" title="Instragram Link" href="https://www.instagram.com/loyolachicago/"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+      <!-- YOUTUBE --><a target="_blank" title="YouTube Link" href="https://www.youtube.com/LoyolaChicago"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+    </div>
+    <div id="footer-address">
+      <p>Loyola University Chicago</p>
+      <p>1032 W. Sheridan Rd., Chicago, Il, 60660</p>
+      <p><a href="">773.274.3000 digitalteam@luc.edu</a></p>
+    </div>
+    <div id="footer-copyright">
+      <p><a href="">&copy; Copyright and Disclaimer 2025</a>, <a href="">Privacy Policy</a></p>
+      <p><a href="">Non-discrimination Policy</a><span class="bullet">•</span><a href="">Institutional Mission Statement</a><span class="bullet">•</span><a href="">Land Aknowledgement Statement</a></p>
     </div>
   </div>
-  <p><span id="copyright"><a href="">&copy; Copyright &amp; Disclaimer 2020</a> &middot; <a href="">Privacy Policy</a></span></p>
-</div>
-
-			</footer>
-			<footer id="footer-fixed">
-				<!-- footer -->
-<div class="container-fluid p-0">
-  <span id="brand">
-    <a href="https://www.luc.edu/">
-      <img src="images/LUC_stacked_reverse.svg" alt="Loyola University Chicago logo in footer of site">
-    </a>
-  </span>
-  <div id="footer-address" class="vcard">
-    <div id="footercard">
-      <span id="fn org">
-        Loyola University Chicago
-      </span>&middot;
-      <span id="adr">
-        <span id="street-address">
-          1032 W. Sheridan Rd.
-        </span>,
-        <span id="locality">
-          Chicago
-        </span>,
-        <span class="region">
-          Il
-        </span>
-        <span class="postal-code">
-          60660
-        </span>
-      </span>&middot;
-      <span class="tel">
-        773.274.3000
-      </span>&middot;
-      <span calss="email-address">
-        <a class="email" href="mailto:">umc@luc.edu</a>
-      </span>
+  <div>
+    <div id="brand">
+      <a href="https://www.luc.edu/">
+        <img src="images/LUC_stacked_reverse.svg" alt="Loyola University Chicago logo in footer of site">
+      </a>
     </div>
   </div>
-  <p><span id="copyright"><a href="">&copy; Copyright &amp; Disclaimer 2020</a> &middot; <a href="">Privacy Policy</a></span></p>
 </div>
-
 			</footer>
 		</main>
 		<!-- inject:js -->
@@ -1669,5 +2141,4 @@ $(document).ready(function(){
 
 	</div>
 </body>
-
 </html>

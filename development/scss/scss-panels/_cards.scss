@@ -42,6 +42,14 @@
   margin-top: 1rem;
 }
 
+.grid-wrapper-min-max.card .flex-item.content ul li {
+  margin: 0 0 .5rem 0 !important;
+}
+
+.grid-wrapper-min-max.card .flex-item.content ul li, .card ul li strong {
+  line-height: 1.5 !important;
+  line-height: rvr(1.5) !important;
+}
 
 /* cards - staff profile */
 
@@ -112,6 +120,7 @@
   background-position: 50% 50%;
   @include phone-portrait {
     min-height: auto;
+    height: auto;
   }
 }
 
@@ -133,6 +142,9 @@
 .grid-wrapper-min-max.card-horizontal .grid-item img {
   display: none;
   margin: 0;
+  @include tablet-portrait {
+    display: block;
+  }
 }
 
 #main-section-wrapper .grid-wrapper-min-max.card img,
@@ -147,7 +159,7 @@
 
 .grid-wrapper-min-max .grid-item .image-wrapper.image-wrapper.luc-avatar {
   background-image: none;
-  background: #e5e5e5;
+  background: #f9f9f9;
   img {
     width: 100%;
     height: 100% !important;
@@ -406,6 +418,12 @@
 
 .card .content-grid-wrapper.bg-maroon {
   background: $maroon !important;
+  h4 a {
+    color: $gray-extra-light;
+    &:hover {
+      color: $white;
+    }
+  }
 }
 
 .card .content-grid-wrapper.bg-brick {
@@ -534,6 +552,11 @@ button:focus {
   grid-gap: 3rem;
 }
 
+#panel-numbers.container-fluid.bg-overlay .container.container-50 .grid-wrapper-min-max {
+  margin: 0 auto;
+  width: 70%;
+}
+
 #panel-numbers.container-fluid.bg-overlay {
   background-color: $gray-dark;
   background-image: url('../images/images-resize/resize-cudahy-rainbow-1800-800.jpg');
@@ -546,7 +569,15 @@ button:focus {
   margin: 0;
   padding: 4rem 3rem;
   width: 100%;
-  background-color: $bg-overlay;
+  background-color: $bg-overlay-dark;
+}
+
+#panel-numbers.container-fluid.bg-overlay .container.padding-md {
+  padding: 10rem 3rem;
+}
+
+#panel-numbers.container-fluid.bg-overlay .container.padding-lg {
+  padding: 15rem 3rem;
 }
 
 #panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max.number .flex-item.content h4,
@@ -557,7 +588,7 @@ button:focus {
 
 #panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max.number .flex-item.content a.cta {
   margin-bottom: 0;
-  color: $gold;
+  color: lighten($gold, 10%);
   background-image: none;
 }
 
@@ -608,6 +639,24 @@ button:focus {
   @include phone-portrait {
     font-size: 3.5rem !important;
   }
+}
+
+/* accent bar */
+
+/* background - maroon > gold */
+.accent-bar {
+  position: absolute;
+  top: -0.75rem;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 1.25rem;
+  background: #5A0722;
+  background: linear-gradient(90deg,rgba(90, 7, 34, 1) 0%, rgba(90, 7, 34, 1) 57%, rgba(234, 170, 0, 1) 100%);
+}
+/* background - maroon > gold - white highlight */
+.accent-bar {
+  background: linear-gradient(90deg,rgba(90, 7, 34, 1) 0%, rgba(90, 7, 34, 1) 37%, rgba(234, 170, 0, 1) 79%, rgba(255, 255, 255, 1) 88%, rgba(234, 170, 0, 1) 100%, rgba(234, 170, 0, 1) 100%);
 }
 
 /* media queries ==================

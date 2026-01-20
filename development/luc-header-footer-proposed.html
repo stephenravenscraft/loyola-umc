@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<title> A page to develop the header, footer, and navigation updates</title>
+<head>
+	@@include('./partials/framework/luc-head.html')
+	<!-- inject:css -->
+	<!-- endinject -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+	<!-- HEADER -->
+	@@include('./partials/framework/luc-search-overlay.html')
+	@@include('./partials/framework/luc-sliding-menu-V2.html')
+	<header>
+		@@include('./partials/framework/luc-audience-directory.html')
+		@@include('./partials/panels/proposed/luc-header-proposed.html')
+	</header>
+		@@include('./partials/framework/luc-nav-desktop-accessible.html')
+	<main id="main-content-start" alt="This is the beginning of the main content of the page">
+		<aside id="social-icon-bar">
+			@@include('./partials/panels/proposed/luc-social-media-bar-proposed.html')
+		</aside>
+		<div id="main-content-wrapper-full-width"></div>
+			<section>
+				<div class="container-fluid">
+					<div class="container container-100">	
+						@@include('./partials/panels/development/panel-video-hero-content-centered.html')
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+    <footer>
+        @@include('./partials/panels/proposed/luc-footer-proposed.html')
+    </footer>
+</script>
+<!-- inject:js -->
+<!-- endinject -->
+<script src="https://kit.fontawesome.com/4d537b50e0.js" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>

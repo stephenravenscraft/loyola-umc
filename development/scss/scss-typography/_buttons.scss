@@ -14,7 +14,7 @@ button, .button {
   width: auto;
   height: auto;
   font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
-  font-size: 1rem;
+  font-size: clamp(#{$font-step-1}, #{$font-step-1} + 3.5vw, #{$font-step-1});
   line-height: 1.35;
   letter-spacing: .0125rem;
   word-spacing: .125rem;
@@ -30,7 +30,7 @@ button, .button {
   transition: .3s;
   &:hover {
     color: $white;
-    background-color: $brick;
+    background-color: lighten($maroon, 10%);
   }
   :focus {
     outline: 3px solid $white;
@@ -38,6 +38,11 @@ button, .button {
     border-radius: .33rem !important;
     -moz-outline-border: .33rem;
   }
+}
+
+a button,
+a button.button {
+  height: auto !important;
 }
 
 button.container-100 {
@@ -58,12 +63,23 @@ button.center {
 
 .button-maroon button,
 .button-patina button,
-.button-gold button,
 .bg-maroon button,
 .bg-brick button,
 .bg-gray button {
   color: $white !important;
   border: none !important;
+}
+
+.bg-maroon button,
+.bg-brick button,
+.button-gold button,
+.bg-maroon .button-gold button {
+  color: $black !important;
+}
+
+.grid-item button,
+.grid-item .button {
+  height: 100%;
 }
 
 .button-maroon button { background-color: $maroon; }
@@ -72,24 +88,42 @@ button.center {
 .button-gold button { background-color: desaturate($gold,5%); color: $black !important; }
 
 .bg-maroon button,
-.bg-brick button { background-color: $gold; }
+.bg-brick button { background-color: $gold;
+  &:hover {
+    color: $white;
+    border: none;
+    background: lighten($gold, 10%) !important;
+  }
+}
 
 .bg-gold button,
 .bg-gray button,
-.bg-terracotta-extra-light button { background-color: $maroon; }
+.bg-terracotta-extra-light button { background-color: $maroon; color: #000000 !important }
 
-.button-maroon button:hover { background-color: $brick !important; }
+.button-maroon button:hover { background-color: lighten($maroon, 10%) !important; }
+.bg-maroon .button-maroon button:hover { background-color: lighten($gold, 10%) !important; }
 .button-patina button:hover { background-color: $patina-dark !important; }
-.button-gold button:hover { background-color: $opus !important; }
+.button-gold button:hover { background-color: lighten($gold,10%) !important; }
 
 .button-open button {
   color: $maroon;
-  border: solid 1px $maroon;
+  border: solid .125rem $maroon;
   background: none;
   &:hover {
     color: $white;
-    border: solid 1px $maroon;
-    background: $maroon;
+    border: solid .125rem lighten($maroon, 10%);
+    background: lighten($maroon, 10%);
+  }
+}
+
+.card .content-grid-wrapper.bg-maroon .button-open button {
+  color: lighten($gold, 10%) !important;
+  border: solid .125rem lighten($gold, 10%) !important;
+  background: none;
+  &:hover {
+    color: lighten($gold, 10%);
+    border: solid .125rem lighten($gold, 10%);
+    background: lighten($maroon, 10%);
   }
 }
 
