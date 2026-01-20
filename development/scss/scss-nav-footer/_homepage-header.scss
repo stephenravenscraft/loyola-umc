@@ -1,0 +1,118 @@
+// =============================================================================
+// Homepage Header
+// =============================================================================
+// Full-width header with utility bar + main navigation.
+// Logo positioned distinctly from interior pages.
+// =============================================================================
+
+.luc-header--homepage {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+
+  // Hide desktop header on mobile
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    display: none;
+  }
+}
+
+// Main navigation bar (white, 96px)
+.luc-nav--homepage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $luc-nav-height;
+  padding: 0 24px;
+  background-color: $luc-white;
+  position: relative;
+}
+
+// Logo container
+.luc-nav__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.luc-nav__logo-link {
+  display: block;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+.luc-nav__logo-img {
+  height: 56px;
+  width: auto;
+}
+
+// Secondary title (near logo on homepage)
+.luc-nav__subtitle {
+  font-size: 14px;
+  font-weight: $luc-nav-font-weight;
+  color: $luc-maroon;
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 1px solid $gray-light;
+}
+
+// Navigation items container
+.luc-nav__items {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Individual nav item
+.luc-nav__item {
+  position: relative;
+}
+
+// Nav toggle button (single button pattern, no separate link + caret)
+.luc-nav__toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: $luc-nav-height;
+  padding: 0 20px;
+  border: none;
+  background: transparent;
+  font-size: $luc-nav-font-size;
+  font-weight: $luc-nav-font-weight;
+  color: $luc-maroon;
+  cursor: pointer;
+  transition: background-color $luc-transition-fast;
+
+  &:hover {
+    background-color: rgba($luc-maroon, 0.05);
+  }
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: -2px;
+  }
+
+  // Caret icon
+  svg {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+    transition: transform $luc-transition-fast;
+  }
+
+  // Rotate caret when open
+  &[aria-expanded='true'] svg {
+    transform: rotate(180deg);
+  }
+}
+
+// Active/current page indicator
+.luc-nav__item--active .luc-nav__toggle {
+  background-color: rgba($luc-maroon, 0.08);
+}

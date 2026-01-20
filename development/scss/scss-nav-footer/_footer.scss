@@ -1,0 +1,212 @@
+// =============================================================================
+// Global Footer
+// =============================================================================
+// Same footer on homepage and interior pages.
+// Maroon background, white text.
+// =============================================================================
+
+.luc-footer {
+  background-color: $luc-footer-bg;
+  color: $luc-footer-text;
+  padding: 64px 24px 32px;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    padding: 48px 16px 24px;
+  }
+}
+
+.luc-footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Main footer grid
+.luc-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.luc-footer__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.luc-footer__heading {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 16px;
+  color: $luc-gold;
+}
+
+.luc-footer__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.luc-footer__link {
+  display: block;
+  padding: 6px 0;
+  font-size: 14px;
+  color: $luc-footer-text;
+  text-decoration: none;
+  transition: opacity $luc-transition-fast;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $luc-white;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+// Contact info
+.luc-footer__contact {
+  margin-top: auto;
+}
+
+.luc-footer__address {
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.luc-footer__phone {
+  font-size: 14px;
+  color: $luc-footer-text;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $luc-white;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+// Social links
+.luc-footer__social {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.luc-footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba($luc-white, 0.1);
+  color: $luc-footer-text;
+  text-decoration: none;
+  transition: background-color $luc-transition-fast;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($luc-white, 0.2);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $luc-white;
+    outline-offset: $luc-focus-offset;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+}
+
+// Bottom bar
+.luc-footer__bottom {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba($luc-white, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.luc-footer__copyright {
+  font-size: 12px;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.luc-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.luc-footer__legal-link {
+  font-size: 12px;
+  color: $luc-footer-text;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity $luc-transition-fast;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $luc-white;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+// Logo in footer
+.luc-footer__logo {
+  margin-bottom: 24px;
+}
+
+.luc-footer__logo-link {
+  display: inline-block;
+
+  &:focus-visible {
+    outline: 2px solid $luc-white;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+.luc-footer__logo-img {
+  height: 48px;
+  width: auto;
+  filter: brightness(0) invert(1); // Make logo white
+}

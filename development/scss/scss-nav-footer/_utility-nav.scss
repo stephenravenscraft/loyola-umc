@@ -1,0 +1,141 @@
+// =============================================================================
+// Utility Navigation
+// =============================================================================
+// Top bar with audience links, CTAs, and inline search.
+// Height: 76px on homepage, integrated into main nav on interior.
+// =============================================================================
+
+.luc-utility {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $luc-utility-height;
+  padding: 0 24px;
+  background-color: $luc-maroon;
+  color: $luc-white;
+
+  // Hide on mobile
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    display: none;
+  }
+}
+
+// Left side: Audience links
+.luc-utility__audience {
+  display: flex;
+  gap: 24px;
+}
+
+.luc-utility__link {
+  font-size: $luc-nav-font-size;
+  font-weight: $luc-nav-font-weight;
+  color: $luc-white;
+  text-decoration: none;
+  transition: opacity $luc-transition-fast;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+// Right side: CTAs + Search
+.luc-utility__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.luc-utility__cta {
+  font-size: $luc-nav-font-size;
+  font-weight: $luc-nav-font-weight;
+  color: $luc-white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  transition: all $luc-transition-fast;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+
+  // Primary CTA (e.g., Apply, Give)
+  &--primary {
+    background-color: $luc-gold;
+    color: $luc-maroon;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+      background-color: darken($luc-gold, 5%);
+    }
+  }
+}
+
+// Inline search
+.luc-utility__search {
+  display: flex;
+  align-items: center;
+}
+
+.luc-utility__search-input {
+  width: 200px;
+  height: 40px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  font-size: $luc-nav-font-size;
+  background-color: $luc-white;
+  color: $gray-dark;
+
+  &::placeholder {
+    color: $gray-medium;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 2px $luc-gold;
+  }
+}
+
+.luc-utility__search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  background-color: $luc-maroon;
+  color: $luc-white;
+  cursor: pointer;
+  transition: background-color $luc-transition-fast;
+
+  &:hover,
+  &:focus {
+    background-color: darken($luc-maroon, 10%);
+  }
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+}

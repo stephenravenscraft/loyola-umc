@@ -1,0 +1,146 @@
+// =============================================================================
+// Mega Menu
+// =============================================================================
+// Dropdown mega menu for desktop navigation.
+// Cream background (#f2efe5), maroon text.
+// =============================================================================
+
+.luc-mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: $luc-cream;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition:
+    opacity $luc-transition-normal,
+    visibility $luc-transition-normal,
+    transform $luc-transition-normal;
+  z-index: 100;
+
+  // Hide on mobile
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    display: none;
+  }
+
+  // Open state
+  &.is-open,
+  .luc-nav__item:focus-within > & {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.luc-mega-menu__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.luc-mega-menu__column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.luc-mega-menu__heading {
+  font-size: 16px;
+  font-weight: 700;
+  color: $luc-maroon;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.luc-mega-menu__link {
+  font-size: $luc-nav-font-size;
+  font-weight: $luc-nav-font-weight;
+  color: $luc-maroon;
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color $luc-transition-fast;
+
+  &:hover,
+  &:focus {
+    color: darken($luc-maroon, 15%);
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+// Section root link (e.g., "Academics" button inside mega menu)
+.luc-mega-menu__section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: $luc-white;
+  background-color: $luc-maroon;
+  padding: 12px 24px;
+  text-decoration: none;
+  margin-top: 16px;
+  transition: background-color $luc-transition-fast;
+
+  &:hover,
+  &:focus {
+    background-color: darken($luc-maroon, 10%);
+  }
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+}
+
+// Featured content area (optional right column)
+.luc-mega-menu__featured {
+  grid-column: span 1;
+  background-color: $luc-maroon;
+  color: $luc-white;
+  padding: 24px;
+}
+
+.luc-mega-menu__featured-heading {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 16px;
+}
+
+.luc-mega-menu__featured-link {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  color: $luc-white;
+  text-decoration: none;
+  margin-bottom: 8px;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $luc-white;
+    outline-offset: $luc-focus-offset;
+  }
+}

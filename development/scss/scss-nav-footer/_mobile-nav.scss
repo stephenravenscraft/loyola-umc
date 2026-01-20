@@ -1,0 +1,294 @@
+// =============================================================================
+// Mobile Navigation
+// =============================================================================
+// Responsive mobile menu, visible at max-width: 1023px.
+// Same hierarchy as desktop, simplified visuals.
+// No rounded/beveled edges.
+// =============================================================================
+
+// Mobile header bar
+.luc-mobile-header {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 16px;
+  background-color: $luc-white;
+  border-bottom: 1px solid $gray-extra-light;
+  position: relative;
+  z-index: 1001;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    display: flex;
+  }
+}
+
+.luc-mobile-header__logo {
+  height: 40px;
+  width: auto;
+}
+
+// Hamburger button
+.luc-mobile-header__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+.luc-mobile-header__toggle-icon {
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background-color: $luc-maroon;
+  transition: background-color $luc-transition-fast;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background-color: $luc-maroon;
+    transition: transform $luc-transition-fast;
+  }
+
+  &::before {
+    top: -7px;
+  }
+
+  &::after {
+    bottom: -7px;
+  }
+
+  // Open state
+  .luc-mobile-header__toggle[aria-expanded='true'] & {
+    background-color: transparent;
+
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      bottom: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+// Mobile menu panel
+.luc-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $luc-white;
+  overflow-y: auto;
+  z-index: 1000;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    &.is-open {
+      display: block;
+    }
+  }
+}
+
+.luc-mobile-menu__inner {
+  padding: 16px;
+}
+
+// Mobile nav list
+.luc-mobile-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.luc-mobile-nav__item {
+  border-bottom: 1px solid $gray-extra-light;
+}
+
+// Mobile nav toggle (accordion pattern)
+.luc-mobile-nav__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: $luc-nav-font-weight;
+  color: $luc-maroon;
+  text-align: left;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: -2px;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    transition: transform $luc-transition-fast;
+  }
+
+  &[aria-expanded='true'] svg {
+    transform: rotate(180deg);
+  }
+}
+
+// Mobile submenu
+.luc-mobile-submenu {
+  display: none;
+  padding: 0 16px 16px;
+
+  &.is-open {
+    display: block;
+  }
+}
+
+.luc-mobile-submenu__list {
+  margin: 0;
+  padding: 0 0 0 16px;
+  list-style: none;
+}
+
+.luc-mobile-submenu__link {
+  display: block;
+  padding: 12px 0;
+  font-size: 14px;
+  color: $luc-maroon;
+  text-decoration: none;
+  border-bottom: 1px solid $gray-extra-light;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+// Mobile utility links
+.luc-mobile-utility {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid $gray-light;
+}
+
+.luc-mobile-utility__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.luc-mobile-utility__link {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: $luc-nav-font-weight;
+  color: $luc-white;
+  background-color: $luc-maroon;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background-color: darken($luc-maroon, 10%);
+  }
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+
+  &--secondary {
+    background-color: transparent;
+    color: $luc-maroon;
+    border: 1px solid $luc-maroon;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($luc-maroon, 0.05);
+    }
+  }
+}
+
+// Mobile search
+.luc-mobile-search {
+  margin-top: 24px;
+}
+
+.luc-mobile-search__form {
+  display: flex;
+}
+
+.luc-mobile-search__input {
+  flex: 1;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid $gray-light;
+  border-right: none;
+  font-size: 16px;
+  background-color: $luc-white;
+  color: $gray-dark;
+
+  &::placeholder {
+    color: $gray-medium;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $luc-gold;
+  }
+}
+
+.luc-mobile-search__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 48px;
+  padding: 0;
+  border: none;
+  background-color: $luc-maroon;
+  color: $luc-white;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+}

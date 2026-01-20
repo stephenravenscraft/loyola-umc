@@ -1,0 +1,171 @@
+// =============================================================================
+// Interior Header
+// =============================================================================
+// Header for interior/secondary pages.
+// Logo moves to utility area, section label on left.
+// =============================================================================
+
+.luc-header--interior {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+
+  // Hide desktop header on mobile
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    display: none;
+  }
+}
+
+// Combined utility + nav bar for interior
+.luc-nav--interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $luc-interior-nav-height;
+  padding: 0 24px;
+  background-color: $luc-white;
+  border-bottom: 1px solid $gray-extra-light;
+  position: relative;
+}
+
+// Section label (left side)
+.luc-nav__section-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: $luc-maroon;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+// Center nav items (same as homepage but more compact)
+.luc-nav--interior .luc-nav__items {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.luc-nav--interior .luc-nav__toggle {
+  height: $luc-interior-nav-height;
+  padding: 0 16px;
+  font-size: 13px;
+}
+
+// Right side: Logo + utility actions
+.luc-nav__utility-group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+// Compact logo in utility area
+.luc-nav__utility-logo {
+  display: flex;
+  align-items: center;
+}
+
+.luc-nav__utility-logo-link {
+  display: block;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+.luc-nav__utility-logo-img {
+  height: 36px;
+  width: auto;
+}
+
+// Compact utility links for interior
+.luc-nav__utility-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.luc-nav__utility-link {
+  font-size: 13px;
+  font-weight: $luc-nav-font-weight;
+  color: $luc-maroon;
+  text-decoration: none;
+  transition: color $luc-transition-fast;
+
+  &:hover,
+  &:focus {
+    color: darken($luc-maroon, 15%);
+  }
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+// Interior search (compact inline)
+.luc-nav__search-compact {
+  display: flex;
+  align-items: center;
+}
+
+.luc-nav__search-compact-input {
+  width: 160px;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid $gray-light;
+  border-radius: 16px 0 0 16px;
+  font-size: 13px;
+  background-color: $luc-white;
+  color: $gray-dark;
+
+  &::placeholder {
+    color: $gray-medium;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $luc-gold;
+    box-shadow: 0 0 0 1px $luc-gold;
+  }
+}
+
+.luc-nav__search-compact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 0 16px 16px 0;
+  background-color: $luc-maroon;
+  color: $luc-white;
+  cursor: pointer;
+  transition: background-color $luc-transition-fast;
+
+  &:hover,
+  &:focus {
+    background-color: darken($luc-maroon, 10%);
+  }
+
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+}

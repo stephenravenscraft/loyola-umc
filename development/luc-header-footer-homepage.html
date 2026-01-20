@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage Header/Footer Shell | Loyola University Chicago</title>
+    <!-- Nav/Footer Bundle CSS -->
+    <link rel="stylesheet" href="css/luc-nav-footer.css">
+    <!-- Optional: Typography for fonts -->
+    <link rel="stylesheet" href="css/styles-typography.css">
+    <style>
+        /* Shell page styles - not part of bundle */
+        .shell-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            background: #f5f5f5;
+            border: 2px dashed #ccc;
+            margin: 0;
+        }
+        .shell-placeholder__text {
+            font-family: sans-serif;
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================
+     HOMEPAGE HEADER
+     ============================================ -->
+@@include('./partials/nav-footer/luc-homepage-header.html')
+
+<!-- ============================================
+     PAGE CONTENT PLACEHOLDER
+     ============================================ -->
+<main class="shell-placeholder">
+    <p class="shell-placeholder__text">Homepage content area (not part of this deliverable)</p>
+</main>
+
+<!-- ============================================
+     GLOBAL FOOTER
+     ============================================ -->
+@@include('./partials/nav-footer/luc-global-footer.html')
+
+<!-- Nav/Footer Bundle JS -->
+<script src="js/luc-nav-footer.js"></script>
+
+</body>
+</html>
