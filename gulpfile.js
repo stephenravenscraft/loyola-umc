@@ -94,6 +94,21 @@ function sassDocumentation() {
     cb();
 };
 
+function sassNavFooter() {
+    return gulp
+    .src(config.devDir + '/scss/scss-nav-footer/luc-nav-footer.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(config.deployDir + '/css'));
+};
+
+function jsNavFooter() {
+    return gulp
+    .src(config.devDir + '/js/luc-nav-footer.js')
+    .pipe(gulp.dest(config.deployDir + '/js'));
+};
+
 function referencePaths() {
     return gulp
     .src('./development/*.html')
@@ -142,12 +157,12 @@ function watchFiles() {
     }
   });
   watch('./development/**/*.html', gulp.series('indexBuild', 'browserSyncReload'));
-  watch(config.devDir + '/scss/**/*.scss', gulp.series(parallel('sassFramework', 'sassGrid', 'sassTypography', 'sassPanels', 'sassPanelsDev', 'sassDocumentation'), 'browserSyncReload'));
-  watch(config.devDir + '/js/**/*.js', gulp.series('browserSyncReload'));
+  watch(config.devDir + '/scss/**/*.scss', gulp.series(parallel('sassFramework', 'sassGrid', 'sassTypography', 'sassPanels', 'sassPanelsDev', 'sassDocumentation', 'sassNavFooter'), 'browserSyncReload'));
+  watch(config.devDir + '/js/**/*.js', gulp.series('jsNavFooter', 'browserSyncReload'));
 };
 
 exports.default = series(
-  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation),
+  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassNavFooter),
   referencePaths,
   indexBuild,
   watchFiles,
@@ -161,6 +176,8 @@ exports.sassTypography = sassTypography;
 exports.sassPanels = sassPanels;
 exports.sassPanelsDev = sassPanelsDev;
 exports.sassDocumentation = sassDocumentation;
+exports.sassNavFooter = sassNavFooter;
+exports.jsNavFooter = jsNavFooter;
 exports.watchFiles = watchFiles;
 exports.browserSync = browserSync;
 exports.browserSyncReload = browserSyncReload;
