@@ -1,8 +1,9 @@
 // =============================================================================
 // Interior Header
 // =============================================================================
-// Header for interior/secondary pages.
-// Logo moves to utility area, section label on left.
+// Two stacked bars for interior/secondary pages:
+// 1. Utility bar (maroon): Logo left, audience links, CTAs, search
+// 2. Subbrand nav (white): Section label left, nav items right
 // =============================================================================
 
 .luc-header--interior {
@@ -14,27 +15,64 @@
   @media (max-width: #{$nav-breakpoint - 1px}) {
     display: none;
   }
+
+  // Utility bar appears the same as homepage
+  .luc-utility {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+    padding: 0 32px;
+    background-color: $luc-maroon;
+  }
+
+  .luc-utility__logo-img {
+    height: 43px;
+    width: auto;
+  }
+
+  .luc-utility__right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .luc-utility__divider {
+    width: 1px;
+    height: 24px;
+    background-color: $luc-cream;
+    opacity: 0.5;
+  }
 }
 
-// Combined utility + nav bar for interior
-.luc-nav--interior {
+// =============================================================================
+// Subbrand Navigation (white bar below utility)
+// =============================================================================
+
+.luc-subbrand-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: $luc-interior-nav-height;
-  padding: 0 24px;
+  height: 64px;
+  padding: 0 32px;
   background-color: $luc-white;
-  border-bottom: 1px solid $gray-extra-light;
   position: relative;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    display: none;
+  }
 }
 
 // Section label (left side)
-.luc-nav__section-label {
-  font-family: $luc-font-family-condensed;
-  font-size: 18px;
+.luc-subbrand-nav__label {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 20px;
   font-weight: normal;
   color: $luc-maroon;
   text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  max-width: 400px;
 
   &:hover,
   &:focus {
@@ -47,61 +85,40 @@
   }
 }
 
-// Center nav items (same as homepage but more compact)
-.luc-nav--interior .luc-nav__items {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.luc-nav--interior .luc-nav__toggle {
-  height: $luc-interior-nav-height;
-  padding: 0 16px;
-  font-size: 13px;
-}
-
-// Right side: Logo + utility actions
-.luc-nav__utility-group {
+// Navigation items container (right side)
+.luc-subbrand-nav__items {
   display: flex;
   align-items: center;
   gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 100%;
 }
 
-// Compact logo in utility area
-.luc-nav__utility-logo {
+.luc-subbrand-nav__item {
+  position: static; // So mega menu positions to subbrand nav bar
+  height: 100%;
   display: flex;
   align-items: center;
 }
 
-.luc-nav__utility-logo-link {
-  display: block;
-  text-decoration: none;
-
-  &:focus-visible {
-    outline: $luc-focus-outline;
-    outline-offset: $luc-focus-offset;
-  }
-}
-
-.luc-nav__utility-logo-img {
-  height: 36px;
-  width: auto;
-}
-
-// Compact utility links for interior
-.luc-nav__utility-links {
+// Nav toggle buttons
+.luc-subbrand-nav__toggle {
   display: flex;
   align-items: center;
-  gap: 16px;
-}
-
-.luc-nav__utility-link {
+  gap: 0;
+  height: 100%;
+  padding: 0 8px;
+  background: none;
+  border: none;
   font-family: $luc-font-family;
-  font-size: 13px;
-  font-weight: $luc-nav-font-weight;
+  font-size: 16px;
+  font-weight: 500;
   color: $luc-maroon;
-  text-decoration: none;
+  cursor: pointer;
   transition: color $luc-transition-fast;
+  white-space: nowrap;
 
   &:hover,
   &:focus {
@@ -112,62 +129,138 @@
     outline: $luc-focus-outline;
     outline-offset: $luc-focus-offset;
   }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: transform $luc-transition-fast;
+  }
+
+  &[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+  }
 }
 
-// Interior search (compact inline)
-.luc-nav__search-compact {
+// Mega menu positioning from subbrand nav
+.luc-subbrand-nav__item .luc-mega-menu {
+  top: 100%;
+}
+
+// =============================================================================
+// Mobile Interior Header
+// =============================================================================
+
+.luc-mobile-header--interior {
+  flex-direction: column;
+  height: auto;
+
+  @media (min-width: $nav-breakpoint) {
+    display: none;
+  }
+}
+
+// Mobile utility bar (maroon)
+.luc-mobile-header__utility {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 64px;
+  padding: 0 16px;
+  background-color: $luc-maroon;
 }
 
-.luc-nav__search-compact-input {
-  width: 160px;
-  height: 32px;
-  padding: 0 12px;
-  border: 1px solid $gray-light;
-  border-radius: 16px 0 0 16px;
-  font-size: 13px;
-  background-color: $luc-white;
-  color: $gray-dark;
-
-  &::placeholder {
-    color: $gray-medium;
-  }
-
-  &:focus {
-    outline: none;
-    border-color: $luc-gold;
-    box-shadow: 0 0 0 1px $luc-gold;
-  }
+.luc-mobile-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.luc-nav__search-compact-btn {
+.luc-mobile-header__search-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   padding: 0;
+  background: none;
   border: none;
-  border-radius: 0 16px 16px 0;
-  background-color: $luc-maroon;
-  color: $luc-white;
   cursor: pointer;
-  transition: background-color $luc-transition-fast;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: $luc-white;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $luc-white;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+.luc-mobile-header--interior .luc-mobile-header__toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.luc-mobile-header--interior .luc-mobile-header__toggle-icon {
+  width: 24px;
+  height: 2px;
+  background-color: $luc-white;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: $luc-white;
+  }
+
+  &::before {
+    top: -7px;
+  }
+
+  &::after {
+    bottom: -7px;
+  }
+}
+
+// Mobile subbrand bar (white)
+.luc-mobile-header__subbrand {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 56px;
+  padding: 16px;
+  background-color: $luc-white;
+}
+
+.luc-mobile-header__section-label {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 20px;
+  font-weight: normal;
+  color: $luc-maroon;
+  text-decoration: none;
 
   &:hover,
   &:focus {
-    background-color: darken($luc-maroon, 10%);
+    text-decoration: underline;
   }
 
   &:focus-visible {
     outline: $luc-focus-outline;
     outline-offset: $luc-focus-offset;
-  }
-
-  svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
   }
 }

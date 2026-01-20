@@ -1,29 +1,22 @@
 <!-- ============================================
      LUC Mobile Navigation
      Visible at max-width: 1023px
+     Cream background, accordion pattern
      ============================================ -->
 
 <div id="luc-mobile-menu" class="luc-mobile-menu" aria-hidden="true">
+    <!-- Maroon CTA bar (appears at top of menu) -->
+    <div class="luc-mobile-menu__cta-bar">
+        <a href="#" class="luc-mobile-menu__cta">Request Info</a>
+        <a href="#" class="luc-mobile-menu__cta">Visit</a>
+        <a href="#" class="luc-mobile-menu__cta">Apply</a>
+        <span class="luc-mobile-menu__cta-divider"></span>
+        <a href="#" class="luc-mobile-menu__cta">Give</a>
+    </div>
+
     <div class="luc-mobile-menu__inner">
 
-        <!-- Mobile Search -->
-        <div class="luc-mobile-search">
-            <form class="luc-mobile-search__form" role="search" action="/search">
-                <input
-                    type="search"
-                    class="luc-mobile-search__input"
-                    placeholder="Search Loyola"
-                    aria-label="Search Loyola"
-                >
-                <button type="submit" class="luc-mobile-search__btn" aria-label="Submit search">
-                    <svg aria-hidden="true" viewBox="0 0 24 24">
-                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                    </svg>
-                </button>
-            </form>
-        </div>
-
-        <!-- Mobile Nav Items -->
+        <!-- Mobile Nav Items (Accordion) -->
         <nav aria-label="Mobile navigation">
             <ul class="luc-mobile-nav">
                 <li class="luc-mobile-nav__item">
@@ -39,10 +32,12 @@
                     </button>
                     <div id="mobile-academics" class="luc-mobile-submenu">
                         <ul class="luc-mobile-submenu__list">
-                            <li><a href="#" class="luc-mobile-submenu__link">Undergraduate</a></li>
-                            <li><a href="#" class="luc-mobile-submenu__link">Graduate</a></li>
-                            <li><a href="#" class="luc-mobile-submenu__link">Schools & Colleges</a></li>
-                            <li><a href="#" class="luc-mobile-submenu__link">Explore Academics</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Colleges and Schools</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Departments and Programs</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Online Learning</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Study Abroad Programs</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Calendars and Schedules</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Academic Catalog</a></li>
                         </ul>
                     </div>
                 </li>
@@ -60,9 +55,16 @@
                     </button>
                     <div id="mobile-admission" class="luc-mobile-submenu">
                         <ul class="luc-mobile-submenu__list">
-                            <li><a href="#" class="luc-mobile-submenu__link">Apply</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Undergraduate Admission</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Graduate Admission</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Adult Education</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Executive and Professional Education</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">International Admission</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Graduate and Professional International Admissions</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Tuition and Fees</a></li>
                             <li><a href="#" class="luc-mobile-submenu__link">Financial Aid</a></li>
-                            <li><a href="#" class="luc-mobile-submenu__link">Visit</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">J-Term</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Summer Sessions</a></li>
                         </ul>
                     </div>
                 </li>
@@ -80,8 +82,10 @@
                     </button>
                     <div id="mobile-research" class="luc-mobile-submenu">
                         <ul class="luc-mobile-submenu__list">
-                            <li><a href="#" class="luc-mobile-submenu__link">Centers & Institutes</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Centers and Institutes</a></li>
                             <li><a href="#" class="luc-mobile-submenu__link">Faculty Research</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Student Research</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Research News</a></li>
                         </ul>
                     </div>
                 </li>
@@ -99,8 +103,10 @@
                     </button>
                     <div id="mobile-community" class="luc-mobile-submenu">
                         <ul class="luc-mobile-submenu__list">
-                            <li><a href="#" class="luc-mobile-submenu__link">Jesuit Values</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Jesuit Mission</a></li>
                             <li><a href="#" class="luc-mobile-submenu__link">Campus Ministry</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Service and Justice</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Diversity and Inclusion</a></li>
                         </ul>
                     </div>
                 </li>
@@ -120,6 +126,8 @@
                         <ul class="luc-mobile-submenu__list">
                             <li><a href="#" class="luc-mobile-submenu__link">Housing</a></li>
                             <li><a href="#" class="luc-mobile-submenu__link">Dining</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Student Organizations</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Athletics</a></li>
                         </ul>
                     </div>
                 </li>
@@ -137,32 +145,25 @@
                     </button>
                     <div id="mobile-about" class="luc-mobile-submenu">
                         <ul class="luc-mobile-submenu__list">
-                            <li><a href="#" class="luc-mobile-submenu__link">History & Mission</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">History and Mission</a></li>
                             <li><a href="#" class="luc-mobile-submenu__link">Leadership</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">News and Events</a></li>
+                            <li><a href="#" class="luc-mobile-submenu__link">Contact</a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </nav>
 
-        <!-- Mobile Utility Links -->
-        <div class="luc-mobile-utility">
-            <ul class="luc-mobile-utility__list">
-                <li><a href="#" class="luc-mobile-utility__link">Apply</a></li>
-                <li><a href="#" class="luc-mobile-utility__link">Visit</a></li>
-                <li><a href="#" class="luc-mobile-utility__link luc-mobile-utility__link--secondary">Request Info</a></li>
-                <li><a href="#" class="luc-mobile-utility__link luc-mobile-utility__link--secondary">Give</a></li>
+        <!-- Info For (Audience Links) -->
+        <div class="luc-mobile-audience">
+            <h3 class="luc-mobile-audience__heading">Info For</h3>
+            <ul class="luc-mobile-audience__list">
+                <li><a href="#" class="luc-mobile-audience__link">Current Students</a></li>
+                <li><a href="#" class="luc-mobile-audience__link">Faculty & Staff</a></li>
+                <li><a href="#" class="luc-mobile-audience__link">Alumni</a></li>
             </ul>
         </div>
-
-        <!-- Mobile Audience Links -->
-        <nav class="luc-mobile-utility" aria-label="Audience links">
-            <ul class="luc-mobile-utility__list">
-                <li><a href="#" class="luc-mobile-utility__link luc-mobile-utility__link--secondary">Current Students</a></li>
-                <li><a href="#" class="luc-mobile-utility__link luc-mobile-utility__link--secondary">Faculty & Staff</a></li>
-                <li><a href="#" class="luc-mobile-utility__link luc-mobile-utility__link--secondary">Alumni</a></li>
-            </ul>
-        </nav>
 
     </div>
 </div>

@@ -3,6 +3,7 @@
 // =============================================================================
 // Dropdown mega menu for desktop navigation.
 // Cream background (#f2efe5), maroon text.
+// Simplified 2-column layout per Figma.
 // =============================================================================
 
 .luc-mega-menu {
@@ -35,69 +36,56 @@
   }
 }
 
-.luc-mega-menu__container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 24px;
+// Position mega menu relative to nav bar, not nav item
+.luc-nav__item {
+  position: static; // Remove relative positioning so mega menu positions to nav
 }
 
-.luc-mega-menu__column {
+.luc-nav--homepage,
+.luc-subbrand-nav {
+  position: relative; // Mega menu positions relative to this
+}
+
+// Active indicator bar (maroon bar under active nav item)
+.luc-nav__item.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: $luc-maroon;
+}
+
+.luc-mega-menu__container {
+  max-width: 600px;
+  padding: 40px 48px;
+}
+
+.luc-mega-menu__content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
-.luc-mega-menu__heading {
-  font-family: $luc-font-family-condensed;
-  font-size: 14px;
-  font-weight: normal;
-  color: $luc-maroon;
-  margin: 0 0 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.luc-mega-menu__link {
-  font-family: $luc-font-family;
-  font-size: $luc-nav-font-size;
-  font-weight: $luc-nav-font-weight;
-  color: $luc-maroon;
-  text-decoration: none;
-  padding: 4px 0;
-  transition: color $luc-transition-fast;
-
-  &:hover,
-  &:focus {
-    color: darken($luc-maroon, 15%);
-    text-decoration: underline;
-  }
-
-  &:focus-visible {
-    outline: $luc-focus-outline;
-    outline-offset: $luc-focus-offset;
-  }
-}
-
-// Section root link (e.g., "Academics" button inside mega menu)
-.luc-mega-menu__section-link {
-  display: inline-flex;
+// Section header link (e.g., "Academics →")
+.luc-mega-menu__section-header {
+  display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  color: $luc-white;
-  background-color: $luc-maroon;
-  padding: 12px 24px;
+  font-family: $luc-font-family;
+  font-size: 18px;
+  font-weight: normal;
+  color: $luc-maroon;
   text-decoration: none;
-  margin-top: 16px;
-  transition: background-color $luc-transition-fast;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid $luc-maroon;
+  width: fit-content;
 
   &:hover,
   &:focus {
-    background-color: darken($luc-maroon, 10%);
+    text-decoration: underline;
   }
 
   &:focus-visible {
@@ -112,37 +100,48 @@
   }
 }
 
-// Featured content area (optional right column)
-.luc-mega-menu__featured {
-  grid-column: span 1;
-  background-color: $luc-maroon;
-  color: $luc-white;
-  padding: 24px;
+// Two-column link layout
+.luc-mega-menu__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 48px;
+  width: 100%;
 }
 
-.luc-mega-menu__featured-heading {
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0 0 16px;
-}
-
-.luc-mega-menu__featured-link {
+.luc-mega-menu__link {
   display: block;
-  font-size: 18px;
-  font-weight: 500;
-  color: $luc-white;
+  font-family: $luc-font-family;
+  font-size: 16px;
+  font-weight: normal;
+  color: $luc-maroon;
   text-decoration: none;
-  margin-bottom: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba($luc-maroon, 0.15);
+  transition: color $luc-transition-fast;
 
   &:hover,
   &:focus {
-    text-decoration: underline;
+    color: darken($luc-maroon, 15%);
   }
 
   &:focus-visible {
-    outline: 2px solid $luc-white;
+    outline: $luc-focus-outline;
     outline-offset: $luc-focus-offset;
   }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+// Left column container
+.luc-mega-menu__left {
+  display: flex;
+  flex-direction: column;
+}
+
+// Right column container
+.luc-mega-menu__right {
+  display: flex;
+  flex-direction: column;
 }

@@ -20,7 +20,42 @@
   }
 }
 
-// Left side: Audience links
+// Logo (for interior header)
+.luc-utility__logo {
+  flex-shrink: 0;
+}
+
+.luc-utility__logo-link {
+  display: block;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: 2px solid $luc-white;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+.luc-utility__logo-img {
+  height: 43px;
+  width: auto;
+}
+
+// Right side wrapper
+.luc-utility__right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+// Divider between link groups
+.luc-utility__divider {
+  width: 1px;
+  height: 24px;
+  background-color: $luc-cream;
+  opacity: 0.5;
+}
+
+// Audience links
 .luc-utility__audience {
   display: flex;
   gap: 24px;
@@ -28,8 +63,8 @@
 
 .luc-utility__link {
   font-family: $luc-font-family;
-  font-size: $luc-nav-font-size;
-  font-weight: $luc-nav-font-weight;
+  font-size: 14px;
+  font-weight: 500;
   color: $luc-white;
   text-decoration: none;
   transition: opacity $luc-transition-fast;
@@ -40,7 +75,7 @@
   }
 
   &:focus-visible {
-    outline: $luc-focus-outline;
+    outline: 2px solid $luc-white;
     outline-offset: $luc-focus-offset;
   }
 }
@@ -54,13 +89,12 @@
 
 .luc-utility__cta {
   font-family: $luc-font-family;
-  font-size: $luc-nav-font-size;
-  font-weight: $luc-nav-font-weight;
+  font-size: 14px;
+  font-weight: 500;
   color: $luc-white;
   text-decoration: none;
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  transition: all $luc-transition-fast;
+  padding: 4px 0;
+  transition: opacity $luc-transition-fast;
 
   &:hover,
   &:focus {
@@ -68,7 +102,7 @@
   }
 
   &:focus-visible {
-    outline: $luc-focus-outline;
+    outline: 2px solid $luc-white;
     outline-offset: $luc-focus-offset;
   }
 
@@ -76,6 +110,8 @@
   &--primary {
     background-color: $luc-gold;
     color: $luc-maroon;
+    padding: 8px 16px;
+    border-radius: 4px;
 
     &:hover,
     &:focus {
@@ -85,20 +121,23 @@
   }
 }
 
-// Inline search
+// Inline search - pill shape with circular button inside
 .luc-utility__search {
   display: flex;
   align-items: center;
+  background-color: $luc-white;
+  border-radius: 24px;
+  padding: 4px 4px 4px 16px;
+  gap: 8px;
 }
 
 .luc-utility__search-input {
-  width: 200px;
-  height: 40px;
-  padding: 0 16px;
+  width: 120px;
+  height: 32px;
+  padding: 0;
   border: none;
-  border-radius: 20px 0 0 20px;
+  background: transparent;
   font-size: $luc-nav-font-size;
-  background-color: $luc-white;
   color: $gray-dark;
 
   &::placeholder {
@@ -107,7 +146,6 @@
 
   &:focus {
     outline: none;
-    box-shadow: inset 0 0 0 2px $luc-gold;
   }
 }
 
@@ -115,14 +153,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   padding: 0;
   border: none;
-  border-radius: 0 20px 20px 0;
+  border-radius: 50%;
   background-color: $luc-maroon;
   color: $luc-white;
   cursor: pointer;
+  flex-shrink: 0;
   transition: background-color $luc-transition-fast;
 
   &:hover,
@@ -131,13 +170,13 @@
   }
 
   &:focus-visible {
-    outline: $luc-focus-outline;
-    outline-offset: $luc-focus-offset;
+    outline: 2px solid $luc-gold;
+    outline-offset: 2px;
   }
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     fill: currentColor;
   }
 }

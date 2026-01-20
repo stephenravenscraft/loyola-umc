@@ -1,6 +1,6 @@
 /**
  * LUC Nav/Footer Bundle - JavaScript
- * Handles mega menu, mobile menu, and search interactions.
+ * Handles mega menu, mobile menu, mobile search, and accordion interactions.
  * Self-contained, minimal dependencies.
  */
 
@@ -11,7 +11,7 @@
   // MEGA MENU (Desktop)
   // ==========================================================================
 
-  const megaMenuToggles = document.querySelectorAll('.luc-nav__toggle');
+  const megaMenuToggles = document.querySelectorAll('.luc-nav__toggle, .luc-subbrand-nav__toggle');
   const megaMenus = document.querySelectorAll('.luc-mega-menu');
 
   /**
@@ -62,7 +62,7 @@
 
   // Close mega menus when clicking outside
   document.addEventListener('click', function(e) {
-    const isInsideNav = e.target.closest('.luc-nav__item');
+    const isInsideNav = e.target.closest('.luc-nav__item') || e.target.closest('.luc-subbrand-nav__item');
     if (!isInsideNav) {
       closeAllMegaMenus();
     }
@@ -79,19 +79,98 @@
   // MOBILE MENU
   // ==========================================================================
 
-  const mobileToggle = document.querySelector('.luc-mobile-header__toggle');
+  const mobileToggles = document.querySelectorAll('.luc-mobile-header__toggle');
   const mobileMenu = document.getElementById('luc-mobile-menu');
+  const mobileSearchPanel = document.getElementById('luc-mobile-search');
 
-  if (mobileToggle && mobileMenu) {
-    mobileToggle.addEventListener('click', function() {
-      const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+  function closeMobileMenu() {
+    mobileToggles.forEach(function(toggle) {
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+    if (mobileMenu) {
+      mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    }
+    document.body.style.overflow = '';
+  }
 
-      mobileToggle.setAttribute('aria-expanded', !isExpanded);
-      mobileMenu.classList.toggle('is-open', !isExpanded);
-      mobileMenu.setAttribute('aria-hidden', isExpanded);
+  function openMobileMenu() {
+    mobileToggles.forEach(function(toggle) {
+      toggle.setAttribute('aria-expanded', 'true');
+    });
+    if (mobileMenu) {
+      mobileMenu.classList.add('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+    }
+    // Close search if open
+    closeMobileSearch();
+    document.body.style.overflow = 'hidden';
+  }
 
-      // Prevent body scroll when menu is open
-      document.body.style.overflow = isExpanded ? '' : 'hidden';
+  mobileToggles.forEach(function(toggle) {
+    toggle.addEventListener('click', function() {
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+  });
+
+  // ==========================================================================
+  // MOBILE SEARCH PANEL
+  // ==========================================================================
+
+  const mobileSearchBtn = document.querySelector('.luc-mobile-header__search-btn');
+  const mobileSearchClose = document.querySelector('.luc-mobile-search__close');
+
+  function closeMobileSearch() {
+    if (mobileSearchPanel) {
+      mobileSearchPanel.classList.remove('is-open');
+      mobileSearchPanel.setAttribute('aria-hidden', 'true');
+    }
+    if (mobileSearchBtn) {
+      mobileSearchBtn.setAttribute('aria-expanded', 'false');
+    }
+    document.body.style.overflow = '';
+  }
+
+  function openMobileSearch() {
+    // Close menu if open
+    closeMobileMenu();
+
+    if (mobileSearchPanel) {
+      mobileSearchPanel.classList.add('is-open');
+      mobileSearchPanel.setAttribute('aria-hidden', 'false');
+      // Focus the search input
+      const searchInput = mobileSearchPanel.querySelector('.luc-mobile-search__input');
+      if (searchInput) {
+        setTimeout(function() {
+          searchInput.focus();
+        }, 100);
+      }
+    }
+    if (mobileSearchBtn) {
+      mobileSearchBtn.setAttribute('aria-expanded', 'true');
+    }
+    document.body.style.overflow = 'hidden';
+  }
+
+  if (mobileSearchBtn) {
+    mobileSearchBtn.addEventListener('click', function() {
+      const isExpanded = mobileSearchBtn.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeMobileSearch();
+      } else {
+        openMobileSearch();
+      }
+    });
+  }
+
+  if (mobileSearchClose) {
+    mobileSearchClose.addEventListener('click', function() {
+      closeMobileSearch();
     });
   }
 
@@ -159,28 +238,44 @@
     trapFocus(mobileMenu);
   }
 
+  if (mobileSearchPanel) {
+    trapFocus(mobileSearchPanel);
+  }
+
   // ==========================================================================
-  // CLOSE MOBILE MENU ON RESIZE TO DESKTOP
+  // CLOSE MOBILE PANELS ON ESCAPE
+  // ==========================================================================
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      if (mobileMenu && mobileMenu.classList.contains('is-open')) {
+        closeMobileMenu();
+        if (mobileToggles[0]) mobileToggles[0].focus();
+      }
+      if (mobileSearchPanel && mobileSearchPanel.classList.contains('is-open')) {
+        closeMobileSearch();
+        if (mobileSearchBtn) mobileSearchBtn.focus();
+      }
+    }
+  });
+
+  // ==========================================================================
+  // CLOSE MOBILE PANELS ON RESIZE TO DESKTOP
   // ==========================================================================
 
   const NAV_BREAKPOINT = 1024;
 
   function handleResize() {
-    if (window.innerWidth >= NAV_BREAKPOINT && mobileMenu && mobileMenu.classList.contains('is-open')) {
-      mobileToggle.setAttribute('aria-expanded', 'false');
-      mobileMenu.classList.remove('is-open');
-      mobileMenu.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+    if (window.innerWidth >= NAV_BREAKPOINT) {
+      if (mobileMenu && mobileMenu.classList.contains('is-open')) {
+        closeMobileMenu();
+      }
+      if (mobileSearchPanel && mobileSearchPanel.classList.contains('is-open')) {
+        closeMobileSearch();
+      }
     }
   }
 
   window.addEventListener('resize', handleResize);
-
-  // ==========================================================================
-  // INLINE SEARCH BEHAVIOR (Optional enhancement)
-  // ==========================================================================
-
-  // The search is already inline per requirements - no modal/overlay.
-  // This section can be extended if dynamic behavior is needed.
 
 })();

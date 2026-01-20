@@ -1,67 +1,57 @@
 <!-- ============================================
      LUC Global Footer
      Same on homepage and interior pages
+     Per Figma: gold bar, centered logo
+     Desktop: Contact | About | Resources | Back to Top
+     Mobile: Back to Top, Logo, About, Resources, Contact
      ============================================ -->
 
 <footer class="luc-footer">
     <div class="luc-footer__container">
 
-        <!-- Footer Logo -->
+        <!-- Back to Top (mobile: top, desktop: in grid) -->
+        <a href="#top" class="luc-footer__back-to-top luc-footer__back-to-top--mobile">
+            Back to Top
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+            </svg>
+        </a>
+
+        <!-- Centered Logo -->
         <div class="luc-footer__logo">
             <a href="/" class="luc-footer__logo-link">
-                <img src="images/loy-reverse.svg" alt="Loyola University Chicago" class="luc-footer__logo-img">
+                <img src="images/LUC_stacked_reverse.svg" alt="Loyola University Chicago" class="luc-footer__logo-img">
             </a>
         </div>
 
         <!-- Footer Grid -->
+        <!-- Desktop order: Contact | About | Resources | Back to Top -->
+        <!-- Mobile order: About | Resources | Contact (via CSS order) -->
         <div class="luc-footer__grid">
 
-            <!-- Column 1: Explore -->
-            <div class="luc-footer__column">
-                <h2 class="luc-footer__heading">Explore</h2>
-                <ul class="luc-footer__list">
-                    <li><a href="#" class="luc-footer__link">Academics</a></li>
-                    <li><a href="#" class="luc-footer__link">Admission & Aid</a></li>
-                    <li><a href="#" class="luc-footer__link">Research</a></li>
-                    <li><a href="#" class="luc-footer__link">Community & Faith</a></li>
-                    <li><a href="#" class="luc-footer__link">Campus Life</a></li>
-                    <li><a href="#" class="luc-footer__link">About</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 2: Resources -->
-            <div class="luc-footer__column">
-                <h2 class="luc-footer__heading">Resources</h2>
-                <ul class="luc-footer__list">
-                    <li><a href="#" class="luc-footer__link">Current Students</a></li>
-                    <li><a href="#" class="luc-footer__link">Faculty & Staff</a></li>
-                    <li><a href="#" class="luc-footer__link">Alumni</a></li>
-                    <li><a href="#" class="luc-footer__link">Parents & Families</a></li>
-                    <li><a href="#" class="luc-footer__link">Employers</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Quick Links -->
-            <div class="luc-footer__column">
-                <h2 class="luc-footer__heading">Quick Links</h2>
-                <ul class="luc-footer__list">
-                    <li><a href="#" class="luc-footer__link">Campus Directory</a></li>
-                    <li><a href="#" class="luc-footer__link">Events Calendar</a></li>
-                    <li><a href="#" class="luc-footer__link">Libraries</a></li>
-                    <li><a href="#" class="luc-footer__link">Athletics</a></li>
-                    <li><a href="#" class="luc-footer__link">News & Media</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Contact -->
-            <div class="luc-footer__column">
-                <h2 class="luc-footer__heading">Contact</h2>
+            <!-- Contact Info (first on desktop, third on mobile) -->
+            <div class="luc-footer__column luc-footer__column--contact">
+                <h2 class="luc-footer__heading luc-footer__heading--contact">Loyola University Chicago</h2>
                 <address class="luc-footer__address">
-                    Loyola University Chicago<br>
-                    1032 W. Sheridan Road<br>
+                    1032 W. Sheridan Rd.<br>
                     Chicago, IL 60660
                 </address>
-                <a href="tel:7735083000" class="luc-footer__phone">773-508-3000</a>
+                <a href="tel:7732743000" class="luc-footer__phone">773.274.3000</a>
+
+                <div class="luc-footer__ctas">
+                    <a href="#" class="luc-footer__cta-link">
+                        Contact Us
+                        <svg aria-hidden="true" viewBox="0 0 24 24">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="luc-footer__cta-link">
+                        Maps &amp; Directions
+                        <svg aria-hidden="true" viewBox="0 0 24 24">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                        </svg>
+                    </a>
+                </div>
 
                 <!-- Social Links -->
                 <div class="luc-footer__social">
@@ -70,14 +60,9 @@
                             <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
                         </svg>
                     </a>
-                    <a href="#" class="luc-footer__social-link" aria-label="Twitter">
-                        <svg aria-hidden="true" viewBox="0 0 24 24">
-                            <path d="M22.46 6c-.85.38-1.78.64-2.75.76 1-.6 1.76-1.55 2.12-2.68-.93.55-1.96.95-3.06 1.17-.88-.94-2.13-1.53-3.51-1.53-2.66 0-4.81 2.16-4.81 4.81 0 .38.04.75.13 1.1-4-.2-7.58-2.11-9.96-5.02-.42.72-.66 1.56-.66 2.46 0 1.68.85 3.16 2.14 4.02-.79-.02-1.53-.24-2.18-.6v.06c0 2.35 1.67 4.31 3.88 4.76-.4.1-.83.16-1.27.16-.31 0-.62-.03-.92-.08.63 1.96 2.45 3.39 4.61 3.43-1.69 1.32-3.83 2.1-6.15 2.1-.4 0-.8-.02-1.19-.07 2.19 1.4 4.78 2.22 7.57 2.22 9.07 0 14.02-7.52 14.02-14.02 0-.21 0-.42-.01-.63.96-.69 1.79-1.56 2.45-2.55z"/>
-                        </svg>
-                    </a>
                     <a href="#" class="luc-footer__social-link" aria-label="Instagram">
                         <svg aria-hidden="true" viewBox="0 0 24 24">
-                            <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.508-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.247-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 1.802c-2.67 0-2.986.01-4.04.058-.976.045-1.505.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.352-.3.881-.344 1.857-.048 1.054-.058 1.37-.058 4.04 0 2.67.01 2.986.058 4.041.045.976.207 1.505.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.352.137.881.3 1.857.344 1.054.048 1.37.058 4.04.058 2.67 0 2.987-.01 4.04-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.684.748-1.15.137-.352.3-.881.344-1.857.048-1.055.058-1.37.058-4.041 0-2.67-.01-2.986-.058-4.04-.045-.976-.207-1.505-.344-1.857a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.054-.048-1.37-.058-4.041-.058zm0 3.063a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 8.468a3.333 3.333 0 100-6.666 3.333 3.333 0 000 6.666zm6.538-8.671a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
+                            <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.508-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.247-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5-8a1 1 0 110-2 1 1 0 010 2z"/>
                         </svg>
                     </a>
                     <a href="#" class="luc-footer__social-link" aria-label="LinkedIn">
@@ -90,19 +75,55 @@
                             <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
                     </a>
+                    <a href="#" class="luc-footer__social-link" aria-label="X (Twitter)">
+                        <svg aria-hidden="true" viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
+
+            <!-- About Loyola (second on desktop, first on mobile) -->
+            <div class="luc-footer__column luc-footer__column--about">
+                <h2 class="luc-footer__heading">About Loyola</h2>
+                <ul class="luc-footer__list">
+                    <li><a href="#" class="luc-footer__link">News</a></li>
+                    <li><a href="#" class="luc-footer__link">Events</a></li>
+                    <li><a href="#" class="luc-footer__link">Careers</a></li>
+                    <li><a href="#" class="luc-footer__link">Mission &amp; Values</a></li>
+                </ul>
+            </div>
+
+            <!-- Campus Resources (third on desktop, second on mobile) -->
+            <div class="luc-footer__column luc-footer__column--resources">
+                <h2 class="luc-footer__heading">Campus Resources</h2>
+                <ul class="luc-footer__list">
+                    <li><a href="#" class="luc-footer__link">LOCUS</a></li>
+                    <li><a href="#" class="luc-footer__link">Directories</a></li>
+                    <li><a href="#" class="luc-footer__link">University Libraries</a></li>
+                    <li><a href="#" class="luc-footer__link">Registration &amp; Records</a></li>
+                    <li><a href="#" class="luc-footer__link">A-Z</a></li>
+                </ul>
+            </div>
+
+            <!-- Back to Top (desktop only - in grid) -->
+            <a href="#top" class="luc-footer__back-to-top luc-footer__back-to-top--desktop">
+                Back to Top
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                </svg>
+            </a>
 
         </div>
 
         <!-- Bottom Bar -->
         <div class="luc-footer__bottom">
-            <p class="luc-footer__copyright">&copy; 2026 Loyola University Chicago. All rights reserved.</p>
+            <p class="luc-footer__copyright">&copy; Copyright &amp; Disclaimer 2025</p>
             <ul class="luc-footer__legal">
                 <li><a href="#" class="luc-footer__legal-link">Privacy Policy</a></li>
-                <li><a href="#" class="luc-footer__legal-link">Terms of Use</a></li>
-                <li><a href="#" class="luc-footer__legal-link">Accessibility</a></li>
-                <li><a href="#" class="luc-footer__legal-link">Non-Discrimination Policy</a></li>
+                <li><a href="#" class="luc-footer__legal-link">IBHE Complaint System</a></li>
+                <li><a href="#" class="luc-footer__legal-link">Land Acknowledgement</a></li>
+                <li><a href="#" class="luc-footer__legal-link">Nondiscrimination Policy</a></li>
             </ul>
         </div>
 

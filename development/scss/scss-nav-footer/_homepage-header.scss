@@ -69,9 +69,9 @@
   list-style: none;
 }
 
-// Individual nav item
+// Individual nav item - static so mega menu positions to nav bar
 .luc-nav__item {
-  position: relative;
+  position: static;
 }
 
 // Nav toggle button (single button pattern, no separate link + caret)

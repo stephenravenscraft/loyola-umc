@@ -2,68 +2,204 @@
 // Global Footer
 // =============================================================================
 // Same footer on homepage and interior pages.
-// Maroon background, white text.
+// Maroon background, gold accent bar at top, white text.
+// Desktop: 3-column layout. Mobile: stacked with gold left borders.
 // =============================================================================
 
 .luc-footer {
   background-color: $luc-footer-bg;
   color: $luc-footer-text;
-  padding: 64px 24px 32px;
+  position: relative;
 
-  @media (max-width: #{$nav-breakpoint - 1px}) {
-    padding: 48px 16px 24px;
+  // Gold accent bar at top
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background-color: $luc-gold;
+
+    @media (min-width: $nav-breakpoint) {
+      height: 4px;
+    }
   }
 }
 
 .luc-footer__container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 48px 24px 32px;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    padding: 40px 24px 16px;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-// Main footer grid
-.luc-footer__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 48px;
+// Back to Top button
+.luc-footer__back-to-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 16px;
+  color: $luc-footer-text;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 8px 14px;
+  border-bottom: 2px solid $luc-gold;
 
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
   }
 
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  &:focus-visible {
+    outline: 2px solid $luc-white;
+    outline-offset: $luc-focus-offset;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  // Mobile-only instance (at top of footer)
+  &--mobile {
+    align-self: flex-end;
+    order: -2;
+
+    @media (min-width: $nav-breakpoint) {
+      display: none;
+    }
+  }
+
+  // Desktop-only instance (in grid)
+  &--desktop {
+    display: none;
+    flex-shrink: 0;
+    align-self: flex-start;
+
+    @media (min-width: $nav-breakpoint) {
+      display: flex;
+    }
+  }
+}
+
+// Centered logo
+.luc-footer__logo {
+  text-align: center;
+  margin-bottom: 64px;
+  padding-top: 64px;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    order: -1;
+    margin-bottom: 40px;
+  }
+}
+
+.luc-footer__logo-link {
+  display: inline-block;
+
+  &:focus-visible {
+    outline: 2px solid $luc-white;
+    outline-offset: $luc-focus-offset;
+  }
+}
+
+.luc-footer__logo-img {
+  height: 80px;
+  width: auto;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    height: auto;
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
+// Main footer grid - 4 areas on desktop per Figma
+// Contact | About | Resources | Back to Top
+.luc-footer__grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 120px;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    flex-direction: column;
+    gap: 32px;
   }
 }
 
 .luc-footer__column {
   display: flex;
   flex-direction: column;
+
+  // Desktop: Contact on left, nav columns in middle
+  &--contact {
+    flex: 0 0 auto;
+    min-width: 200px;
+  }
+
+  &--about,
+  &--resources {
+    flex: 0 0 220px;
+  }
+
+  // Mobile: reorder columns (About, Resources, then Contact)
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    &--about {
+      order: 1;
+    }
+    &--resources {
+      order: 2;
+    }
+    &--contact {
+      order: 3;
+    }
+  }
 }
 
+// Column headings
 .luc-footer__heading {
-  font-family: $luc-font-family-condensed;
-  font-size: 14px;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 16px;
   font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 0 0 16px;
-  color: $luc-gold;
+  margin: 0 0 24px;
+  color: $luc-white;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    font-size: 16px;
+  }
+
+  // Larger heading for contact section
+  &--contact {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
 }
 
+// Link list - gold left border on both desktop and mobile per Figma
 .luc-footer__list {
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 24px;
   list-style: none;
+  border-left: 1px solid $luc-gold;
 }
 
 .luc-footer__link {
   display: block;
-  padding: 6px 0;
+  padding: 4px 0;
   font-family: $luc-font-family;
-  font-size: 14px;
-  color: $luc-footer-text;
+  font-size: 16px;
+  color: $luc-cream;
   text-decoration: none;
   transition: opacity $luc-transition-fast;
 
@@ -77,24 +213,35 @@
     outline: 2px solid $luc-white;
     outline-offset: $luc-focus-offset;
   }
+
+  @media (min-width: $nav-breakpoint) {
+    font-size: 14px;
+    padding: 6px 0;
+  }
 }
 
-// Contact info
-.luc-footer__contact {
-  margin-top: auto;
-}
-
+// Contact info (first column on desktop, last on mobile)
 .luc-footer__address {
-  font-size: 14px;
+  font-family: $luc-font-family;
+  font-size: 16px;
   font-style: normal;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0 0 16px;
+  color: $luc-white;
+
+  @media (min-width: $nav-breakpoint) {
+    font-size: 14px;
+    line-height: 1.6;
+  }
 }
 
 .luc-footer__phone {
-  font-size: 14px;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 16px;
   color: $luc-footer-text;
   text-decoration: none;
+  margin-bottom: 40px;
+  display: block;
 
   &:hover,
   &:focus {
@@ -105,29 +252,43 @@
     outline: 2px solid $luc-white;
     outline-offset: $luc-focus-offset;
   }
+
+  @media (min-width: $nav-breakpoint) {
+    font-family: $luc-font-family-bold;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
 }
 
-// Social links
-.luc-footer__social {
+// CTA links (Contact Us, Maps & Directions)
+.luc-footer__ctas {
   display: flex;
+  flex-direction: column;
   gap: 16px;
-  margin-top: 24px;
+  margin-bottom: 40px;
+
+  @media (min-width: $nav-breakpoint) {
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
 }
 
-.luc-footer__social-link {
-  display: flex;
+.luc-footer__cta-link {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: rgba($luc-white, 0.1);
-  color: $luc-footer-text;
+  gap: 8px;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 16px;
+  color: $luc-white;
   text-decoration: none;
-  transition: background-color $luc-transition-fast;
+  padding: 12px 8px;
+  border-bottom: 2px solid $luc-gold;
+  height: 52px;
 
   &:hover,
   &:focus {
-    background-color: rgba($luc-white, 0.2);
+    opacity: 0.8;
   }
 
   &:focus-visible {
@@ -140,50 +301,130 @@
     height: 20px;
     fill: currentColor;
   }
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    font-family: $luc-font-family;
+    border-bottom: none;
+    padding: 4px 0;
+    height: auto;
+    color: $luc-cream;
+
+    svg {
+      display: none;
+    }
+  }
+}
+
+// Social links
+.luc-footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 0;
+
+  @media (min-width: $nav-breakpoint) {
+    gap: 12px;
+    margin-top: auto;
+  }
+}
+
+.luc-footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: $luc-footer-text;
+  text-decoration: none;
+  transition: opacity $luc-transition-fast;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $luc-white;
+    outline-offset: $luc-focus-offset;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+
+    @media (min-width: $nav-breakpoint) {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
 
 // Bottom bar
 .luc-footer__bottom {
   margin-top: 48px;
   padding-top: 24px;
-  border-top: 1px solid rgba($luc-white, 0.2);
+  border-top: 1px solid rgba($luc-white, 0.4);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
 
-  @media (max-width: 768px) {
+  @media (max-width: #{$nav-breakpoint - 1px}) {
     flex-direction: column;
     text-align: center;
+    gap: 32px;
+    padding: 16px 24px;
+    margin-top: 40px;
   }
 }
 
 .luc-footer__copyright {
-  font-size: 12px;
+  font-family: $luc-font-family;
+  font-size: 14px;
   margin: 0;
-  opacity: 0.8;
+  color: $luc-cream;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    order: 2;
+  }
+
+  @media (min-width: $nav-breakpoint) {
+    font-size: 12px;
+    opacity: 0.8;
+  }
 }
 
 .luc-footer__legal {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 16px;
   margin: 0;
   padding: 0;
   list-style: none;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    justify-content: center;
+    order: 1;
+  }
+
+  @media (min-width: $nav-breakpoint) {
+    gap: 24px;
+  }
 }
 
 .luc-footer__legal-link {
-  font-size: 12px;
-  color: $luc-footer-text;
+  font-family: $luc-font-family;
+  font-size: 14px;
+  color: $luc-cream;
   text-decoration: none;
-  opacity: 0.8;
+  padding: 4px 0;
   transition: opacity $luc-transition-fast;
 
   &:hover,
   &:focus {
-    opacity: 1;
+    opacity: 0.8;
     text-decoration: underline;
   }
 
@@ -191,23 +432,9 @@
     outline: 2px solid $luc-white;
     outline-offset: $luc-focus-offset;
   }
-}
 
-// Logo in footer
-.luc-footer__logo {
-  margin-bottom: 24px;
-}
-
-.luc-footer__logo-link {
-  display: inline-block;
-
-  &:focus-visible {
-    outline: 2px solid $luc-white;
-    outline-offset: $luc-focus-offset;
+  @media (min-width: $nav-breakpoint) {
+    font-size: 12px;
+    opacity: 0.8;
   }
-}
-
-.luc-footer__logo-img {
-  height: 48px;
-  width: auto;
 }

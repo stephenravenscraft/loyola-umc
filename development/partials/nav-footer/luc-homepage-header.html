@@ -4,19 +4,74 @@
      ============================================ -->
 
 <!-- Mobile Header (visible < 1024px) -->
-<header class="luc-mobile-header">
-    <a href="/" class="luc-mobile-header__logo-link">
-        <img src="images/01-LOY_horz-main.svg" alt="Loyola University Chicago" class="luc-mobile-header__logo">
-    </a>
-    <button
-        class="luc-mobile-header__toggle"
-        aria-expanded="false"
-        aria-controls="luc-mobile-menu"
-        aria-label="Toggle navigation menu"
-    >
-        <span class="luc-mobile-header__toggle-icon"></span>
-    </button>
+<header class="luc-mobile-header luc-mobile-header--homepage">
+    <!-- White header bar -->
+    <div class="luc-mobile-header__bar">
+        <a href="/" class="luc-mobile-header__logo-link">
+            <img src="images/01-LOY_horz-main.svg" alt="Loyola University Chicago" class="luc-mobile-header__logo">
+        </a>
+        <div class="luc-mobile-header__actions">
+            <button
+                class="luc-mobile-header__search-btn"
+                aria-label="Search"
+                aria-expanded="false"
+                aria-controls="luc-mobile-search"
+            >
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </button>
+            <button
+                class="luc-mobile-header__toggle"
+                aria-expanded="false"
+                aria-controls="luc-mobile-menu"
+                aria-label="Toggle navigation menu"
+            >
+                <span class="luc-mobile-header__toggle-icon"></span>
+            </button>
+        </div>
+    </div>
 </header>
+
+<!-- Mobile Search Panel (visible < 1024px) -->
+<div id="luc-mobile-search" class="luc-mobile-search" aria-hidden="true">
+    <div class="luc-mobile-search__header">
+        <a href="/" class="luc-mobile-header__logo-link">
+            <img src="images/01-LOY_horz-main.svg" alt="Loyola University Chicago" class="luc-mobile-header__logo">
+        </a>
+        <div class="luc-mobile-header__actions">
+            <button class="luc-mobile-search__close" aria-label="Close search">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+            <button
+                class="luc-mobile-header__toggle"
+                aria-expanded="false"
+                aria-controls="luc-mobile-menu"
+                aria-label="Toggle navigation menu"
+            >
+                <span class="luc-mobile-header__toggle-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="luc-mobile-search__content">
+        <h2 class="luc-mobile-search__title">Search LUC.edu</h2>
+        <form class="luc-mobile-search__form" role="search" action="/search">
+            <input
+                type="search"
+                class="luc-mobile-search__input"
+                placeholder="Search..."
+                aria-label="Search Loyola"
+            >
+            <button type="submit" class="luc-mobile-search__submit" aria-label="Submit search">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </button>
+        </form>
+    </div>
+</div>
 
 <!-- Mobile Menu (visible < 1024px) -->
 @@include('./luc-mobile-nav.html')
@@ -28,21 +83,22 @@
     <div class="luc-utility">
         <nav class="luc-utility__audience" aria-label="Audience navigation">
             <a href="#" class="luc-utility__link">Current Students</a>
-            <a href="#" class="luc-utility__link">Faculty & Staff</a>
+            <a href="#" class="luc-utility__link">Faculty &amp; Staff</a>
             <a href="#" class="luc-utility__link">Alumni</a>
         </nav>
 
         <div class="luc-utility__actions">
-            <a href="#" class="luc-utility__cta">Request Info</a>
-            <a href="#" class="luc-utility__cta">Visit</a>
-            <a href="#" class="luc-utility__cta luc-utility__cta--primary">Apply</a>
-            <a href="#" class="luc-utility__cta luc-utility__cta--primary">Give</a>
+            <a href="#" class="luc-utility__link">Request Info</a>
+            <a href="#" class="luc-utility__link">Visit</a>
+            <a href="#" class="luc-utility__link">Apply</a>
+            <span class="luc-utility__divider"></span>
+            <a href="#" class="luc-utility__link">Give</a>
 
             <form class="luc-utility__search" role="search" action="/search">
                 <input
                     type="search"
                     class="luc-utility__search-input"
-                    placeholder="Search Loyola"
+                    placeholder="Search"
                     aria-label="Search Loyola"
                 >
                 <button type="submit" class="luc-utility__search-btn" aria-label="Submit search">
@@ -76,33 +132,25 @@
                 </button>
                 <div id="mega-academics" class="luc-mega-menu">
                     <div class="luc-mega-menu__container">
-                        <div class="luc-mega-menu__column">
-                            <h3 class="luc-mega-menu__heading">Undergraduate</h3>
-                            <a href="#" class="luc-mega-menu__link">Majors & Minors</a>
-                            <a href="#" class="luc-mega-menu__link">Core Curriculum</a>
-                            <a href="#" class="luc-mega-menu__link">Honors Program</a>
-                        </div>
-                        <div class="luc-mega-menu__column">
-                            <h3 class="luc-mega-menu__heading">Graduate</h3>
-                            <a href="#" class="luc-mega-menu__link">Master's Programs</a>
-                            <a href="#" class="luc-mega-menu__link">Doctoral Programs</a>
-                            <a href="#" class="luc-mega-menu__link">Certificates</a>
-                        </div>
-                        <div class="luc-mega-menu__column">
-                            <h3 class="luc-mega-menu__heading">Schools & Colleges</h3>
-                            <a href="#" class="luc-mega-menu__link">Arts & Sciences</a>
-                            <a href="#" class="luc-mega-menu__link">Business</a>
-                            <a href="#" class="luc-mega-menu__link">Education</a>
-                            <a href="#" class="luc-mega-menu__section-link">
-                                Explore Academics
+                        <div class="luc-mega-menu__content">
+                            <a href="#" class="luc-mega-menu__section-header">
+                                Academics
                                 <svg aria-hidden="true" viewBox="0 0 24 24">
                                     <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                                 </svg>
                             </a>
-                        </div>
-                        <div class="luc-mega-menu__featured">
-                            <h3 class="luc-mega-menu__featured-heading">Featured</h3>
-                            <a href="#" class="luc-mega-menu__featured-link">New Programs for 2026</a>
+                            <div class="luc-mega-menu__columns">
+                                <div class="luc-mega-menu__left">
+                                    <a href="#" class="luc-mega-menu__link">Colleges and Schools</a>
+                                    <a href="#" class="luc-mega-menu__link">Departments and Programs</a>
+                                    <a href="#" class="luc-mega-menu__link">Online Learning</a>
+                                </div>
+                                <div class="luc-mega-menu__right">
+                                    <a href="#" class="luc-mega-menu__link">Study Abroad Programs</a>
+                                    <a href="#" class="luc-mega-menu__link">Calendars and Schedules</a>
+                                    <a href="#" class="luc-mega-menu__link">Academic Catalog</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -114,35 +162,32 @@
                     aria-expanded="false"
                     aria-controls="mega-admission"
                 >
-                    Admission & Aid
+                    Admission &amp; Aid
                     <svg aria-hidden="true" viewBox="0 0 24 24">
                         <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
                     </svg>
                 </button>
                 <div id="mega-admission" class="luc-mega-menu">
                     <div class="luc-mega-menu__container">
-                        <div class="luc-mega-menu__column">
-                            <h3 class="luc-mega-menu__heading">Apply</h3>
-                            <a href="#" class="luc-mega-menu__link">Undergraduate</a>
-                            <a href="#" class="luc-mega-menu__link">Graduate</a>
-                            <a href="#" class="luc-mega-menu__link">International</a>
-                        </div>
-                        <div class="luc-mega-menu__column">
-                            <h3 class="luc-mega-menu__heading">Financial Aid</h3>
-                            <a href="#" class="luc-mega-menu__link">Scholarships</a>
-                            <a href="#" class="luc-mega-menu__link">Grants</a>
-                            <a href="#" class="luc-mega-menu__link">Work-Study</a>
-                        </div>
-                        <div class="luc-mega-menu__column">
-                            <h3 class="luc-mega-menu__heading">Visit</h3>
-                            <a href="#" class="luc-mega-menu__link">Campus Tours</a>
-                            <a href="#" class="luc-mega-menu__link">Open Houses</a>
-                            <a href="#" class="luc-mega-menu__section-link">
-                                Explore Admission
+                        <div class="luc-mega-menu__content">
+                            <a href="#" class="luc-mega-menu__section-header">
+                                Admission &amp; Aid
                                 <svg aria-hidden="true" viewBox="0 0 24 24">
                                     <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                                 </svg>
                             </a>
+                            <div class="luc-mega-menu__columns">
+                                <div class="luc-mega-menu__left">
+                                    <a href="#" class="luc-mega-menu__link">Undergraduate Admission</a>
+                                    <a href="#" class="luc-mega-menu__link">Graduate Admission</a>
+                                    <a href="#" class="luc-mega-menu__link">International Students</a>
+                                </div>
+                                <div class="luc-mega-menu__right">
+                                    <a href="#" class="luc-mega-menu__link">Financial Aid</a>
+                                    <a href="#" class="luc-mega-menu__link">Scholarships</a>
+                                    <a href="#" class="luc-mega-menu__link">Visit Campus</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -161,11 +206,23 @@
                 </button>
                 <div id="mega-research" class="luc-mega-menu">
                     <div class="luc-mega-menu__container">
-                        <div class="luc-mega-menu__column">
-                            <h3 class="luc-mega-menu__heading">Research Areas</h3>
-                            <a href="#" class="luc-mega-menu__link">Centers & Institutes</a>
-                            <a href="#" class="luc-mega-menu__link">Faculty Research</a>
-                            <a href="#" class="luc-mega-menu__link">Student Research</a>
+                        <div class="luc-mega-menu__content">
+                            <a href="#" class="luc-mega-menu__section-header">
+                                Research
+                                <svg aria-hidden="true" viewBox="0 0 24 24">
+                                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                                </svg>
+                            </a>
+                            <div class="luc-mega-menu__columns">
+                                <div class="luc-mega-menu__left">
+                                    <a href="#" class="luc-mega-menu__link">Centers and Institutes</a>
+                                    <a href="#" class="luc-mega-menu__link">Faculty Research</a>
+                                </div>
+                                <div class="luc-mega-menu__right">
+                                    <a href="#" class="luc-mega-menu__link">Student Research</a>
+                                    <a href="#" class="luc-mega-menu__link">Research News</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,18 +234,30 @@
                     aria-expanded="false"
                     aria-controls="mega-community"
                 >
-                    Community & Faith
+                    Community &amp; Faith
                     <svg aria-hidden="true" viewBox="0 0 24 24">
                         <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
                     </svg>
                 </button>
                 <div id="mega-community" class="luc-mega-menu">
                     <div class="luc-mega-menu__container">
-                        <div class="luc-mega-menu__column">
-                            <h3 class="luc-mega-menu__heading">Faith & Mission</h3>
-                            <a href="#" class="luc-mega-menu__link">Jesuit Values</a>
-                            <a href="#" class="luc-mega-menu__link">Campus Ministry</a>
-                            <a href="#" class="luc-mega-menu__link">Service & Justice</a>
+                        <div class="luc-mega-menu__content">
+                            <a href="#" class="luc-mega-menu__section-header">
+                                Community &amp; Faith
+                                <svg aria-hidden="true" viewBox="0 0 24 24">
+                                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                                </svg>
+                            </a>
+                            <div class="luc-mega-menu__columns">
+                                <div class="luc-mega-menu__left">
+                                    <a href="#" class="luc-mega-menu__link">Jesuit Mission</a>
+                                    <a href="#" class="luc-mega-menu__link">Campus Ministry</a>
+                                </div>
+                                <div class="luc-mega-menu__right">
+                                    <a href="#" class="luc-mega-menu__link">Service and Justice</a>
+                                    <a href="#" class="luc-mega-menu__link">Diversity and Inclusion</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -207,11 +276,23 @@
                 </button>
                 <div id="mega-campus" class="luc-mega-menu">
                     <div class="luc-mega-menu__container">
-                        <div class="luc-mega-menu__column">
-                            <h3 class="luc-mega-menu__heading">Living on Campus</h3>
-                            <a href="#" class="luc-mega-menu__link">Housing</a>
-                            <a href="#" class="luc-mega-menu__link">Dining</a>
-                            <a href="#" class="luc-mega-menu__link">Student Services</a>
+                        <div class="luc-mega-menu__content">
+                            <a href="#" class="luc-mega-menu__section-header">
+                                Campus Life
+                                <svg aria-hidden="true" viewBox="0 0 24 24">
+                                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                                </svg>
+                            </a>
+                            <div class="luc-mega-menu__columns">
+                                <div class="luc-mega-menu__left">
+                                    <a href="#" class="luc-mega-menu__link">Housing</a>
+                                    <a href="#" class="luc-mega-menu__link">Dining</a>
+                                </div>
+                                <div class="luc-mega-menu__right">
+                                    <a href="#" class="luc-mega-menu__link">Student Organizations</a>
+                                    <a href="#" class="luc-mega-menu__link">Athletics</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -230,11 +311,23 @@
                 </button>
                 <div id="mega-about" class="luc-mega-menu">
                     <div class="luc-mega-menu__container">
-                        <div class="luc-mega-menu__column">
-                            <h3 class="luc-mega-menu__heading">About Loyola</h3>
-                            <a href="#" class="luc-mega-menu__link">History & Mission</a>
-                            <a href="#" class="luc-mega-menu__link">Leadership</a>
-                            <a href="#" class="luc-mega-menu__link">News & Events</a>
+                        <div class="luc-mega-menu__content">
+                            <a href="#" class="luc-mega-menu__section-header">
+                                About
+                                <svg aria-hidden="true" viewBox="0 0 24 24">
+                                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                                </svg>
+                            </a>
+                            <div class="luc-mega-menu__columns">
+                                <div class="luc-mega-menu__left">
+                                    <a href="#" class="luc-mega-menu__link">History and Mission</a>
+                                    <a href="#" class="luc-mega-menu__link">Leadership</a>
+                                </div>
+                                <div class="luc-mega-menu__right">
+                                    <a href="#" class="luc-mega-menu__link">News and Events</a>
+                                    <a href="#" class="luc-mega-menu__link">Contact</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
