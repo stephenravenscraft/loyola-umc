@@ -131,6 +131,7 @@
   padding: 16px;
   border: none;
   background: transparent;
+  font-family: $luc-font-family;
   font-size: 16px;
   font-weight: $luc-nav-font-weight;
   color: $luc-maroon;
@@ -173,6 +174,7 @@
 .luc-mobile-submenu__link {
   display: block;
   padding: 12px 0;
+  font-family: $luc-font-family;
   font-size: 14px;
   color: $luc-maroon;
   text-decoration: none;
@@ -212,6 +214,7 @@
 .luc-mobile-utility__link {
   display: inline-block;
   padding: 12px 20px;
+  font-family: $luc-font-family;
   font-size: 14px;
   font-weight: $luc-nav-font-weight;
   color: $luc-white;

@@ -51,8 +51,9 @@
 }
 
 .luc-mega-menu__heading {
-  font-size: 16px;
-  font-weight: 700;
+  font-family: $luc-font-family-condensed;
+  font-size: 14px;
+  font-weight: normal;
   color: $luc-maroon;
   margin: 0 0 8px;
   text-transform: uppercase;
@@ -60,6 +61,7 @@
 }
 
 .luc-mega-menu__link {
+  font-family: $luc-font-family;
   font-size: $luc-nav-font-size;
   font-weight: $luc-nav-font-weight;
   color: $luc-maroon;

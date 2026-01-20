@@ -29,9 +29,12 @@ $gray-medium: lighten($gray, 10%) !default;
 $luc-footer-bg: $maroon;
 $luc-footer-text: $luc-white;
 
-// Typography
+// Typography (using existing Loyola font families)
+$luc-font-family: 'Antenna', 'Arial', sans-serif;
+$luc-font-family-bold: 'Antenna Bold', 'Arial', sans-serif;
+$luc-font-family-condensed: 'Antenna Condensed Bold', 'Arial', sans-serif;
 $luc-nav-font-size: 14px;
-$luc-nav-font-weight: 500; // Antenna Medium
+$luc-nav-font-weight: normal; // Antenna regular
 
 // Transitions
 $luc-transition-fast: 150ms ease;

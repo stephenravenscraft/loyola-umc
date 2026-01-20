@@ -43,8 +43,9 @@
 }
 
 .luc-footer__heading {
+  font-family: $luc-font-family-condensed;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 0 0 16px;
@@ -60,6 +61,7 @@
 .luc-footer__link {
   display: block;
   padding: 6px 0;
+  font-family: $luc-font-family;
   font-size: 14px;
   color: $luc-footer-text;
   text-decoration: none;
@@ -208,5 +210,4 @@
 .luc-footer__logo-img {
   height: 48px;
   width: auto;
-  filter: brightness(0) invert(1); // Make logo white
 }

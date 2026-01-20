@@ -30,8 +30,9 @@
 
 // Section label (left side)
 .luc-nav__section-label {
+  font-family: $luc-font-family-condensed;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: normal;
   color: $luc-maroon;
   text-decoration: none;
 
@@ -95,6 +96,7 @@
 }
 
 .luc-nav__utility-link {
+  font-family: $luc-font-family;
   font-size: 13px;
   font-weight: $luc-nav-font-weight;
   color: $luc-maroon;
