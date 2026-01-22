@@ -20,10 +20,6 @@
     right: 0;
     height: 8px;
     background-color: $luc-gold;
-
-    @media (min-width: $nav-breakpoint) {
-      height: 4px;
-    }
   }
 }
 
@@ -199,7 +195,7 @@
   padding: 4px 0;
   font-family: $luc-font-family;
   font-size: 16px;
-  color: $luc-cream;
+  color: $luc-copper-light;
   text-decoration: none;
   transition: opacity $luc-transition-fast;
 
@@ -307,7 +303,7 @@
     border-bottom: none;
     padding: 4px 0;
     height: auto;
-    color: $luc-cream;
+    color: $luc-copper-light;
 
     svg {
       display: none;
@@ -384,7 +380,7 @@
   font-family: $luc-font-family;
   font-size: 14px;
   margin: 0;
-  color: $luc-cream;
+  color: $luc-copper-light;
 
   @media (max-width: #{$nav-breakpoint - 1px}) {
     order: 2;
@@ -417,7 +413,7 @@
 .luc-footer__legal-link {
   font-family: $luc-font-family;
   font-size: 14px;
-  color: $luc-cream;
+  color: $luc-copper-light;
   text-decoration: none;
   padding: 4px 0;
   transition: opacity $luc-transition-fast;

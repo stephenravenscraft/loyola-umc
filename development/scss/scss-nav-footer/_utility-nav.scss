@@ -51,7 +51,7 @@
 .luc-utility__divider {
   width: 1px;
   height: 24px;
-  background-color: $luc-cream;
+  background-color: $luc-copper-light;
   opacity: 0.5;
 }
 
@@ -71,7 +71,11 @@
 
   &:hover,
   &:focus {
-    opacity: 0.8;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 4%;
+    text-underline-offset: 8%;
   }
 
   &:focus-visible {
@@ -127,25 +131,27 @@
   align-items: center;
   background-color: $luc-white;
   border-radius: 24px;
-  padding: 4px 4px 4px 16px;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
   gap: 8px;
 }
 
 .luc-utility__search-input {
   width: 120px;
-  height: 32px;
   padding: 0;
   border: none;
   background: transparent;
+  font-family: $luc-font-family;
   font-size: $luc-nav-font-size;
-  color: $gray-dark;
+  color: $luc-maroon;
+  transition: width $luc-transition-fast;
 
   &::placeholder {
-    color: $gray-medium;
+    color: $luc-maroon;
   }
 
   &:focus {
     outline: none;
+    width: 250px;
   }
 }
 
@@ -153,9 +159,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 1.75rem;
+  height: 1.75rem;
   padding: 0;
+  margin: 0;
   border: none;
   border-radius: 50%;
   background-color: $luc-maroon;
@@ -174,9 +181,9 @@
     outline-offset: 2px;
   }
 
-  svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
+  & > svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    fill: $luc-gold;
   }
 }

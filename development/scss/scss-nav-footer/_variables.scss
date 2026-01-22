@@ -11,7 +11,7 @@ $nav-breakpoint: 1024px;
 // Header heights (from Figma specs)
 $luc-utility-height: 76px;
 $luc-nav-height: 96px;
-$luc-header-total-height: $luc-utility-height + $luc-nav-height; // 172px
+$luc-header-total-height: $luc-utility-height + $luc-nav-height;
 
 // Interior header
 $luc-interior-nav-height: 64px;
@@ -19,7 +19,8 @@ $luc-interior-nav-height: 64px;
 // Colors (aliases for clarity - using existing tokens)
 $luc-maroon: $maroon;
 $luc-gold: $gold;
-$luc-cream: #f2efe5;
+$luc-copper: #cfc39b;
+$luc-copper-light: #f2efe5;
 $luc-white: #ffffff;
 
 // Gray variants (local definition if not in global tokens)
