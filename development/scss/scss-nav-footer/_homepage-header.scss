@@ -288,7 +288,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 8px 4px;
+  padding: 16px 0;
   border: none;
   border-bottom: 1px solid $luc-copper;
   border-radius: 0;
@@ -369,7 +369,7 @@
   @media (max-width: #{$nav-breakpoint - 1px}) {
     .luc-nav__toggle[aria-expanded='true'] & {
       background-color: $luc-maroon;
-      color: $luc-copper-light;
+      color: $luc-gold;
     }
   }
 
@@ -460,11 +460,13 @@
 
   @media (min-width: $nav-breakpoint) {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 8px;
-    font-family: $luc-font-family;
-    font-size: 18px;
-    font-weight: normal;
+    position: relative;
+    font-family: $luc-font-family-condensed-bold;
+    font-size: 16px;
+    font-weight: 700;
     color: $luc-maroon;
     text-decoration: none;
     padding: 0.75rem;
@@ -473,16 +475,25 @@
     width: fit-content;
     transition: background-color $luc-transition-fast, color $luc-transition-fast;
 
+    &::after {
+      content: '';
+      mask-image: url('../images/icon-arrow-right.svg');
+      mask-size: contain;
+      background-color: $luc-maroon;
+      display: block;
+      width: 0.9375rem;
+      height: 0.4375rem;
+      aspect-ratio: 15/7;
+      mask-size: contain;
+    }
+
     &:hover,
     &:focus {
       background: $luc-maroon;
       color: $luc-white;
-    }
-
-    svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
+      &::after {
+        background-color: $luc-gold;
+      }
     }
   }
 }
@@ -496,23 +507,24 @@
   @media (min-width: $nav-breakpoint) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0 48px;
+    gap: 0 64px;
   }
 }
 
 .luc-mega-menu__link {
   position: relative;
   display: block;
-  padding: 10px 0;
+  padding: 16px 0;
   font-family: $luc-font-family;
   font-size: 16px;
-  color: $luc-maroon;
+  color: $luc-black;
+  border-bottom: 1px solid $luc-copper;
   text-decoration: none;
   transition: color $luc-transition-fast;
 
   &::after {
     content: '';
-    background-image: url('images/icon-arrow-right.svg');
+    background-image: url('../images/icon-arrow-right.svg');
     display: inline-block;
     width: 0.9375rem;
     height: 0.4375rem;
@@ -523,16 +535,17 @@
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity $luc-transition-fast, transform $luc-transition-fast;
   }
 
-  @media (min-width: $nav-breakpoint) {
-    padding: 8px 0;
-    border-bottom: 2px solid rgba($luc-maroon, 0.15);
-
-    &:hover,
-    &:focus {
-      border-color: $luc-maroon;
+  &:hover,
+  &:focus {
+    border-color: $luc-maroon;
+    &::after {
+      transform: translateX(0);
+      opacity: 1;
     }
   }
 }
