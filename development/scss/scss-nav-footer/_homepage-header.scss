@@ -95,7 +95,7 @@
     display: block;
     width: 1.83769rem;
     height: 1.83769rem;
-    mask: url('../images/icon-search.svg') no-repeat center center / contain;
+    mask: url('../images/icon-search-new.svg') no-repeat center center / contain;
     background: $luc-white;
     transition: background-color $luc-transition-fast;
   }
@@ -256,20 +256,20 @@
 
   // Desktop: Flex row
   @media (min-width: $nav-breakpoint) {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 2rem;
-    flex-shrink: 0;
+    gap: 1.5rem;
   }
 }
 
 .luc-nav__item {
   // Mobile: Block
   @media (max-width: #{$nav-breakpoint - 1px}) {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 0.25rem;
+    // display: grid;
+    // grid-template-columns: 1fr auto;
+    // align-items: center;
+    // gap: 0.25rem;
     margin-block: 1rem;
     border-bottom: 1px solid $luc-copper;
 
@@ -289,10 +289,12 @@
 // Per Figma specs: Desktop uses Antenna Medium 16px, Mobile uses Antenna Condensed Bold 18px
 // =============================================================================
 .luc-nav__toggle {
-  display: grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 0.25rem;
   border: none;
   border-radius: 0;
   background: transparent;
@@ -303,17 +305,32 @@
   cursor: pointer;
   transition: background-color $luc-transition-fast, color $luc-transition-fast;
 
+  &::before {
+    content: '';
+    position: absolute;
+    right: 0.25rem;
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: $luc-maroon;
+    opacity: 0;
+    transition: opacity $luc-transition-fast;
+  }
+
   &::after {
     content: '';
     display: block;
-    width: 0.5rem;
-    height: 0.5rem;
-    mask: url('../images/icon-caret-down.svg') no-repeat center center / contain;
+    width: 2.5rem;
+    height: 2.5rem;
+    mask: url('../images/icon-caret-down.svg') no-repeat center center / 10px;
     background: $luc-maroon;
     transition: background-color $luc-transition-fast, transform $luc-transition-fast;
   }
 
   &[aria-expanded='true'] {
+    &::before {
+      opacity: 1;
+    }
     &::after {
       transform: rotate(180deg);
     }
@@ -332,10 +349,6 @@
   // Mobile: Gold border, maroon on active
   @media (max-width: #{$nav-breakpoint - 1px}) {
     &[aria-expanded='true'] {
-      background: $luc-maroon;
-      color: $luc-gold;
-      width: 2.5rem;
-      height: 2.5rem;
       &::after {
         background-color: $luc-gold;
       }
@@ -348,7 +361,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
     width: auto;
     font-family: $luc-font-family;
     font-size: 16px;
@@ -383,6 +395,9 @@
     }
 
     &[aria-expanded='true'] {
+      &::before {
+        height: 8px;
+      }
       &::after {
         transform: rotate(180deg);
       }
@@ -396,14 +411,14 @@
   }
 }
 
-.luc-nav__toggle-text {
-  display: none;
-  @media (min-width: $nav-breakpoint) {
-    display: block;
-  }
-}
+// .luc-nav__toggle-text {
+//   display: none;
+//   @media (min-width: $nav-breakpoint) {
+//     display: block;
+//   }
+// }
 
-.luc-nav__link {
+.luc-nav__text {
   font-family: $luc-font-family-condensed-bold;
   font-size: 18px;
   text-transform: capitalize;
@@ -443,13 +458,13 @@
   @media (min-width: $nav-breakpoint) {
     position: absolute;
     top: 100%;
-    right: 0;
+    right: -2rem;
+
     background: $luc-copper-light;
     border-radius: 0 0 0 1.5rem;
     box-shadow: 0 5px 10px -4px rgba(0, 0, 0, 0.25);
     opacity: 0;
-    max-width: 57rem;
-    width: 100%;
+    width: calc(100% + 6rem);
     visibility: hidden;
     transition: opacity $luc-transition-normal, visibility $luc-transition-normal;
     z-index: 100;
@@ -498,6 +513,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 64px;
+
+    > li {
+      &:has(.luc-mega-menu__link--overview) {
+        display: none;
+        visibility: hidden;
+      }
+    }
   }
 }
 
@@ -593,7 +615,7 @@
   left: 0;
   right: 0;
   height: fit-content;
-  background: $luc-copper-light;
+  background: $luc-maroon;
   z-index: 999; // Below header
   padding: 16px;
   opacity: 0;
@@ -627,7 +649,7 @@
   font-family: $luc-font-family-bold;
   font-size: 0.875rem;
   font-weight: 700;
-  color: $luc-maroon;
+  color: $luc-white;
 }
 
 .luc-search__form {
@@ -652,6 +674,7 @@
 
   &::placeholder {
     color: $luc-maroon;
+    opacity: 1;
   }
 
   &:focus {

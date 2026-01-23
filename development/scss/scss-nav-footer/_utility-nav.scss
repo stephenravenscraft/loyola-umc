@@ -49,6 +49,7 @@
   @media (max-width: #{$nav-breakpoint-hide-utility-audience - 1px}) {
     &:has(.luc-utility__search-input:focus) {
       .luc-utility__audience,
+      .luc-utility__actions,
       .luc-utility__divider {
         visibility: hidden;
         opacity: 0;
@@ -67,7 +68,6 @@
   width: 1px;
   height: 24px;
   background-color: $luc-copper-light;
-  opacity: 0.5;
   visibility: visible;
   transition: visibility $luc-transition-fast, opacity $luc-transition-fast;
 }
@@ -84,7 +84,6 @@
 .luc-utility__link {
   font-family: $luc-font-family;
   font-size: 14px;
-  font-weight: 500;
   color: $luc-white;
   text-decoration: none;
   transition: opacity $luc-transition-fast;
@@ -92,10 +91,6 @@
   &:hover,
   &:focus {
     text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: 4%;
-    text-underline-offset: 8%;
   }
 
 }
@@ -172,11 +167,12 @@
 }
 
 .luc-utility__search-btn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
   padding: 0;
   margin: 0;
   border: none;
@@ -185,17 +181,28 @@
   color: $luc-white;
   cursor: pointer;
   flex-shrink: 0;
-  transition: background-color $luc-transition-fast;
+  transition: transform $luc-transition-fast;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    mask: url('../images/icon-search-new.svg') no-repeat center center / 60%;
+    background-color: $luc-gold;
+    transition: background-color $luc-transition-fast;
+  }
 
   &:hover,
   &:focus {
-    outline-color: $luc-maroon;
-    background-color: darken($luc-maroon, 10%);
+    &::before {
+      background-color: $luc-white;
+    }
+    transform: scale(1.1);
   }
 
-  & > svg {
-    width: 0.875rem;
-    height: 0.875rem;
-    fill: $luc-gold;
+  @media (min-width: $nav-breakpoint) {
+    width: 1.75rem;
+    height: 1.75rem;
   }
 }

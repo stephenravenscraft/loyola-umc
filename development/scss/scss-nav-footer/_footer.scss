@@ -25,13 +25,13 @@
 
 .luc-footer__container {
   position: relative;
-  max-width: 1200px;
+  max-width: 1312px;
   margin: 0 auto;
-  padding: 48px 24px 32px;
+  padding: 8px 24px 32px;
 
   @media (max-width: #{$nav-breakpoint - 1px}) {
     // Extra top padding for absolutely positioned back-to-top button
-    padding: 100px 24px 16px;
+    padding: 90px 24px 16px;
     display: flex;
     flex-direction: column;
   }
@@ -51,22 +51,22 @@
   }
 
   // Mobile: positioned at top center of footer
-  top: 40px;
+  top: 48px;
   left: 50%;
   transform: translateX(-50%);
 
   // Desktop: positioned in grid row, right side
   // Grid top = container padding (48px) + logo padding-top (64px) + logo height (80px) + logo margin-bottom (64px)
   @media (min-width: $nav-breakpoint) {
-    top: calc(48px + 64px + 80px + 64px);
+    top: calc(8px + 64px + 80px + 64px);
     left: auto;
     right: 24px;
     transform: none;
   }
 
-  @media (min-width: 1248px) {
+  @media (min-width: 1360px) {
     // When container is max-width, center the positioning
-    right: calc((100% - 1200px) / 2);
+    right: calc((100% - 1264px) / 2);
   }
 }
 
@@ -243,13 +243,14 @@
 // Social links
 .luc-footer__social {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 24px;
   margin-top: 0;
 
   @media (min-width: $luc-footer-breakpoint) {
-    gap: 12px;
     margin-top: auto;
+    justify-content: flex-start;
   }
 }
 
@@ -270,22 +271,17 @@
   }
 
   svg {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     fill: currentColor;
     transition: fill $luc-transition-fast;
-
-    @media (min-width: $luc-footer-breakpoint) {
-      width: 20px;
-      height: 20px;
-    }
   }
 }
 
 // Bottom bar
 .luc-footer__bottom {
   margin-top: 48px;
-  padding-top: 24px;
+  padding-block: 24px;
   border-top: 1px solid rgba($luc-white, 0.4);
   display: flex;
   flex-wrap: wrap;
@@ -335,6 +331,7 @@
   }
 }
 
+.luc-footer__copyright-link,
 .luc-footer__legal-link {
   font-family: $luc-font-family;
   font-size: 14px;
@@ -346,9 +343,5 @@
   &:hover,
   &:focus {
     text-decoration: underline;
-  }
-
-  @media (min-width: $luc-footer-breakpoint) {
-    font-size: 12px;
   }
 }
