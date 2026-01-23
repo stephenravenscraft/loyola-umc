@@ -88,11 +88,37 @@
   // CSS handles visibility via [aria-expanded="true"] + .luc-mega-menu
   // ==========================================================================
 
+  // Helper to manage tabindex on mega-menu links (accessibility)
+  function setMegaMenuTabIndex(megaMenu, tabindex) {
+    if (!megaMenu) return;
+    const links = megaMenu.querySelectorAll('a, button');
+    links.forEach(function(link) {
+      link.setAttribute('tabindex', tabindex);
+    });
+  }
+
+  // Initialize all mega-menus to have tabindex -1 (not tabbable when collapsed)
+  document.querySelectorAll('.luc-mega-menu').forEach(function(megaMenu) {
+    setMegaMenuTabIndex(megaMenu, '-1');
+  });
+
   function closeAllNavMenus() {
-    navToggles.forEach(toggle => toggle.setAttribute('aria-expanded', 'false'));
+    navToggles.forEach(function(toggle) {
+      toggle.setAttribute('aria-expanded', 'false');
+      // Reset tabindex on associated mega-menu
+      const controlsId = toggle.getAttribute('aria-controls');
+      if (controlsId) {
+        const megaMenu = document.getElementById(controlsId);
+        setMegaMenuTabIndex(megaMenu, '-1');
+      }
+    });
   }
 
   navToggles.forEach(function(toggle) {
+    const navItem = toggle.closest('.luc-nav__item, .luc-subbrand-nav__item');
+    const controlsId = toggle.getAttribute('aria-controls');
+    const megaMenu = controlsId ? document.getElementById(controlsId) : null;
+
     toggle.addEventListener('click', function(e) {
       e.preventDefault();
       const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
@@ -100,26 +126,63 @@
 
       if (isMobile) {
         // Accordion: close others, toggle this one
-        navToggles.forEach(t => {
-          if (t !== toggle) t.setAttribute('aria-expanded', 'false');
+        navToggles.forEach(function(t) {
+          if (t !== toggle) {
+            t.setAttribute('aria-expanded', 'false');
+            const otherId = t.getAttribute('aria-controls');
+            if (otherId) {
+              setMegaMenuTabIndex(document.getElementById(otherId), '-1');
+            }
+          }
         });
         toggle.setAttribute('aria-expanded', String(!isExpanded));
+        setMegaMenuTabIndex(megaMenu, !isExpanded ? '0' : '-1');
       } else {
         // Dropdown: close all, then open this one if it was closed
         closeAllNavMenus();
         if (!isExpanded) {
           toggle.setAttribute('aria-expanded', 'true');
+          setMegaMenuTabIndex(megaMenu, '0');
         }
       }
     });
 
-    // Escape closes the submenu
+    // Escape closes the submenu and returns focus to toggle
     toggle.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         toggle.setAttribute('aria-expanded', 'false');
+        setMegaMenuTabIndex(megaMenu, '-1');
         toggle.focus();
       }
     });
+
+    // Close flyout when tabbing out of it (desktop only)
+    if (navItem) {
+      navItem.addEventListener('focusout', function() {
+        // Only apply on desktop
+        if (window.innerWidth < NAV_BREAKPOINT) return;
+
+        // Check if the new focus target is outside this nav item
+        // Use setTimeout to allow focus to settle on the new element
+        setTimeout(function() {
+          if (!navItem.contains(document.activeElement)) {
+            toggle.setAttribute('aria-expanded', 'false');
+            setMegaMenuTabIndex(megaMenu, '-1');
+          }
+        }, 0);
+      });
+    }
+
+    // Allow escape key from within the mega-menu itself
+    if (megaMenu) {
+      megaMenu.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          toggle.setAttribute('aria-expanded', 'false');
+          setMegaMenuTabIndex(megaMenu, '-1');
+          toggle.focus();
+        }
+      });
+    }
   });
 
   // Close dropdowns when clicking outside (desktop)
