@@ -645,7 +645,7 @@
   padding: 0;
   border: none;
   font-family: $luc-font-family;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   color: $luc-maroon;
   background: transparent;
@@ -656,6 +656,10 @@
 
   &:focus {
     outline: none;
+  }
+
+  @media (min-width: $nav-breakpoint) {
+    font-size: 0.875rem;
   }
 }
 
