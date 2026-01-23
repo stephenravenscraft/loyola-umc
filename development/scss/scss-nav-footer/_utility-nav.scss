@@ -41,7 +41,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 40px;
+  gap: 24px;
   visibility: visible;
   transition: visibility $luc-transition-fast, opacity $luc-transition-fast, grid-template-columns $luc-transition-normal;
   opacity: 1;
@@ -104,7 +104,7 @@
 .luc-utility__actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
   visibility: visible;
   flex-shrink: 0;
   transition: visibility $luc-transition-fast, opacity $luc-transition-fast;
@@ -148,6 +148,7 @@
   border-radius: 24px;
   padding: 0.5rem 0.5rem 0.5rem 1rem;
   gap: 8px;
+  margin-left: 16px;
 }
 
 .luc-utility__search-input {
