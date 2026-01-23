@@ -39,7 +39,7 @@
 
   @media (min-width: $nav-breakpoint) {
     height: $luc-nav-height;
-    padding: 0 24px;
+    padding: 0 32px;
   }
 }
 
@@ -306,8 +306,8 @@
   &::after {
     content: '';
     display: block;
-    width: 0.5375rem;
-    height: 0.29375rem;
+    width: 0.5rem;
+    height: 0.5rem;
     mask: url('../images/icon-caret-down.svg') no-repeat center center / contain;
     background: $luc-maroon;
     transition: background-color $luc-transition-fast, transform $luc-transition-fast;
@@ -383,11 +383,14 @@
     }
 
     &[aria-expanded='true'] {
-      &::before {
-        height: 8px;
-      }
       &::after {
         transform: rotate(180deg);
+      }
+
+      &:hover {
+        &::after {
+          transform: rotate(180deg) translateX(-0.25rem);
+        }
       }
     }
   }
