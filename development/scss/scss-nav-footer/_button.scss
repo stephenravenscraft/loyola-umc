@@ -67,6 +67,10 @@
     border-bottom-color: $luc-gold;
     background-color: transparent;
 
+    &:focus-visible {
+      outline-color: $luc-white;
+    }
+
     &::after {
       background-color: $luc-white;
     }

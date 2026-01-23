@@ -49,5 +49,6 @@ $luc-transition-fast: 150ms ease;
 $luc-transition-normal: 250ms ease;
 
 // Focus outline (AA compliant)
-$luc-focus-outline: 2px solid $luc-gold;
-$luc-focus-offset: 2px;
+$luc-focus-color: $luc-maroon;
+$luc-focus-outline: 0.25rem dashed $luc-focus-color;
+$luc-focus-offset: 0.25rem;

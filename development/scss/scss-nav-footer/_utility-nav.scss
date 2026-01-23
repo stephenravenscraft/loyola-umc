@@ -26,13 +26,9 @@
 }
 
 .luc-utility__logo-link {
+  outline-color: $luc-white;
   display: block;
   text-decoration: none;
-
-  &:focus-visible {
-    outline: 2px solid $luc-white;
-    outline-offset: $luc-focus-offset;
-  }
 }
 
 .luc-utility__logo-img {
@@ -94,10 +90,6 @@
     text-underline-offset: 8%;
   }
 
-  &:focus-visible {
-    outline: 2px solid $luc-white;
-    outline-offset: $luc-focus-offset;
-  }
 }
 
 // Right side: CTAs + Search
@@ -122,11 +114,6 @@
   &:hover,
   &:focus {
     text-decoration: underline;
-  }
-
-  &:focus-visible {
-    outline: 2px solid $luc-white;
-    outline-offset: $luc-focus-offset;
   }
 
   // Primary CTA (e.g., Apply, Give)
@@ -192,12 +179,8 @@
 
   &:hover,
   &:focus {
+    outline-color: $luc-maroon;
     background-color: darken($luc-maroon, 10%);
-  }
-
-  &:focus-visible {
-    outline: 2px solid $luc-gold;
-    outline-offset: 2px;
   }
 
   & > svg {

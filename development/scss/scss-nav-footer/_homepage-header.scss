@@ -320,8 +320,7 @@
   }
 
   &:focus-visible {
-    outline: $luc-focus-outline;
-    outline-offset: $luc-focus-offset;
+    outline-offset: -0.25rem;
   }
 
   &:hover {
@@ -427,11 +426,13 @@
   @media (max-width: #{$nav-breakpoint - 1px}) {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows $luc-transition-normal;
+    transition: grid-template-rows $luc-transition-normal, visibility $luc-transition-normal;
     overflow: hidden;
+    visibility: hidden;
 
     .luc-nav__toggle[aria-expanded='true'] + & {
       grid-template-rows: 1fr;
+      visibility: visible;
     }
   }
 
@@ -470,7 +471,7 @@
   @media (min-width: $nav-breakpoint) {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 48px;
+    padding: 3rem 4rem 4rem;
   }
 }
 
@@ -500,7 +501,7 @@
 .luc-mega-menu__link {
   position: relative;
   display: block;
-  padding: 16px 0;
+  padding: 16px 4px;
   font-family: $luc-font-family;
   font-size: 16px;
   color: $luc-black;
@@ -533,6 +534,10 @@
       transform: translateX(0);
       opacity: 1;
     }
+  }
+
+  &:focus-visible {
+    outline-offset: -0.25rem;
   }
 }
 
@@ -625,7 +630,6 @@
 .luc-search__form {
   display: flex;
   align-items: center;
-  // border: 2px solid $luc-maroon;
   background: $luc-white;
   padding: 0 8px 0 16px;
   border-radius: 2rem;

@@ -55,11 +55,6 @@
     text-decoration: underline;
   }
 
-  &:focus-visible {
-    outline: 2px solid $luc-white;
-    outline-offset: $luc-focus-offset;
-  }
-
   svg {
     width: 20px;
     height: 20px;
@@ -102,11 +97,7 @@
 
 .luc-footer__logo-link {
   display: inline-block;
-
-  &:focus-visible {
-    outline: 2px solid $luc-white;
-    outline-offset: $luc-focus-offset;
-  }
+  outline-color: $luc-white;
 }
 
 .luc-footer__logo-img {
@@ -203,11 +194,6 @@
     text-decoration: underline;
   }
 
-  &:focus-visible {
-    outline: 2px solid $luc-white;
-    outline-offset: $luc-focus-offset;
-  }
-
   @media (min-width: $nav-breakpoint) {
     font-size: 14px;
     padding: 6px 0;
@@ -240,11 +226,6 @@
   &:hover,
   &:focus {
     text-decoration: underline;
-  }
-
-  &:focus-visible {
-    outline: 2px solid $luc-white;
-    outline-offset: $luc-focus-offset;
   }
 
   @media (min-width: $nav-breakpoint) {
@@ -295,11 +276,6 @@
     svg {
       fill: $luc-gold;
     }
-  }
-
-  &:focus-visible {
-    outline: 2px solid $luc-white;
-    outline-offset: $luc-focus-offset;
   }
 
   svg {
@@ -379,11 +355,6 @@
   &:hover,
   &:focus {
     text-decoration: underline;
-  }
-
-  &:focus-visible {
-    outline: 2px solid $luc-white;
-    outline-offset: $luc-focus-offset;
   }
 
   @media (min-width: $nav-breakpoint) {
