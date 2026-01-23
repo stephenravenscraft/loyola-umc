@@ -301,11 +301,6 @@
 <footer class="luc-footer">
     <div class="luc-footer__container">
 
-        <!-- Back to Top (mobile: top, desktop: in grid) -->
-        <button class="luc-footer__back-to-top luc-footer__back-to-top--mobile luc-button luc-button--dark" aria-label="Back to top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
-            Back to Top
-        </button>
-
         <!-- Centered Logo -->
         <div class="luc-footer__logo">
             <a href="/" class="luc-footer__logo-link">
@@ -389,11 +384,6 @@
                 </ul>
             </div>
 
-            <!-- Back to Top (desktop only - in grid) -->
-            <button class="luc-footer__back-to-top luc-footer__back-to-top--desktop luc-button luc-button--dark" aria-label="Back to top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
-                Back to Top
-            </button>
-
         </div>
 
         <!-- Bottom Bar -->
@@ -406,6 +396,11 @@
                 <li><a href="#" class="luc-footer__legal-link">Nondiscrimination Policy</a></li>
             </ul>
         </div>
+
+        <!-- Back to Top (last in DOM for tab order, CSS positions visually) -->
+        <button class="luc-footer__back-to-top luc-button luc-button--dark" aria-label="Back to top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+            Back to Top
+        </button>
 
     </div>
 </footer>

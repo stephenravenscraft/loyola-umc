@@ -24,45 +24,49 @@
 }
 
 .luc-footer__container {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
   padding: 48px 24px 32px;
 
   @media (max-width: #{$nav-breakpoint - 1px}) {
-    padding: 40px 24px 16px;
+    // Extra top padding for absolutely positioned back-to-top button
+    padding: 100px 24px 16px;
     display: flex;
     flex-direction: column;
   }
 }
 
-// Back to Top button
+// Back to Top button - single instance, CSS positioned
+// DOM order: last in footer for tab order
+// Visual: top of footer on mobile, in grid row on desktop
 .luc-footer__back-to-top {
   gap: 1rem;
+  position: absolute;
 
   &::after {
     width: 0.76875rem;
     height: 0.86406rem;
     mask-image: url('../images/icon-to-top.svg');
   }
-  // Mobile-only instance (at top of footer)
-  &--mobile {
-    align-self: center;
-    order: -2;
 
-    @media (min-width: $nav-breakpoint) {
-      display: none;
-    }
+  // Mobile: positioned at top center of footer
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  // Desktop: positioned in grid row, right side
+  // Grid top = container padding (48px) + logo padding-top (64px) + logo height (80px) + logo margin-bottom (64px)
+  @media (min-width: $nav-breakpoint) {
+    top: calc(48px + 64px + 80px + 64px);
+    left: auto;
+    right: 24px;
+    transform: none;
   }
 
-  // Desktop-only instance (in grid)
-  &--desktop {
-    display: none;
-    flex-shrink: 0;
-    align-self: flex-start;
-
-    @media (min-width: $nav-breakpoint) {
-      display: flex;
-    }
+  @media (min-width: 1248px) {
+    // When container is max-width, center the positioning
+    right: calc((100% - 1200px) / 2);
   }
 }
 
@@ -73,7 +77,6 @@
   padding-top: 64px;
 
   @media (max-width: #{$luc-footer-breakpoint - 1px}) {
-    order: -1;
     margin-bottom: 40px;
   }
 }
@@ -97,13 +100,16 @@
 // Main footer grid - 4 areas on desktop per Figma
 // Contact | About | Resources | Back to Top
 .luc-footer__grid {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 100%;
   gap: 2rem;
 
-  @media (max-width: #{$luc-footer-breakpoint - 1px}) {
-    flex-direction: column;
+  @media (min-width: $luc-footer-breakpoint) {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  @media (min-width: $nav-breakpoint) {
+    grid-template-columns: repeat(4, auto);
   }
 }
 
