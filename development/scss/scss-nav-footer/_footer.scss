@@ -37,30 +37,13 @@
 
 // Back to Top button
 .luc-footer__back-to-top {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-family: $luc-font-family-condensed-bold;
-  font-size: 16px;
-  color: $luc-footer-text;
-  text-decoration: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 12px 8px 14px;
-  border-bottom: 2px solid $luc-gold;
+  gap: 1rem;
 
-  &:hover,
-  &:focus {
-    text-decoration: underline;
+  &::after {
+    width: 0.76875rem;
+    height: 0.86406rem;
+    mask-image: url('../images/icon-to-top.svg');
   }
-
-  svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-  }
-
   // Mobile-only instance (at top of footer)
   &--mobile {
     align-self: center;
