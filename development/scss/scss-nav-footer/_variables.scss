@@ -37,6 +37,7 @@ $gray-medium: lighten($gray, 10%) !default;
 // Footer
 $luc-footer-bg: $maroon;
 $luc-footer-text: $luc-white;
+$luc-footer-breakpoint: 780px;
 
 // Typography (using existing Loyola font families)
 $luc-font-family: 'Antenna', 'Arial', sans-serif;

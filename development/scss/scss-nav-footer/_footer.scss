@@ -63,7 +63,7 @@
 
   // Mobile-only instance (at top of footer)
   &--mobile {
-    align-self: flex-end;
+    align-self: center;
     order: -2;
 
     @media (min-width: $nav-breakpoint) {
@@ -89,7 +89,7 @@
   margin-bottom: 64px;
   padding-top: 64px;
 
-  @media (max-width: #{$nav-breakpoint - 1px}) {
+  @media (max-width: #{$luc-footer-breakpoint - 1px}) {
     order: -1;
     margin-bottom: 40px;
   }
@@ -104,7 +104,7 @@
   height: 80px;
   width: auto;
 
-  @media (max-width: #{$nav-breakpoint - 1px}) {
+  @media (max-width: #{$luc-footer-breakpoint - 1px}) {
     height: auto;
     width: 100%;
     max-width: 340px;
@@ -119,7 +119,7 @@
   align-items: flex-start;
   gap: 2rem;
 
-  @media (max-width: #{$nav-breakpoint - 1px}) {
+  @media (max-width: #{$luc-footer-breakpoint - 1px}) {
     flex-direction: column;
   }
 }
@@ -140,12 +140,14 @@
   }
 
   // Mobile: reorder columns (About, Resources, then Contact)
-  @media (max-width: #{$nav-breakpoint - 1px}) {
+  @media (max-width: #{$luc-footer-breakpoint - 1px}) {
     &--about {
       order: 1;
+      flex: 0 0 64px;
     }
     &--resources {
       order: 2;
+      flex: 0 0 64px;
     }
     &--contact {
       order: 3;
@@ -161,7 +163,7 @@
   margin: 0 0 24px;
   color: $luc-white;
 
-  @media (max-width: #{$nav-breakpoint - 1px}) {
+  @media (max-width: #{$luc-footer-breakpoint - 1px}) {
     font-size: 16px;
   }
 
@@ -194,7 +196,7 @@
     text-decoration: underline;
   }
 
-  @media (min-width: $nav-breakpoint) {
+  @media (min-width: $luc-footer-breakpoint) {
     font-size: 14px;
     padding: 6px 0;
   }
@@ -209,7 +211,7 @@
   margin: 0 0 16px;
   color: $luc-white;
 
-  @media (min-width: $nav-breakpoint) {
+  @media (min-width: $luc-footer-breakpoint) {
     font-size: 14px;
     line-height: 1.6;
   }
@@ -228,7 +230,7 @@
     text-decoration: underline;
   }
 
-  @media (min-width: $nav-breakpoint) {
+  @media (min-width: $luc-footer-breakpoint) {
     font-family: $luc-font-family-bold;
     font-size: 14px;
     margin-bottom: 24px;
@@ -256,7 +258,7 @@
   gap: 24px;
   margin-top: 0;
 
-  @media (min-width: $nav-breakpoint) {
+  @media (min-width: $luc-footer-breakpoint) {
     gap: 12px;
     margin-top: auto;
   }
@@ -284,7 +286,7 @@
     fill: currentColor;
     transition: fill $luc-transition-fast;
 
-    @media (min-width: $nav-breakpoint) {
+    @media (min-width: $luc-footer-breakpoint) {
       width: 20px;
       height: 20px;
     }
@@ -302,7 +304,7 @@
   align-items: center;
   gap: 16px;
 
-  @media (max-width: #{$nav-breakpoint - 1px}) {
+  @media (max-width: #{$luc-footer-breakpoint - 1px}) {
     flex-direction: column;
     text-align: center;
     gap: 32px;
@@ -317,11 +319,11 @@
   margin: 0;
   color: $luc-copper-light;
 
-  @media (max-width: #{$nav-breakpoint - 1px}) {
+  @media (max-width: #{$luc-footer-breakpoint - 1px}) {
     order: 2;
   }
 
-  @media (min-width: $nav-breakpoint) {
+  @media (min-width: $luc-footer-breakpoint) {
     font-size: 12px;
   }
 }
@@ -334,12 +336,12 @@
   padding: 0;
   list-style: none;
 
-  @media (max-width: #{$nav-breakpoint - 1px}) {
+  @media (max-width: #{$luc-footer-breakpoint - 1px}) {
     justify-content: center;
     order: 1;
   }
 
-  @media (min-width: $nav-breakpoint) {
+  @media (min-width: $luc-footer-breakpoint) {
     gap: 24px;
   }
 }
@@ -357,7 +359,7 @@
     text-decoration: underline;
   }
 
-  @media (min-width: $nav-breakpoint) {
+  @media (min-width: $luc-footer-breakpoint) {
     font-size: 12px;
   }
 }
