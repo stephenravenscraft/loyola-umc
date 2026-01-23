@@ -1,0 +1,104 @@
+// =============================================================================
+// Button Component
+// =============================================================================
+// Base class: .luc-button
+// Themes: default (for light bg), --dark (for dark backgrounds)
+// =============================================================================
+
+.luc-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.5rem;
+  width: fit-content;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 1rem;
+  line-height: 1.1;
+  text-decoration: none;
+  border: none;
+  border-bottom: 2px solid $luc-maroon;
+  background-color: transparent;
+  color: $luc-maroon;
+  cursor: pointer;
+  transition:
+    background-color $luc-transition-fast,
+    color $luc-transition-fast,
+    border-color $luc-transition-fast;
+
+  // Focus state (AA compliant)
+  &:focus-visible {
+    outline: $luc-focus-outline;
+    outline-offset: $luc-focus-offset;
+  }
+
+  // Arrow icon using mask
+  &::after {
+    content: '';
+    display: block;
+    width: 1.125rem;
+    height: 0.5rem;
+    mask-image: url('../images/icon-arrow-right.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    background-color: currentColor;
+    transition: background-color $luc-transition-fast;
+  }
+
+  // ==========================================================================
+  // HOVER STATE - Filled maroon
+  // ==========================================================================
+  &:hover {
+    background-color: $luc-maroon;
+    color: $luc-white;
+    border-color: $luc-maroon;
+    border-bottom: 2px solid $luc-maroon;
+
+    &::after {
+      background-color: $luc-gold;
+    }
+  }
+
+  // ==========================================================================
+  // DARK THEME - For use on dark backgrounds
+  // ==========================================================================
+  &--dark {
+    color: $luc-white;
+    border-bottom-color: $luc-gold;
+    background-color: transparent;
+
+    &::after {
+      background-color: $luc-white;
+    }
+
+    // Hover: gold filled
+    &:hover {
+      background-color: $luc-gold;
+      color: $luc-maroon;
+      border-color: $luc-gold;
+
+      &::after {
+        background-color: $luc-maroon;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // DISABLED STATE
+  // ==========================================================================
+  &:disabled,
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  // ==========================================================================
+  // NO ARROW VARIANT
+  // ==========================================================================
+  &--no-arrow {
+    &::after {
+      display: none;
+    }
+  }
+}

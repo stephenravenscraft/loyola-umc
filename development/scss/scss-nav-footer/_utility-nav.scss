@@ -45,6 +45,17 @@
   display: flex;
   align-items: center;
   gap: 40px;
+
+  @media (min-width: $nav-breakpoint) {
+    &:has(.luc-utility__search-input:focus) {
+      .luc-utility__audience,
+      .luc-utility__actions,
+      .luc-utility__divider {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+  }
 }
 
 // Divider between link groups
@@ -53,12 +64,17 @@
   height: 24px;
   background-color: $luc-copper-light;
   opacity: 0.5;
+  visibility: visible;
+  transition: visibility $luc-transition-fast, opacity $luc-transition-fast;
 }
 
 // Audience links
 .luc-utility__audience {
   display: flex;
   gap: 24px;
+  visibility: visible;
+  transition: visibility $luc-transition-fast, opacity $luc-transition-fast;
+  opacity: 1;
 }
 
 .luc-utility__link {
@@ -89,6 +105,9 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  visibility: visible;
+  transition: visibility $luc-transition-fast, opacity $luc-transition-fast;
+  opacity: 1;
 }
 
 .luc-utility__cta {
@@ -102,7 +121,7 @@
 
   &:hover,
   &:focus {
-    opacity: 0.8;
+    text-decoration: underline;
   }
 
   &:focus-visible {

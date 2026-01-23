@@ -52,7 +52,7 @@
 
   &:hover,
   &:focus {
-    opacity: 0.8;
+    text-decoration: underline;
   }
 
   &:focus-visible {
@@ -126,11 +126,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 120px;
+  gap: 2rem;
 
   @media (max-width: #{$nav-breakpoint - 1px}) {
     flex-direction: column;
-    gap: 32px;
   }
 }
 
@@ -197,11 +196,10 @@
   font-size: 16px;
   color: $luc-copper-light;
   text-decoration: none;
-  transition: opacity $luc-transition-fast;
+  transition: text-decoration $luc-transition-fast;
 
   &:hover,
   &:focus {
-    opacity: 0.8;
     text-decoration: underline;
   }
 
@@ -270,47 +268,6 @@
   }
 }
 
-.luc-footer__cta-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: $luc-font-family-condensed-bold;
-  font-size: 16px;
-  color: $luc-white;
-  text-decoration: none;
-  padding: 12px 8px;
-  border-bottom: 2px solid $luc-gold;
-  height: 52px;
-
-  &:hover,
-  &:focus {
-    opacity: 0.8;
-  }
-
-  &:focus-visible {
-    outline: 2px solid $luc-white;
-    outline-offset: $luc-focus-offset;
-  }
-
-  svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-  }
-
-  @media (max-width: #{$nav-breakpoint - 1px}) {
-    font-family: $luc-font-family;
-    border-bottom: none;
-    padding: 4px 0;
-    height: auto;
-    color: $luc-copper-light;
-
-    svg {
-      display: none;
-    }
-  }
-}
-
 // Social links
 .luc-footer__social {
   display: flex;
@@ -332,11 +289,12 @@
   height: 32px;
   color: $luc-footer-text;
   text-decoration: none;
-  transition: opacity $luc-transition-fast;
 
   &:hover,
   &:focus {
-    opacity: 0.8;
+    svg {
+      fill: $luc-gold;
+    }
   }
 
   &:focus-visible {
@@ -348,6 +306,7 @@
     width: 24px;
     height: 24px;
     fill: currentColor;
+    transition: fill $luc-transition-fast;
 
     @media (min-width: $nav-breakpoint) {
       width: 20px;
@@ -388,7 +347,6 @@
 
   @media (min-width: $nav-breakpoint) {
     font-size: 12px;
-    opacity: 0.8;
   }
 }
 
@@ -416,11 +374,10 @@
   color: $luc-copper-light;
   text-decoration: none;
   padding: 4px 0;
-  transition: opacity $luc-transition-fast;
+  transition: text-decoration $luc-transition-fast;
 
   &:hover,
   &:focus {
-    opacity: 0.8;
     text-decoration: underline;
   }
 
@@ -431,6 +388,5 @@
 
   @media (min-width: $nav-breakpoint) {
     font-size: 12px;
-    opacity: 0.8;
   }
 }

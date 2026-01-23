@@ -6,11 +6,17 @@
 // =============================================================================
 
 .luc-header--homepage {
+  box-sizing: border-box;
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
   background: $luc-white;
+  border-bottom: 1px solid $luc-gray-lightest;
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
 // =============================================================================
@@ -29,7 +35,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: $luc-nav-height-mobile;
   padding: 0 16px;
 
   @media (min-width: $nav-breakpoint) {
@@ -77,31 +83,42 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 2.5rem;
+  height: 2.5rem;
   padding: 0;
   border: none;
   background: transparent;
   color: $luc-white;
   cursor: pointer;
 
-  .luc-header--homepage & {
-    color: $luc-maroon;
+  &::after {
+    content: '';
+    display: block;
+    width: 1.83769rem;
+    height: 1.83769rem;
+    mask: url('../images/icon-search.svg') no-repeat center center / contain;
+    background: $luc-white;
+    transition: background-color $luc-transition-fast;
   }
 
-  &:hover {
-    background: transparent;
+  &[aria-expanded='true'] {
+    &::after {
+      width: 1.36288rem;
+      height: 1.36288rem;
+      mask-image: url('../images/icon-close-new.svg');
+    }
+  }
+
+  .luc-header--homepage & {
+    color: $luc-maroon;
+    &::after {
+      background: $luc-maroon;
+    }
   }
 
   &:focus-visible {
     outline: $luc-focus-outline;
     outline-offset: $luc-focus-offset;
-  }
-
-  svg {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
   }
 }
 
@@ -110,8 +127,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 2.5rem;
+  height: 2.5rem;
   padding: 0;
   border: none;
   background: transparent;
@@ -125,55 +142,29 @@
     outline: $luc-focus-outline;
     outline-offset: $luc-focus-offset;
   }
-}
 
-// Hamburger icon
-.luc-nav__menu-toggle-icon {
-  position: relative;
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: $luc-white;
-
-  .luc-header--homepage & {
-    background: $luc-maroon;
-  }
-
-  &::before,
   &::after {
     content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 2px;
+    display: block;
+    width: 1.83769rem;
+    height: 1.83769rem;
+    mask: url('../images/icon-hamburger.svg') no-repeat center center / contain;
     background: $luc-white;
-    transition: transform $luc-transition-fast;
-
-    .luc-header--homepage & {
-      background: $luc-maroon;
-    }
+    transition: background-color $luc-transition-fast;
   }
 
-  &::before {
-    top: -7px;
-  }
-
-  &::after {
-    bottom: -7px;
-  }
-
-  // Transform to X when open
-  .luc-nav__menu-toggle[aria-expanded='true'] & {
-    background: transparent;
-
-    &::before {
-      top: 0;
-      transform: rotate(45deg);
-    }
-
+  &[aria-expanded='true'] {
     &::after {
-      bottom: 0;
-      transform: rotate(-45deg);
+      width: 1.36288rem;
+      height: 1.36288rem;
+      mask-image: url('../images/icon-close-new.svg');
+    }
+  }
+
+  .luc-header--homepage & {
+    color: $luc-maroon;
+    &::after {
+      background: $luc-maroon;
     }
   }
 }
@@ -185,7 +176,7 @@
   // Mobile: Fixed overlay
   @media (max-width: #{$nav-breakpoint - 1px}) {
     position: fixed;
-    top: 65px; // Below mobile header
+    top: $luc-nav-height-mobile; // Below mobile header
     left: 0;
     right: 0;
     bottom: 0;
@@ -215,6 +206,10 @@
 // CTA Bar (visible only in mobile menu)
 // =============================================================================
 .luc-nav__cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -263,14 +258,24 @@
   @media (min-width: $nav-breakpoint) {
     display: flex;
     align-items: center;
-    gap: 0;
+    gap: 2rem;
+    flex-shrink: 0;
   }
 }
 
 .luc-nav__item {
   // Mobile: Block
   @media (max-width: #{$nav-breakpoint - 1px}) {
-    // border-bottom: 1px solid rgba($luc-maroon, 0.1);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.25rem;
+    margin-block: 1rem;
+    border-bottom: 1px solid $luc-copper;
+
+    &:has(.luc-nav__toggle[aria-expanded='true']) {
+      border-bottom-color: transparent;
+    }
   }
 
   // Desktop: Static for mega menu positioning
@@ -284,13 +289,11 @@
 // Per Figma specs: Desktop uses Antenna Medium 16px, Mobile uses Antenna Condensed Bold 18px
 // =============================================================================
 .luc-nav__toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 16px 0;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
   border: none;
-  border-bottom: 1px solid $luc-copper;
   border-radius: 0;
   background: transparent;
   font-family: $luc-font-family-condensed-bold;
@@ -298,7 +301,23 @@
   text-transform: capitalize;
   color: $luc-maroon;
   cursor: pointer;
-  transition: border-color $luc-transition-fast;
+  transition: background-color $luc-transition-fast, color $luc-transition-fast;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 0.5375rem;
+    height: 0.29375rem;
+    mask: url('../images/icon-caret-down.svg') no-repeat center center / contain;
+    background: $luc-maroon;
+    transition: background-color $luc-transition-fast, transform $luc-transition-fast;
+  }
+
+  &[aria-expanded='true'] {
+    &::after {
+      transform: rotate(180deg);
+    }
+  }
 
   &:focus-visible {
     outline: $luc-focus-outline;
@@ -309,33 +328,50 @@
     background: transparent;
     color: $luc-maroon;
     text-decoration: none;
-
-    .luc-nav__toggle-icon-wrapper {
-      transform: translateX(0.25rem);
-    }
   }
 
   // Mobile: Gold border, maroon on active
   @media (max-width: #{$nav-breakpoint - 1px}) {
     &[aria-expanded='true'] {
-      border-bottom-color: transparent;
+      background: $luc-maroon;
+      color: $luc-gold;
+      width: 2.5rem;
+      height: 2.5rem;
+      &::after {
+        background-color: $luc-gold;
+      }
     }
   }
 
   // Desktop: Antenna Medium 16px, no border, centered
   @media (min-width: $nav-breakpoint) {
     position: relative;
-    justify-content: center;
-    gap: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
     width: auto;
-    height: $luc-nav-height;
-    padding: 0 8px;
-    border-bottom: none;
     font-family: $luc-font-family;
     font-size: 16px;
-    font-weight: 500;
 
-    &::after {
+    &:hover {
+      &::after {
+        transform: translateX(0.25rem);
+      }
+    }
+
+    // position: relative;
+    // justify-content: center;
+    // gap: 0;
+    // width: auto;
+    height: $luc-nav-height;
+    // padding: 0 8px;
+    // border-bottom: none;
+    // font-family: $luc-font-family;
+    // font-size: 16px;
+    // font-weight: 500;
+
+    &::before {
       content: '';
       position: absolute;
       bottom: 0;
@@ -348,52 +384,38 @@
     }
 
     &[aria-expanded='true'] {
-      &::after {
+      &::before {
         height: 8px;
+      }
+      &::after {
+        transform: rotate(180deg);
       }
     }
   }
 }
 
-// Toggle icon wrapper (contains the chevron)
-.luc-nav__toggle-icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  color: $luc-maroon;
-  transition: background-color $luc-transition-fast, transform $luc-transition-fast;
-
-  // Mobile expanded: maroon background
-  @media (max-width: #{$nav-breakpoint - 1px}) {
-    .luc-nav__toggle[aria-expanded='true'] & {
-      background-color: $luc-maroon;
-      color: $luc-gold;
-    }
-  }
-
-  // Desktop: no padding, no background
+.luc-nav__toggle-text {
+  display: none;
   @media (min-width: $nav-breakpoint) {
-    padding: 0;
+    display: block;
   }
 }
 
-// Toggle icon (chevron)
-.luc-nav__toggle-icon {
-  width: 0.5375rem;
-  height: 0.29375rem;
-  fill: currentColor;
-  transition: transform $luc-transition-fast;
+.luc-nav__link {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 18px;
+  text-transform: capitalize;
+  color: $luc-maroon;
+  text-decoration: none;
+  width: fit-content;
 
-  // Desktop: smaller icon
-  @media (min-width: $nav-breakpoint) {
-    width: 7px;
-    height: 4px;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
   }
 
-  .luc-nav__toggle[aria-expanded='true'] & {
-    transform: rotate(180deg);
+  @media (min-width: $nav-breakpoint) {
+    display: none;
   }
 }
 
@@ -425,14 +447,12 @@
     max-width: 57rem;
     width: 100%;
     visibility: hidden;
-    transform: translateY(-8px);
-    transition: opacity $luc-transition-normal, visibility $luc-transition-normal, transform $luc-transition-normal;
+    transition: opacity $luc-transition-normal, visibility $luc-transition-normal;
     z-index: 100;
 
     .luc-nav__toggle[aria-expanded='true'] + & {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
     }
   }
 }
@@ -459,42 +479,8 @@
   display: none; // Hidden on mobile
 
   @media (min-width: $nav-breakpoint) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    position: relative;
-    font-family: $luc-font-family-condensed-bold;
-    font-size: 16px;
-    font-weight: 700;
-    color: $luc-maroon;
-    text-decoration: none;
-    padding: 0.75rem;
+    display: inline-flex;
     margin-bottom: 16px;
-    border-bottom: 2px solid $luc-maroon;
-    width: fit-content;
-    transition: background-color $luc-transition-fast, color $luc-transition-fast;
-
-    &::after {
-      content: '';
-      mask-image: url('../images/icon-arrow-right.svg');
-      mask-size: contain;
-      background-color: $luc-maroon;
-      display: block;
-      width: 0.9375rem;
-      height: 0.4375rem;
-      aspect-ratio: 15/7;
-      mask-size: contain;
-    }
-
-    &:hover,
-    &:focus {
-      background: $luc-maroon;
-      color: $luc-white;
-      &::after {
-        background-color: $luc-gold;
-      }
-    }
   }
 }
 
@@ -556,7 +542,6 @@
 .luc-nav__audience-mobile {
   padding: 24px 16px;
   margin-top: 16px;
-  border-top: 1px solid rgba($luc-maroon, 0.1);
 
   @media (min-width: $nav-breakpoint) {
     display: none;
@@ -565,12 +550,10 @@
 
 .luc-nav__audience-heading {
   margin: 0 0 16px;
-  font-family: $luc-font-family;
-  font-size: 12px;
-  font-weight: 600;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 16px;
   color: $luc-maroon;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  text-transform: capitalize;
 }
 
 .luc-nav__audience-list {
@@ -583,7 +566,7 @@
   display: block;
   padding: 8px 0;
   font-family: $luc-font-family;
-  font-size: 16px;
+  font-size: 14px;
   color: $luc-maroon;
   text-decoration: none;
 
@@ -598,13 +581,13 @@
 // =============================================================================
 .luc-search {
   position: fixed;
-  top: 65px; // Below mobile header bar
+  top: $luc-nav-height-mobile; // Below mobile header bar
   left: 0;
   right: 0;
-  bottom: 0;
+  height: fit-content;
   background: $luc-copper-light;
   z-index: 999; // Below header
-  padding: 24px 16px;
+  padding: 16px;
   opacity: 0;
   visibility: hidden;
   overflow-y: auto;

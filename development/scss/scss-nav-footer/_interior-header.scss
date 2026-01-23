@@ -6,11 +6,21 @@
 // =============================================================================
 
 .luc-header--interior {
+  box-sizing: border-box;
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
   background: $luc-white;
+  border-bottom: 1px solid $luc-gray-lightest;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    height: $luc-interior-header-total-height;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
 // =============================================================================
@@ -20,12 +30,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: $luc-interior-nav-height;
   padding: 0 16px;
   background-color: $luc-maroon;
 
   @media (min-width: $nav-breakpoint) {
-    height: 76px;
+    height: $luc-utility-height;
     padding: 0 32px;
   }
 }
@@ -83,7 +93,7 @@
 .luc-subbrand {
   display: flex;
   align-items: center;
-  min-height: 56px;
+  min-height: $luc-interior-subbrand-height;
   padding: 16px;
   background: $luc-white;
   border-bottom: 1px solid $gray-extra-light;
@@ -98,17 +108,6 @@
   font-size: 20px;
   font-weight: normal;
   color: $luc-maroon;
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  }
-
-  &:focus-visible {
-    outline: $luc-focus-outline;
-    outline-offset: $luc-focus-offset;
-  }
 }
 
 // =============================================================================
@@ -118,7 +117,7 @@
   // Mobile: Fixed overlay (same as homepage)
   @media (max-width: #{$nav-breakpoint - 1px}) {
     position: fixed;
-    top: $luc-header-total-height;
+    top: $luc-interior-header-total-height;
     left: 0;
     right: 0;
     bottom: 0;
@@ -137,6 +136,7 @@
     justify-content: space-between;
     height: $luc-nav-height;
     padding: 0 32px;
+    gap: 1.5rem;
     background: $luc-white;
     position: relative;
   }
@@ -167,20 +167,11 @@
     font-family: $luc-font-family-condensed-bold;
     font-size: 20px;
     font-weight: normal;
+    line-height: 1.5;
     color: $luc-maroon;
     text-decoration: none;
-    white-space: nowrap;
-    flex-shrink: 0;
-
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
-
-    &:focus-visible {
-      outline: $luc-focus-outline;
-      outline-offset: $luc-focus-offset;
-    }
+    width: 100%;
+    max-width: 25rem;
   }
 }
 
@@ -193,5 +184,5 @@
 
 // Search panel - position below utility + subbrand bars on interior
 .luc-header--interior .luc-search {
-  top: $luc-header-total-height;
+  top: $luc-interior-header-total-height;
 }
