@@ -8,6 +8,9 @@
 // Breakpoint for mobile/desktop switch
 $nav-breakpoint: 1190px;
 
+// Breakpoint for hiding utility audience links on search input focus
+$nav-breakpoint-hide-utility-audience: 1300px;
+
 // Header heights (from Figma specs)
 $luc-utility-height: 76px;
 $luc-nav-height-mobile: 72px;

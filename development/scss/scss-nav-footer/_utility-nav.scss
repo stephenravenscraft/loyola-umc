@@ -39,18 +39,26 @@
 // Right side wrapper
 .luc-utility__right {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   gap: 40px;
+  visibility: visible;
+  transition: visibility $luc-transition-fast, opacity $luc-transition-fast, grid-template-columns $luc-transition-normal;
+  opacity: 1;
 
-  @media (min-width: $nav-breakpoint) {
+  @media (max-width: #{$nav-breakpoint-hide-utility-audience - 1px}) {
     &:has(.luc-utility__search-input:focus) {
       .luc-utility__audience,
-      .luc-utility__actions,
       .luc-utility__divider {
         visibility: hidden;
         opacity: 0;
       }
     }
+  }
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    display: none;
+    visibility: hidden;
   }
 }
 
@@ -98,6 +106,7 @@
   align-items: center;
   gap: 16px;
   visibility: visible;
+  flex-shrink: 0;
   transition: visibility $luc-transition-fast, opacity $luc-transition-fast;
   opacity: 1;
 }
@@ -149,7 +158,7 @@
   font-family: $luc-font-family;
   font-size: $luc-nav-font-size;
   color: $luc-maroon;
-  transition: width $luc-transition-fast;
+  transition: width $luc-transition-normal;
 
   &::placeholder {
     color: $luc-maroon;

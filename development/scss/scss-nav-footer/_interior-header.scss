@@ -68,17 +68,6 @@
   }
 }
 
-// Desktop utility right section
-.luc-utility__right {
-  display: none;
-
-  @media (min-width: $nav-breakpoint) {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-  }
-}
-
 .luc-utility__divider {
   width: 1px;
   height: 24px;
