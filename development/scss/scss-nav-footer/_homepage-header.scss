@@ -6,7 +6,6 @@
 // =============================================================================
 
 .luc-header--homepage {
-  box-sizing: border-box;
   position: sticky;
   top: 0;
   width: 100%;
@@ -14,8 +13,8 @@
   background: $luc-white;
   border-bottom: 1px solid $luc-gray-lightest;
 
-  * {
-    box-sizing: border-box;
+  @media (min-width: $nav-breakpoint) {
+    top: -$luc-utility-height;
   }
 }
 

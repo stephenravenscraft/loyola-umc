@@ -6,7 +6,6 @@
 // =============================================================================
 
 .luc-header--interior {
-  box-sizing: border-box;
   position: sticky;
   top: 0;
   width: 100%;
@@ -18,8 +17,8 @@
     height: $luc-interior-header-total-height;
   }
 
-  * {
-    box-sizing: border-box;
+  @media (min-width: $nav-breakpoint) {
+    top: -$luc-utility-height;
   }
 }
 
