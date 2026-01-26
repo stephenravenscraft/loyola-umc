@@ -695,13 +695,22 @@
   padding: 0;
   border: none;
   background: $luc-maroon;
-  border-radius: 100%;
-  color: $luc-gold;
+  border-radius: 50%;
+  color: $luc-white;
   cursor: pointer;
 
-  svg {
-    width: 1.125rem;
-    height: 1.12rem;
-    fill: currentColor;
+  &::before {
+    content: '';
+    display: block;
+    width: 2.25rem;
+    height: 2.25rem;
+    mask: url('../images/icon-search-new.svg') no-repeat center center / 50%;
+    background-color: $luc-gold;
+    transition: background-color $luc-transition-fast;
+  }
+
+  &:focus-visible {
+    outline-color: $luc-maroon;
+    outline-offset: 2px;
   }
 }
