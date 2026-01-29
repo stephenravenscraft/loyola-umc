@@ -301,7 +301,7 @@
   font-family: $luc-font-family-condensed-bold;
   font-size: 18px;
   text-transform: capitalize;
-  color: $luc-maroon;
+  color: #5a0072;
   cursor: pointer;
   transition: background-color $luc-transition-fast, color $luc-transition-fast;
 
@@ -312,7 +312,8 @@
     display: block;
     width: 2.5rem;
     height: 2.5rem;
-    background: $luc-maroon;
+    background: #e4ddc8;
+    border-radius: 50%;
     opacity: 0;
     transition: opacity $luc-transition-fast;
   }
@@ -342,7 +343,7 @@
 
   &:hover {
     background: transparent;
-    color: $luc-maroon;
+    color: #5a0072;
     text-decoration: none;
   }
 
@@ -350,7 +351,7 @@
   @media (max-width: #{$nav-breakpoint - 1px}) {
     &[aria-expanded='true'] {
       &::after {
-        background-color: $luc-gold;
+        // background-color: $luc-gold;
       }
     }
   }
@@ -364,8 +365,11 @@
     width: auto;
     font-family: $luc-font-family;
     font-size: 16px;
+    color: $luc-maroon;
 
     &:hover {
+      color: $luc-maroon;
+
       &::after {
         transform: translateX(0.25rem);
       }
@@ -390,6 +394,7 @@
       display: block;
       width: 100%;
       height: 0;
+      border-radius: 0;
       background: $luc-maroon;
       transition: height $luc-transition-fast;
     }

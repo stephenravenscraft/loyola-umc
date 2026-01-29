@@ -17,7 +17,7 @@
   line-height: 1.1;
   text-decoration: none;
   border: none;
-  border-bottom: 2px solid $luc-maroon;
+  border-bottom: 1px solid $luc-maroon;
   background-color: transparent;
   color: $luc-maroon;
   cursor: pointer;
@@ -52,7 +52,7 @@
     background-color: $luc-maroon;
     color: $luc-white;
     border-color: $luc-maroon;
-    border-bottom: 2px solid $luc-maroon;
+    border-bottom: 1px solid $luc-maroon;
 
     &::after {
       background-color: $luc-gold;
