@@ -5,6 +5,9 @@
 // Leverages tokens from _custom-variables.scss where possible.
 // =============================================================================
 
+// global baseline
+$luc-baseline: 0.25rem;
+
 // Breakpoint for mobile/desktop switch
 $nav-breakpoint: 1190px;
 
@@ -12,15 +15,15 @@ $nav-breakpoint: 1190px;
 $nav-breakpoint-hide-utility-audience: 1300px;
 
 // Header heights (from Figma specs)
-$luc-utility-height: 76px;
-$luc-nav-height-mobile: 72px;
-$luc-nav-height: 96px;
+$luc-utility-height: $luc-baseline * 19; // 76px
+$luc-nav-height-mobile: $luc-baseline * 18; // 72px
+$luc-nav-height: $luc-baseline * 24; // 96px
 $luc-header-total-height: $luc-utility-height + $luc-nav-height;
 
 // Interior header
-$luc-interior-return-height: 36px;
-$luc-interior-nav-height: 72px;
-$luc-interior-subbrand-height: 92px;
+$luc-interior-return-height: $luc-baseline * 9; // 36px
+$luc-interior-nav-height: $luc-baseline * 18; // 72px
+$luc-interior-subbrand-height: $luc-baseline * 23; // 92px
 $luc-interior-header-total-height: $luc-interior-nav-height + $luc-interior-subbrand-height;
 
 // Colors (aliases for clarity - using existing tokens)
@@ -48,7 +51,7 @@ $luc-font-family-condensed: 'Antenna Condensed', 'Arial', sans-serif;
 $luc-font-family-condensed-bold: 'Antenna Condensed Bold', 'Arial', sans-serif;
 $luc-font-family-condensed-black: 'Antenna Condensed Black', 'Arial', sans-serif;
 $luc-font-family-open-sans: 'Open Sans', 'Arial', sans-serif;
-$luc-nav-font-size: 14px;
+$luc-nav-font-size: $luc-baseline * 3.5; // 14px
 $luc-nav-font-weight: normal; // Antenna regular
 
 // Transitions
@@ -58,5 +61,5 @@ $luc-transition-slow: 500ms ease;
 
 // Focus outline (AA compliant)
 $luc-focus-color: $luc-gray;
-$luc-focus-outline: 0.25rem dotted $luc-focus-color;
-$luc-focus-offset: 0.25rem;
+$luc-focus-outline: $luc-baseline dotted $luc-focus-color;
+$luc-focus-offset: $luc-baseline;

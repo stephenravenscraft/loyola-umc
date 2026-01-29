@@ -34,27 +34,27 @@
 .luc-header__return-content {
   display: flex;
   align-items: center;
-  margin-inline: 32px;
-  padding-block: 8px;
+  margin-inline: $luc-baseline * 8; // 32px
+  padding-block: $luc-baseline * 2; // 8px
   border-bottom: 1px solid rgba(255, 255, 255, 0.20);
 }
 
 .luc-header__return-link {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: $luc-baseline * 2; // 0.5rem / 8px
   color: $luc-white;
   text-decoration: none;
   font-family: $luc-font-family-open-sans;
-  font-size: 14px;
+  font-size: $luc-baseline * 3.5; // 14px
   font-weight: 600;
   color: $luc-white;
 
   &::before {
     content: '';
     display: block;
-    width: 1.125rem;
-    height: 0.5rem;
+    width: $luc-baseline * 4.5; // 1.125rem / 18px
+    height: $luc-baseline * 2; // 0.5rem / 8px
     transform: rotate(180deg);
     mask-image: url('../images/icon-arrow-right.svg');
     mask-size: contain;
@@ -76,12 +76,12 @@
   align-items: center;
   justify-content: space-between;
   height: $luc-interior-nav-height;
-  padding: 0 16px;
+  padding: 0 ($luc-baseline * 4); // 16px
   background-color: $luc-maroon;
 
   @media (min-width: $nav-breakpoint) {
     height: $luc-utility-height;
-    padding: 0 32px;
+    padding: 0 ($luc-baseline * 8); // 32px
   }
 }
 
@@ -89,7 +89,7 @@
 .luc-header--interior .luc-nav__mobile-controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: $luc-baseline * 2; // 8px
 
   @media (min-width: $nav-breakpoint) {
     display: none;
@@ -116,7 +116,7 @@
 
 .luc-utility__divider {
   width: 1px;
-  height: 24px;
+  height: $luc-baseline * 6; // 24px
   background-color: $luc-copper-light;
 }
 
@@ -127,7 +127,7 @@
   display: flex;
   align-items: center;
   min-height: $luc-interior-subbrand-height;
-  padding: 16px;
+  padding: $luc-baseline * 4; // 16px
   background: $luc-white;
   border-bottom: 1px solid $gray-extra-light;
 
@@ -138,7 +138,7 @@
 
 .luc-subbrand__label {
   font-family: $luc-font-family-condensed-bold;
-  font-size: 20px;
+  font-size: $luc-baseline * 5; // 20px
   font-weight: normal;
   color: $luc-maroon;
 }
@@ -154,7 +154,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    padding-bottom: 64px;
+    padding-bottom: $luc-baseline * 16; // 64px
     background: $luc-copper-light;
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -169,8 +169,8 @@
     align-items: center;
     justify-content: space-between;
     height: $luc-nav-height;
-    padding: 0 32px;
-    gap: 1.5rem;
+    padding: 0 ($luc-baseline * 8); // 32px
+    gap: $luc-baseline * 6; // 1.5rem / 24px
     background: $luc-white;
     position: relative;
   }
@@ -199,12 +199,12 @@
   @media (min-width: $nav-breakpoint) {
     display: block;
     font-family: $luc-font-family-condensed-bold;
-    font-size: 20px;
+    font-size: $luc-baseline * 5; // 20px
     font-weight: normal;
     line-height: 1.4;
     color: $luc-maroon;
     text-decoration: none;
-    width: 25rem;
+    width: $luc-baseline * 100; // 25rem / 400px
   }
 }
 

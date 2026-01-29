@@ -1,7 +1,7 @@
 /* SKIP LINK */
 .luc-skip-link {
   position: absolute;
-  top: 1rem;
+  top: $luc-baseline * 4; // 1rem / 16px
   left: 50%;
   transform: translateX(-50%);
   z-index: 200;
@@ -10,8 +10,8 @@
   text-decoration: none;
   z-index: 9999;
   font-family: $luc-font-family;
-  font-size: 0.875rem;
-  padding: 0.5rem 1rem;
+  font-size: $luc-baseline * 3.5; // 0.875rem / 14px
+  padding: ($luc-baseline * 2) ($luc-baseline * 4); // 0.5rem 1rem
 
   &:focus-visible {
     outline-color: $luc-gray;

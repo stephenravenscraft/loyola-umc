@@ -9,15 +9,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 0.5rem;
+  gap: $luc-baseline * 2; // 0.5rem / 8px
+  padding: ($luc-baseline * 3) ($luc-baseline * 2); // 0.75rem 0.5rem
   width: fit-content;
   font-family: $luc-font-family-condensed-bold;
-  font-size: 1rem;
+  font-size: $luc-baseline * 4; // 1rem / 16px
   line-height: 1.1;
   text-decoration: none;
   border: none;
-  border-radius: 0.25rem 0.25rem 0 0;
+  border-radius: $luc-baseline $luc-baseline 0 0; // 0.25rem
   border-bottom: 1px solid $luc-maroon;
   background-color: transparent;
   color: $luc-maroon;
@@ -37,8 +37,8 @@
   &::after {
     content: '';
     display: block;
-    width: 1.125rem;
-    height: 0.5rem;
+    width: $luc-baseline * 4.5; // 1.125rem / 18px
+    height: $luc-baseline * 2; // 0.5rem / 8px
     mask-image: url('../images/icon-arrow-right.svg');
     mask-size: contain;
     mask-repeat: no-repeat;
@@ -111,6 +111,6 @@
   // LARGE VARIANT
   // ==========================================================================
   &--lg {
-    font-size: 20px;
+    font-size: $luc-baseline * 5; // 20px
   }
 }

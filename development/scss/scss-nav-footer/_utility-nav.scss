@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: space-between;
   height: $luc-utility-height;
-  padding: 0 32px;
+  padding: 0 ($luc-baseline * 8); // 32px
   background-color: $luc-maroon;
   color: $luc-white;
 
@@ -32,7 +32,7 @@
 }
 
 .luc-utility__logo-img {
-  height: 43px;
+  height: $luc-baseline * 10.75; // 43px
   width: auto;
 }
 
@@ -41,7 +41,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 24px;
+  gap: $luc-baseline * 6; // 24px
   visibility: visible;
   transition: visibility $luc-transition-fast, opacity $luc-transition-fast, grid-template-columns $luc-transition-normal;
   opacity: 1;
@@ -66,7 +66,7 @@
 // Divider between link groups
 .luc-utility__divider {
   width: 1px;
-  height: 24px;
+  height: $luc-baseline * 6; // 24px
   background-color: $luc-copper-light;
   visibility: visible;
   transition: visibility $luc-transition-fast, opacity $luc-transition-fast;
@@ -75,7 +75,7 @@
 // Audience links
 .luc-utility__audience {
   display: flex;
-  gap: 24px;
+  gap: $luc-baseline * 6; // 24px
   visibility: visible;
   transition: visibility $luc-transition-fast, opacity $luc-transition-fast;
   opacity: 1;
@@ -83,7 +83,7 @@
 
 .luc-utility__link {
   font-family: $luc-font-family-open-sans;
-  font-size: 14px;
+  font-size: $luc-baseline * 3.5; // 14px
   font-weight: 600;
   color: $luc-white;
   text-decoration: none;
@@ -100,7 +100,7 @@
 .luc-utility__actions {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: $luc-baseline * 6; // 24px
   visibility: visible;
   flex-shrink: 0;
   transition: visibility $luc-transition-fast, opacity $luc-transition-fast;
@@ -109,11 +109,11 @@
 
 .luc-utility__cta {
   font-family: $luc-font-family;
-  font-size: 14px;
+  font-size: $luc-baseline * 3.5; // 14px
   font-weight: 500;
   color: $luc-white;
   text-decoration: none;
-  padding: 4px 0;
+  padding: $luc-baseline 0; // 4px 0
   transition: opacity $luc-transition-fast;
 
   &:hover,
@@ -125,8 +125,8 @@
   &--primary {
     background-color: $luc-gold;
     color: $luc-maroon;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: ($luc-baseline * 2) ($luc-baseline * 4); // 8px 16px
+    border-radius: $luc-baseline; // 4px
 
     &:hover,
     &:focus {
@@ -141,33 +141,33 @@
   display: flex;
   align-items: center;
   background-color: $luc-white;
-  border-radius: 24px;
-  padding: 0.5rem 0.5rem 0.5rem 1rem;
-  gap: 8px;
-  margin-left: 16px;
+  border-radius: $luc-baseline * 6; // 24px
+  padding: ($luc-baseline * 2) ($luc-baseline * 2) ($luc-baseline * 2) ($luc-baseline * 4); // 0.5rem 0.5rem 0.5rem 1rem
+  gap: $luc-baseline * 2; // 8px
+  margin-left: $luc-baseline * 4; // 16px
 }
 
 .luc-utility__search-input {
-  width: 120px;
+  width: $luc-baseline * 30; // 120px
   padding: 0;
   border: none;
   background: transparent;
   font-family: $luc-font-family-open-sans;
-  font-size: 14px;
+  font-size: $luc-baseline * 3.5; // 14px
   font-weight: 600;
   color: $luc-maroon;
   transition: width $luc-transition-normal;
 
   &::placeholder {
     font-family: $luc-font-family-open-sans;
-    font-size: 14px;
+    font-size: $luc-baseline * 3.5; // 14px
     font-weight: 600;
     color: $luc-maroon;
   }
 
   &:focus {
     outline: none;
-    width: 250px;
+    width: $luc-baseline * 62.5; // 250px
   }
 }
 
@@ -176,8 +176,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: $luc-baseline * 9; // 2.25rem / 36px
+  height: $luc-baseline * 9; // 2.25rem / 36px
   padding: 0;
   margin: 0;
   border: none;
@@ -191,7 +191,7 @@
   &::before {
     content: '\f002';
     font-family: 'FontAwesome';
-    font-size: 1rem;
+    font-size: $luc-baseline * 4; // 1rem / 16px
     font-weight: 600;
     color: $luc-gold;
     transition: color $luc-transition-fast, transform $luc-transition-fast;

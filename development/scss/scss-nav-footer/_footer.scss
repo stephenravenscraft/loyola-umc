@@ -12,7 +12,7 @@
   position: relative;
 
   .luc-button {
-    font-size: 20px;
+    font-size: $luc-baseline * 5; // 20px
   }
 
   // Gold accent bar at top
@@ -22,7 +22,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 8px;
+    height: $luc-baseline * 2; // 8px
     background-color: $luc-gold;
   }
 }
@@ -30,11 +30,11 @@
 .luc-footer__container {
   position: relative;
   margin: 0 auto;
-  padding: 8px 32px 32px;
+  padding: ($luc-baseline * 2) ($luc-baseline * 8) ($luc-baseline * 8); // 8px 32px 32px
 
   @media (max-width: #{$nav-breakpoint - 1px}) {
     // Extra top padding for absolutely positioned back-to-top button
-    padding: 90px 32px 16px 32px;
+    padding: ($luc-baseline * 22.5) ($luc-baseline * 8) ($luc-baseline * 4) ($luc-baseline * 8); // 90px 32px 16px 32px
     display: flex;
     flex-direction: column;
   }
@@ -44,7 +44,7 @@
 // DOM order: last in footer for tab order
 // Visual: top of footer on mobile, in grid row on desktop
 .luc-footer__back-to-top {
-  gap: 1rem;
+  gap: $luc-baseline * 4; // 1rem / 16px
   position: absolute;
 
   &::after {
@@ -54,32 +54,32 @@
   }
 
   // Mobile: positioned at top center of footer
-  top: 48px;
+  top: $luc-baseline * 12; // 48px
   left: 50%;
   transform: translateX(-50%);
 
   // Desktop: positioned in grid row, right side
-  // Grid top = container padding (48px) + logo padding-top (64px) + logo height (80px) + logo margin-bottom (64px)
+  // Grid top = container padding (8px) + logo padding-top (64px) + logo height (80px) + logo margin-bottom (64px)
   @media (min-width: $nav-breakpoint) {
-    top: calc(8px + 64px + 80px + 64px);
+    top: ($luc-baseline * 2) + ($luc-baseline * 16) + ($luc-baseline * 20) + ($luc-baseline * 16); // 8px + 64px + 80px + 64px
     left: auto;
-    right: 24px;
+    right: $luc-baseline * 6; // 24px
     transform: none;
   }
 
   @media (min-width: 1360px) {
     // When container is max-width, center the positioning
-    right: calc((100% - 1264px) / 2);
+    right: calc((100% - #{$luc-baseline * 316}) / 2); // 1264px
   }
 }
 
 // Centered logo
 .luc-footer__logo {
-  margin-bottom: 64px;
-  padding-top: 64px;
+  margin-bottom: $luc-baseline * 16; // 64px
+  padding-top: $luc-baseline * 16; // 64px
 
   @media (max-width: #{$luc-footer-breakpoint - 1px}) {
-    margin-bottom: 40px;
+    margin-bottom: $luc-baseline * 10; // 40px
   }
 }
 
@@ -89,13 +89,13 @@
 }
 
 .luc-footer__logo-img {
-  height: 80px;
+  height: $luc-baseline * 20; // 80px
   width: auto;
 
   @media (max-width: #{$luc-footer-breakpoint - 1px}) {
     height: auto;
     width: 100%;
-    max-width: 340px;
+    max-width: $luc-baseline * 85; // 340px
   }
 }
 
@@ -104,7 +104,7 @@
 .luc-footer__grid {
   display: grid;
   grid-template-columns: 100%;
-  gap: 2rem;
+  gap: $luc-baseline * 8; // 2rem / 32px
 
   @media (min-width: $luc-footer-breakpoint) {
     grid-template-columns: repeat(3, auto);
@@ -122,23 +122,23 @@
   // Desktop: Contact on left, nav columns in middle
   &--contact {
     flex: 0 0 auto;
-    min-width: 200px;
+    min-width: $luc-baseline * 50; // 200px
   }
 
   &--about,
   &--resources {
-    flex: 0 0 220px;
+    flex: 0 0 ($luc-baseline * 55); // 220px
   }
 
   // Mobile: reorder columns (About, Resources, then Contact)
   @media (max-width: #{$luc-footer-breakpoint - 1px}) {
     &--about {
       order: 1;
-      flex: 0 0 64px;
+      flex: 0 0 ($luc-baseline * 16); // 64px
     }
     &--resources {
       order: 2;
-      flex: 0 0 64px;
+      flex: 0 0 ($luc-baseline * 16); // 64px
     }
     &--contact {
       order: 3;
@@ -149,35 +149,35 @@
 // Column headings
 .luc-footer__heading {
   font-family: $luc-font-family-condensed-bold;
-  font-size: 20px;
+  font-size: $luc-baseline * 5; // 20px
   font-weight: normal;
-  margin: 0 0 24px;
+  margin: 0 0 ($luc-baseline * 6); // 24px
   color: $luc-white;
 
   @media (max-width: #{$luc-footer-breakpoint - 1px}) {
-    font-size: 16px;
+    font-size: $luc-baseline * 4; // 16px
   }
 
   // Larger heading for contact section
   &--contact {
-    font-size: 20px;
-    margin-bottom: 16px;
+    font-size: $luc-baseline * 5; // 20px
+    margin-bottom: $luc-baseline * 4; // 16px
   }
 }
 
 // Link list - gold left border on both desktop and mobile per Figma
 .luc-footer__list {
   margin: 0;
-  padding: 0 0 0 24px;
+  padding: 0 0 0 ($luc-baseline * 6); // 24px
   list-style: none;
   border-left: 1px solid $luc-gold;
 }
 
 .luc-footer__link {
   display: block;
-  padding: 4px 0;
+  padding: $luc-baseline 0; // 4px 0
   font-family: $luc-font-family;
-  font-size: 16px;
+  font-size: $luc-baseline * 4; // 16px
   color: $luc-copper-light;
   text-decoration: none;
   transition: text-decoration $luc-transition-fast;
@@ -188,32 +188,32 @@
   }
 
   @media (min-width: $luc-footer-breakpoint) {
-    font-size: 14px;
-    padding: 6px 0;
+    font-size: $luc-baseline * 3.5; // 14px
+    padding: ($luc-baseline * 1.5) 0; // 6px 0
   }
 }
 
 // Contact info (first column on desktop, last on mobile)
 .luc-footer__address {
   font-family: $luc-font-family;
-  font-size: 16px;
+  font-size: $luc-baseline * 4; // 16px
   font-style: normal;
   line-height: 1.5;
-  margin: 0 0 16px;
+  margin: 0 0 ($luc-baseline * 4); // 16px
   color: $luc-white;
 
   @media (min-width: $luc-footer-breakpoint) {
-    font-size: 14px;
+    font-size: $luc-baseline * 3.5; // 14px
     line-height: 1.6;
   }
 }
 
 .luc-footer__phone {
   font-family: $luc-font-family-condensed-bold;
-  font-size: 16px;
+  font-size: $luc-baseline * 4; // 16px
   color: $luc-footer-text;
   text-decoration: none;
-  margin-bottom: 40px;
+  margin-bottom: $luc-baseline * 10; // 40px
   display: block;
 
   &:hover,
@@ -223,8 +223,8 @@
 
   @media (min-width: $luc-footer-breakpoint) {
     font-family: $luc-font-family-bold;
-    font-size: 14px;
-    margin-bottom: 24px;
+    font-size: $luc-baseline * 3.5; // 14px
+    margin-bottom: $luc-baseline * 6; // 24px
   }
 }
 
@@ -232,13 +232,13 @@
 .luc-footer__ctas {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 40px;
+  gap: $luc-baseline * 4; // 16px
+  margin-bottom: $luc-baseline * 10; // 40px
 
   @media (min-width: $nav-breakpoint) {
     flex-direction: row;
-    gap: 24px;
-    margin-bottom: 32px;
+    gap: $luc-baseline * 6; // 24px
+    margin-bottom: $luc-baseline * 8; // 32px
   }
 }
 
@@ -247,7 +247,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: $luc-baseline * 6; // 24px
   margin-top: 0;
 
   @media (min-width: $luc-footer-breakpoint) {
@@ -268,7 +268,7 @@
   }
 
   i {
-    font-size: clamp(1.75rem, 1.75rem + 3.5vw, 1.75rem);
+    font-size: clamp($luc-baseline * 7, $luc-baseline * 7 + 3.5vw, $luc-baseline * 7); // 1.75rem
     color: currentColor;
     transition: color $luc-transition-fast;
   }
@@ -276,27 +276,27 @@
 
 // Bottom bar
 .luc-footer__bottom {
-  margin-top: 48px;
-  padding-block: 24px;
+  margin-top: $luc-baseline * 12; // 48px
+  padding-block: $luc-baseline * 6; // 24px
   border-top: 1px solid rgba($luc-white, 0.4);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: $luc-baseline * 4; // 16px
 
   @media (max-width: #{$luc-footer-breakpoint - 1px}) {
     flex-direction: column;
     text-align: center;
-    gap: 32px;
-    padding: 16px 24px;
-    margin-top: 40px;
+    gap: $luc-baseline * 8; // 32px
+    padding: ($luc-baseline * 4) ($luc-baseline * 6); // 16px 24px
+    margin-top: $luc-baseline * 10; // 40px
   }
 }
 
 .luc-footer__copyright {
   font-family: $luc-font-family;
-  font-size: 14px;
+  font-size: $luc-baseline * 3.5; // 14px
   margin: 0;
   color: $luc-copper-light;
 
@@ -305,14 +305,14 @@
   }
 
   @media (min-width: $luc-footer-breakpoint) {
-    font-size: 12px;
+    font-size: $luc-baseline * 3; // 12px
   }
 }
 
 .luc-footer__legal {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: $luc-baseline * 4; // 16px
   margin: 0;
   padding: 0;
   list-style: none;
@@ -323,17 +323,17 @@
   }
 
   @media (min-width: $luc-footer-breakpoint) {
-    gap: 24px;
+    gap: $luc-baseline * 6; // 24px
   }
 }
 
 .luc-footer__copyright-link,
 .luc-footer__legal-link {
   font-family: $luc-font-family;
-  font-size: 14px;
+  font-size: $luc-baseline * 3.5; // 14px
   color: $luc-copper-light;
   text-decoration: none;
-  padding: 4px 0;
+  padding: $luc-baseline 0; // 4px 0
   transition: text-decoration $luc-transition-fast;
 
   &:hover,
