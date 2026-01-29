@@ -305,7 +305,7 @@
   letter-spacing: 0.0125rem;
   word-spacing: 0.125rem;
   text-transform: capitalize;
-  color: #5a0072;
+  color: $luc-maroon;
   cursor: pointer;
   transition: background-color $luc-transition-fast, color $luc-transition-fast;
 
@@ -347,7 +347,7 @@
 
   &:hover {
     background: transparent;
-    color: #5a0072;
+    color: $luc-maroon;
     text-decoration: none;
   }
 
