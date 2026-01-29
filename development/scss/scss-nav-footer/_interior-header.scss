@@ -18,7 +18,7 @@
   }
 
   @media (min-width: $nav-breakpoint) {
-    top: -$luc-utility-height;
+    top: -$luc-utility-height+$luc-interior-return-height;
   }
 }
 
@@ -27,6 +27,7 @@
   @media (min-width: $nav-breakpoint) {
     display: block;
     background-color: $luc-maroon;
+    height: $luc-interior-return-height;
   }
 }
 
