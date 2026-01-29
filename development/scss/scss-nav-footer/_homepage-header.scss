@@ -91,27 +91,27 @@
   cursor: pointer;
 
   &::after {
-    content: '';
-    display: block;
-    width: 1.83769rem;
-    height: 1.83769rem;
-    mask: url('../images/icon-search-new.svg') no-repeat center center / contain;
-    background: $luc-white;
-    transition: background-color $luc-transition-fast;
+    content: '\f002';
+    font-family: 'FontAwesome';
+    font-size: 1.83769rem;
+    font-weight: 600;
+    color: $luc-white;
+    transition: color $luc-transition-fast;
   }
 
   &[aria-expanded='true'] {
     &::after {
-      width: 1.36288rem;
-      height: 1.36288rem;
-      mask-image: url('../images/icon-close-new.svg');
+      content: '\f00d';
+      font-family: 'FontAwesome';
+      font-size: 1.83769rem;
+      font-weight: 600;
+      color: $luc-white;
     }
   }
 
   .luc-header--homepage & {
-    color: $luc-maroon;
     &::after {
-      background: $luc-maroon;
+      color: $luc-maroon;
     }
   }
 
@@ -143,27 +143,28 @@
   }
 
   &::after {
-    content: '';
+    content: '\f0c9';
+    font-family: 'FontAwesome';
     display: block;
-    width: 1.83769rem;
-    height: 1.83769rem;
-    mask: url('../images/icon-hamburger.svg') no-repeat center center / contain;
-    background: $luc-white;
-    transition: background-color $luc-transition-fast;
+    font-size: 1.83769rem;
+    font-weight: 600;
+    color: $luc-white;
+    transition: color $luc-transition-fast;
   }
 
   &[aria-expanded='true'] {
     &::after {
-      width: 1.36288rem;
-      height: 1.36288rem;
-      mask-image: url('../images/icon-close-new.svg');
+      content: '\f00d';
+      font-family: 'FontAwesome';
+      font-size: 1.83769rem;
+      font-weight: 600;
+      color: $luc-white;
     }
   }
 
   .luc-header--homepage & {
-    color: $luc-maroon;
     &::after {
-      background: $luc-maroon;
+      color: $luc-maroon;
     }
   }
 }
@@ -712,13 +713,12 @@
   cursor: pointer;
 
   &::before {
-    content: '';
-    display: block;
-    width: 2.25rem;
-    height: 2.25rem;
-    mask: url('../images/icon-search-new.svg') no-repeat center center / 50%;
-    background-color: $luc-gold;
-    transition: background-color $luc-transition-fast;
+    content: '\f002';
+    font-family: 'FontAwesome';
+    font-size: 1rem;
+    font-weight: 600;
+    color: $luc-gold;
+    transition: color $luc-transition-fast;
   }
 
   &:focus-visible {

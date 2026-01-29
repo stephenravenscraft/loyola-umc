@@ -189,29 +189,18 @@
   transition: transform $luc-transition-fast;
 
   &::before {
-    content: '';
-    display: block;
-    width: 2.25rem;
-    height: 2.25rem;
-    mask: url('../images/icon-search-new.svg') no-repeat center center / 50%;
-    background-color: $luc-gold;
-    transition: background-color $luc-transition-fast;
+    content: '\f002';
+    font-family: 'FontAwesome';
+    font-size: 1rem;
+    font-weight: 600;
+    color: $luc-gold;
+    transition: color $luc-transition-fast, transform $luc-transition-fast;
   }
 
   &:hover {
     &::before {
-      background-color: $luc-white;
+      color: $luc-white;
     }
-    transform: scale(1.1);
   }
 
-  &:focus-visible {
-    outline-color: $luc-gray;
-    outline-offset: 2px;
-  }
-
-  @media (min-width: $nav-breakpoint) {
-    width: 1.75rem;
-    height: 1.75rem;
-  }
 }
