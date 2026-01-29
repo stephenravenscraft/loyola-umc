@@ -22,6 +22,51 @@
   }
 }
 
+.luc-header__return {
+  display: none;
+  @media (min-width: $nav-breakpoint) {
+    display: block;
+    background-color: $luc-maroon;
+  }
+}
+
+.luc-header__return-content {
+  display: flex;
+  align-items: center;
+  margin-inline: 32px;
+  padding-block: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+}
+
+.luc-header__return-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $luc-white;
+  text-decoration: none;
+  font-family: $luc-font-family-open-sans;
+  font-size: 14px;
+  font-weight: 600;
+  color: $luc-white;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 1.125rem;
+    height: 0.5rem;
+    transform: rotate(180deg);
+    mask-image: url('../images/icon-arrow-right.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    background-color: currentColor;
+    transition: background-color $luc-transition-fast;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 // =============================================================================
 // Utility Bar (maroon) - for interior pages
 // =============================================================================
