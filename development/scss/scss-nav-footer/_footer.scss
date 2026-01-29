@@ -255,26 +255,20 @@
 }
 
 .luc-footer__social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
   color: $luc-footer-text;
   text-decoration: none;
 
   &:hover,
   &:focus {
-    svg {
-      fill: $luc-gold;
+    i {
+      color: $luc-gold;
     }
   }
 
-  svg {
-    width: 32px;
-    height: 32px;
-    fill: currentColor;
-    transition: fill $luc-transition-fast;
+  i {
+    font-size: clamp(1.75rem, 1.75rem + 3.5vw, 1.75rem);
+    color: currentColor;
+    transition: color $luc-transition-fast;
   }
 }
 
