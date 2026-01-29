@@ -17,14 +17,15 @@
   line-height: 1.1;
   text-decoration: none;
   border: none;
+  border-radius: 0.25rem 0.25rem 0 0;
   border-bottom: 1px solid $luc-maroon;
   background-color: transparent;
   color: $luc-maroon;
   cursor: pointer;
   transition:
-    background-color $luc-transition-fast,
-    color $luc-transition-fast,
-    border-color $luc-transition-fast;
+    background-color $luc-transition-slow,
+    color $luc-transition-slow,
+    border-color $luc-transition-slow;
 
   // Focus state (AA compliant)
   &:focus-visible {
@@ -68,7 +69,7 @@
     background-color: transparent;
 
     &:focus-visible {
-      outline-color: $luc-white;
+      outline-color: $luc-gray;
     }
 
     &::after {

@@ -126,9 +126,9 @@ input[type="search"]::-ms-reveal {
 }
 
 :focus {
-  outline: 0.25rem dashed;
+  outline: 0.25rem dotted;
   outline-offset: 0.25rem;
-  outline-color: var(--outline-color, currentColor);
+  outline-color: #888888;
 
   &:not(:focus-visible) {
     outline: 0;

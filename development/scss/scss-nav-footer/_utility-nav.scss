@@ -26,7 +26,7 @@
 }
 
 .luc-utility__logo-link {
-  outline-color: $luc-white;
+  outline-color: $luc-gray;
   display: block;
   text-decoration: none;
 }
@@ -82,8 +82,9 @@
 }
 
 .luc-utility__link {
-  font-family: $luc-font-family;
+  font-family: $luc-font-family-open-sans;
   font-size: 14px;
+  font-weight: 600;
   color: $luc-white;
   text-decoration: none;
   transition: opacity $luc-transition-fast;
@@ -151,12 +152,16 @@
   padding: 0;
   border: none;
   background: transparent;
-  font-family: $luc-font-family;
-  font-size: $luc-nav-font-size;
+  font-family: $luc-font-family-open-sans;
+  font-size: 14px;
+  font-weight: 600;
   color: $luc-maroon;
   transition: width $luc-transition-normal;
 
   &::placeholder {
+    font-family: $luc-font-family-open-sans;
+    font-size: 14px;
+    font-weight: 600;
     color: $luc-maroon;
   }
 
@@ -201,7 +206,7 @@
   }
 
   &:focus-visible {
-    outline-color: $luc-maroon;
+    outline-color: $luc-gray;
     outline-offset: 2px;
   }
 

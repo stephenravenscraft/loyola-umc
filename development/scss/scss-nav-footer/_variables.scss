@@ -29,6 +29,7 @@ $luc-copper: #cfc39b;
 $luc-copper-light: #f2efe5;
 $luc-white: #ffffff;
 $luc-black: #000000;
+$luc-gray: #888888;
 $luc-gray-lightest: #eeeeee;
 
 // Gray variants (local definition if not in global tokens)
@@ -45,14 +46,16 @@ $luc-font-family-bold: 'Antenna Bold', 'Arial', sans-serif;
 $luc-font-family-condensed: 'Antenna Condensed', 'Arial', sans-serif;
 $luc-font-family-condensed-bold: 'Antenna Condensed Bold', 'Arial', sans-serif;
 $luc-font-family-condensed-black: 'Antenna Condensed Black', 'Arial', sans-serif;
+$luc-font-family-open-sans: 'Open Sans', 'Arial', sans-serif;
 $luc-nav-font-size: 14px;
 $luc-nav-font-weight: normal; // Antenna regular
 
 // Transitions
 $luc-transition-fast: 150ms ease;
 $luc-transition-normal: 250ms ease;
+$luc-transition-slow: 500ms ease;
 
 // Focus outline (AA compliant)
-$luc-focus-color: $luc-maroon;
-$luc-focus-outline: 0.25rem dashed $luc-focus-color;
+$luc-focus-color: $luc-gray;
+$luc-focus-outline: 0.25rem dotted $luc-focus-color;
 $luc-focus-offset: 0.25rem;
