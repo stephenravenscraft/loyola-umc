@@ -32,6 +32,7 @@
 // =============================================================================
 .luc-nav-primary {
   display: flex;
+  gap: 16px;
   align-items: center;
   justify-content: space-between;
   height: $luc-nav-height-mobile;
@@ -221,13 +222,17 @@
   @media (min-width: $nav-breakpoint) {
     display: none;
   }
+
+  .luc-header--homepage & {
+    position: relative;
+  }
 }
 
 .luc-nav__cta {
   color: $luc-white;
-  font-family: $luc-font-family;
+  font-family: $luc-font-family-open-sans;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
 
   &:hover,
@@ -239,7 +244,7 @@
 .luc-nav__cta-divider {
   width: 1px;
   height: 16px;
-  background: rgba($luc-white, 0.3);
+  background: $luc-white;
 }
 
 // =============================================================================
