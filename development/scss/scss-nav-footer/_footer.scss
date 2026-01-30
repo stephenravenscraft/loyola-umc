@@ -75,11 +75,13 @@
 
 // Centered logo
 .luc-footer__logo {
-  margin-bottom: $luc-baseline * 16; // 64px
-  padding-top: $luc-baseline * 16; // 64px
+  margin-bottom: $luc-baseline * 6; // 1.5rem
+  padding-top: $luc-baseline * 8; // 2rem
 
   @media (max-width: #{$luc-footer-breakpoint - 1px}) {
-    margin-bottom: $luc-baseline * 10; // 40px
+    margin-bottom: $luc-baseline * 10; // 40px;
+    margin-left: auto; //center the logo on mobile
+    margin-right: auto;  //center the logo on mobile
   }
 }
 
@@ -89,7 +91,7 @@
 }
 
 .luc-footer__logo-img {
-  height: $luc-baseline * 10.75; // 43px
+  height: $luc-baseline * 12; // 3rem
   width: auto;
 
   @media (max-width: #{$luc-footer-breakpoint - 1px}) {
