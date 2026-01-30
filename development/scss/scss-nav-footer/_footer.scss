@@ -89,7 +89,7 @@
 }
 
 .luc-footer__logo-img {
-  height: $luc-baseline * 20; // 80px
+  height: $luc-baseline * 10.75; // 43px
   width: auto;
 
   @media (max-width: #{$luc-footer-breakpoint - 1px}) {

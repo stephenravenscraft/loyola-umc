@@ -11,7 +11,7 @@
 
 :root {
   scroll-behavior: smooth;
-  scroll-padding-top: $luc-baseline * 12; // 3rem / 48px
+  scroll-padding-top: 3rem;
 }
 
 #root {
@@ -126,8 +126,8 @@ input[type="search"]::-ms-reveal {
 }
 
 :focus {
-  outline: $luc-baseline dotted;
-  outline-offset: $luc-baseline;
+  outline: 0.25rem dotted;
+  outline-offset: 0.25rem;
   outline-color: #888888;
 
   &:not(:focus-visible) {
