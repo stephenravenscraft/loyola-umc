@@ -45,9 +45,10 @@
   gap: $luc-baseline * 2; // 0.5rem / 8px
   color: $luc-white;
   text-decoration: none;
-  font-family: $luc-font-family-open-sans;
+  font-family: $luc-font-family;
   font-size: $luc-baseline * 3.5; // 14px
-  font-weight: 600;
+  font-weight: 400;
+  letter-spacing: 0.00625rem;
   color: $luc-white;
 
   &::before {
@@ -140,6 +141,7 @@
   font-family: $luc-font-family-condensed-bold;
   font-size: $luc-baseline * 5; // 20px
   font-weight: normal;
+  letter-spacing: 0.00625rem;
   color: $luc-maroon;
 }
 
@@ -202,6 +204,7 @@
     font-size: $luc-baseline * 5; // 20px
     font-weight: normal;
     line-height: 1.4;
+    letter-spacing: 0.00625rem;
     color: $luc-maroon;
     text-decoration: none;
     width: $luc-baseline * 100; // 25rem / 400px

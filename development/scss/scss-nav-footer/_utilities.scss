@@ -11,6 +11,7 @@
   z-index: 9999;
   font-family: $luc-font-family;
   font-size: $luc-baseline * 3.5; // 0.875rem / 14px
+  letter-spacing: 0.005rem;
   padding: ($luc-baseline * 2) ($luc-baseline * 4); // 0.5rem 1rem
 
   &:focus-visible {

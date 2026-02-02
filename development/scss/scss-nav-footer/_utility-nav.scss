@@ -82,9 +82,10 @@
 }
 
 .luc-utility__link {
-  font-family: $luc-font-family-open-sans;
+  font-family: $luc-font-family;
   font-size: $luc-baseline * 3.5; // 14px
-  font-weight: 600;
+  font-weight: 400;
+  letter-spacing: 0.00625rem;
   color: $luc-white;
   text-decoration: none;
   transition: opacity $luc-transition-fast;
@@ -110,7 +111,8 @@
 .luc-utility__cta {
   font-family: $luc-font-family;
   font-size: $luc-baseline * 3.5; // 14px
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: 0.005rem;
   color: $luc-white;
   text-decoration: none;
   padding: $luc-baseline 0; // 4px 0
@@ -152,16 +154,18 @@
   padding: 0;
   border: none;
   background: transparent;
-  font-family: $luc-font-family-open-sans;
+  font-family: $luc-font-family;
   font-size: $luc-baseline * 3.5; // 14px
-  font-weight: 600;
+  font-weight: 400;
+  letter-spacing: 0.00625rem;
   color: $luc-maroon;
   transition: width $luc-transition-normal;
 
   &::placeholder {
-    font-family: $luc-font-family-open-sans;
+    font-family: $luc-font-family;
     font-size: $luc-baseline * 3.5; // 14px
-    font-weight: 600;
+    font-weight: 400;
+    letter-spacing: 0.00625rem;
     color: $luc-maroon;
   }
 

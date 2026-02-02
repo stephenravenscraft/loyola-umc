@@ -153,6 +153,7 @@
   font-family: $luc-font-family-condensed-bold;
   font-size: $luc-baseline * 5; // 20px
   font-weight: normal;
+  letter-spacing: 0.00625rem;
   margin: 0 0 ($luc-baseline * 6); // 24px
   color: $luc-white;
 
@@ -180,6 +181,7 @@
   padding: $luc-baseline 0; // 4px 0
   font-family: $luc-font-family;
   font-size: $luc-baseline * 4; // 16px
+  letter-spacing: 0.005rem;
   color: $luc-copper-light;
   text-decoration: none;
   transition: text-decoration $luc-transition-fast;
@@ -199,6 +201,7 @@
 .luc-footer__address {
   font-family: $luc-font-family;
   font-size: $luc-baseline * 4; // 16px
+  letter-spacing: 0.005rem;
   font-style: normal;
   line-height: 1.5;
   margin: 0 0 ($luc-baseline * 4); // 16px
@@ -213,6 +216,7 @@
 .luc-footer__phone {
   font-family: $luc-font-family-condensed-bold;
   font-size: $luc-baseline * 4; // 16px
+  letter-spacing: 0.005rem;
   color: $luc-footer-text;
   text-decoration: none;
   margin-bottom: $luc-baseline * 10; // 40px
@@ -299,6 +303,7 @@
 .luc-footer__copyright {
   font-family: $luc-font-family;
   font-size: $luc-baseline * 3.5; // 14px
+  letter-spacing: 0.005rem;
   margin: 0;
   color: $luc-copper-light;
 
@@ -333,6 +338,7 @@
 .luc-footer__legal-link {
   font-family: $luc-font-family;
   font-size: $luc-baseline * 3.5; // 14px
+  letter-spacing: 0.005rem;
   color: $luc-copper-light;
   text-decoration: none;
   padding: $luc-baseline 0; // 4px 0

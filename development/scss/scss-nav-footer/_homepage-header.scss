@@ -230,9 +230,10 @@
 
 .luc-nav__cta {
   color: $luc-white;
-  font-family: $luc-font-family-open-sans;
+  font-family: $luc-font-family;
   font-size: $luc-baseline * 3.5; // 14px
-  font-weight: 600;
+  font-weight: 400;
+  letter-spacing: 0.00625rem;
   text-decoration: none;
 
   &:hover,
@@ -305,10 +306,10 @@
   border: none;
   border-radius: 0;
   background: transparent;
-  font-family: $luc-font-family-open-sans;
+  font-family: $luc-font-family;
   font-size: $luc-baseline * 4.5; // 18px
-  font-weight: 600;
-  letter-spacing: 0.0125rem;
+  font-weight: 400;
+  letter-spacing: 0.00625rem;
   word-spacing: ($luc-baseline * 0.5); // 0.125rem
   text-transform: capitalize;
   color: $luc-maroon;
@@ -375,6 +376,7 @@
     width: auto;
     font-family: $luc-font-family;
     font-size: $luc-baseline * 4; // 16px
+    letter-spacing: 0.005rem;
     color: $luc-maroon;
 
     &:hover {
@@ -435,6 +437,7 @@
 .luc-nav__text {
   font-family: $luc-font-family-condensed-bold;
   font-size: $luc-baseline * 4.5; // 18px
+  letter-spacing: 0.005rem;
   text-transform: capitalize;
   color: $luc-maroon;
   text-decoration: none;
@@ -543,10 +546,10 @@
   display: flex;
   align-items: center;
   padding: ($luc-baseline * 4) ($luc-baseline * 2); // 16px 8px
-  font-family: $luc-font-family-open-sans;
+  font-family: $luc-font-family;
   font-size: $luc-baseline * 4; // 16px
-  font-weight: 600;
-  letter-spacing: 0.0125rem;
+  font-weight: 400;
+  letter-spacing: 0.00625rem;
   word-spacing: ($luc-baseline * 0.5); // 0.125rem
   color: $luc-black;
   border-bottom: 1px solid $luc-copper;
@@ -600,6 +603,7 @@
   margin: 0 0 ($luc-baseline * 4); // 16px
   font-family: $luc-font-family;
   font-size: $luc-baseline * 3.5; // 14px
+  letter-spacing: 0.005rem;
   color: $luc-maroon;
   text-transform: capitalize;
 }
@@ -618,6 +622,7 @@
   font-family: $luc-font-family-condensed-bold;
   font-size: $luc-baseline * 4; // 16px
   font-weight: 700;
+  letter-spacing: 0.005rem;
   color: $luc-maroon;
   text-decoration: none;
 
@@ -678,6 +683,7 @@
   font-family: $luc-font-family-bold;
   font-size: $luc-baseline * 3.5; // 0.875rem / 14px
   font-weight: 700;
+  letter-spacing: 0.005rem;
   color: $luc-white;
 }
 
@@ -698,6 +704,7 @@
   font-family: $luc-font-family;
   font-size: $luc-baseline * 4; // 1rem / 16px
   font-weight: 400;
+  letter-spacing: 0.005rem;
   color: $luc-maroon;
   background: transparent;
 
