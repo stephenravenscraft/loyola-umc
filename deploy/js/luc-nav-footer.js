@@ -11,6 +11,80 @@
   const NAV_BREAKPOINT = 1024;
 
   // ==========================================================================
+  // T4 RAW OUTPUT TRANSFORM
+  // Converts raw T4 nav list into structured LUC nav markup
+  // ==========================================================================
+
+  const t4rawOutput = document.querySelector('.luc-nav__items');
+  if (t4rawOutput) {
+    const items = Array.from(t4rawOutput.children).map(function(li) {
+      const link = li.querySelector('a');
+      const subUl = li.querySelector('ul');
+      const title = link.textContent.trim();
+      const href = link.href;
+      const id = 'mega-int-' + title.toLowerCase().replace(/\s+/g, '-');
+      const links = subUl ?
+        [{ text: title, href: href }, ...Array.from(subUl.querySelectorAll('a')).map(function(a) { return { text: a.textContent.trim(), href: a.href }; })] :
+        [{ text: title, href: href }];
+      return { id: id, title: title, href: href, links: links };
+    });
+
+    const lucOutput = document.createElement('ul');
+    lucOutput.className = 'luc-nav__items luc-nav__items--interior';
+
+    items.forEach(function(item) {
+      const li = document.createElement('li');
+      li.className = 'luc-nav__item';
+
+      const button = document.createElement('button');
+      button.className = 'luc-nav__toggle';
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-controls', item.id);
+
+      const span = document.createElement('span');
+      span.className = 'luc-nav__toggle-text';
+      span.textContent = item.title;
+      button.appendChild(span);
+
+      const div = document.createElement('div');
+      div.id = item.id;
+      div.className = 'luc-mega-menu';
+
+      const collapse = document.createElement('div');
+      collapse.className = 'luc-mega-menu__collapse';
+
+      const header = document.createElement('a');
+      header.href = item.href;
+      header.className = 'luc-button luc-button--lg luc-mega-menu__section-header';
+      header.setAttribute('tabindex', '-1');
+      header.textContent = item.title;
+
+      const menuList = document.createElement('ul');
+      menuList.className = 'luc-mega-menu__list';
+
+      item.links.forEach(function(link, index) {
+        const menuLi = document.createElement('li');
+        const menuLink = document.createElement('a');
+        menuLink.href = link.href;
+        menuLink.className = index === 0 ? 'luc-mega-menu__link luc-mega-menu__link--overview' : 'luc-mega-menu__link';
+        menuLink.setAttribute('tabindex', '-1');
+        menuLink.textContent = link.text;
+        menuLi.appendChild(menuLink);
+        menuList.appendChild(menuLi);
+      });
+
+      collapse.appendChild(header);
+      collapse.appendChild(menuList);
+      div.appendChild(collapse);
+      li.appendChild(button);
+      li.appendChild(div);
+      lucOutput.appendChild(li);
+    });
+
+    t4rawOutput.replaceWith(lucOutput);
+  }
+
+  // ==========================================================================
   // ELEMENT REFERENCES
   // ==========================================================================
 
