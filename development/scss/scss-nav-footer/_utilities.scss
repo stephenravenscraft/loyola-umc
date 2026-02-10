@@ -30,3 +30,14 @@
     white-space: nowrap;
   }
 }
+
+/* CLIPPED */
+.clipped {
+  clip-path: polygon(
+    0% 0%,                     /* top-left corner */
+    calc(100% - 3rem) 0%,      /* top-right corner indented */
+    100% 3rem,                 /* top-right corner clipped */
+    100% 100%,                 /* bottom-right corner */
+    0% 100%                    /* bottom-left corner */
+  );
+}

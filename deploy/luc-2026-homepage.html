@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage 2026 Updates | Loyola University Chicago</title>
+    <!-- Nav/Footer Bundle CSS -->
+    <link rel="stylesheet" href="css/luc-nav-footer.css">
+    <!-- Optional: Typography for fonts -->
+    <!-- <link rel="stylesheet" href="css/styles-typography.css"> -->
+
+    <style>
+        /* Shell page styles - not part of bundle */
+        .shell-placeholder {
+            min-height: 160vh;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/4d537b50e0.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<!-- ============================================
+     HOMEPAGE HEADER
+     ============================================ -->
+<!-- ============================================
+     LUC Homepage Header
+     Scoped bundle: .luc-* namespace
+     Single HTML structure - CSS transforms mobile/desktop
+     ============================================ -->
+
+<a class="luc-skip-link luc-screen-reader-text" href="#main-content">Skip to main content</a>
+
+<header class="luc-header luc-header--homepage">
+
+    <!-- Utility Bar (hidden on mobile, visible on desktop) -->
+    <div class="luc-utility">
+        <nav class="luc-utility__audience" aria-label="Audience navigation">
+            <a href="#" class="luc-utility__link">Current Students</a>
+            <a href="#" class="luc-utility__link">Faculty &amp; Staff</a>
+            <a href="#" class="luc-utility__link">Alumni</a>
+        </nav>
+
+        <div class="luc-utility__actions">
+            <a href="#" class="luc-utility__link">Request Info</a>
+            <a href="#" class="luc-utility__link">Visit</a>
+            <a href="#" class="luc-utility__link">Apply</a>
+            <span class="luc-utility__divider"></span>
+            <a href="#" class="luc-utility__link">Give</a>
+
+            <form class="luc-utility__search" role="search" action="/search">
+                <input
+                    type="search"
+                    class="luc-utility__search-input"
+                    placeholder="Search"
+                    aria-label="Search Loyola"
+                >
+                <button type="submit" class="luc-utility__search-btn" aria-label="Submit search"></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Primary Navigation Bar -->
+    <div class="luc-nav-primary">
+        <!-- Logo -->
+        <a href="/" class="luc-nav__logo-link">
+            <img src="images/Loyola-University-Chicago-maroon.svg" alt="Loyola University Chicago" class="luc-nav__logo-img">
+        </a>
+
+        <!-- Mobile Controls (hidden on desktop) -->
+        <div class="luc-nav__mobile-controls">
+            <button
+                class="luc-nav__search-toggle"
+                aria-label="Search"
+                aria-expanded="false"
+                aria-controls="luc-search-panel"
+            >
+            </button>
+            <button
+                class="luc-nav__menu-toggle"
+                aria-expanded="false"
+                aria-controls="luc-nav-menu"
+                aria-label="Toggle navigation menu"
+            >
+            </button>
+        </div>
+
+        <!-- Main Menu - transforms between mobile overlay and desktop inline -->
+        <nav id="luc-nav-menu" class="luc-nav__menu" aria-label="Main navigation">
+
+            <!-- CTA Bar (visible only in mobile menu) -->
+            <div class="luc-nav__cta-bar">
+                <a href="#" class="luc-nav__cta">Request Info</a>
+                <a href="#" class="luc-nav__cta">Visit</a>
+                <a href="#" class="luc-nav__cta">Apply</a>
+                <span class="luc-nav__cta-divider"></span>
+                <a href="#" class="luc-nav__cta">Give</a>
+            </div>
+
+            <!-- Nav Items -->
+            <ul class="luc-nav__items luc-nav__items--interior">
+                <li class="luc-nav__item">
+                    <button
+                        class="luc-nav__toggle"
+                        aria-expanded="false"
+                        aria-controls="mega-int-academics"
+                    >
+                        <span class="luc-nav__toggle-text">Academics</span>
+                    </button>
+                    <div id="mega-int-academics" class="luc-mega-menu">
+                        <div class="luc-mega-menu__collapse">
+                            <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                                Academics
+                            </a>
+                            <ul class="luc-mega-menu__list">
+                                <li><a href="#" class="luc-mega-menu__link luc-mega-menu__link--overview">Academics</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Colleges and Schools</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Departments and Programs</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Online Learning</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Study Abroad Programs</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Calendars and Schedules</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Academic Catalog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="luc-nav__item">
+                    <button
+                        class="luc-nav__toggle"
+                        aria-expanded="false"
+                        aria-controls="mega-int-admission"
+                    >
+                        <span class="luc-nav__toggle-text">Admission &amp; Aid</span>
+                    </button>
+                    <div id="mega-int-admission" class="luc-mega-menu">
+                        <div class="luc-mega-menu__collapse">
+                            <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                                Admission &amp; Aid
+                            </a>
+                            <ul class="luc-mega-menu__list">
+                                <li><a href="#" class="luc-mega-menu__link luc-mega-menu__link--overview">Admissions &amp; Aid</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Undergraduate Admission</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Graduate Admission</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Adult Education</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Executive and Professional Education</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">International Admission</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Graduate and Professional International Admissions</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Tuition and Fees</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Financial Aid</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">J-Term</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Summer Sessions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="luc-nav__item">
+                    <button
+                        class="luc-nav__toggle"
+                        aria-expanded="false"
+                        aria-controls="mega-int-research"
+                    >
+                        <span class="luc-nav__toggle-text">Research</span>
+                    </button>
+                    <div id="mega-int-research" class="luc-mega-menu">
+                        <div class="luc-mega-menu__collapse">
+                            <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                                Research
+                            </a>
+                            <ul class="luc-mega-menu__list">
+                                <li><a href="#" class="luc-mega-menu__link luc-mega-menu__link--overview">Research</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Current Initiatives</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Centers and Institutes</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Undergraduate Research</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Office of the Vice-Provost of Research</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="luc-nav__item">
+                    <button
+                        class="luc-nav__toggle"
+                        aria-expanded="false"
+                        aria-controls="mega-int-community"
+                    >
+                        <span class="luc-nav__toggle-text">Community &amp; Faith</span>
+                    </button>
+                    <div id="mega-int-community" class="luc-mega-menu">
+                        <div class="luc-mega-menu__collapse">
+                            <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                                Community &amp; Faith
+                            </a>
+                            <ul class="luc-mega-menu__list">
+                                <li><a href="#" class="luc-mega-menu__link luc-mega-menu__link--overview">Community &amp; Faith</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Jesuit Catholic Identity</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Interfaith Community</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Campus Ministry</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Community Service &amp; Action</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="luc-nav__item">
+                    <button
+                        class="luc-nav__toggle"
+                        aria-expanded="false"
+                        aria-controls="mega-int-campus"
+                    >
+                        <span class="luc-nav__toggle-text">Campus Life</span>
+                    </button>
+                    <div id="mega-int-campus" class="luc-mega-menu">
+                        <div class="luc-mega-menu__collapse">
+                            <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                                Campus Life
+                            </a>
+                            <ul class="luc-mega-menu__list">
+                                <li><a href="#" class="luc-mega-menu__link luc-mega-menu__link--overview">Campus Life</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Athletics</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Clubs &amp; Activities</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Housing</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Dining</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Health &amp; Wellness</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Fitness &amp; Recreation</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Student Belonging</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Museum of Art</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Campus Safety</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="luc-nav__item">
+                    <button
+                        class="luc-nav__toggle"
+                        aria-expanded="false"
+                        aria-controls="mega-int-about"
+                    >
+                        <span class="luc-nav__toggle-text">About</span>
+                    </button>
+                    <div id="mega-int-about" class="luc-mega-menu">
+                        <div class="luc-mega-menu__collapse">
+                            <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                                About
+                            </a>
+                            <ul class="luc-mega-menu__list">
+                                <li><a href="#" class="luc-mega-menu__link luc-mega-menu__link--overview">About</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Loyola at a Glance</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Rankings and Reputation</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Loyola and Chicago</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">University Leadership</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Accreditation</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Visit Campus</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+            <!-- Audience Links (visible only in mobile menu) -->
+            <div class="luc-nav__audience-mobile">
+                <h3 class="luc-nav__audience-heading">Info For</h3>
+                <ul class="luc-nav__audience-list">
+                    <li><a href="#" class="luc-nav__audience-link">Current Students</a></li>
+                    <li><a href="#" class="luc-nav__audience-link">Faculty &amp; Staff</a></li>
+                    <li><a href="#" class="luc-nav__audience-link">Alumni</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Search Panel (mobile overlay) -->
+    <div id="luc-search-panel" class="luc-search" aria-hidden="true">
+        <h2 class="luc-search__title">Search LUC.edu</h2>
+        <form class="luc-search__form" role="search" action="/search">
+            <input
+                type="search"
+                class="luc-search__input"
+                placeholder="Search..."
+                aria-label="Search Loyola"
+            >
+            <button type="submit" class="luc-search__submit" aria-label="Submit search"></button>
+        </form>
+    </div>
+
+</header>
+
+
+<!-- ============================================
+     PAGE CONTENT
+     ============================================ -->
+<main id="main-content"class="shell-placeholder">
+    <div class="hero-sunburst-wrapper">
+        <!-- video-lead - full-overlay -->
+<section class="container-fluid hero-video-lead full-overlay">
+    <video
+    id="mediaElementId"
+    class="full-width-video hero-video"
+    playsinline muted loop autoplay
+    src="https://loyolauniversitychicago.github.io/loyola-template-4.0/deploy/videos/umc-hero-video-720.mp4"
+    data-src-mobile="mobile.mp4"
+    data-src-desktop="desktop.mp4">
+      <div class="video-error">Sorry, video is not available.</div>
+    </video>
+    <img class="hero-image" src="./images/images-image-lead-random/1800x800_10.jpg">
+    <div class="grid-wrapper-min-max">
+        <div id="video-underlay" class="grid-item">
+            <!-- position-center = modifying class -->
+            <div class="hero-video-content">
+                <div class="headline-buttons">
+                    <!-- <h6 class="center">Loyola University Chicago</h6> -->
+                    <h1>Learning That Moves You and the World Forward</h1>
+                    <!-- <div class="intro-paragraph sans-serif">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem.</p>
+                    </div> -->
+                    <div class="grid-wrapper-min-max three-columns">
+                        <!-- button-01 -->
+                        <div class="grid-item">
+                            <button class="luc-button luc-button--dark" role="link" onclick="window.open('https://www.luc.edu','_blank')">
+                                Apply now
+                            </button>
+                        </div>
+                        <!-- button-02 -->
+                        <!-- <div class="grid-item">
+                            <button class="luc-button luc-button--dark" role="link" onclick="window.open('https://www.luc.edu','_blank')">
+                                Visit campus
+                            </button>
+                        </div> -->
+                        <!-- button-03 -->
+                        <div class="grid-item">
+                            <button class="luc-button luc-button--dark" role="link" onclick="window.open('https://www.luc.edu','_blank')">
+                                Request info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video-controls">
+            <a href="#" class="video-control-link">About this video</a>
+            <button id="playPauseButton" aria-controls="mediaElementId" aria-pressed="false" aria-label="play">&#x25BA;</button>
+        </div>
+    </div>
+<script>
+// toggle play and pause //
+    const playPauseButton = document.getElementById('playPauseButton');
+    const mediaElement = document.getElementById('mediaElementId');
+
+    playPauseButton.addEventListener('click', () => {
+    if (mediaElement.paused) {
+        mediaElement.play();
+        playPauseButton.textContent = '\u25BA';
+    } else {
+        mediaElement.pause();
+        playPauseButton.textContent = '\u23F8';
+    }
+    });
+// toggle aria-pressed state //
+  const button = document.getElementById('playPauseButton');
+
+  button.addEventListener('click', () => {
+    // Check the current state or use another variable to determine the new label
+    const currentStateIsOn = button.getAttribute('aria-pressed') === 'true'; // Example: toggling a pressed state
+
+    if (currentStateIsOn) {
+      button.setAttribute('aria-label', 'Pause');
+      button.setAttribute('aria-pressed', 'false'); // Also update state if it's a toggle button
+    } else {
+      button.setAttribute('aria-label', 'Play');
+      button.setAttribute('aria-pressed', 'true');
+    }
+  });
+</script>
+</section>
+        <!-- Wrapper adds 20vh extra height so sticky sunburst pins for 20vh of scroll -->
+<div class="sunburst-pin-wrapper">
+  <div class="sunburst-container" data-sunburst="1">
+    <object class="sunburst-svg-object" data="images/burst.svg" type="image/svg+xml" width="100%" height="100%">
+        <p>Your browser does not support SVG. Please use a modern browser.</p>
+    </object>
+    <div class="sunburst-text">
+      <p class="h1">
+        <span class="sunburst-text--white">At Loyola University Chicago, we are expanding knowledge in the service of humanity.</span>
+        <span class="sunburst-text--gold">This is a place where bright minds illuminate what matters.</span>
+      </p>
+    </div>
+  </div>
+</div>
+    </div>
+    <section class="routing-panel">
+	<div class="routing-panel__container">
+		<div class="routing-panel__content clipped">
+			<h2>Academics That Ignite Action</h2>
+			<p>Our nationally recognized programs are built to impact the world. From the first day of class, learning is active and deeply connected to life beyond campus. With more than 100 majors and 100 minors, plus a wide range of graduate and online offerings, Loyola distinguishes itself through an education that prepares you for success.</p>
+			<a class="router-link" href="###">Undergraduate Programs</a>
+			<a class="router-link" href="###">Graduate Programs</a>
+			<a class="router-link" href="###">Online Programs</a>
+		</div>
+		<div class="routing-panel__image-container">
+			<img class="routing-panel__image" src="images/images-2026/academics-cadaver.jpg" alt="placeholder">
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+<!-- <section class="container-fluid hero-image-lead">
+	<div class="container container-100">
+		<img id="random-image" src="" alt=""/>
+		<div class="grid-wrapper-min-max">
+			<div class="grid-item">
+				<div class="hero-image-content">
+					<h1>Academics That Ignite Action</h1>
+					<div class="intro-paragraph sans-serif">
+						<p>Our nationally recognized programs are built to bring impactful ideas into the world. From the first day of class, learning is active and deeply connected to life beyond campus. With more than 100 majors and 100 minors, plus a wide range of graduate and online offerings, Loyola distinguishes itself among colleges in Chicago and the nation for education that prepares you for success.</p>
+					</div>
+					<ul>
+						<li><a class="cta" href="###">Undergraduate Programs</a></li>
+						<li><a class="cta" href="###">Graduate Programs</a></li>
+						<li><a class="cta" href="###">Online Programs</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> -->
+</main>
+
+<!-- ============================================
+     GLOBAL FOOTER
+     ============================================ -->
+<!-- ============================================
+     LUC Global Footer
+     Same on homepage and interior pages
+     Per Figma: gold bar, centered logo
+     Desktop: Contact | About | Resources | Back to Top
+     Mobile: Back to Top, Logo, About, Resources, Contact
+     ============================================ -->
+
+<footer class="luc-footer">
+    <div class="luc-footer__container">
+
+        <!-- Centered Logo -->
+        <div class="luc-footer__logo">
+            <a href="/" class="luc-footer__logo-link">
+                <img src="images/Loyola-University-Chicago-white.svg" alt="Loyola University Chicago" class="luc-footer__logo-img">
+            </a>
+        </div>
+
+        <!-- Footer Grid -->
+        <!-- Desktop order: Contact | About | Resources | Back to Top -->
+        <!-- Mobile order: About | Resources | Contact (via CSS order) -->
+        <div class="luc-footer__grid">
+
+            <!-- Contact Info (first on desktop, third on mobile) -->
+            <div class="luc-footer__column luc-footer__column--contact">
+                <h2 class="luc-footer__heading luc-footer__heading--contact">Loyola University Chicago</h2>
+                <address class="luc-footer__address">
+                    1032 W. Sheridan Rd.<br>
+                    Chicago, IL 60660
+                </address>
+                <a href="tel:7732743000" class="luc-footer__phone">773.274.3000</a>
+
+                <div class="luc-footer__ctas">
+                    <a href="#" class="luc-button luc-button--dark">
+                        Contact Us
+                    </a>
+                    <a href="#" class="luc-button luc-button--dark">
+                        Maps &amp; Directions
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="luc-footer__social">
+                    <a href="#" class="luc-footer__social-link" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook" title="A link to the Loyola University Chicago Facebook account"></i>
+                    </a>
+                    <a href="#" class="luc-footer__social-link" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram" title="A link to the Loyola University Chicago Instagram account"></i>
+                    </a>
+                    <a href="#" class="luc-footer__social-link" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin" title="A link to the Loyola University Chicago Linkedin account"></i>
+                    </a>
+                    <a href="#" class="luc-footer__social-link" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube" title="A link to the Loyola University Chicago YouTube account"></i>
+                    </a>
+                    <a href="#" class="luc-footer__social-link" aria-label="X (Twitter)">
+                        <i class="fa-brands fa-x-twitter" title="A link to the Loyola University Chicago Twitter account"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- About Loyola (second on desktop, first on mobile) -->
+            <div class="luc-footer__column luc-footer__column--about">
+                <h2 class="luc-footer__heading">About Loyola</h2>
+                <ul class="luc-footer__list">
+                    <li><a href="#" class="luc-footer__link">News</a></li>
+                    <li><a href="#" class="luc-footer__link">Events</a></li>
+                    <li><a href="#" class="luc-footer__link">Careers</a></li>
+                    <li><a href="#" class="luc-footer__link">Mission &amp; Values</a></li>
+                </ul>
+            </div>
+
+            <!-- Campus Resources (third on desktop, second on mobile) -->
+            <div class="luc-footer__column luc-footer__column--resources">
+                <h2 class="luc-footer__heading">Campus Resources</h2>
+                <ul class="luc-footer__list">
+                    <li><a href="#" class="luc-footer__link">LOCUS</a></li>
+                    <li><a href="#" class="luc-footer__link">Directories</a></li>
+                    <li><a href="#" class="luc-footer__link">University Libraries</a></li>
+                    <li><a href="#" class="luc-footer__link">Registration &amp; Records</a></li>
+                    <li><a href="#" class="luc-footer__link">A-Z</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="luc-footer__bottom">
+            <p class="luc-footer__copyright"><a href="#" class="luc-footer__copyright-link">Copyright &amp; Disclaimer 2026</a></p>
+            <ul class="luc-footer__legal">
+                <li><a href="#" class="luc-footer__legal-link">Privacy Policy</a></li>
+                <li><a href="#" class="luc-footer__legal-link">IBHE Complaint System</a></li>
+                <li><a href="#" class="luc-footer__legal-link">Land Acknowledgement</a></li>
+                <li><a href="#" class="luc-footer__legal-link">Nondiscrimination Policy</a></li>
+            </ul>
+        </div>
+
+        <!-- Back to Top (last in DOM for tab order, CSS positions visually) -->
+        <button class="luc-footer__back-to-top luc-button luc-button--dark" aria-label="Back to top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+            Back to Top
+        </button>
+
+    </div>
+</footer>
+
+
+<!-- Nav/Footer Bundle JS -->
+<script src="js/luc-nav-footer.js"></script>
+
+<script>
+    window.Userback = window.Userback || {};
+    Userback.access_token = "P-iHJCvoXht7OgMPrd35rCVwF1F";
+    (function(d) {
+        var s = d.createElement('script');s.async = true;s.src = 'https://static.userback.io/widget/v1.js';(d.head || d.body).appendChild(s);
+    })(document);
+
+        /*
+          Sunburst init: each .sunburst-container is independent.
+          We loop over containers, attach a 'load' listener to the inner <object>, and run all setup
+          inside that callback so we always use that instance's svgDoc and sunburstContainer.
+          Variables (patternRect, sunburstGroup, etc.) are const/let inside the callback so the two
+          instances never share state.
+        */
+        gsap.registerPlugin(ScrollTrigger);
+
+        /* ============================================================
+           Sunburst SVG + text animations
+           ============================================================ */
+        document.querySelectorAll('.sunburst-container').forEach(function(sunburstContainer) {
+            const svgObject = sunburstContainer.querySelector('.sunburst-svg-object');
+            if (!svgObject) return;
+
+            /* Hide text until GSAP animates it in */
+            const sunburstTextEl = sunburstContainer.querySelector('.sunburst-text');
+            if (sunburstTextEl) {
+                gsap.set(sunburstTextEl, { opacity: 0, y: 30 });
+            }
+
+            svgObject.addEventListener('load', function() {
+                /* Guard: skip if already initialised (BrowserSync / duplicate load events) */
+                if (sunburstContainer._gsapInit) return;
+                sunburstContainer._gsapInit = true;
+
+                try {
+                    const svgDoc = svgObject.contentDocument;
+                    if (!svgDoc) {
+                        console.error('Cannot access SVG content - CORS issue. Please use a local server.');
+                        return;
+                    }
+
+                    /*
+                      Second sunburst only: strip fill from rects that would cover 4.jpg.
+                      Pattern rect, solid maroon, white, and red gradient rect get fill="none" so
+                      the background image is visible. First sunburst is unchanged.
+                    */
+                if (sunburstContainer.getAttribute('data-sunburst') === '2') {
+                    const rectsToHide = [
+                        svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]'),
+                        svgDoc.querySelector('rect[fill="#5A0722"]'),
+                        svgDoc.querySelector('rect[fill="white"]'),
+                        svgDoc.querySelector('rect[fill="url(#paint131_linear_2321_21298)"]')
+                    ];
+                    rectsToHide.forEach(function(rect) {
+                        if (rect) {
+                            rect.setAttribute('fill', 'none');
+                            rect.setAttribute('fill-opacity', '0');
+                        }
+                    });
+                }
+
+                /* ---- Resolve SVG elements (same burst.svg structure for both instances) ---- */
+                const patternRect = svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]');
+                if (patternRect) {
+                    console.log('Found pattern rect');
+                }
+
+                const backgroundGroup = svgDoc.querySelector('g[opacity="0.8"]');
+                if (backgroundGroup) {
+                    console.log('Found background group');
+                }
+
+                const sunburstGroup = svgDoc.querySelector('g[style*="mix-blend-mode"]');
+                if (sunburstGroup) {
+                    const sunburstPaths = Array.from(sunburstGroup.querySelectorAll('path[fill^="url(#paint"][fill*="_linear"]'));
+                    const filteredGroups = svgDoc.querySelectorAll('g[filter]');
+                    const backgroundPaths = [];
+                    filteredGroups.forEach((group) => {
+                        const pathsInGroup = group.querySelectorAll('path');
+                        backgroundPaths.push(...Array.from(pathsInGroup));
+                    });
+
+                    const allPaths = [...sunburstPaths, ...backgroundPaths];
+
+                    console.log(`Found ${sunburstPaths.length} main sunburst paths and ${backgroundPaths.length} background burst paths`);
+
+                    if (allPaths.length === 0) {
+                        console.error('No sunburst paths found!');
+                        return;
+                    }
+
+                    /* Origin: circle center in burst.svg (rays emanate from here) */
+                    const originX = -23.0173;
+                    const originY = 211.025;
+
+                    /* Pattern rect: starts at origin, scaled to 0; animates in with rays */
+                    if (patternRect) {
+                        const rectBBox = patternRect.getBBox();
+                        const rectCenterX = rectBBox.x + rectBBox.width / 2;
+                        const rectCenterY = rectBBox.y + rectBBox.height / 2;
+                        const deltaX = rectCenterX - originX;
+                        const deltaY = rectCenterY - originY;
+                        const angle = Math.atan2(deltaY, deltaX);
+                        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                        const pullBackRatio = 0.9;
+                        const translateX = -Math.cos(angle) * distance * pullBackRatio;
+                        const translateY = -Math.sin(angle) * distance * pullBackRatio;
+
+                        gsap.set(patternRect, {
+                            opacity: 0,
+                            scale: 0,
+                            x: translateX,
+                            y: translateY,
+                            transformOrigin: `${originX}px ${originY}px`
+                        });
+                    }
+
+                    /* Background group: hidden until timeline runs */
+                    if (backgroundGroup) {
+                        gsap.set(backgroundGroup, { opacity: 0 });
+                    }
+
+                    /* Rays: start at origin, scale 0 */
+                    allPaths.forEach((path) => {
+                        const bbox = path.getBBox();
+                        const midX = bbox.x + bbox.width / 2;
+                        const midY = bbox.y + bbox.height / 2;
+                        const deltaX = midX - originX;
+                        const deltaY = midY - originY;
+                        const angle = Math.atan2(deltaY, deltaX);
+                        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                        const pullBackRatio = 0.9;
+                        const translateX = -Math.cos(angle) * distance * pullBackRatio;
+                        const translateY = -Math.sin(angle) * distance * pullBackRatio;
+
+                        path._translateX = translateX;
+                        path._translateY = translateY;
+
+                        gsap.set(path, {
+                            opacity: 0,
+                            scale: 0,
+                            x: translateX,
+                            y: translateY,
+                            transformOrigin: `${originX}px ${originY}px`
+                        });
+                    });
+
+                    /* Rotation state */
+                    gsap.set(sunburstGroup, {
+                        rotation: 0,
+                        transformOrigin: `${originX}px ${originY}px`
+                    });
+
+                    if (backgroundGroup) {
+                        backgroundGroup.setAttribute('transform', `rotate(0, ${originX}, ${originY})`);
+                    }
+
+                    /*
+                      Scroll rotation: rays rotate +/-15deg with scroll;
+                      background group counter-rotates at 0.75x for parallax.
+                      Safe with CSS sticky (no ScrollTrigger pin).
+                    */
+                    ScrollTrigger.create({
+                        trigger: sunburstContainer,
+                        start: "top bottom",
+                        end: "bottom top",
+                        onUpdate: (self) => {
+                            const progress = self.progress;
+                            const rotation = (progress - 0.5) * 30;
+
+                            sunburstGroup.setAttribute('transform', `rotate(${rotation}, ${originX}, ${originY})`);
+
+                            if (backgroundGroup) {
+                                const bgRotation = -rotation * 0.75;
+                                backgroundGroup.setAttribute('transform', `rotate(${bgRotation}, ${originX}, ${originY})`);
+                            }
+
+                            /* Pattern rect grows proportionally rightward as you scroll */
+                            if (patternRect) {
+                                const s = 1 + progress * 0.6;
+                                gsap.set(patternRect, { scale: s, transformOrigin: '0% 50%' });
+                            }
+                        }
+                    });
+
+                    /*
+                      Burst animation: paused timeline, triggered by IntersectionObserver
+                      when container top hits 75% viewport height.
+                    */
+                    const tl = gsap.timeline({ paused: true });
+
+                    if (patternRect) {
+                        tl.to(patternRect, {
+                            opacity: 1,
+                            duration: 3.0,
+                            ease: "power1.out"
+                        }, 0);
+
+                        tl.to(patternRect, {
+                            scale: 1,
+                            x: 0,
+                            y: 0,
+                            duration: 2.5,
+                            ease: "power2.out"
+                        }, 0);
+                    }
+
+                    if (backgroundGroup) {
+                        tl.to(backgroundGroup, {
+                            opacity: 1,
+                            duration: 0.5,
+                            ease: "power2.out"
+                        }, 0);
+                    }
+
+                    allPaths.forEach((path) => {
+                        tl.to(path, {
+                            opacity: 1,
+                            scale: 1,
+                            x: 0,
+                            y: 0,
+                            duration: 1.5,
+                            ease: "power3.out"
+                        }, 0);
+                    });
+
+                    /* Text entrance: separate paused timeline */
+                    const textTl = gsap.timeline({ paused: true });
+                    if (sunburstTextEl) {
+                        textTl.to(sunburstTextEl, {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1.2,
+                            ease: "power2.out"
+                        });
+                    }
+
+                    /*
+                      IntersectionObserver triggers:
+                      - Rays at 75% viewport (rootMargin bottom -25%)
+                      - Text at top of viewport (rootMargin bottom 0%)
+                    */
+                    let raysPlayed = false;
+                    let textPlayed = false;
+
+                    const raysObserver = new IntersectionObserver(function(entries) {
+                        if (entries[0].isIntersecting && !raysPlayed) {
+                            raysPlayed = true;
+                            tl.play();
+                            raysObserver.disconnect();
+                        }
+                    }, { rootMargin: '0px 0px -25% 0px' });
+
+                    const textObserver = new IntersectionObserver(function(entries) {
+                        if (entries[0].isIntersecting && !textPlayed) {
+                            textPlayed = true;
+                            textTl.play();
+                            textObserver.disconnect();
+                        }
+                    }, { rootMargin: '0px 0px 0px 0px', threshold: 0.95 });
+
+                    raysObserver.observe(sunburstContainer);
+                    textObserver.observe(sunburstContainer);
+
+                } else {
+                    console.error('Could not find sunburst group');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+            });
+        });
+</script>
+
+</body>
+</html>

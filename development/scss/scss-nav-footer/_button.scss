@@ -5,7 +5,8 @@
 // Themes: default (for light bg), --dark (for dark backgrounds)
 // =============================================================================
 
-.luc-button {
+.luc-button,
+.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -63,6 +64,18 @@
   }
 
   // ==========================================================================
+  // DISABLED STATE
+  // ==========================================================================
+  &:disabled,
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.luc-button {
+  // ==========================================================================
   // DARK THEME - For use on dark backgrounds
   // ==========================================================================
   &--dark {
@@ -88,16 +101,6 @@
         background-color: $luc-maroon;
       }
     }
-  }
-
-  // ==========================================================================
-  // DISABLED STATE
-  // ==========================================================================
-  &:disabled,
-  &[aria-disabled='true'] {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
   }
 
   // ==========================================================================

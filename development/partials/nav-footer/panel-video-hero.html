@@ -1,0 +1,81 @@
+<!-- video-lead - full-overlay -->
+<section class="container-fluid hero-video-lead full-overlay">
+    <video
+    id="mediaElementId"
+    class="full-width-video hero-video"
+    playsinline muted loop autoplay
+    src="https://loyolauniversitychicago.github.io/loyola-template-4.0/deploy/videos/umc-hero-video-720.mp4"
+    data-src-mobile="mobile.mp4"
+    data-src-desktop="desktop.mp4">
+      <div class="video-error">Sorry, video is not available.</div>
+    </video>
+    <img class="hero-image" src="./images/images-image-lead-random/1800x800_10.jpg">
+    <div class="grid-wrapper-min-max">
+        <div id="video-underlay" class="grid-item">
+            <!-- position-center = modifying class -->
+            <div class="hero-video-content">
+                <div class="headline-buttons">
+                    <!-- <h6 class="center">Loyola University Chicago</h6> -->
+                    <h1>Learning That Moves You and the World Forward</h1>
+                    <!-- <div class="intro-paragraph sans-serif">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem.</p>
+                    </div> -->
+                    <div class="grid-wrapper-min-max three-columns">
+                        <!-- button-01 -->
+                        <div class="grid-item">
+                            <button class="luc-button luc-button--dark" role="link" onclick="window.open('https://www.luc.edu','_blank')">
+                                Apply now
+                            </button>
+                        </div>
+                        <!-- button-02 -->
+                        <!-- <div class="grid-item">
+                            <button class="luc-button luc-button--dark" role="link" onclick="window.open('https://www.luc.edu','_blank')">
+                                Visit campus
+                            </button>
+                        </div> -->
+                        <!-- button-03 -->
+                        <div class="grid-item">
+                            <button class="luc-button luc-button--dark" role="link" onclick="window.open('https://www.luc.edu','_blank')">
+                                Request info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video-controls">
+            <a href="#" class="video-control-link">About this video</a>
+            <button id="playPauseButton" aria-controls="mediaElementId" aria-pressed="false" aria-label="play">&#x25BA;</button>
+        </div>
+    </div>
+<script>
+// toggle play and pause //
+    const playPauseButton = document.getElementById('playPauseButton');
+    const mediaElement = document.getElementById('mediaElementId');
+
+    playPauseButton.addEventListener('click', () => {
+    if (mediaElement.paused) {
+        mediaElement.play();
+        playPauseButton.textContent = '\u25BA';
+    } else {
+        mediaElement.pause();
+        playPauseButton.textContent = '\u23F8';
+    }
+    });
+// toggle aria-pressed state //
+  const button = document.getElementById('playPauseButton');
+
+  button.addEventListener('click', () => {
+    // Check the current state or use another variable to determine the new label
+    const currentStateIsOn = button.getAttribute('aria-pressed') === 'true'; // Example: toggling a pressed state
+
+    if (currentStateIsOn) {
+      button.setAttribute('aria-label', 'Pause');
+      button.setAttribute('aria-pressed', 'false'); // Also update state if it's a toggle button
+    } else {
+      button.setAttribute('aria-label', 'Play');
+      button.setAttribute('aria-pressed', 'true');
+    }
+  });
+</script>
+</section>

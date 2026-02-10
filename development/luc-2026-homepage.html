@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage 2026 Updates | Loyola University Chicago</title>
+    <!-- Nav/Footer Bundle CSS -->
+    <link rel="stylesheet" href="css/luc-nav-footer.css">
+    <!-- Optional: Typography for fonts -->
+    <!-- <link rel="stylesheet" href="css/styles-typography.css"> -->
+
+    <style>
+        /* Shell page styles - not part of bundle */
+        .shell-placeholder {
+            min-height: 160vh;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/4d537b50e0.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<!-- ============================================
+     HOMEPAGE HEADER
+     ============================================ -->
+@@include('./partials/nav-footer/luc-homepage-header.html')
+
+<!-- ============================================
+     PAGE CONTENT
+     ============================================ -->
+<main id="main-content"class="shell-placeholder">
+    <div class="hero-sunburst-wrapper">
+        @@include('./partials/nav-footer/panel-video-hero.html')
+        @@include('./partials/nav-footer/panel-sunburst.html')
+    </div>
+    @@include('./partials/nav-footer/routing-panel.html')
+</main>
+
+<!-- ============================================
+     GLOBAL FOOTER
+     ============================================ -->
+@@include('./partials/nav-footer/luc-global-footer.html')
+
+<!-- Nav/Footer Bundle JS -->
+<script src="js/luc-nav-footer.js"></script>
+
+<script>
+    window.Userback = window.Userback || {};
+    Userback.access_token = "P-iHJCvoXht7OgMPrd35rCVwF1F";
+    (function(d) {
+        var s = d.createElement('script');s.async = true;s.src = 'https://static.userback.io/widget/v1.js';(d.head || d.body).appendChild(s);
+    })(document);
+
+        /*
+          Sunburst init: each .sunburst-container is independent.
+          We loop over containers, attach a 'load' listener to the inner <object>, and run all setup
+          inside that callback so we always use that instance's svgDoc and sunburstContainer.
+          Variables (patternRect, sunburstGroup, etc.) are const/let inside the callback so the two
+          instances never share state.
+        */
+        gsap.registerPlugin(ScrollTrigger);
+
+        /* ============================================================
+           Sunburst SVG + text animations
+           ============================================================ */
+        document.querySelectorAll('.sunburst-container').forEach(function(sunburstContainer) {
+            const svgObject = sunburstContainer.querySelector('.sunburst-svg-object');
+            if (!svgObject) return;
+
+            /* Hide text until GSAP animates it in */
+            const sunburstTextEl = sunburstContainer.querySelector('.sunburst-text');
+            if (sunburstTextEl) {
+                gsap.set(sunburstTextEl, { opacity: 0, y: 30 });
+            }
+
+            svgObject.addEventListener('load', function() {
+                /* Guard: skip if already initialised (BrowserSync / duplicate load events) */
+                if (sunburstContainer._gsapInit) return;
+                sunburstContainer._gsapInit = true;
+
+                try {
+                    const svgDoc = svgObject.contentDocument;
+                    if (!svgDoc) {
+                        console.error('Cannot access SVG content - CORS issue. Please use a local server.');
+                        return;
+                    }
+
+                    /*
+                      Second sunburst only: strip fill from rects that would cover 4.jpg.
+                      Pattern rect, solid maroon, white, and red gradient rect get fill="none" so
+                      the background image is visible. First sunburst is unchanged.
+                    */
+                if (sunburstContainer.getAttribute('data-sunburst') === '2') {
+                    const rectsToHide = [
+                        svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]'),
+                        svgDoc.querySelector('rect[fill="#5A0722"]'),
+                        svgDoc.querySelector('rect[fill="white"]'),
+                        svgDoc.querySelector('rect[fill="url(#paint131_linear_2321_21298)"]')
+                    ];
+                    rectsToHide.forEach(function(rect) {
+                        if (rect) {
+                            rect.setAttribute('fill', 'none');
+                            rect.setAttribute('fill-opacity', '0');
+                        }
+                    });
+                }
+
+                /* ---- Resolve SVG elements (same burst.svg structure for both instances) ---- */
+                const patternRect = svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]');
+                if (patternRect) {
+                    console.log('Found pattern rect');
+                }
+
+                const backgroundGroup = svgDoc.querySelector('g[opacity="0.8"]');
+                if (backgroundGroup) {
+                    console.log('Found background group');
+                }
+
+                const sunburstGroup = svgDoc.querySelector('g[style*="mix-blend-mode"]');
+                if (sunburstGroup) {
+                    const sunburstPaths = Array.from(sunburstGroup.querySelectorAll('path[fill^="url(#paint"][fill*="_linear"]'));
+                    const filteredGroups = svgDoc.querySelectorAll('g[filter]');
+                    const backgroundPaths = [];
+                    filteredGroups.forEach((group) => {
+                        const pathsInGroup = group.querySelectorAll('path');
+                        backgroundPaths.push(...Array.from(pathsInGroup));
+                    });
+
+                    const allPaths = [...sunburstPaths, ...backgroundPaths];
+
+                    console.log(`Found ${sunburstPaths.length} main sunburst paths and ${backgroundPaths.length} background burst paths`);
+
+                    if (allPaths.length === 0) {
+                        console.error('No sunburst paths found!');
+                        return;
+                    }
+
+                    /* Origin: circle center in burst.svg (rays emanate from here) */
+                    const originX = -23.0173;
+                    const originY = 211.025;
+
+                    /* Pattern rect: starts at origin, scaled to 0; animates in with rays */
+                    if (patternRect) {
+                        const rectBBox = patternRect.getBBox();
+                        const rectCenterX = rectBBox.x + rectBBox.width / 2;
+                        const rectCenterY = rectBBox.y + rectBBox.height / 2;
+                        const deltaX = rectCenterX - originX;
+                        const deltaY = rectCenterY - originY;
+                        const angle = Math.atan2(deltaY, deltaX);
+                        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                        const pullBackRatio = 0.9;
+                        const translateX = -Math.cos(angle) * distance * pullBackRatio;
+                        const translateY = -Math.sin(angle) * distance * pullBackRatio;
+
+                        gsap.set(patternRect, {
+                            opacity: 0,
+                            scale: 0,
+                            x: translateX,
+                            y: translateY,
+                            transformOrigin: `${originX}px ${originY}px`
+                        });
+                    }
+
+                    /* Background group: hidden until timeline runs */
+                    if (backgroundGroup) {
+                        gsap.set(backgroundGroup, { opacity: 0 });
+                    }
+
+                    /* Rays: start at origin, scale 0 */
+                    allPaths.forEach((path) => {
+                        const bbox = path.getBBox();
+                        const midX = bbox.x + bbox.width / 2;
+                        const midY = bbox.y + bbox.height / 2;
+                        const deltaX = midX - originX;
+                        const deltaY = midY - originY;
+                        const angle = Math.atan2(deltaY, deltaX);
+                        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                        const pullBackRatio = 0.9;
+                        const translateX = -Math.cos(angle) * distance * pullBackRatio;
+                        const translateY = -Math.sin(angle) * distance * pullBackRatio;
+
+                        path._translateX = translateX;
+                        path._translateY = translateY;
+
+                        gsap.set(path, {
+                            opacity: 0,
+                            scale: 0,
+                            x: translateX,
+                            y: translateY,
+                            transformOrigin: `${originX}px ${originY}px`
+                        });
+                    });
+
+                    /* Rotation state */
+                    gsap.set(sunburstGroup, {
+                        rotation: 0,
+                        transformOrigin: `${originX}px ${originY}px`
+                    });
+
+                    if (backgroundGroup) {
+                        backgroundGroup.setAttribute('transform', `rotate(0, ${originX}, ${originY})`);
+                    }
+
+                    /*
+                      Scroll rotation: rays rotate +/-15deg with scroll;
+                      background group counter-rotates at 0.75x for parallax.
+                      Safe with CSS sticky (no ScrollTrigger pin).
+                    */
+                    ScrollTrigger.create({
+                        trigger: sunburstContainer,
+                        start: "top bottom",
+                        end: "bottom top",
+                        onUpdate: (self) => {
+                            const progress = self.progress;
+                            const rotation = (progress - 0.5) * 30;
+
+                            sunburstGroup.setAttribute('transform', `rotate(${rotation}, ${originX}, ${originY})`);
+
+                            if (backgroundGroup) {
+                                const bgRotation = -rotation * 0.75;
+                                backgroundGroup.setAttribute('transform', `rotate(${bgRotation}, ${originX}, ${originY})`);
+                            }
+
+                            /* Pattern rect grows proportionally rightward as you scroll */
+                            if (patternRect) {
+                                const s = 1 + progress * 0.6;
+                                gsap.set(patternRect, { scale: s, transformOrigin: '0% 50%' });
+                            }
+                        }
+                    });
+
+                    /*
+                      Burst animation: paused timeline, triggered by IntersectionObserver
+                      when container top hits 75% viewport height.
+                    */
+                    const tl = gsap.timeline({ paused: true });
+
+                    if (patternRect) {
+                        tl.to(patternRect, {
+                            opacity: 1,
+                            duration: 3.0,
+                            ease: "power1.out"
+                        }, 0);
+
+                        tl.to(patternRect, {
+                            scale: 1,
+                            x: 0,
+                            y: 0,
+                            duration: 2.5,
+                            ease: "power2.out"
+                        }, 0);
+                    }
+
+                    if (backgroundGroup) {
+                        tl.to(backgroundGroup, {
+                            opacity: 1,
+                            duration: 0.5,
+                            ease: "power2.out"
+                        }, 0);
+                    }
+
+                    allPaths.forEach((path) => {
+                        tl.to(path, {
+                            opacity: 1,
+                            scale: 1,
+                            x: 0,
+                            y: 0,
+                            duration: 1.5,
+                            ease: "power3.out"
+                        }, 0);
+                    });
+
+                    /* Text entrance: separate paused timeline */
+                    const textTl = gsap.timeline({ paused: true });
+                    if (sunburstTextEl) {
+                        textTl.to(sunburstTextEl, {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1.2,
+                            ease: "power2.out"
+                        });
+                    }
+
+                    /*
+                      IntersectionObserver triggers:
+                      - Rays at 75% viewport (rootMargin bottom -25%)
+                      - Text at top of viewport (rootMargin bottom 0%)
+                    */
+                    let raysPlayed = false;
+                    let textPlayed = false;
+
+                    const raysObserver = new IntersectionObserver(function(entries) {
+                        if (entries[0].isIntersecting && !raysPlayed) {
+                            raysPlayed = true;
+                            tl.play();
+                            raysObserver.disconnect();
+                        }
+                    }, { rootMargin: '0px 0px -25% 0px' });
+
+                    const textObserver = new IntersectionObserver(function(entries) {
+                        if (entries[0].isIntersecting && !textPlayed) {
+                            textPlayed = true;
+                            textTl.play();
+                            textObserver.disconnect();
+                        }
+                    }, { rootMargin: '0px 0px 0px 0px', threshold: 0.95 });
+
+                    raysObserver.observe(sunburstContainer);
+                    textObserver.observe(sunburstContainer);
+
+                } else {
+                    console.error('Could not find sunburst group');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+            });
+        });
+</script>
+
+</body>
+</html>

@@ -62,3 +62,38 @@ $luc-transition-slow: 500ms ease;
 $luc-focus-color: $luc-gray;
 $luc-focus-outline: $luc-baseline dotted $luc-focus-color;
 $luc-focus-offset: $luc-baseline;
+
+$luc-transition: .4s ease;
+$luc-transition-fast: .2s ease;
+$luc-transition-slow: .6s ease;
+$luc-transition-bounce: .5s cubic-bezier(.5, .05, .2, 1.5);
+
+$luc-space-3xs: clamp(.25rem, .2rem + .25vw, .375rem);
+$luc-space-2xs: clamp(.5rem, .4rem + .5vw, .75rem);
+$luc-space-xs: clamp(.75rem, .6rem + .75vw, 1rem);
+$luc-space-s: clamp(1rem, .8rem + 1vw, 1.5rem);
+$luc-space-m: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+$luc-space-l: clamp(2rem, 1.6rem + 2vw, 3rem);
+$luc-space-xl: clamp(3rem, 2.4rem + 3vw, 4rem);
+$luc-space-2xl: clamp(4rem, 3.2rem + 4vw, 6rem);
+$luc-space-3xl: clamp(6rem, 4.8rem + 6vw, 8rem);
+$luc-space-l-xl: clamp(2rem, 1.2841rem + 3.1818vw, 3.75rem);
+
+$luc-gap: clamp(1rem, 4vw, 2rem);
+$luc-gutter: $luc-space-l-xl;
+$luc-space: $luc-space-l-xl;
+$luc-panel: clamp(3.5rem, 10vw, 4.5rem);
+$luc-wrap: #{max(#{$luc-gutter}, (100% - 90rem) / 2)};
+$luc-wrap-sm: #{max(#{$luc-gutter}, (100% - 56.25rem) / 2)};
+$luc-wrap-lg: #{max(#{$luc-gutter}, (100% - 100rem) / 2)};
+$luc-wrap-xl: #{max(#{$luc-gutter}, (100% - 120rem) / 2)};
+
+$luc-shadow-heavy: 0px 4px 30px 0px rgba(32, 16, 14, .4);
+$luc-shadow-lg: 0px 4px 30px 0px rgba(32, 16, 14, .4);
+$luc-shadow: 0px 4px 20px 0px rgba(32, 16, 14, .25);
+$luc-shadow-sm: 0px 2px 10px 0px rgba(32, 16, 14, .2);
+$luc-radius: .25rem;
+$luc-radius-s: .125rem;
+$luc-radius-m: .75rem;
+$luc-radius-l: 1.5rem;
+$luc-radius-full: 9999px;
