@@ -10,6 +10,7 @@
   background-color: $luc-footer-bg;
   color: $luc-footer-text;
   position: relative;
+  z-index: 1;
 
   .luc-button {
     font-size: $luc-baseline * 5; // 20px

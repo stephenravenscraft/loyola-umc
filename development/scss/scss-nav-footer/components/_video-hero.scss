@@ -6,6 +6,12 @@
     height: 200vh; /* 100vh hero + 100vh scroll distance for sunburst scale */
 }
 
+/* Sections after the hero scroll OVER the sticky hero */
+.hero-scroll-runway ~ * {
+    position: relative;
+    z-index: 2;
+}
+
 .hero-video-lead.full-overlay {
     position: sticky;
     top: 6rem;
@@ -13,7 +19,6 @@
     height: calc(100vh - 6rem);
     min-height: 800px;
     min-height: 80vh;
-    z-index: -1;
     // aspect-ratio: 1280 / 720;
     @include tablet-portrait {
         height: 100vh;
@@ -480,6 +485,7 @@ button#playPauseButton {
     height: 100%;
     overflow: hidden;
     z-index: 2;
+    pointer-events: none; /* decorative overlay — don't block clicks */
 }
 
 .hero-video-lead .sunburst-circle {
