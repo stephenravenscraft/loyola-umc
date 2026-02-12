@@ -119,3 +119,28 @@
     font-size: $luc-baseline * 5; // 20px
   }
 }
+
+// .button--dark (alias for .luc-button--dark for base .button class)
+.button--dark {
+  color: $luc-white;
+  border-bottom-color: $luc-gold;
+  background-color: transparent;
+
+  &:focus-visible {
+    outline-color: $luc-gray;
+  }
+
+  &::after {
+    background-color: $luc-white;
+  }
+
+  &:hover {
+    background-color: $luc-gold;
+    color: $luc-maroon;
+    border-color: $luc-gold;
+
+    &::after {
+      background-color: $luc-maroon;
+    }
+  }
+}

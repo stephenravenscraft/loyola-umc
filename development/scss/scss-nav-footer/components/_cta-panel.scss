@@ -1,0 +1,128 @@
+// =============================================================================
+// CTA Panel
+// =============================================================================
+// Maroon content + photo split layout. Desktop: content left (60%), image right (40%)
+// with diagonal split. Mobile: image top with diagonal cut, content below.
+// =============================================================================
+
+.cta-panel {
+	width: 100%;
+
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+		background-color: $luc-maroon; // fills gap where content clip meets image
+
+		// Mobile: image first, content second (swap via order)
+		.cta-panel__content {
+			order: 2;
+		}
+		.cta-panel__image-wrapper {
+			order: 1;
+		}
+
+		@media (min-width: 48rem) {
+			grid-template-columns: 1.5fr 1fr;
+			grid-template-rows: 1fr;
+			min-height: 60vh;
+
+			.cta-panel__content,
+			.cta-panel__image-wrapper {
+				order: unset;
+			}
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: $luc-baseline * 6;
+		padding: $luc-panel $luc-wrap;
+		background-color: $luc-maroon;
+
+		// Desktop: diagonal clips to the right, content overlaps image
+		@media (min-width: 48rem) {
+			margin-right: -20%;
+			// clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
+			clip-path: polygon(0 0, 80% -20%, 100% 100%, 0 100%);
+			justify-content: center;
+			padding-right: $luc-baseline * 24;
+			z-index: 8;
+		}
+	}
+
+	&__headline {
+		margin: 0;
+		font-family: $luc-font-family-condensed-black;
+		font-size: clamp(2rem, 4vw, 3rem);
+		line-height: 1.1;
+		color: $luc-white;
+
+		&--desktop {
+			display: none;
+
+			@media (min-width: 48rem) {
+				display: block;
+			}
+		}
+	}
+
+	&__body {
+		margin: 0;
+		font-family: $luc-font-family;
+		font-size: $luc-baseline * 4;
+		line-height: 1.6;
+		color: $luc-white;
+	}
+
+	&__nav {
+		margin-top: $luc-baseline * 2;
+	}
+
+	&__links {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+
+		@media (min-width: 48rem) {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: $luc-space-m;
+		}
+	}
+
+	&__image-wrapper {
+		position: relative;
+		overflow: hidden;
+		aspect-ratio: 16 / 9;
+
+		// Mobile: diagonal from bottom-left to upper-right, terminates ~1/3 up from bottom on right
+		clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+
+		@media (min-width: 48rem) {
+			aspect-ratio: auto;
+			min-height: 60vh;
+			// Desktop: no clip on image; content's diagonal defines the split
+			clip-path: none;
+		}
+	}
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		display: block;
+
+		@media (min-width: 48rem) {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

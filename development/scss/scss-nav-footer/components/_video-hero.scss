@@ -1,12 +1,19 @@
 /* video hero */
 
+/* Scroll runway: hero sticks for 100vh of scroll, then releases */
+.hero-scroll-runway {
+    position: relative;
+    height: 200vh; /* 100vh hero + 100vh scroll distance for sunburst scale */
+}
+
 .hero-video-lead.full-overlay {
     position: sticky;
-    top: 0;
+    top: 6rem;
     z-index: 1;
-    height: 100vh;
+    height: calc(100vh - 6rem);
     min-height: 800px;
     min-height: 80vh;
+    z-index: -1;
     // aspect-ratio: 1280 / 720;
     @include tablet-portrait {
         height: 100vh;
@@ -58,7 +65,6 @@
     padding: 2rem 5% 2.25rem;
     height: 100%;
     width: 100%;
-    max-width: 900px;
     align-items: start;
     justify-content: center !important;
     // background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 25%, rgba(0, 0, 0, 0.22) 60%, rgba(0, 0, 0, 0.70)) !important;
@@ -85,6 +91,7 @@
 /* sets up button wrapper */
 .hero-video-lead.full-overlay .hero-video-content .headline-buttons {
     position: relative;
+    max-width: 700px;
 }
 
 .hero-video-lead .headline-buttons .grid-wrapper-min-max  {
@@ -455,4 +462,102 @@ button#playPauseButton {
         width: 100%;
     }
 
+}
+
+/* ============================================================
+   Sunburst — lives inside the sticky video hero
+   ============================================================ */
+
+.hero-video-lead .sunburst-container {
+    display: grid;
+    place-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.hero-video-lead .sunburst-circle {
+    display: grid;
+    place-content: center;
+    position: fixed;
+    inset: 0;
+    background: $maroon;
+    z-index: 1;
+    clip-path: circle(8vh at 50% 100%);
+    -webkit-clip-path: circle(8vh at 50% 100%);
+}
+
+.hero-video-lead .sunburst-container .sunburst-wrapper {
+    position: fixed;
+    left: -2%;
+    top: 3%;
+    // width: clamp(260px, 40vw, 1520px);
+    width: clamp(570px, 75vw, 1520px);
+    height: auto;
+    margin: 0 auto;
+    z-index: 2;
+    // background: $luc-maroon;
+    transform: translate(-50%, calc(-50% + 8vh));
+}
+
+.hero-video-lead .sunburst-container .sunburst-svg-object {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-video-lead .sunburst-container .sunburst-wrapper .sunburst-flare {
+    position: absolute;
+    left: 22%;
+    top: 28%;
+    width: 50%;
+    height: auto;
+    pointer-events: none;
+    mix-blend-mode: lighten;;
+    opacity: 0;
+    z-index: 3;
+}
+
+.hero-video-lead .sunburst-text {
+    position: relative;
+    z-index: 4;
+    margin-left: 20%;
+    padding: 0;
+    max-width: 75%;
+
+    .h1 {
+        font-family: $luc-font-family-condensed-bold;
+    }
+
+    @include tablet-portrait {
+        margin-left: 30%;
+        max-width: 65%;
+        padding: 0 5% 0 0;
+    }
+
+    @include phone-portrait {
+        margin-left: 5%;
+        max-width: 90%;
+        padding: 2rem 5% 0 0;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.sunburst-text--gold {
+    color: $gold;
+}
+
+.sunburst-text--white {
+    color: $white;
 }

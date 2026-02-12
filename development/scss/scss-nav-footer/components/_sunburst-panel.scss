@@ -1,76 +1,3 @@
-        /* ---- Shared wrapper: video hero stays sticky until sunburst finishes ---- */
-        .hero-sunburst-wrapper {
-          position: relative;
-        }
-
-        /* ---- Pin wrapper: taller than sunburst by 20vh so sticky pins for 20vh of scroll ---- */
-        .sunburst-pin-wrapper {
-          position: relative;
-          z-index: 2;
-          height: calc(100vh + 50vh);
-      }
-
-        /* ---- Sunburst panels (shared) ---- */
-        .sunburst-container {
-          position: sticky;
-          top: 0;
-          width: 100%;
-          height: 100vh;
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          padding: 0;
-          margin: 0;
-          background: linear-gradient(to bottom, rgba(90, 7, 34, 0.00) 0%, #5A0722 20%);
-      }
-
-      /* ---- SVG object: fill the container, behind text ---- */
-      .sunburst-container .sunburst-svg-object {
-          position: absolute;
-          top: 10vh;
-          left: 0;
-          width: 100%;
-          height: 100%;
-      }
-
-      /* ---- Text overlay ---- */
-      .sunburst-text {
-          position: relative;
-          z-index: 2;
-          margin-left: 20%;
-          padding: 0 0 0 0;
-          max-width: 75%;
-          top: 10vh;
-
-          .h1 {
-            font-family: $luc-font-family-condensed-bold;
-          }
-
-          @include tablet-portrait {
-              margin-left: 30%;
-              max-width: 65%;
-              padding: 0 5% 0 0;
-          }
-
-          @include phone-portrait {
-              margin-left: 5%;
-              max-width: 90%;
-              padding: 2rem 5% 0 0;
-          }
-
-          p {
-              margin: 0;
-          }
-      }
-
-      .sunburst-text--gold {
-          color: $gold;
-      }
-
-      .sunburst-text--white {
-          color: $white;
-      }
-
       /* ---- Second sunburst only: 4.jpg background, rotated SVG on top ---- */
       .sunburst-container[data-sunburst="2"] {
           justify-content: center;
@@ -98,9 +25,9 @@
 
       /* Rotate 90deg around left-center (rays origin); translate keeps it centered in the wrapper */
       .sunburst-container[data-sunburst="2"] .sunburst-svg-object {
-          transform: rotate(90deg) translate(-50%, -50%);
-          transform-origin: left center;
-          height: 100vw;
+        //   transform: rotate(90deg) translate(-50%, -50%);
+        //   transform-origin: left center;
+        //   height: 100vw;
       }
 
       /* ---- Scroll-pin z-index: image-lead sits above pinned sunburst ---- */

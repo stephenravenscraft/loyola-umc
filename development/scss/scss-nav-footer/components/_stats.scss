@@ -1,0 +1,195 @@
+.stats {
+	padding: $luc-panel $luc-wrap;
+	background: $luc-white;
+	background-image: url('../images/images-2026/stats-background.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	&__header {
+		display: flex;
+		flex-direction: column;
+		gap: $luc-baseline * 8;
+		margin-bottom: $luc-space-2xl;
+
+		@media (min-width: 48rem) {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: $luc-space-xl;
+		}
+	}
+
+	&__header-content {
+		display: flex;
+		flex-direction: column;
+		gap: $luc-baseline * 6;
+
+		@media (min-width: 48rem) {
+			max-width: 60%;
+		}
+
+		h2 {
+			font-family: $luc-font-family-condensed-black;
+			color: $luc-maroon;
+			font-size: clamp(2rem, 4vw, 3rem);
+			line-height: 1.1;
+			margin: 0;
+		}
+
+		p {
+			font-family: $luc-font-family;
+			font-size: $luc-baseline * 4;
+			line-height: 1.6;
+			color: $luc-black;
+			margin: 0;
+		}
+	}
+
+	// Header CTA aligns top-right on desktop
+	> .button {
+		flex-shrink: 0;
+		width: auto;
+
+		@media (min-width: 48rem) {
+			max-width: 30%;
+		}
+	}
+
+	&__block {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: $luc-space-l;
+		margin-bottom: $luc-space-2xl;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		@media (min-width: 48rem) {
+			grid-template-columns: 1fr 1fr;
+			gap: $luc-space-xl;
+			align-items: start;
+		}
+
+		&--reversed {
+			@media (min-width: 48rem) {
+				direction: rtl;
+
+				> * {
+					direction: ltr;
+				}
+			}
+		}
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		// gap: $luc-baseline * 6;
+		padding-top: $luc-space-l;
+
+		h3 {
+			// font-family: $luc-font-family-condensed-black;
+			// color: $luc-maroon;
+			// font-size: clamp(1.5rem, 3vw, 2.25rem);
+			// line-height: 1.15;
+			margin: 0;
+		}
+
+		p {
+			font-family: $luc-font-family;
+			font-size: $luc-baseline * 4;
+			line-height: 1.6;
+			color: $luc-black;
+			margin-top: 1rem;
+		}
+
+		.buttons {
+			margin-top: 2rem;
+		}
+	}
+
+	&__eyebrow {
+		font-family: $luc-font-family-bold;
+		font-size: $luc-baseline * 3.5;
+		font-weight: 700;
+		line-height: 150%;
+		letter-spacing: 0.00438rem;
+		color: $luc-black;
+	}
+
+	&__media {
+		position: relative;
+	}
+
+	&__image {
+		width: 100%;
+		height: auto;
+		display: block;
+		object-fit: cover;
+	}
+
+	&__card {
+		background-color: $luc-maroon;
+		padding: $luc-baseline * 8;
+		display: flex;
+		flex-direction: column;
+		gap: $luc-baseline * 4;
+
+		@media (min-width: 48rem) {
+			position: relative;
+			margin-top: -($luc-baseline * 24);
+			width: 90%;
+			margin-left: auto;
+		}
+
+		// Reversed blocks: card aligns left
+		.stats__block--reversed & {
+			@media (min-width: 48rem) {
+				margin-left: 0;
+				margin-right: auto;
+			}
+		}
+	}
+
+	&__card-eyebrow {
+		font-family: $luc-font-family-bold;
+		font-size: $luc-baseline * 3.5;
+		line-height: 150%;
+		letter-spacing: 0.00438rem;
+		color: $luc-white;
+	}
+
+	&__card-number {
+		display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+		font-family: $luc-font-family-condensed-black;
+		font-size: clamp(3rem, 6vw, 4.5rem);
+		line-height: 1;
+		color: $luc-gold;
+
+		sup {
+			font-family: $luc-font-family-condensed;
+			font-size: $luc-baseline * 2;
+			font-weight: 300;
+			line-height: 120%;
+			color: $luc-gold;
+		}
+
+		span {
+			font-family: $luc-font-family-condensed;
+			font-size: 0.5em;
+			color: $luc-gold;
+		}
+	}
+
+	&__card-description {
+		font-family: $luc-font-family;
+		font-size: $luc-baseline * 3.5; // 14px
+		line-height: 1.6;
+		color: $luc-white;
+		margin: 0;
+	}
+}

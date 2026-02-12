@@ -31,6 +31,55 @@
   }
 }
 
+/* Router links */
+.router-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $luc-baseline * 4; // 8px
+}
+
+/* Router link */
+.router-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $luc-baseline * 2; // 8px
+  padding-block: $luc-baseline * 4; // 8px
+  color: $luc-maroon;
+  font-family: $luc-font-family;
+  font-size: $luc-baseline * 4; // 1rem / 16px
+  font-weight: 500;
+  line-height: $luc-baseline * 6; // 1.5rem / 24px
+  text-decoration: none;
+  width: 100%;
+  border-bottom: 1px solid rgba(137, 11, 52, 0.20);
+  transition: border-bottom 0.3s ease;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 1.125rem;
+    height: 0.5rem;
+    mask-image: url(../images/icon-arrow-right.svg);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    background-color: currentColor;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  &:hover {
+    color: $luc-maroon;
+    border-bottom: 1px solid $luc-maroon;
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
 /* CLIPPED */
 .clipped {
   clip-path: polygon(

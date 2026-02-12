@@ -38,11 +38,14 @@
      PAGE CONTENT
      ============================================ -->
 <main id="main-content"class="shell-placeholder">
-    <div class="hero-sunburst-wrapper">
+    <div class="hero-scroll-runway">
         @@include('./partials/nav-footer/panel-video-hero.html')
-        @@include('./partials/nav-footer/panel-sunburst.html')
     </div>
     @@include('./partials/nav-footer/routing-panel.html')
+    @@include('./partials/nav-footer/stats.html')
+    @@include('./partials/nav-footer/news-feature.html')
+    @@include('./partials/nav-footer/events-listing.html')
+    @@include('./partials/nav-footer/cta-panel.html')
 </main>
 
 <!-- ============================================
@@ -61,269 +64,394 @@
     })(document);
 
         /*
-          Sunburst init: each .sunburst-container is independent.
-          We loop over containers, attach a 'load' listener to the inner <object>, and run all setup
-          inside that callback so we always use that instance's svgDoc and sunburstContainer.
-          Variables (patternRect, sunburstGroup, etc.) are const/let inside the callback so the two
-          instances never share state.
+          Sunburst: lives inside the sticky video hero.
+          The hero is already position:sticky, so the sunburst (absolute inside it)
+          stays in the viewport. We scrub scale from 0.15 → 1 starting at scroll 0.
+          Once nearly full, SVG burst fades in, then text.
         */
         gsap.registerPlugin(ScrollTrigger);
 
-        /* ============================================================
-           Sunburst SVG + text animations
-           ============================================================ */
         document.querySelectorAll('.sunburst-container').forEach(function(sunburstContainer) {
+            const sunburstWrapper = sunburstContainer.querySelector('.sunburst-wrapper');
             const svgObject = sunburstContainer.querySelector('.sunburst-svg-object');
-            if (!svgObject) return;
+            if (!sunburstWrapper || !svgObject) return;
+            const flareEl = sunburstContainer.querySelector('.sunburst-flare');
+            const heroSection = sunburstContainer.closest('.hero-video-lead');
 
-            /* Hide text until GSAP animates it in */
+            /* Hide SVG + text until scroll-driven reveals */
+            gsap.set(svgObject, { opacity: 0 });
+            if (flareEl) gsap.set(flareEl, { opacity: 0 });
             const sunburstTextEl = sunburstContainer.querySelector('.sunburst-text');
-            if (sunburstTextEl) {
-                gsap.set(sunburstTextEl, { opacity: 0, y: 30 });
+            const whiteSegment = sunburstTextEl ? sunburstTextEl.querySelector('.sunburst-text--white') : null;
+            const goldSegment = sunburstTextEl ? sunburstTextEl.querySelector('.sunburst-text--gold') : null;
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function buildWordSpans(segment) {
+                if (!segment) return [];
+                const words = (segment.textContent || "").trim().split(/\s+/).filter(Boolean);
+                segment.textContent = "";
+                const spans = [];
+                words.forEach((word, index) => {
+                    const span = document.createElement('span');
+                    span.className = 'sunburst-word';
+                    span.style.display = 'inline-block';
+                    span.textContent = word;
+                    segment.appendChild(span);
+                    spans.push(span);
+                    if (index < words.length - 1) segment.appendChild(document.createTextNode(' '));
+                });
+                return spans;
             }
 
-            svgObject.addEventListener('load', function() {
-                /* Guard: skip if already initialised (BrowserSync / duplicate load events) */
-                if (sunburstContainer._gsapInit) return;
-                sunburstContainer._gsapInit = true;
+            const whiteWordSpans = buildWordSpans(whiteSegment);
+
+            function resetHybridText() {
+                if (!sunburstTextEl) return;
+                if (sunburstContainer._textRevealTl) {
+                    sunburstContainer._textRevealTl.kill();
+                    sunburstContainer._textRevealTl = null;
+                }
+                gsap.set(sunburstTextEl, { opacity: 0, y: 30 });
+                if (whiteWordSpans.length) gsap.set(whiteWordSpans, { opacity: 0, y: 10 });
+                if (goldSegment) gsap.set(goldSegment, { opacity: 0, y: 16 });
+            }
+
+            function playHybridText() {
+                if (!sunburstTextEl) return;
+                if (sunburstContainer._textRevealTl) {
+                    sunburstContainer._textRevealTl.kill();
+                    sunburstContainer._textRevealTl = null;
+                }
+
+                if (prefersReducedMotion) {
+                    gsap.set(sunburstTextEl, { opacity: 1, y: 0 });
+                    if (whiteWordSpans.length) gsap.set(whiteWordSpans, { opacity: 1, y: 0 });
+                    if (goldSegment) gsap.set(goldSegment, { opacity: 1, y: 0 });
+                    return;
+                }
+
+                resetHybridText();
+                sunburstContainer._textRevealTl = gsap.timeline();
+                sunburstContainer._textRevealTl.to(
+                    sunburstTextEl,
+                    { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" },
+                    0
+                );
+                if (whiteWordSpans.length) {
+                    sunburstContainer._textRevealTl.to(
+                        whiteWordSpans,
+                        { opacity: 1, y: 0, duration: 2, stagger: 0.06, ease: "power2.out" },
+                        0.1
+                    );
+                }
+                if (goldSegment) {
+                    sunburstContainer._textRevealTl.to(
+                        goldSegment,
+                        { opacity: 1, y: 0, duration: 2, ease: "power2.out" },
+                        0.9
+                    );
+                }
+            }
+
+            if (sunburstTextEl) {
+                resetHybridText();
+            }
+
+            /*
+              Scale animation: scrubbed from scroll position 0.
+              The hero is sticky so the sunburst stays visible the whole time.
+              end: +=100% means the scale takes 100vh of scroll to complete.
+            */
+            const burstRevealAt = 0.38;
+            const textRevealAt = 0.55;
+            let burstActive = false;
+            let textRevealed = false;
+
+            function initBurstRays() {
+                if (sunburstContainer._burstInit) return;
+                sunburstContainer._burstInit = true;
 
                 try {
-                    const svgDoc = svgObject.contentDocument;
-                    if (!svgDoc) {
-                        console.error('Cannot access SVG content - CORS issue. Please use a local server.');
-                        return;
-                    }
+                    const isObjectEmbed = svgObject.tagName.toLowerCase() === 'object';
+                    const svgDoc = isObjectEmbed ? svgObject.contentDocument : svgObject;
+                    if (!svgDoc) return;
 
-                    /*
-                      Second sunburst only: strip fill from rects that would cover 4.jpg.
-                      Pattern rect, solid maroon, white, and red gradient rect get fill="none" so
-                      the background image is visible. First sunburst is unchanged.
-                    */
-                if (sunburstContainer.getAttribute('data-sunburst') === '2') {
-                    const rectsToHide = [
-                        svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]'),
-                        svgDoc.querySelector('rect[fill="#5A0722"]'),
-                        svgDoc.querySelector('rect[fill="white"]'),
-                        svgDoc.querySelector('rect[fill="url(#paint131_linear_2321_21298)"]')
-                    ];
-                    rectsToHide.forEach(function(rect) {
-                        if (rect) {
-                            rect.setAttribute('fill', 'none');
-                            rect.setAttribute('fill-opacity', '0');
-                        }
-                    });
-                }
+                    const rayPaths = Array.from(svgDoc.querySelectorAll('path[fill="#eaa000"], path[fill="#EAA000"]'));
+                    if (!rayPaths.length) return;
 
-                /* ---- Resolve SVG elements (same burst.svg structure for both instances) ---- */
-                const patternRect = svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]');
-                if (patternRect) {
-                    console.log('Found pattern rect');
-                }
+                    const svgRoot = isObjectEmbed ? svgDoc.querySelector('svg') : svgObject;
+                    const viewBox = svgRoot && svgRoot.viewBox ? svgRoot.viewBox.baseVal : null;
+                    const originX = viewBox ? (viewBox.x + (viewBox.width / 2)) : 1956;
+                    const originY = viewBox ? (viewBox.y + (viewBox.height / 2)) : 1702;
 
-                const backgroundGroup = svgDoc.querySelector('g[opacity="0.8"]');
-                if (backgroundGroup) {
-                    console.log('Found background group');
-                }
-
-                const sunburstGroup = svgDoc.querySelector('g[style*="mix-blend-mode"]');
-                if (sunburstGroup) {
-                    const sunburstPaths = Array.from(sunburstGroup.querySelectorAll('path[fill^="url(#paint"][fill*="_linear"]'));
-                    const filteredGroups = svgDoc.querySelectorAll('g[filter]');
-                    const backgroundPaths = [];
-                    filteredGroups.forEach((group) => {
-                        const pathsInGroup = group.querySelectorAll('path');
-                        backgroundPaths.push(...Array.from(pathsInGroup));
-                    });
-
-                    const allPaths = [...sunburstPaths, ...backgroundPaths];
-
-                    console.log(`Found ${sunburstPaths.length} main sunburst paths and ${backgroundPaths.length} background burst paths`);
-
-                    if (allPaths.length === 0) {
-                        console.error('No sunburst paths found!');
-                        return;
-                    }
-
-                    /* Origin: circle center in burst.svg (rays emanate from here) */
-                    const originX = -23.0173;
-                    const originY = 211.025;
-
-                    /* Pattern rect: starts at origin, scaled to 0; animates in with rays */
-                    if (patternRect) {
-                        const rectBBox = patternRect.getBBox();
-                        const rectCenterX = rectBBox.x + rectBBox.width / 2;
-                        const rectCenterY = rectBBox.y + rectBBox.height / 2;
-                        const deltaX = rectCenterX - originX;
-                        const deltaY = rectCenterY - originY;
-                        const angle = Math.atan2(deltaY, deltaX);
-                        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                        const pullBackRatio = 0.9;
-                        const translateX = -Math.cos(angle) * distance * pullBackRatio;
-                        const translateY = -Math.sin(angle) * distance * pullBackRatio;
-
-                        gsap.set(patternRect, {
+                    function setBurstStartState() {
+                        gsap.set(rayPaths, {
                             opacity: 0,
                             scale: 0,
-                            x: translateX,
-                            y: translateY,
-                            transformOrigin: `${originX}px ${originY}px`
+                            rotation: 0,
+                            svgOrigin: `${originX} ${originY}`
                         });
                     }
 
-                    /* Background group: hidden until timeline runs */
-                    if (backgroundGroup) {
-                        gsap.set(backgroundGroup, { opacity: 0 });
-                    }
-
-                    /* Rays: start at origin, scale 0 */
-                    allPaths.forEach((path) => {
-                        const bbox = path.getBBox();
-                        const midX = bbox.x + bbox.width / 2;
-                        const midY = bbox.y + bbox.height / 2;
-                        const deltaX = midX - originX;
-                        const deltaY = midY - originY;
-                        const angle = Math.atan2(deltaY, deltaX);
-                        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                        const pullBackRatio = 0.9;
-                        const translateX = -Math.cos(angle) * distance * pullBackRatio;
-                        const translateY = -Math.sin(angle) * distance * pullBackRatio;
-
-                        path._translateX = translateX;
-                        path._translateY = translateY;
-
-                        gsap.set(path, {
-                            opacity: 0,
-                            scale: 0,
-                            x: translateX,
-                            y: translateY,
-                            transformOrigin: `${originX}px ${originY}px`
-                        });
-                    });
-
-                    /* Rotation state */
-                    gsap.set(sunburstGroup, {
-                        rotation: 0,
-                        transformOrigin: `${originX}px ${originY}px`
-                    });
-
-                    if (backgroundGroup) {
-                        backgroundGroup.setAttribute('transform', `rotate(0, ${originX}, ${originY})`);
-                    }
-
-                    /*
-                      Scroll rotation: rays rotate +/-15deg with scroll;
-                      background group counter-rotates at 0.75x for parallax.
-                      Safe with CSS sticky (no ScrollTrigger pin).
-                    */
-                    ScrollTrigger.create({
-                        trigger: sunburstContainer,
-                        start: "top bottom",
-                        end: "bottom top",
-                        onUpdate: (self) => {
-                            const progress = self.progress;
-                            const rotation = (progress - 0.5) * 30;
-
-                            sunburstGroup.setAttribute('transform', `rotate(${rotation}, ${originX}, ${originY})`);
-
-                            if (backgroundGroup) {
-                                const bgRotation = -rotation * 0.75;
-                                backgroundGroup.setAttribute('transform', `rotate(${bgRotation}, ${originX}, ${originY})`);
-                            }
-
-                            /* Pattern rect grows proportionally rightward as you scroll */
-                            if (patternRect) {
-                                const s = 1 + progress * 0.6;
-                                gsap.set(patternRect, { scale: s, transformOrigin: '0% 50%' });
-                            }
+                    function playRandomBurst() {
+                        if (sunburstContainer._burstTl) {
+                            sunburstContainer._burstTl.kill();
+                            sunburstContainer._burstTl = null;
                         }
-                    });
 
-                    /*
-                      Burst animation: paused timeline, triggered by IntersectionObserver
-                      when container top hits 75% viewport height.
-                    */
-                    const tl = gsap.timeline({ paused: true });
+                        if (prefersReducedMotion) {
+                            gsap.set(rayPaths, { opacity: 1, scale: 1, rotation: 0, svgOrigin: `${originX} ${originY}` });
+                            return;
+                        }
 
-                    if (patternRect) {
-                        tl.to(patternRect, {
-                            opacity: 1,
-                            duration: 3.0,
-                            ease: "power1.out"
-                        }, 0);
+                        setBurstStartState();
+                        const randomOrder = gsap.utils.shuffle(rayPaths.slice());
+                        const maxStartDelay = 0.7;
 
-                        tl.to(patternRect, {
-                            scale: 1,
-                            x: 0,
-                            y: 0,
-                            duration: 2.5,
-                            ease: "power2.out"
-                        }, 0);
-                    }
+                        sunburstContainer._burstTl = gsap.timeline();
+                        randomOrder.forEach((path) => {
+                            const startAt = gsap.utils.random(0, maxStartDelay);
+                            const growDuration = gsap.utils.random(0.65, 1.15);
+                            const startRotation = gsap.utils.random(-24, 24);
 
-                    if (backgroundGroup) {
-                        tl.to(backgroundGroup, {
-                            opacity: 1,
-                            duration: 0.5,
-                            ease: "power2.out"
-                        }, 0);
-                    }
-
-                    allPaths.forEach((path) => {
-                        tl.to(path, {
-                            opacity: 1,
-                            scale: 1,
-                            x: 0,
-                            y: 0,
-                            duration: 1.5,
-                            ease: "power3.out"
-                        }, 0);
-                    });
-
-                    /* Text entrance: separate paused timeline */
-                    const textTl = gsap.timeline({ paused: true });
-                    if (sunburstTextEl) {
-                        textTl.to(sunburstTextEl, {
-                            opacity: 1,
-                            y: 0,
-                            duration: 1.2,
-                            ease: "power2.out"
+                            sunburstContainer._burstTl.fromTo(path,
+                                {
+                                    opacity: 0,
+                                    scale: 0.01,
+                                    rotation: startRotation,
+                                    svgOrigin: `${originX} ${originY}`
+                                },
+                                {
+                                    opacity: 1,
+                                    scale: 1,
+                                    rotation: 0,
+                                    duration: growDuration,
+                                    ease: "power3.out"
+                                },
+                                startAt
+                            );
                         });
                     }
 
-                    /*
-                      IntersectionObserver triggers:
-                      - Rays at 75% viewport (rootMargin bottom -25%)
-                      - Text at top of viewport (rootMargin bottom 0%)
-                    */
-                    let raysPlayed = false;
-                    let textPlayed = false;
-
-                    const raysObserver = new IntersectionObserver(function(entries) {
-                        if (entries[0].isIntersecting && !raysPlayed) {
-                            raysPlayed = true;
-                            tl.play();
-                            raysObserver.disconnect();
+                    function resetBurst() {
+                        if (sunburstContainer._burstTl) {
+                            sunburstContainer._burstTl.kill();
+                            sunburstContainer._burstTl = null;
                         }
-                    }, { rootMargin: '0px 0px -25% 0px' });
+                        setBurstStartState();
+                    }
 
-                    const textObserver = new IntersectionObserver(function(entries) {
-                        if (entries[0].isIntersecting && !textPlayed) {
-                            textPlayed = true;
-                            textTl.play();
-                            textObserver.disconnect();
-                        }
-                    }, { rootMargin: '0px 0px 0px 0px', threshold: 0.95 });
+                    setBurstStartState();
+                    sunburstContainer._playBurst = playRandomBurst;
+                    sunburstContainer._resetBurst = resetBurst;
 
-                    raysObserver.observe(sunburstContainer);
-                    textObserver.observe(sunburstContainer);
-
-                } else {
-                    console.error('Could not find sunburst group');
+                    if (burstActive) playRandomBurst();
+                } catch (error) {
+                    console.error('Burst setup error:', error);
                 }
-            } catch (error) {
-                console.error('Error:', error);
             }
+
+            if (svgObject.tagName.toLowerCase() === 'object') {
+                svgObject.addEventListener('load', initBurstRays);
+                if (svgObject.contentDocument) initBurstRays();
+            } else {
+                initBurstRays();
+            }
+
+            const scaleTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: heroSection || "body",
+                    start: "top top",
+                    end: "+=100%",
+                    scrub: 1,
+                    onUpdate: (self) => {
+                        const shouldShowBurst = self.progress >= burstRevealAt;
+                        if (shouldShowBurst !== burstActive) {
+                            burstActive = shouldShowBurst;
+                            gsap.set(svgObject, { opacity: burstActive ? 0.4 : 0 });
+                            if (flareEl) {
+                                if (burstActive) {
+                                    gsap.fromTo(flareEl,
+                                        { opacity: 0 },
+                                        { opacity: 0.8, duration: 0.95, ease: "power2.out", overwrite: "auto" }
+                                    );
+                                } else {
+                                    gsap.to(flareEl, { opacity: 0, duration: 0.2, ease: "power2.in", overwrite: "auto" });
+                                }
+                            }
+                            if (burstActive) {
+                                if (sunburstContainer._playBurst) sunburstContainer._playBurst();
+                            } else {
+                                if (sunburstContainer._resetBurst) sunburstContainer._resetBurst();
+                            }
+                        }
+
+                        if (self.progress >= textRevealAt && !textRevealed) {
+                            textRevealed = true;
+                            if (sunburstTextEl) {
+                                playHybridText();
+                            }
+                        }
+
+                        if (self.progress < textRevealAt && textRevealed) {
+                            textRevealed = false;
+                            if (sunburstTextEl) {
+                                resetHybridText();
+                            }
+                        }
+
+                    }
+                }
             });
+
+            scaleTl.fromTo(sunburstContainer.querySelector('.sunburst-circle'),
+                { clipPath: "circle(8vh at 50% 100%)", webkitClipPath: "circle(8vh at 50% 100%)" },
+                { clipPath: "circle(150vh at 50% 100%)", webkitClipPath: "circle(150vh at 50% 100%)", duration: 1.2, ease: "power4.inOut" },
+                0
+            );
+
+            /* SVG object drifts from lower to higher throughout the entire scroll */
+            scaleTl.fromTo(sunburstWrapper,
+                { y: "0%" },
+                { y: "-40%", duration: 1.2, ease: "none" },
+                0
+            );
+
+            if (flareEl) {
+                scaleTl.fromTo(flareEl,
+                    { x: 0, y: 0, scale: 1 },
+                    { x: 220, y: 170, scale: 3, duration: 1.2, ease: "none" },
+                    0
+                );
+            }
+
+            /* ---- SVG internal animation setup (on load) ---- */
+            // svgObject.addEventListener('load', function() {
+            //     if (sunburstContainer._gsapInit) return;
+            //     sunburstContainer._gsapInit = true;
+
+            //     try {
+            //         const svgDoc = svgObject.contentDocument;
+            //         if (!svgDoc) {
+            //             console.error('Cannot access SVG content - CORS issue.');
+            //             return;
+            //         }
+
+            //         /* Second sunburst only: strip fill from rects */
+            //         if (sunburstContainer.getAttribute('data-sunburst') === '2') {
+            //             const rectsToHide = [
+            //                 svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]'),
+            //                 svgDoc.querySelector('rect[fill="#5A0722"]'),
+            //                 svgDoc.querySelector('rect[fill="white"]'),
+            //                 svgDoc.querySelector('rect[fill="url(#paint131_linear_2321_21298)"]')
+            //             ];
+            //             rectsToHide.forEach(function(rect) {
+            //                 if (rect) {
+            //                     rect.setAttribute('fill', 'none');
+            //                     rect.setAttribute('fill-opacity', '0');
+            //                 }
+            //             });
+            //         }
+
+            //         const patternRect = svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]');
+            //         const backgroundGroup = svgDoc.querySelector('g[opacity="0.8"]');
+            //         const sunburstGroup = svgDoc.querySelector('g[style*="mix-blend-mode"]');
+
+            //         if (sunburstGroup) {
+            //             const sunburstPaths = Array.from(sunburstGroup.querySelectorAll('path[fill^="url(#paint"][fill*="_linear"]'));
+            //             const filteredGroups = svgDoc.querySelectorAll('g[filter]');
+            //             const backgroundPaths = [];
+            //             filteredGroups.forEach((group) => {
+            //                 backgroundPaths.push(...Array.from(group.querySelectorAll('path')));
+            //             });
+
+            //             const allPaths = [...sunburstPaths, ...backgroundPaths];
+            //             console.log(`Found ${sunburstPaths.length} main + ${backgroundPaths.length} bg burst paths`);
+            //             if (allPaths.length === 0) { console.error('No sunburst paths found!'); return; }
+
+            //             const originX = -23.0173;
+            //             const originY = 211.025;
+
+            //             /* Pattern rect initial state */
+            //             if (patternRect) {
+            //                 const rectBBox = patternRect.getBBox();
+            //                 const dx = (rectBBox.x + rectBBox.width / 2) - originX;
+            //                 const dy = (rectBBox.y + rectBBox.height / 2) - originY;
+            //                 const angle = Math.atan2(dy, dx);
+            //                 const dist = Math.sqrt(dx * dx + dy * dy) * 0.9;
+            //                 gsap.set(patternRect, {
+            //                     opacity: 0, scale: 0,
+            //                     x: -Math.cos(angle) * dist,
+            //                     y: -Math.sin(angle) * dist,
+            //                     transformOrigin: `${originX}px ${originY}px`
+            //                 });
+            //             }
+
+            //             if (backgroundGroup) gsap.set(backgroundGroup, { opacity: 0 });
+
+            //             /* Rays initial state */
+            //             allPaths.forEach((path) => {
+            //                 const bbox = path.getBBox();
+            //                 const dx = (bbox.x + bbox.width / 2) - originX;
+            //                 const dy = (bbox.y + bbox.height / 2) - originY;
+            //                 const angle = Math.atan2(dy, dx);
+            //                 const dist = Math.sqrt(dx * dx + dy * dy) * 0.9;
+            //                 gsap.set(path, {
+            //                     opacity: 0, scale: 0,
+            //                     x: -Math.cos(angle) * dist,
+            //                     y: -Math.sin(angle) * dist,
+            //                     transformOrigin: `${originX}px ${originY}px`
+            //                 });
+            //             });
+
+            //             gsap.set(sunburstGroup, { rotation: 0, transformOrigin: `${originX}px ${originY}px` });
+            //             if (backgroundGroup) backgroundGroup.setAttribute('transform', `rotate(0, ${originX}, ${originY})`);
+
+            //             /* Scroll rotation (parallax) — uses body trigger to work with sticky hero */
+            //             ScrollTrigger.create({
+            //                 trigger: "body",
+            //                 start: 0,
+            //                 end: "+=100%",
+            //                 onUpdate: (self) => {
+            //                     const rotation = (self.progress - 0.5) * 60;
+            //                     sunburstGroup.setAttribute('transform', `rotate(${rotation}, ${originX}, ${originY})`);
+            //                     if (backgroundGroup) {
+            //                         backgroundGroup.setAttribute('transform', `rotate(${-rotation * 1.25}, ${originX}, ${originY})`);
+            //                     }
+            //                     if (patternRect) {
+            //                         gsap.set(patternRect, { scale: 1 + self.progress * 0.6, transformOrigin: '0% 50%' });
+            //                     }
+            //                 }
+            //             });
+
+            //             /* Burst timeline (paused — triggered at 96% of scale) */
+            //             const tl = gsap.timeline({ paused: true });
+            //             if (patternRect) {
+            //                 tl.to(patternRect, { opacity: 1, duration: 3.0, ease: "power1.out" }, 0);
+            //                 tl.to(patternRect, { scale: 1, x: 0, y: 0, duration: 2.5, ease: "power2.out" }, 0);
+            //             }
+            //             if (backgroundGroup) {
+            //                 tl.to(backgroundGroup, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0);
+            //             }
+            //             allPaths.forEach((path) => {
+            //                 tl.to(path, { opacity: 1, scale: 1, x: 0, y: 0, duration: 1.5, ease: "power3.out" }, 0);
+            //             });
+            //             sunburstContainer._burstTl = tl;
+
+            //             /* Text timeline (paused — triggered 0.6s after burst) */
+            //             const textTl = gsap.timeline({ paused: true });
+            //             if (sunburstTextEl) {
+            //                 textTl.to(sunburstTextEl, { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" });
+            //             }
+            //             sunburstContainer._textTl = textTl;
+
+            //         } else {
+            //             console.error('Could not find sunburst group');
+            //         }
+            //     } catch (error) {
+            //         console.error('Error:', error);
+            //     }
+            // });
         });
 </script>
 

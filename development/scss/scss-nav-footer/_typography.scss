@@ -21,3 +21,12 @@ h2,
   line-height: 1.3;
   letter-spacing: 0.0125rem;
 }
+
+h3,
+.h3 {
+  color: $luc-maroon;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 1.875rem;
+  line-height: 130%;
+  letter-spacing: 0.00938rem;
+}

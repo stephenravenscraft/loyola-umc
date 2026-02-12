@@ -3,6 +3,7 @@
     position: relative;
     z-index: 2;
     padding: $luc-panel;
+    background: $luc-white;
 
     &::before {
       content: '';
@@ -23,11 +24,11 @@
   &__content {
     position: relative;
     z-index: 2;
-    padding: $luc-space-m;
+    padding: $luc-baseline * 16; // 64px
     background: $luc-white;
     display: flex;
     flex-direction: column;
-    gap: $luc-space-s;
+    gap: $luc-baseline * 6; // 24px
 
     @media (min-width: 48rem) {
       width: 50%;
