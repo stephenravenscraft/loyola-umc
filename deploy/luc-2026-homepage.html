@@ -122,7 +122,6 @@
                                 Academics
                             </a>
                             <ul class="luc-mega-menu__list">
-                                <li><a href="#" class="luc-mega-menu__link luc-mega-menu__link--overview">Academics</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Colleges and Schools</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Departments and Programs</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Online Learning</a></li>
@@ -148,7 +147,6 @@
                                 Admission &amp; Aid
                             </a>
                             <ul class="luc-mega-menu__list">
-                                <li><a href="#" class="luc-mega-menu__link luc-mega-menu__link--overview">Admissions &amp; Aid</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Undergraduate Admission</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Graduate Admission</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Adult Education</a></li>
@@ -178,7 +176,6 @@
                                 Research
                             </a>
                             <ul class="luc-mega-menu__list">
-                                <li><a href="#" class="luc-mega-menu__link luc-mega-menu__link--overview">Research</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Current Initiatives</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Centers and Institutes</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Undergraduate Research</a></li>
@@ -202,7 +199,6 @@
                                 Community &amp; Faith
                             </a>
                             <ul class="luc-mega-menu__list">
-                                <li><a href="#" class="luc-mega-menu__link luc-mega-menu__link--overview">Community &amp; Faith</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Jesuit Catholic Identity</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Interfaith Community</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Campus Ministry</a></li>
@@ -226,7 +222,6 @@
                                 Campus Life
                             </a>
                             <ul class="luc-mega-menu__list">
-                                <li><a href="#" class="luc-mega-menu__link luc-mega-menu__link--overview">Campus Life</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Athletics</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Clubs &amp; Activities</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Housing</a></li>
@@ -255,7 +250,6 @@
                                 About
                             </a>
                             <ul class="luc-mega-menu__list">
-                                <li><a href="#" class="luc-mega-menu__link luc-mega-menu__link--overview">About</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Loyola at a Glance</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Rankings and Reputation</a></li>
                                 <li><a href="#" class="luc-mega-menu__link">Loyola and Chicago</a></li>
@@ -729,6 +723,10 @@
   </div>
 </section>
     <section class="cta-panel">
+  <div class="panel-burst" aria-hidden="true">
+    <object class="panel-burst__svg" data="images/burst.svg" type="image/svg+xml" width="100%" height="100%">
+    </object>
+  </div>
   <div class="cta-panel__container">
     <div class="cta-panel__content">
       <h2 class="cta-panel__headline cta-panel__headline--desktop">Pursue Truth. Ignite Change.<br>Start Your Path Here.</h2>
@@ -1257,6 +1255,201 @@
             //         console.error('Error:', error);
             //     }
             // });
+        });
+
+        /*
+          Panel Burst: reusable animated sunburst for sections.
+          Independent from hero sunburst. Loads burst.svg via <object>, strips rect fills
+          so section background shows through, animates rays on scroll trigger.
+        */
+        document.querySelectorAll('.panel-burst').forEach(function(panelBurst) {
+            const svgObject = panelBurst.querySelector('.panel-burst__svg');
+            if (!svgObject) return;
+
+            svgObject.addEventListener('load', function() {
+                try {
+                    const svgDoc = svgObject.contentDocument;
+                    if (!svgDoc) {
+                        console.error('Cannot access SVG content - CORS issue. Please use a local server.');
+                        return;
+                    }
+
+                    /* Strip fill from rects so section background shows through */
+                    const rectsToHide = [
+                        svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]'),
+                        svgDoc.querySelector('rect[fill="#5A0722"]'),
+                        svgDoc.querySelector('rect[fill="white"]'),
+                        svgDoc.querySelector('rect[fill="url(#paint131_linear_2321_21298)"]')
+                    ];
+                    rectsToHide.forEach(function(rect) {
+                        if (rect) {
+                            rect.setAttribute('fill', 'none');
+                            rect.setAttribute('fill-opacity', '0');
+                        }
+                    });
+
+                    /* Resolve SVG elements */
+                    const patternRect = svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]');
+                    const backgroundGroup = svgDoc.querySelector('g[opacity="0.8"]');
+                    const sunburstGroup = svgDoc.querySelector('g[style*="mix-blend-mode"]');
+
+                    if (sunburstGroup) {
+                        const sunburstPaths = Array.from(sunburstGroup.querySelectorAll('path[fill^="url(#paint"][fill*="_linear"]'));
+                        const filteredGroups = svgDoc.querySelectorAll('g[filter]');
+                        const backgroundPaths = [];
+                        filteredGroups.forEach((group) => {
+                            const pathsInGroup = group.querySelectorAll('path');
+                            backgroundPaths.push(...Array.from(pathsInGroup));
+                        });
+
+                        const allPaths = [...sunburstPaths, ...backgroundPaths];
+
+                        if (allPaths.length === 0) {
+                            console.error('No sunburst paths found!');
+                            return;
+                        }
+
+                        /* Origin for transforms: circle center in burst.svg */
+                        const originX = -23.0173;
+                        const originY = 211.025;
+
+                        /* Pattern rect initial state */
+                        if (patternRect) {
+                            const rectBBox = patternRect.getBBox();
+                            const rectCenterX = rectBBox.x + rectBBox.width / 2;
+                            const rectCenterY = rectBBox.y + rectBBox.height / 2;
+
+                            const deltaX = rectCenterX - originX;
+                            const deltaY = rectCenterY - originY;
+                            const angle = Math.atan2(deltaY, deltaX);
+                            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+                            const pullBackRatio = 0.9;
+                            const translateX = -Math.cos(angle) * distance * pullBackRatio;
+                            const translateY = -Math.sin(angle) * distance * pullBackRatio;
+
+                            gsap.set(patternRect, {
+                                opacity: 0,
+                                scale: 0,
+                                x: translateX,
+                                y: translateY,
+                                transformOrigin: `${originX}px ${originY}px`
+                            });
+                        }
+
+                        /* Background group hidden initially */
+                        if (backgroundGroup) {
+                            gsap.set(backgroundGroup, { opacity: 0 });
+                        }
+
+                        /* Rays initial state: pulled toward center */
+                        allPaths.forEach((path) => {
+                            const bbox = path.getBBox();
+                            const midX = bbox.x + bbox.width / 2;
+                            const midY = bbox.y + bbox.height / 2;
+
+                            const deltaX = midX - originX;
+                            const deltaY = midY - originY;
+                            const angle = Math.atan2(deltaY, deltaX);
+                            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+                            const pullBackRatio = 0.9;
+                            const translateX = -Math.cos(angle) * distance * pullBackRatio;
+                            const translateY = -Math.sin(angle) * distance * pullBackRatio;
+
+                            gsap.set(path, {
+                                opacity: 0,
+                                scale: 0,
+                                x: translateX,
+                                y: translateY,
+                                transformOrigin: `${originX}px ${originY}px`
+                            });
+                        });
+
+                        /* Rotation state setup */
+                        gsap.set(sunburstGroup, {
+                            rotation: 0,
+                            transformOrigin: `${originX}px ${originY}px`
+                        });
+
+                        if (backgroundGroup) {
+                            backgroundGroup.setAttribute('transform', `rotate(0, ${originX}, ${originY})`);
+                        }
+
+                        /* Scroll rotation: rays rotate ±15° with scroll, background counter-rotates */
+                        ScrollTrigger.create({
+                            trigger: panelBurst,
+                            start: "top 50%",
+                            end: "bottom top",
+                            onUpdate: (self) => {
+                                const progress = self.progress;
+                                const rotation = (progress - 0.5) * 30; // ±15 degrees
+
+                                sunburstGroup.setAttribute('transform', `rotate(${rotation}, ${originX}, ${originY})`);
+
+                                if (backgroundGroup) {
+                                    const bgRotation = -rotation * 0.75;
+                                    backgroundGroup.setAttribute('transform', `rotate(${bgRotation}, ${originX}, ${originY})`);
+                                }
+                            }
+                        });
+
+                        /* Initial animation: trigger when panel enters viewport */
+                        const tl = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: panelBurst,
+                                start: "top 50%",
+                                scrub: false,
+                                once: true,
+                                onEnter: () => {
+                                    console.log('Panel burst animation triggered!');
+                                }
+                            }
+                        });
+
+                        if (patternRect) {
+                            tl.to(patternRect, {
+                                opacity: 1,
+                                duration: 3.0,
+                                ease: "power1.out"
+                            }, 0);
+
+                            tl.to(patternRect, {
+                                scale: 1,
+                                x: 0,
+                                y: 0,
+                                duration: 2.5,
+                                ease: "power2.out"
+                            }, 0);
+                        }
+
+                        if (backgroundGroup) {
+                            tl.to(backgroundGroup, {
+                                opacity: 1,
+                                duration: 0.5,
+                                ease: "power2.out"
+                            }, 0);
+                        }
+
+                        /* Animate all rays with slight random stagger */
+                        allPaths.forEach((path) => {
+                            tl.to(path, {
+                                opacity: 1,
+                                scale: 1,
+                                x: 0,
+                                y: 0,
+                                duration: 1.5,
+                                ease: "power3.out"
+                            }, 0);
+                        });
+
+                    } else {
+                        console.error('Could not find sunburst group in panel burst');
+                    }
+                } catch (error) {
+                    console.error('Panel burst error:', error);
+                }
+            });
         });
 </script>
 
