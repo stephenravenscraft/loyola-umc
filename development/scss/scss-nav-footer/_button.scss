@@ -8,6 +8,7 @@
 .luc-button,
 .button {
   display: inline-flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   gap: $luc-baseline * 2; // 0.5rem / 8px
@@ -20,15 +21,23 @@
   line-height: 1.1;
   text-decoration: none;
   border: none;
-  border-radius: $luc-baseline $luc-baseline 0 0; // 0.25rem
-  border-bottom: 1px solid $luc-maroon;
+  border: none;
   background-color: transparent;
   color: $luc-maroon;
   cursor: pointer;
-  transition:
-    background-color $luc-transition-slow,
-    color $luc-transition-slow,
-    border-color $luc-transition-slow;
+  transition: color $luc-transition-slow;
+  z-index: 0;
+
+  // Expanding background effect
+  &::before {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 1px;
+    transition: height $luc-transition-slow;
+    background: $luc-maroon;
+    z-index: -1;
+  }
 
   // Focus state (AA compliant)
   &:focus-visible {
@@ -50,13 +59,14 @@
   }
 
   // ==========================================================================
-  // HOVER STATE - Filled maroon
+  // HOVER STATE - Expanding maroon background
   // ==========================================================================
   &:hover {
-    background-color: $luc-maroon;
     color: $luc-white;
-    border-color: $luc-maroon;
-    border-bottom: 1px solid $luc-maroon;
+
+    &::before {
+      height: 100%;
+    }
 
     &::after {
       background-color: $luc-gold;
@@ -83,6 +93,10 @@
     border-bottom-color: $luc-gold;
     background-color: transparent;
 
+    &::before {
+      background: $luc-gold;
+    }
+
     &:focus-visible {
       outline-color: $luc-gray;
     }
@@ -91,11 +105,13 @@
       background-color: $luc-white;
     }
 
-    // Hover: gold filled
+    // Hover: expanding gold background
     &:hover {
-      background-color: $luc-gold;
       color: $luc-maroon;
-      border-color: $luc-gold;
+
+      &::before {
+        height: 100%;
+      }
 
       &::after {
         background-color: $luc-maroon;
@@ -126,6 +142,10 @@
   border-bottom-color: $luc-gold;
   background-color: transparent;
 
+  &::before {
+    background: $luc-gold;
+  }
+
   &:focus-visible {
     outline-color: $luc-gray;
   }
@@ -135,9 +155,11 @@
   }
 
   &:hover {
-    background-color: $luc-gold;
     color: $luc-maroon;
-    border-color: $luc-gold;
+
+    &::before {
+      height: 100%;
+    }
 
     &::after {
       background-color: $luc-maroon;

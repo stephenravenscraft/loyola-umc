@@ -10,13 +10,14 @@
 		display: flex;
 		flex-direction: column;
 		gap: $luc-baseline * 8;
-		margin-bottom: $luc-space-2xl;
+		margin-bottom: $luc-baseline * 9;
 
 		@media (min-width: 48rem) {
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: flex-start;
 			gap: $luc-space-xl;
+			margin-bottom: $luc-baseline * 16;
 		}
 	}
 
@@ -26,7 +27,7 @@
 		gap: $luc-baseline * 6;
 
 		@media (min-width: 48rem) {
-			max-width: 60%;
+			max-width: 56.25rem;
 		}
 
 		h2 {
@@ -59,8 +60,8 @@
 	&__block {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: $luc-space-l;
-		margin-bottom: $luc-space-2xl;
+		gap: $luc-baseline * 6;
+		margin-bottom: $luc-baseline * 8;
 
 		&:last-child {
 			margin-bottom: 0;
@@ -68,8 +69,9 @@
 
 		@media (min-width: 48rem) {
 			grid-template-columns: 1fr 1fr;
-			gap: $luc-space-xl;
+			gap: $luc-baseline * 26;
 			align-items: start;
+			margin-bottom: $luc-baseline * 4;
 		}
 
 		&--reversed {
@@ -141,14 +143,14 @@
 			position: relative;
 			margin-top: -($luc-baseline * 24);
 			width: 90%;
-			margin-left: auto;
+			margin-left: -1.5rem;
 		}
 
 		// Reversed blocks: card aligns left
 		.stats__block--reversed & {
 			@media (min-width: 48rem) {
-				margin-left: 0;
-				margin-right: auto;
+				margin-left: auto;
+				margin-right: -1.5rem;
 			}
 		}
 	}
@@ -169,14 +171,6 @@
 		font-size: clamp(3rem, 6vw, 4.5rem);
 		line-height: 1;
 		color: $luc-gold;
-
-		sup {
-			font-family: $luc-font-family-condensed;
-			font-size: $luc-baseline * 2;
-			font-weight: 300;
-			line-height: 120%;
-			color: $luc-gold;
-		}
 
 		span {
 			font-family: $luc-font-family-condensed;

@@ -532,11 +532,9 @@
     grid-template-columns: 1fr 1fr;
     gap: 0 ($luc-baseline * 16); // 64px
 
-    > li {
-      &:has(.luc-mega-menu__link--overview) {
-        display: none;
-        visibility: hidden;
-      }
+    & > li:has(.luc-mega-menu__link--overview) {
+      display: none !important;
+      visibility: hidden !important;
     }
   }
 }
