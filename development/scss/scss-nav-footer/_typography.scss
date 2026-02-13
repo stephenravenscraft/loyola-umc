@@ -27,6 +27,46 @@ h3,
   color: $luc-maroon;
   font-family: $luc-font-family-condensed-bold;
   font-size: 1.875rem;
-  line-height: 130%;
+  line-height: 1.3;
   letter-spacing: 0.00938rem;
+}
+
+h4,
+.h4 {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  letter-spacing: 0.0075rem;
+}
+
+h5,
+.h5 {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  letter-spacing: 0.00625rem;
+}
+
+h6,
+.h6 {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
+}
+
+.text-detail {
+  font-family: $luc-font-family;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.00438rem;
+}
+
+.text-small {
+  font-family: $luc-font-family;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  letter-spacing: 0.00438rem;
 }

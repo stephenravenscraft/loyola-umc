@@ -1,12 +1,6 @@
-// =============================================================================
-// CTA Panel
-// =============================================================================
-// Maroon content + photo split layout. Desktop: content left (60%), image right (40%)
-// with diagonal split. Mobile: image top with diagonal cut, content below.
-// =============================================================================
-
 .cta-panel {
 	width: 100%;
+	color: $luc-white;
 
 	&__container {
 		display: grid;
@@ -41,6 +35,10 @@
 		padding: $luc-panel $luc-wrap;
 		background-color: $luc-maroon;
 
+		h2 {
+			color: $luc-white;
+		}
+
 		// Desktop: diagonal clips to the right, content overlaps image
 		@media (min-width: 48rem) {
 			margin-right: -20%;
@@ -49,49 +47,6 @@
 			justify-content: center;
 			padding-right: $luc-baseline * 24;
 			z-index: 1;
-		}
-	}
-
-	&__headline {
-		margin: 0;
-		font-family: $luc-font-family-condensed-black;
-		font-size: clamp(2rem, 4vw, 3rem);
-		line-height: 1.1;
-		color: $luc-white;
-
-		&--desktop {
-			display: none;
-
-			@media (min-width: 48rem) {
-				display: block;
-			}
-		}
-	}
-
-	&__body {
-		margin: 0;
-		font-family: $luc-font-family;
-		font-size: $luc-baseline * 4;
-		line-height: 1.6;
-		color: $luc-white;
-	}
-
-	&__nav {
-		margin-top: $luc-baseline * 2;
-	}
-
-	&__links {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0;
-
-		@media (min-width: 48rem) {
-			flex-direction: row;
-			flex-wrap: wrap;
-			gap: $luc-space-m;
 		}
 	}
 

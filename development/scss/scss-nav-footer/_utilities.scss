@@ -90,3 +90,8 @@
     0% 100%                    /* bottom-left corner */
   );
 }
+
+.buttons {
+  display: flex;
+  gap: $luc-baseline * 8;
+}

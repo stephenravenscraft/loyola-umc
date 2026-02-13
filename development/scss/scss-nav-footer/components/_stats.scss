@@ -12,7 +12,7 @@
 		gap: $luc-baseline * 8;
 		margin-bottom: $luc-baseline * 9;
 
-		@media (min-width: 48rem) {
+		@media (min-width: 64rem) {
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: flex-start;
@@ -26,24 +26,8 @@
 		flex-direction: column;
 		gap: $luc-baseline * 6;
 
-		@media (min-width: 48rem) {
+		@media (min-width: 64rem) {
 			max-width: 56.25rem;
-		}
-
-		h2 {
-			font-family: $luc-font-family-condensed-black;
-			color: $luc-maroon;
-			font-size: clamp(2rem, 4vw, 3rem);
-			line-height: 1.1;
-			margin: 0;
-		}
-
-		p {
-			font-family: $luc-font-family;
-			font-size: $luc-baseline * 4;
-			line-height: 1.6;
-			color: $luc-black;
-			margin: 0;
 		}
 	}
 
@@ -52,7 +36,7 @@
 		flex-shrink: 0;
 		width: auto;
 
-		@media (min-width: 48rem) {
+		@media (min-width: 64rem) {
 			max-width: 30%;
 		}
 	}
@@ -67,15 +51,15 @@
 			margin-bottom: 0;
 		}
 
-		@media (min-width: 48rem) {
+		@media (min-width: 64rem) {
 			grid-template-columns: 1fr 1fr;
 			gap: $luc-baseline * 26;
-			align-items: start;
+			align-items: center;
 			margin-bottom: $luc-baseline * 4;
 		}
 
 		&--reversed {
-			@media (min-width: 48rem) {
+			@media (min-width: 64rem) {
 				direction: rtl;
 
 				> * {
@@ -88,36 +72,15 @@
 	&__text {
 		display: flex;
 		flex-direction: column;
-		// gap: $luc-baseline * 6;
-		padding-top: $luc-space-l;
-
-		h3 {
-			// font-family: $luc-font-family-condensed-black;
-			// color: $luc-maroon;
-			// font-size: clamp(1.5rem, 3vw, 2.25rem);
-			// line-height: 1.15;
-			margin: 0;
-		}
-
-		p {
-			font-family: $luc-font-family;
-			font-size: $luc-baseline * 4;
-			line-height: 1.6;
-			color: $luc-black;
-			margin-top: 1rem;
-		}
+		gap: 1rem;
 
 		.buttons {
-			margin-top: 2rem;
+			margin-top: 1rem;
 		}
 	}
 
 	&__eyebrow {
-		font-family: $luc-font-family-bold;
-		font-size: $luc-baseline * 3.5;
-		font-weight: 700;
-		line-height: 150%;
-		letter-spacing: 0.00438rem;
+		@extend .text-detail;
 		color: $luc-black;
 	}
 
@@ -139,7 +102,7 @@
 		flex-direction: column;
 		gap: $luc-baseline * 4;
 
-		@media (min-width: 48rem) {
+		@media (min-width: 64rem) {
 			position: relative;
 			margin-top: -($luc-baseline * 24);
 			width: 90%;
@@ -148,7 +111,7 @@
 
 		// Reversed blocks: card aligns left
 		.stats__block--reversed & {
-			@media (min-width: 48rem) {
+			@media (min-width: 64rem) {
 				margin-left: auto;
 				margin-right: -1.5rem;
 			}
@@ -156,19 +119,17 @@
 	}
 
 	&__card-eyebrow {
-		font-family: $luc-font-family-bold;
-		font-size: $luc-baseline * 3.5;
-		line-height: 150%;
-		letter-spacing: 0.00438rem;
+		@extend .text-detail;
 		color: $luc-white;
 	}
 
 	&__card-number {
 		display: inline-flex;
+		flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
 		font-family: $luc-font-family-condensed-black;
-		font-size: clamp(3rem, 6vw, 4.5rem);
+		font-size: clamp(3rem, 6vw, 4rem);
 		line-height: 1;
 		color: $luc-gold;
 
