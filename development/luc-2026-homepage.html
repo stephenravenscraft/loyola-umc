@@ -164,8 +164,64 @@
             */
             const burstRevealAt = 0.38;
             const textRevealAt = 0.55;
-            let burstActive = false;
-            let textRevealed = false;
+
+            /* ---- Idempotent show/hide helpers ---- */
+            function showBurst() {
+                if (sunburstContainer._burstShowing) return;
+                sunburstContainer._burstShowing = true;
+                gsap.to(svgObject, { opacity: 0.4, duration: 0.3, overwrite: "auto" });
+                if (flareEl) {
+                    gsap.fromTo(flareEl,
+                        { opacity: 0 },
+                        { opacity: 0.8, duration: 0.95, ease: "power2.out", overwrite: "auto" }
+                    );
+                }
+                if (sunburstContainer._playBurst) sunburstContainer._playBurst();
+            }
+
+            function hideBurst() {
+                if (!sunburstContainer._burstShowing) return;
+                sunburstContainer._burstShowing = false;
+                if (sunburstContainer._burstTl) {
+                    sunburstContainer._burstTl.kill();
+                    sunburstContainer._burstTl = null;
+                }
+                gsap.to(svgObject, { opacity: 0, duration: 0.3, overwrite: "auto" });
+                if (flareEl) gsap.to(flareEl, { opacity: 0, duration: 0.3, ease: "power2.in", overwrite: "auto" });
+                if (sunburstContainer._resetBurst) sunburstContainer._resetBurst();
+            }
+
+            function showBurstInstant() {
+                sunburstContainer._burstShowing = true;
+                gsap.set(svgObject, { opacity: 0.4 });
+                if (flareEl) gsap.set(flareEl, { opacity: 0.8 });
+                /* Set all ray paths to final visible state if burst is initialized */
+                if (sunburstContainer._setBurstEndState) sunburstContainer._setBurstEndState();
+            }
+
+            function showText() {
+                if (sunburstContainer._textShowing) return;
+                sunburstContainer._textShowing = true;
+                playHybridText();
+            }
+
+            function hideText() {
+                if (!sunburstContainer._textShowing) return;
+                sunburstContainer._textShowing = false;
+                resetHybridText();
+            }
+
+            function showTextInstant() {
+                sunburstContainer._textShowing = true;
+                if (!sunburstTextEl) return;
+                if (sunburstContainer._textRevealTl) {
+                    sunburstContainer._textRevealTl.kill();
+                    sunburstContainer._textRevealTl = null;
+                }
+                gsap.set(sunburstTextEl, { opacity: 1, y: 0 });
+                if (whiteWordSpans.length) gsap.set(whiteWordSpans, { opacity: 1, y: 0 });
+                if (goldSegment) gsap.set(goldSegment, { opacity: 1, y: 0 });
+            }
 
             function initBurstRays() {
                 if (sunburstContainer._burstInit) return;
@@ -244,8 +300,19 @@
                     setBurstStartState();
                     sunburstContainer._playBurst = playRandomBurst;
                     sunburstContainer._resetBurst = resetBurst;
+                    sunburstContainer._setBurstEndState = function() {
+                        gsap.set(rayPaths, {
+                            opacity: 1,
+                            scale: 1,
+                            rotation: 0,
+                            svgOrigin: `${originX} ${originY}`
+                        });
+                    };
 
-                    if (burstActive) playRandomBurst();
+                    /* If burst should already be showing (mid-page load), set end state */
+                    if (sunburstContainer._burstShowing) {
+                        sunburstContainer._setBurstEndState();
+                    }
                 } catch (error) {
                     console.error('Burst setup error:', error);
                 }
@@ -263,43 +330,21 @@
                     trigger: heroSection || "body",
                     start: "top top",
                     end: "+=100%",
-                    scrub: 1,
+                    scrub: 0.3,
+                    invalidateOnRefresh: true,
                     onUpdate: (self) => {
-                        const shouldShowBurst = self.progress >= burstRevealAt;
-                        if (shouldShowBurst !== burstActive) {
-                            burstActive = shouldShowBurst;
-                            gsap.set(svgObject, { opacity: burstActive ? 0.4 : 0 });
-                            if (flareEl) {
-                                if (burstActive) {
-                                    gsap.fromTo(flareEl,
-                                        { opacity: 0 },
-                                        { opacity: 0.8, duration: 0.95, ease: "power2.out", overwrite: "auto" }
-                                    );
-                                } else {
-                                    gsap.to(flareEl, { opacity: 0, duration: 0.2, ease: "power2.in", overwrite: "auto" });
-                                }
-                            }
-                            if (burstActive) {
-                                if (sunburstContainer._playBurst) sunburstContainer._playBurst();
-                            } else {
-                                if (sunburstContainer._resetBurst) sunburstContainer._resetBurst();
-                            }
-                        }
+                        if (self.progress >= burstRevealAt) showBurst();
+                        else hideBurst();
 
-                        if (self.progress >= textRevealAt && !textRevealed) {
-                            textRevealed = true;
-                            if (sunburstTextEl) {
-                                playHybridText();
-                            }
-                        }
+                        if (self.progress >= textRevealAt) showText();
+                        else hideText();
+                    },
+                    onRefresh: (self) => {
+                        if (self.progress >= burstRevealAt) showBurstInstant();
+                        else hideBurst();
 
-                        if (self.progress < textRevealAt && textRevealed) {
-                            textRevealed = false;
-                            if (sunburstTextEl) {
-                                resetHybridText();
-                            }
-                        }
-
+                        if (self.progress >= textRevealAt) showTextInstant();
+                        else hideText();
                     }
                 }
             });
