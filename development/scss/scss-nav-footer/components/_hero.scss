@@ -1,0 +1,351 @@
+/* =============================================================================
+   LUC Hero Component - Video Hero Variant
+   ============================================================================= */
+/* Scroll runway: hero sticks for 100vh of scroll, then releases */
+.hero-scroll-runway {
+    position: sticky;
+    top: 0;
+    height: 200vh; /* 100vh hero + 4.75rem sticky hero height */
+
+    @media (min-width: 64rem) {
+      top: 4.75rem;
+      height: calc(200vh + 4.75rem); /* 100vh hero + 4.75rem sticky hero height */
+    }
+}
+
+/* Sections after the hero scroll OVER the sticky hero */
+.hero-scroll-runway ~ * {
+    position: relative;
+    z-index: 2;
+}
+
+.luc-hero--video-hero {
+  --heading: #{$luc-white};
+  --link: #{$luc-white};
+  --link-underline-color: #{$luc-white};
+  background: $luc-maroon;
+  color: $luc-white;
+  position: sticky;
+  top: 4.5rem;
+  z-index: 1;
+  height: 100vh;
+  overflow: hidden;
+  display: block;
+
+  @media (min-width: 64rem) {
+    top: 6rem;
+    height: calc(100vh + 4.75rem);
+  }
+}
+
+.luc-hero__video-hero-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $luc-space-m;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  background: rgba(90, 7, 34, 0.85);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(90, 7, 34, 0.00) 79.42%, #5A0722 100%), linear-gradient(215deg, rgba(141, 0, 52, 0.00) 55.79%, rgba(90, 7, 34, 0.70) 78.52%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  @media (min-width: 64rem) {
+    position: relative;
+    justify-content: center;
+
+    // min-height: clamp(30rem, 50vw, 40rem);
+    z-index: 2;
+  }
+}
+
+.luc-hero__video-hero-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  @media (min-width: 64rem) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+.luc-hero__video-hero-player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  z-index: 0;
+
+  @media (min-width: 64rem) {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+.luc-hero__control-info-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  border-radius: 0 0 0 1rem;
+  background: rgba(255, 255, 255, 0.70);
+  display: flex;
+  align-items: center;
+  gap: $luc-space-2xs;
+  padding: 0.5rem 1rem;
+  width: auto;
+  height: auto;
+}
+
+.luc-hero__control-info {
+  color: $luc-maroon;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 150%;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  outline-color: $luc-maroon;
+}
+
+.luc-hero__control.luc-hero__control--video-hero {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-color: $luc-maroon;
+
+
+  .luc-hero__control-label {
+    color: $luc-maroon;
+    font-family: $luc-font-family-condensed-bold;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 150%;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .luc-hero__control-icon {
+    display: grid;
+    place-content: center;
+    position: relative;
+    inset: unset;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    background: $luc-maroon;
+    border-radius: 0.625rem;
+    transition: transform $luc-transition-normal;
+    overflow: visible;
+  }
+
+  .luc-hero__control-icon::before {
+    content: '';
+    width: 1.25rem;
+    height: 1.25rem;
+    aspect-ratio: 1/1;
+    background: $luc-gold;
+    /* Pause icon mask */
+    mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cmask%20id%3D%22a%22%20width%3D%2220%22%20height%3D%2220%22%20x%3D%220%22%20y%3D%220%22%20maskUnits%3D%22userSpaceOnUse%22%20style%3D%22mask-type%3Aalpha%22%3E%3Cpath%20fill%3D%22%23d9d9d9%22%20d%3D%22M0%200h20v20H0z%22%2F%3E%3C%2Fmask%3E%3Cg%20mask%3D%22url(%23a)%22%3E%3Cpath%20fill%3D%22%23eaaa00%22%20d%3D%22M11.75%2014.833V5.167h3.292v9.666zm-6.792%200V5.167H8.25v9.666z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+  }
+
+
+
+  &:hover {
+    .luc-hero__control-icon {
+      transform: scale(1.08);
+    }
+  }
+}
+
+.luc-hero__control--paused {
+  .luc-hero__control-icon::before {
+    /* Play icon mask - with rounded corners */
+    mask-image: url("data:image/svg+xml,%3Csvg%20width%3D%2211%22%20height%3D%2214%22%20viewBox%3D%220%200%2011%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M0%2013.5417V0L10.5208%206.77083L0%2013.5417Z%22%20fill%3D%22%23EAAA00%22%2F%3E%3C%2Fsvg%3E") !important;
+  }
+}
+
+.luc-hero__video-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: $luc-space-s;
+  padding: $luc-space-s;
+
+  @media (min-width: 64rem) {
+    position: absolute;
+    // top: calc(#{$luc-space-2xl} + 4.75rem);
+    left: $luc-space-m;
+    max-width: 90ch;
+    gap: $luc-space-s;
+    padding: $luc-space-s;
+  }
+
+  .luc-hero__heading {
+    @extend .h1;
+    text-shadow: 0 8px 8px rgba(43, 3, 16, 0.40);
+    margin: 0;
+    color: $luc-white;
+  }
+
+  .luc-hero__description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $luc-white;
+
+    @media (min-width: 64rem) {
+      font-size: 1.125rem;
+    }
+  }
+
+  .luc-hero__buttons {
+    margin-top: $luc-space-2xs;
+    display: flex;
+    gap: $luc-space-s;
+    flex-wrap: wrap;
+
+    .button {
+      outline-color: $luc-white;
+    }
+  }
+}
+
+/* Animation support */
+[data-animate="true"] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-animate]:not([data-animate="true"]) {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+/* ============================================================
+   Sunburst — lives inside the sticky video hero
+   ============================================================ */
+
+.luc-hero .sunburst-container {
+  display: grid;
+  place-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  z-index: 9;
+  pointer-events: none; /* decorative overlay — don't block clicks */
+}
+
+.luc-hero .sunburst-circle {
+  display: grid;
+  place-content: center;
+  position: fixed;
+  inset: 0;
+  background: $luc-maroon;
+  z-index: 1;
+  clip-path: circle(8vh at 50% 100%);
+  -webkit-clip-path: circle(8vh at 50% 100%);
+}
+
+.luc-hero .sunburst-container .sunburst-wrapper {
+  position: fixed;
+  left: -2%;
+  top: 3%;
+  width: clamp(570px, 75vw, 1520px);
+  height: auto;
+  margin: 0 auto;
+  z-index: 2;
+  opacity: 0.5;
+  transform: translate(-50%, calc(-50% + 8vh));
+}
+
+.luc-hero .sunburst-container .sunburst-svg-object {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.luc-hero .sunburst-container .sunburst-wrapper .sunburst-flare {
+  position: absolute;
+  left: 22%;
+  top: 28%;
+  width: 50%;
+  height: auto;
+  pointer-events: none;
+  mix-blend-mode: lighten;
+  opacity: 0;
+  z-index: 3;
+}
+
+.luc-hero .sunburst-text {
+  position: relative;
+  z-index: 4;
+  margin-left: 20%;
+  padding: 0;
+  max-width: 75%;
+
+  .h1 {
+    font-family: $luc-font-family-condensed-bold;
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 5%;
+    max-width: 90%;
+    padding: $luc-space-m 5% 0 0;
+  }
+
+  @media (max-width: 480px) {
+    margin-left: 5%;
+    max-width: 90%;
+    padding: $luc-space-m 5% 0 0;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.sunburst-text--gold {
+  color: $luc-gold;
+}
+
+.sunburst-text--white {
+  color: $luc-white;
+}

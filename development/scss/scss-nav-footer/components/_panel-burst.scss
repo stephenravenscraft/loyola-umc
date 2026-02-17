@@ -8,8 +8,8 @@
 .panel-burst {
 	position: absolute;
 	top: 0;
-	left: 0;
-	right: 0;
+	left: $luc-wrap;
+	right: $luc-wrap;
 	width: 100%;
 	height: 100%; // Show a strip at top of section
 	overflow: hidden;
@@ -23,7 +23,7 @@
     left: 0;
     right: 0;
     width: 100vw;
-    height: 550px;
+    height: 350px;
     transform: rotate(90deg) translate(0, -10%);
     transform-origin: center;
     display: block;

@@ -61,7 +61,7 @@ svg {
   fill: currentColor;
 }
 
-video:not(.hero__video),
+video:not(.hero__video, .luc-hero__video-hero-player),
 [src*="player.vimeo.com"],
 [src*="wistia.net/embed"],
 [src*="youtube.com/embed"] {

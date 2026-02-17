@@ -332,3 +332,677 @@
   });
 
 })();
+
+// ==========================================================================
+// ANIMATION OBSERVER
+// Converted from animate.ts - handles data-animate scroll animations
+// ==========================================================================
+
+(function() {
+  'use strict';
+
+  const targets = document.querySelectorAll('[data-animate]');
+
+  const observer = new IntersectionObserver(function(entries) {
+    let delay = 0;
+    for (const entry of entries) {
+      const isIntersecting = entry.isIntersecting;
+      const target = entry.target;
+      if (target.getAttribute('data-animate') !== 'true' && isIntersecting) {
+        setTimeout(function() {
+          target.setAttribute('data-animate', 'true');
+        }, delay);
+        delay += 300;
+      }
+    }
+  });
+
+  for (const target of targets) {
+    observer.observe(target);
+  }
+})();
+
+// ==========================================================================
+// VIDEO CONTROL TAB ORDER & GLOBAL UTILITIES
+// Converted from global.ts - handles video control tab order and Safari fixes
+// ==========================================================================
+
+(function() {
+  'use strict';
+
+  function setupVideoControlTabOrder() {
+    const videoControl = document.querySelector('[data-early-focus="video-control"]');
+    const logo = document.querySelector('.luc-header__logo');
+
+    if (!videoControl || !logo) return;
+
+    const isVisible = function(el) {
+      if (!el) return false;
+      let current = el;
+      while (current) {
+        const style = getComputedStyle(current);
+        if (style.display === 'none' || style.visibility === 'hidden') return false;
+        current = current.parentElement;
+      }
+      return true;
+    };
+
+    const getNextAfterLogo = function() {
+      const navLink = document.querySelector('.luc-nav__link');
+      const menuToggle = document.querySelector('.luc-mobile-nav__toggle');
+      const desktopActionButton = document.querySelector('.luc-utility-nav .luc-button');
+      const mobileActionButton = document.querySelector('.luc-mobile-nav .luc-button');
+      if (isVisible(navLink)) return navLink;
+      if (isVisible(menuToggle)) return menuToggle;
+      if (isVisible(desktopActionButton)) return desktopActionButton;
+      if (isVisible(mobileActionButton)) return mobileActionButton;
+      return null;
+    };
+
+    videoControl.setAttribute('tabindex', '-1');
+
+    logo.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab' && !e.shiftKey) {
+        e.preventDefault();
+        videoControl.focus();
+      }
+    });
+
+    videoControl.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        if (e.shiftKey) {
+          logo.focus();
+        } else {
+          const next = getNextAfterLogo();
+          if (next) next.focus();
+        }
+      }
+    });
+  }
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupVideoControlTabOrder);
+  } else {
+    setupVideoControlTabOrder();
+  }
+
+  // Force layout recalculation on orientation change (Safari fix)
+  let resizeTimeout;
+  window.addEventListener('orientationchange', function() {
+    // Clear any pending timeout
+    clearTimeout(resizeTimeout);
+
+    // Force reflow after orientation change completes
+    resizeTimeout = setTimeout(function() {
+      // Trigger reflow by reading offsetHeight
+      document.body.style.display = 'none';
+      void document.body.offsetHeight;
+      document.body.style.display = '';
+    }, 100);
+  });
+})();
+
+// ==========================================================================
+// VIDEO HERO CONTROLS
+// Converted from Hero.astro script - handles video-hero play/pause controls
+// ==========================================================================
+
+(function() {
+  'use strict';
+
+  const motionQuery = matchMedia('(prefers-reduced-motion)');
+
+  // Handle video-hero control - keep in bottom-right of video
+  const videoHeroControls = document.querySelectorAll('.luc-hero__control--video-hero');
+
+  for (const control of videoHeroControls) {
+    const hero = control.closest('.luc-hero');
+    const video = hero && hero.querySelector('.luc-hero__video-hero-player');
+
+    if (video && hero) {
+      // Video control functionality
+      const srText = document.createElement('span');
+      srText.className = 'luc-screen-reader-text';
+      srText.textContent = 'Pause Video';
+      control.appendChild(srText);
+
+      // Get label element for video-hero control
+      const videoHeroLabelElement = control.querySelector('.luc-hero__control-label');
+
+      if (motionQuery.matches) {
+        video.pause();
+        control.classList.add('luc-hero__control--paused');
+        srText.textContent = 'Play Video';
+        if (videoHeroLabelElement) videoHeroLabelElement.textContent = 'Play';
+      }
+
+      video.addEventListener('pause', function() {
+        control.classList.add('luc-hero__control--paused');
+        srText.textContent = 'Play Video';
+        if (videoHeroLabelElement) videoHeroLabelElement.textContent = 'Play';
+      });
+
+      video.addEventListener('play', function() {
+        control.classList.remove('luc-hero__control--paused');
+        srText.textContent = 'Pause Video';
+        if (videoHeroLabelElement) videoHeroLabelElement.textContent = 'Pause';
+      });
+
+      control.addEventListener('click', function() {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    }
+  }
+
+  // Handle motion preference changes
+  motionQuery.addEventListener('change', function(event) {
+    for (const control of videoHeroControls) {
+      const video = control.closest('.luc-hero') && control.closest('.luc-hero').querySelector('.luc-hero__video-hero-player');
+      if (video) {
+        if (event.matches) {
+          video.pause();
+          control.classList.add('luc-hero__control--paused');
+        }
+      }
+    }
+  });
+})();
+
+// ==========================================================================
+// SUNBURST ANIMATIONS
+// Converted from GSAP script - handles sunburst scaling and ray animations
+// ==========================================================================
+
+(function() {
+  'use strict';
+
+  // Check if GSAP is available
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    console.warn('GSAP or ScrollTrigger not loaded - sunburst animations disabled');
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll('.sunburst-container').forEach(function(sunburstContainer) {
+    const sunburstWrapper = sunburstContainer.querySelector('.sunburst-wrapper');
+    const svgObject = sunburstContainer.querySelector('.sunburst-svg-object');
+    if (!sunburstWrapper || !svgObject) return;
+
+    const flareEl = sunburstContainer.querySelector('.sunburst-flare');
+    // Updated selector to target new luc-hero class
+    const heroSection = sunburstContainer.closest('.luc-hero');
+
+    /* Hide SVG + text until scroll-driven reveals */
+    gsap.set(svgObject, { opacity: 0 });
+    if (flareEl) gsap.set(flareEl, { opacity: 0 });
+
+    const sunburstTextEl = sunburstContainer.querySelector('.sunburst-text');
+    const whiteSegment = sunburstTextEl ? sunburstTextEl.querySelector('.sunburst-text--white') : null;
+    const goldSegment = sunburstTextEl ? sunburstTextEl.querySelector('.sunburst-text--gold') : null;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function buildWordSpans(segment) {
+      if (!segment) return [];
+      const words = (segment.textContent || "").trim().split(/\s+/).filter(Boolean);
+      segment.textContent = "";
+      const spans = [];
+      words.forEach((word, index) => {
+        const span = document.createElement('span');
+        span.className = 'sunburst-word';
+        span.style.display = 'inline-block';
+        span.textContent = word;
+        segment.appendChild(span);
+        spans.push(span);
+        if (index < words.length - 1) segment.appendChild(document.createTextNode(' '));
+      });
+      return spans;
+    }
+
+    const whiteWordSpans = buildWordSpans(whiteSegment);
+
+    function resetHybridText() {
+      if (!sunburstTextEl) return;
+      if (sunburstContainer._textRevealTl) {
+        sunburstContainer._textRevealTl.kill();
+        sunburstContainer._textRevealTl = null;
+      }
+      gsap.set(sunburstTextEl, { opacity: 0, y: 30 });
+      if (whiteWordSpans.length) gsap.set(whiteWordSpans, { opacity: 0, y: 10 });
+      if (goldSegment) gsap.set(goldSegment, { opacity: 0, y: 16 });
+    }
+
+    function playHybridText() {
+      if (!sunburstTextEl) return;
+      if (sunburstContainer._textRevealTl) {
+        sunburstContainer._textRevealTl.kill();
+        sunburstContainer._textRevealTl = null;
+      }
+
+      if (prefersReducedMotion) {
+        gsap.set(sunburstTextEl, { opacity: 1, y: 0 });
+        if (whiteWordSpans.length) gsap.set(whiteWordSpans, { opacity: 1, y: 0 });
+        if (goldSegment) gsap.set(goldSegment, { opacity: 1, y: 0 });
+        return;
+      }
+
+      resetHybridText();
+      sunburstContainer._textRevealTl = gsap.timeline();
+      sunburstContainer._textRevealTl.to(
+        sunburstTextEl,
+        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" },
+        0
+      );
+      if (whiteWordSpans.length) {
+        sunburstContainer._textRevealTl.to(
+          whiteWordSpans,
+          { opacity: 1, y: 0, duration: 2, stagger: 0.06, ease: "power2.out" },
+          0.1
+        );
+      }
+      if (goldSegment) {
+        sunburstContainer._textRevealTl.to(
+          goldSegment,
+          { opacity: 1, y: 0, duration: 2, ease: "power2.out" },
+          0.9
+        );
+      }
+    }
+
+    if (sunburstTextEl) {
+      resetHybridText();
+    }
+
+    const burstRevealAt = 0.38;
+    const textRevealAt = 0.55;
+
+    /* ---- Idempotent show/hide helpers ---- */
+    function showBurst() {
+      if (sunburstContainer._burstShowing) return;
+      sunburstContainer._burstShowing = true;
+      gsap.to(svgObject, { opacity: 0.4, duration: 0.3, overwrite: "auto" });
+      if (flareEl) {
+        gsap.fromTo(flareEl,
+          { opacity: 0 },
+          { opacity: 0.8, duration: 0.95, ease: "power2.out", overwrite: "auto" }
+        );
+      }
+      if (sunburstContainer._playBurst) sunburstContainer._playBurst();
+    }
+
+    function hideBurst() {
+      if (!sunburstContainer._burstShowing) return;
+      sunburstContainer._burstShowing = false;
+      if (sunburstContainer._burstTl) {
+        sunburstContainer._burstTl.kill();
+        sunburstContainer._burstTl = null;
+      }
+      gsap.to(svgObject, { opacity: 0, duration: 0.3, overwrite: "auto" });
+      if (flareEl) gsap.to(flareEl, { opacity: 0, duration: 0.3, ease: "power2.in", overwrite: "auto" });
+      if (sunburstContainer._resetBurst) sunburstContainer._resetBurst();
+    }
+
+    function showBurstInstant() {
+      sunburstContainer._burstShowing = true;
+      gsap.set(svgObject, { opacity: 0.4 });
+      if (flareEl) gsap.set(flareEl, { opacity: 0.8 });
+      if (sunburstContainer._setBurstEndState) sunburstContainer._setBurstEndState();
+    }
+
+    function showText() {
+      if (sunburstContainer._textShowing) return;
+      sunburstContainer._textShowing = true;
+      playHybridText();
+    }
+
+    function hideText() {
+      if (!sunburstContainer._textShowing) return;
+      sunburstContainer._textShowing = false;
+      resetHybridText();
+    }
+
+    function showTextInstant() {
+      sunburstContainer._textShowing = true;
+      if (!sunburstTextEl) return;
+      if (sunburstContainer._textRevealTl) {
+        sunburstContainer._textRevealTl.kill();
+        sunburstContainer._textRevealTl = null;
+      }
+      gsap.set(sunburstTextEl, { opacity: 1, y: 0 });
+      if (whiteWordSpans.length) gsap.set(whiteWordSpans, { opacity: 1, y: 0 });
+      if (goldSegment) gsap.set(goldSegment, { opacity: 1, y: 0 });
+    }
+
+    function initBurstRays() {
+      if (sunburstContainer._burstInit) return;
+      sunburstContainer._burstInit = true;
+
+      try {
+        const isObjectEmbed = svgObject.tagName.toLowerCase() === 'object';
+        const svgDoc = isObjectEmbed ? svgObject.contentDocument : svgObject;
+        if (!svgDoc) return;
+
+        const rayPaths = Array.from(svgDoc.querySelectorAll('path[fill="#eaa000"], path[fill="#EAA000"]'));
+        if (!rayPaths.length) return;
+
+        const svgRoot = isObjectEmbed ? svgDoc.querySelector('svg') : svgObject;
+        const viewBox = svgRoot && svgRoot.viewBox ? svgRoot.viewBox.baseVal : null;
+        const originX = viewBox ? (viewBox.x + (viewBox.width / 2)) : 1956;
+        const originY = viewBox ? (viewBox.y + (viewBox.height / 2)) : 1702;
+
+        function setBurstStartState() {
+          gsap.set(rayPaths, {
+            opacity: 0,
+            scale: 0,
+            rotation: 0,
+            svgOrigin: originX + ' ' + originY
+          });
+        }
+
+        function playRandomBurst() {
+          if (sunburstContainer._burstTl) {
+            sunburstContainer._burstTl.kill();
+            sunburstContainer._burstTl = null;
+          }
+
+          if (prefersReducedMotion) {
+            gsap.set(rayPaths, { opacity: 1, scale: 1, rotation: 0, svgOrigin: originX + ' ' + originY });
+            return;
+          }
+
+          setBurstStartState();
+          const randomOrder = gsap.utils.shuffle(rayPaths.slice());
+          const maxStartDelay = 0.7;
+
+          sunburstContainer._burstTl = gsap.timeline();
+          randomOrder.forEach((path) => {
+            const startAt = gsap.utils.random(0, maxStartDelay);
+            const growDuration = gsap.utils.random(0.65, 1.15);
+            const startRotation = gsap.utils.random(-24, 24);
+
+            sunburstContainer._burstTl.fromTo(path,
+              {
+                opacity: 0,
+                scale: 0.01,
+                rotation: startRotation,
+                svgOrigin: originX + ' ' + originY
+              },
+              {
+                opacity: 1,
+                scale: 1,
+                rotation: 0,
+                duration: growDuration,
+                ease: "power3.out"
+              },
+              startAt
+            );
+          });
+        }
+
+        function resetBurst() {
+          if (sunburstContainer._burstTl) {
+            sunburstContainer._burstTl.kill();
+            sunburstContainer._burstTl = null;
+          }
+          setBurstStartState();
+        }
+
+        setBurstStartState();
+        sunburstContainer._playBurst = playRandomBurst;
+        sunburstContainer._resetBurst = resetBurst;
+        sunburstContainer._setBurstEndState = function() {
+          gsap.set(rayPaths, {
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            svgOrigin: originX + ' ' + originY
+          });
+        };
+
+        if (sunburstContainer._burstShowing) {
+          sunburstContainer._setBurstEndState();
+        }
+      } catch (error) {
+        console.error('Burst setup error:', error);
+      }
+    }
+
+    if (svgObject.tagName.toLowerCase() === 'object') {
+      svgObject.addEventListener('load', initBurstRays);
+      if (svgObject.contentDocument) initBurstRays();
+    } else {
+      initBurstRays();
+    }
+
+    const scaleTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: heroSection || "body",
+        start: "top top",
+        end: "+=100%",
+        scrub: 0.3,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          if (self.progress >= burstRevealAt) showBurst();
+          else hideBurst();
+
+          if (self.progress >= textRevealAt) showText();
+          else hideText();
+        },
+        onRefresh: (self) => {
+          if (self.progress >= burstRevealAt) showBurstInstant();
+          else hideBurst();
+
+          if (self.progress >= textRevealAt) showTextInstant();
+          else hideText();
+        }
+      }
+    });
+
+    scaleTl.fromTo(sunburstContainer.querySelector('.sunburst-circle'),
+      { clipPath: "circle(8vh at 50% 100%)", webkitClipPath: "circle(8vh at 50% 100%)" },
+      { clipPath: "circle(150vh at 50% 100%)", webkitClipPath: "circle(150vh at 50% 100%)", duration: 1.2, ease: "power4.inOut" },
+      0
+    );
+
+    scaleTl.fromTo(sunburstWrapper,
+      { y: "0%" },
+      { y: "-40%", duration: 1.2, ease: "none" },
+      0
+    );
+
+    if (flareEl) {
+      scaleTl.fromTo(flareEl,
+        { x: 0, y: 0, scale: 1 },
+        { x: 220, y: 170, scale: 3, duration: 1.2, ease: "none" },
+        0
+      );
+    }
+  });
+
+  // Panel Burst animations for reusable sunburst sections
+  document.querySelectorAll('.panel-burst').forEach(function(panelBurst) {
+    const svgObject = panelBurst.querySelector('.panel-burst__svg');
+    if (!svgObject) return;
+
+    svgObject.addEventListener('load', function() {
+      try {
+        const svgDoc = svgObject.contentDocument;
+        if (!svgDoc) {
+          console.error('Cannot access SVG content - CORS issue. Please use a local server.');
+          return;
+        }
+
+        const rectsToHide = [
+          svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]'),
+          svgDoc.querySelector('rect[fill="#5A0722"]'),
+          svgDoc.querySelector('rect[fill="white"]'),
+          svgDoc.querySelector('rect[fill="url(#paint131_linear_2321_21298)"]')
+        ];
+        rectsToHide.forEach(function(rect) {
+          if (rect) {
+            rect.setAttribute('fill', 'none');
+            rect.setAttribute('fill-opacity', '0');
+          }
+        });
+
+        const patternRect = svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]');
+        const backgroundGroup = svgDoc.querySelector('g[opacity="0.8"]');
+        const sunburstGroup = svgDoc.querySelector('g[style*="mix-blend-mode"]');
+
+        if (sunburstGroup) {
+          const sunburstPaths = Array.from(sunburstGroup.querySelectorAll('path[fill^="url(#paint"][fill*="_linear"]'));
+          const filteredGroups = svgDoc.querySelectorAll('g[filter]');
+          const backgroundPaths = [];
+          filteredGroups.forEach((group) => {
+            const pathsInGroup = group.querySelectorAll('path');
+            backgroundPaths.push(...Array.from(pathsInGroup));
+          });
+
+          const allPaths = [...sunburstPaths, ...backgroundPaths];
+
+          if (allPaths.length === 0) {
+            console.error('No sunburst paths found!');
+            return;
+          }
+
+          const originX = -23.0173;
+          const originY = 211.025;
+
+          if (patternRect) {
+            const rectBBox = patternRect.getBBox();
+            const rectCenterX = rectBBox.x + rectBBox.width / 2;
+            const rectCenterY = rectBBox.y + rectBBox.height / 2;
+
+            const deltaX = rectCenterX - originX;
+            const deltaY = rectCenterY - originY;
+            const angle = Math.atan2(deltaY, deltaX);
+            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+            const pullBackRatio = 0.9;
+            const translateX = -Math.cos(angle) * distance * pullBackRatio;
+            const translateY = -Math.sin(angle) * distance * pullBackRatio;
+
+            gsap.set(patternRect, {
+              opacity: 0,
+              scale: 0,
+              x: translateX,
+              y: translateY,
+              transformOrigin: originX + 'px ' + originY + 'px'
+            });
+          }
+
+          if (backgroundGroup) {
+            gsap.set(backgroundGroup, { opacity: 0 });
+          }
+
+          allPaths.forEach((path) => {
+            const bbox = path.getBBox();
+            const midX = bbox.x + bbox.width / 2;
+            const midY = bbox.y + bbox.height / 2;
+
+            const deltaX = midX - originX;
+            const deltaY = midY - originY;
+            const angle = Math.atan2(deltaY, deltaX);
+            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+            const pullBackRatio = 0.9;
+            const translateX = -Math.cos(angle) * distance * pullBackRatio;
+            const translateY = -Math.sin(angle) * distance * pullBackRatio;
+
+            gsap.set(path, {
+              opacity: 0,
+              scale: 0,
+              x: translateX,
+              y: translateY,
+              transformOrigin: originX + 'px ' + originY + 'px'
+            });
+          });
+
+          gsap.set(sunburstGroup, {
+            rotation: 0,
+            transformOrigin: originX + 'px ' + originY + 'px'
+          });
+
+          if (backgroundGroup) {
+            backgroundGroup.setAttribute('transform', 'rotate(0, ' + originX + ', ' + originY + ')');
+          }
+
+          ScrollTrigger.create({
+            trigger: panelBurst,
+            start: "top 50%",
+            end: "bottom top",
+            onUpdate: (self) => {
+              const progress = self.progress;
+              const rotation = (progress - 0.5) * 30;
+
+              sunburstGroup.setAttribute('transform', 'rotate(' + rotation + ', ' + originX + ', ' + originY + ')');
+
+              if (backgroundGroup) {
+                const bgRotation = -rotation * 0.75;
+                backgroundGroup.setAttribute('transform', 'rotate(' + bgRotation + ', ' + originX + ', ' + originY + ')');
+              }
+            }
+          });
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: panelBurst,
+              start: "top 50%",
+              scrub: false,
+              once: true,
+              onEnter: () => {
+                console.log('Panel burst animation triggered!');
+              }
+            }
+          });
+
+          if (patternRect) {
+            tl.to(patternRect, {
+              opacity: 1,
+              duration: 3.0,
+              ease: "power1.out"
+            }, 0);
+
+            tl.to(patternRect, {
+              scale: 1,
+              x: 0,
+              y: 0,
+              duration: 2.5,
+              ease: "power2.out"
+            }, 0);
+          }
+
+          if (backgroundGroup) {
+            tl.to(backgroundGroup, {
+              opacity: 1,
+              duration: 0.5,
+              ease: "power2.out"
+            }, 0);
+          }
+
+          allPaths.forEach((path) => {
+            tl.to(path, {
+              opacity: 1,
+              scale: 1,
+              x: 0,
+              y: 0,
+              duration: 1.5,
+              ease: "power3.out"
+            }, 0);
+          });
+
+        } else {
+          console.error('Could not find sunburst group in panel burst');
+        }
+      } catch (error) {
+        console.error('Panel burst error:', error);
+      }
+    });
+  });
+})();

@@ -39,7 +39,8 @@
      ============================================ -->
 <main id="main-content"class="shell-placeholder">
     <div class="hero-scroll-runway">
-        @@include('./partials/nav-footer/panel-video-hero.html')
+        <!-- @@include('./partials/nav-footer/panel-video-hero.html') -->
+        @@include('./partials/nav-footer/luc-hero.html')
     </div>
     @@include('./partials/nav-footer/routing-panel.html')
     @@include('./partials/nav-footer/stats.html')
@@ -369,134 +370,6 @@
                     0
                 );
             }
-
-            /* ---- SVG internal animation setup (on load) ---- */
-            // svgObject.addEventListener('load', function() {
-            //     if (sunburstContainer._gsapInit) return;
-            //     sunburstContainer._gsapInit = true;
-
-            //     try {
-            //         const svgDoc = svgObject.contentDocument;
-            //         if (!svgDoc) {
-            //             console.error('Cannot access SVG content - CORS issue.');
-            //             return;
-            //         }
-
-            //         /* Second sunburst only: strip fill from rects */
-            //         if (sunburstContainer.getAttribute('data-sunburst') === '2') {
-            //             const rectsToHide = [
-            //                 svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]'),
-            //                 svgDoc.querySelector('rect[fill="#5A0722"]'),
-            //                 svgDoc.querySelector('rect[fill="white"]'),
-            //                 svgDoc.querySelector('rect[fill="url(#paint131_linear_2321_21298)"]')
-            //             ];
-            //             rectsToHide.forEach(function(rect) {
-            //                 if (rect) {
-            //                     rect.setAttribute('fill', 'none');
-            //                     rect.setAttribute('fill-opacity', '0');
-            //                 }
-            //             });
-            //         }
-
-            //         const patternRect = svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]');
-            //         const backgroundGroup = svgDoc.querySelector('g[opacity="0.8"]');
-            //         const sunburstGroup = svgDoc.querySelector('g[style*="mix-blend-mode"]');
-
-            //         if (sunburstGroup) {
-            //             const sunburstPaths = Array.from(sunburstGroup.querySelectorAll('path[fill^="url(#paint"][fill*="_linear"]'));
-            //             const filteredGroups = svgDoc.querySelectorAll('g[filter]');
-            //             const backgroundPaths = [];
-            //             filteredGroups.forEach((group) => {
-            //                 backgroundPaths.push(...Array.from(group.querySelectorAll('path')));
-            //             });
-
-            //             const allPaths = [...sunburstPaths, ...backgroundPaths];
-            //             console.log(`Found ${sunburstPaths.length} main + ${backgroundPaths.length} bg burst paths`);
-            //             if (allPaths.length === 0) { console.error('No sunburst paths found!'); return; }
-
-            //             const originX = -23.0173;
-            //             const originY = 211.025;
-
-            //             /* Pattern rect initial state */
-            //             if (patternRect) {
-            //                 const rectBBox = patternRect.getBBox();
-            //                 const dx = (rectBBox.x + rectBBox.width / 2) - originX;
-            //                 const dy = (rectBBox.y + rectBBox.height / 2) - originY;
-            //                 const angle = Math.atan2(dy, dx);
-            //                 const dist = Math.sqrt(dx * dx + dy * dy) * 0.9;
-            //                 gsap.set(patternRect, {
-            //                     opacity: 0, scale: 0,
-            //                     x: -Math.cos(angle) * dist,
-            //                     y: -Math.sin(angle) * dist,
-            //                     transformOrigin: `${originX}px ${originY}px`
-            //                 });
-            //             }
-
-            //             if (backgroundGroup) gsap.set(backgroundGroup, { opacity: 0 });
-
-            //             /* Rays initial state */
-            //             allPaths.forEach((path) => {
-            //                 const bbox = path.getBBox();
-            //                 const dx = (bbox.x + bbox.width / 2) - originX;
-            //                 const dy = (bbox.y + bbox.height / 2) - originY;
-            //                 const angle = Math.atan2(dy, dx);
-            //                 const dist = Math.sqrt(dx * dx + dy * dy) * 0.9;
-            //                 gsap.set(path, {
-            //                     opacity: 0, scale: 0,
-            //                     x: -Math.cos(angle) * dist,
-            //                     y: -Math.sin(angle) * dist,
-            //                     transformOrigin: `${originX}px ${originY}px`
-            //                 });
-            //             });
-
-            //             gsap.set(sunburstGroup, { rotation: 0, transformOrigin: `${originX}px ${originY}px` });
-            //             if (backgroundGroup) backgroundGroup.setAttribute('transform', `rotate(0, ${originX}, ${originY})`);
-
-            //             /* Scroll rotation (parallax) — uses body trigger to work with sticky hero */
-            //             ScrollTrigger.create({
-            //                 trigger: "body",
-            //                 start: 0,
-            //                 end: "+=100%",
-            //                 onUpdate: (self) => {
-            //                     const rotation = (self.progress - 0.5) * 60;
-            //                     sunburstGroup.setAttribute('transform', `rotate(${rotation}, ${originX}, ${originY})`);
-            //                     if (backgroundGroup) {
-            //                         backgroundGroup.setAttribute('transform', `rotate(${-rotation * 1.25}, ${originX}, ${originY})`);
-            //                     }
-            //                     if (patternRect) {
-            //                         gsap.set(patternRect, { scale: 1 + self.progress * 0.6, transformOrigin: '0% 50%' });
-            //                     }
-            //                 }
-            //             });
-
-            //             /* Burst timeline (paused — triggered at 96% of scale) */
-            //             const tl = gsap.timeline({ paused: true });
-            //             if (patternRect) {
-            //                 tl.to(patternRect, { opacity: 1, duration: 3.0, ease: "power1.out" }, 0);
-            //                 tl.to(patternRect, { scale: 1, x: 0, y: 0, duration: 2.5, ease: "power2.out" }, 0);
-            //             }
-            //             if (backgroundGroup) {
-            //                 tl.to(backgroundGroup, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0);
-            //             }
-            //             allPaths.forEach((path) => {
-            //                 tl.to(path, { opacity: 1, scale: 1, x: 0, y: 0, duration: 1.5, ease: "power3.out" }, 0);
-            //             });
-            //             sunburstContainer._burstTl = tl;
-
-            //             /* Text timeline (paused — triggered 0.6s after burst) */
-            //             const textTl = gsap.timeline({ paused: true });
-            //             if (sunburstTextEl) {
-            //                 textTl.to(sunburstTextEl, { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" });
-            //             }
-            //             sunburstContainer._textTl = textTl;
-
-            //         } else {
-            //             console.error('Could not find sunburst group');
-            //         }
-            //     } catch (error) {
-            //         console.error('Error:', error);
-            //     }
-            // });
         });
 
         /*
