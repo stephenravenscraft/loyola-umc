@@ -93,7 +93,7 @@
 .luc-hero__video-hero-player {
   display: block;
   width: 100%;
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center;
   position: relative;
@@ -144,7 +144,6 @@
     position: absolute;
     top: 100%;
     margin-top: 0.5rem;
-    left: 0;
     right: 0;
     padding: 0.75rem 1rem;
     background: rgba(255, 255, 255, 0.70);
@@ -154,14 +153,18 @@
     line-height: 150%;
     outline-color: $luc-maroon;
     z-index: 20;
-    max-width: 16rem;
+
 
     // Override screen reader text clipping when visible
-    width: auto;
+    width: 100vw;
     height: auto;
     clip-path: none;
     overflow: visible;
     white-space: normal;
+
+    @media (min-width: 48rem) {
+      width: 25rem;
+    }
   }
 }
 
@@ -309,10 +312,14 @@
   place-content: center;
   position: fixed;
   inset: 0;
+  bottom: 4.75rem;
   background: $luc-maroon;
   z-index: 1;
-  clip-path: circle(8vh at 50% 100%);
-  -webkit-clip-path: circle(8vh at 50% 100%);
+  clip-path: circle(30vh at 50% 100%);
+
+  @media (min-width: 48rem) {
+    clip-path: circle(30vh at 50% 100%);
+  }
 }
 
 .luc-hero .sunburst-container .sunburst-wrapper {
@@ -324,7 +331,7 @@
   margin: 0 auto;
   z-index: 2;
   opacity: 0.5;
-  transform: translate(-50%, calc(-50% + 8vh));
+  transform: translate(-50%, calc(-50% + 30vh));
 }
 
 .luc-hero .sunburst-container .sunburst-svg-object {

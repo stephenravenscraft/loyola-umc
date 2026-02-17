@@ -786,7 +786,6 @@
         start: "top top",
         end: "+=100%",
         scrub: 0.3,
-        invalidateOnRefresh: true,
         onUpdate: (self) => {
           if (self.progress >= burstRevealAt) showBurst();
           else hideBurst();
@@ -804,21 +803,22 @@
       }
     });
 
-    scaleTl.fromTo(sunburstContainer.querySelector('.sunburst-circle'),
-      { clipPath: "circle(8vh at 50% 100%)", webkitClipPath: "circle(8vh at 50% 100%)" },
-      { clipPath: "circle(150vh at 50% 100%)", webkitClipPath: "circle(150vh at 50% 100%)", duration: 1.2, ease: "power4.inOut" },
+    var sunburstCircle = sunburstContainer.querySelector('.sunburst-circle');
+    gsap.set(sunburstCircle, { clipPath: "circle(10vh at 50% 100%)", webkitClipPath: "circle(10vh at 50% 100%)" });
+    scaleTl.to(sunburstCircle,
+      { clipPath: "circle(150vh at 50% 100%)", webkitClipPath: "circle(150vh at 50% 100%)", duration: 1.2, ease: "power2.out" },
       0
     );
 
-    scaleTl.fromTo(sunburstWrapper,
-      { y: "0%" },
+    gsap.set(sunburstWrapper, { y: "0%" });
+    scaleTl.to(sunburstWrapper,
       { y: "-40%", duration: 1.2, ease: "none" },
       0
     );
 
     if (flareEl) {
-      scaleTl.fromTo(flareEl,
-        { x: 0, y: 0, scale: 1 },
+      gsap.set(flareEl, { x: 0, y: 0, scale: 1 });
+      scaleTl.to(flareEl,
         { x: 220, y: 170, scale: 3, duration: 1.2, ease: "none" },
         0
       );
