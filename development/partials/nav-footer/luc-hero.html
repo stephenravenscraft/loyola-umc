@@ -5,7 +5,10 @@
         <div class="video-error">Sorry, video is not available.</div>
       </video>
       <div class="luc-hero__control-info-container">
-        <a href="#" class="luc-hero__control-info">About this video</a>
+        <button class="luc-hero__control-info" aria-describedby="luc-hero__control-info-description">About this video</button>
+        <div class="luc-screen-reader-text" id="luc-hero__control-info-description" role="tooltip" hidden>
+          This is a description of the video.
+        </div>
         <button class="luc-hero__control luc-hero__control--video-hero" aria-label="Toggle video" data-early-focus="video-control">
           <span class="luc-hero__control-label luc-screen-reader-text">Pause</span>
           <span class="luc-hero__control-icon"></span>

@@ -1006,3 +1006,41 @@
     });
   });
 })();
+
+// ==========================================================================
+// HERO VIDEO INFO TOOLTIP
+// Handles show/hide of "About this video" tooltip on focus/blur and hover
+// ==========================================================================
+
+(function() {
+  'use strict';
+
+  const infoButton = document.querySelector('.luc-hero__control-info');
+  const tooltip = document.getElementById('luc-hero__control-info-description');
+
+  if (!infoButton || !tooltip) return;
+
+  function showTooltip() {
+    tooltip.removeAttribute('hidden');
+  }
+
+  function hideTooltip() {
+    tooltip.setAttribute('hidden', '');
+  }
+
+  // Show on mouse enter and focus
+  infoButton.addEventListener('mouseenter', showTooltip);
+  infoButton.addEventListener('focus', showTooltip);
+
+  // Hide on mouse leave and blur
+  infoButton.addEventListener('mouseleave', hideTooltip);
+  infoButton.addEventListener('blur', hideTooltip);
+
+  // Hide on Escape key
+  infoButton.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      hideTooltip();
+      infoButton.focus(); // Keep focus on button
+    }
+  });
+})();

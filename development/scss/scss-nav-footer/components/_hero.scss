@@ -129,7 +129,40 @@
   line-height: 150%;
   text-decoration: underline;
   text-underline-offset: 0.2em;
+  text-decoration-color: rgba(141, 0, 52, 0.50);
+  background: transparent;
+  padding: 0;
   outline-color: $luc-maroon;
+
+  &:hover {
+    text-decoration-color: rgba(141, 0, 52, 1);
+  }
+}
+
+#luc-hero__control-info-description {
+  &:not([hidden]) {
+    position: absolute;
+    top: 100%;
+    margin-top: 0.5rem;
+    left: 0;
+    right: 0;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.70);
+    color: $luc-maroon;
+    font-family: $luc-font-family;
+    font-size: 0.875rem;
+    line-height: 150%;
+    outline-color: $luc-maroon;
+    z-index: 20;
+    max-width: 16rem;
+
+    // Override screen reader text clipping when visible
+    width: auto;
+    height: auto;
+    clip-path: none;
+    overflow: visible;
+    white-space: normal;
+  }
 }
 
 .luc-hero__control.luc-hero__control--video-hero {
