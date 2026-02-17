@@ -7,7 +7,7 @@
     top: 0;
     height: 200vh; /* 100vh hero + 4.75rem sticky hero height */
 
-    @media (min-width: 64rem) {
+    @media (min-width: 48rem) {
       top: 4.75rem;
       height: calc(200vh + 4.75rem); /* 100vh hero + 4.75rem sticky hero height */
     }
@@ -32,7 +32,7 @@
   overflow: hidden;
   display: block;
 
-  @media (min-width: 64rem) {
+  @media (min-width: 48rem) {
     top: 6rem;
     height: calc(100vh + 4.75rem);
   }
@@ -58,7 +58,7 @@
     pointer-events: none;
   }
 
-  @media (min-width: 64rem) {
+  @media (min-width: 48rem) {
     position: relative;
     justify-content: center;
 
@@ -72,7 +72,7 @@
   width: 100%;
   overflow: hidden;
 
-  @media (min-width: 64rem) {
+  @media (min-width: 48rem) {
     position: absolute;
     top: 0;
     left: 0;
@@ -99,7 +99,7 @@
   position: relative;
   z-index: 0;
 
-  @media (min-width: 64rem) {
+  @media (min-width: 48rem) {
     width: 100%;
     height: 100%;
     aspect-ratio: auto;
@@ -236,14 +236,16 @@
   flex-direction: column;
   gap: $luc-space-s;
   padding: $luc-space-s;
+  paddin-bottom: 10rem;
 
-  @media (min-width: 64rem) {
+  @media (min-width: 48rem) {
     position: absolute;
     // top: calc(#{$luc-space-2xl} + 4.75rem);
     left: $luc-space-m;
     max-width: 90ch;
     gap: $luc-space-s;
     padding: $luc-space-s;
+    padding-bottom: 10rem;
   }
 
   .luc-hero__heading {
@@ -259,7 +261,7 @@
     line-height: 1.6;
     color: $luc-white;
 
-    @media (min-width: 64rem) {
+    @media (min-width: 48rem) {
       font-size: 1.125rem;
     }
   }
@@ -318,6 +320,7 @@
   clip-path: circle(30vh at 50% 100%);
 
   @media (min-width: 48rem) {
+    bottom: calc(4.75rem + 6rem);
     clip-path: circle(30vh at 50% 100%);
   }
 }
@@ -365,13 +368,13 @@
     font-family: $luc-font-family-condensed-bold;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 63.9375rem) {
     margin-left: 5%;
     max-width: 90%;
     padding: $luc-space-m 5% 0 0;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 31.25rem) {
     margin-left: 5%;
     max-width: 90%;
     padding: $luc-space-m 5% 0 0;
