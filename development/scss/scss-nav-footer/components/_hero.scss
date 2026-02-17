@@ -49,18 +49,18 @@
   z-index: 9;
   background: rgba(90, 7, 34, 0.85);
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(90, 7, 34, 0.00) 79.42%, #5A0722 100%), linear-gradient(215deg, rgba(141, 0, 52, 0.00) 55.79%, rgba(90, 7, 34, 0.70) 78.52%);
-    z-index: 1;
-    pointer-events: none;
-  }
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   inset: 0;
+  //   background: linear-gradient(180deg, rgba(90, 7, 34, 0.00) 79.42%, #5A0722 100%), linear-gradient(215deg, rgba(141, 0, 52, 0.00) 55.79%, rgba(90, 7, 34, 0.70) 78.52%);
+  //   z-index: 1;
+  //   pointer-events: none;
+  // }
 
   @media (min-width: 48rem) {
     position: relative;
-    justify-content: center;
+    justify-content: flex-end;
 
     // min-height: clamp(30rem, 50vw, 40rem);
     z-index: 2;
@@ -84,7 +84,8 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);
+    // background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);
+    background: linear-gradient(180deg, rgba(90, 7, 34, 0) 29.42%, #5A0722 100%), linear-gradient(215deg, rgba(141, 0, 52, 0) 45.79%, rgba(90, 7, 34, 0.7) 68.52%);
     z-index: 1;
     pointer-events: none;
   }
@@ -236,7 +237,7 @@
   flex-direction: column;
   gap: $luc-space-s;
   padding: $luc-space-s;
-  paddin-bottom: 10rem;
+  padding-bottom: 10rem;
 
   @media (min-width: 48rem) {
     position: absolute;
@@ -245,7 +246,7 @@
     max-width: 90ch;
     gap: $luc-space-s;
     padding: $luc-space-s;
-    padding-bottom: 10rem;
+    padding-bottom: 20rem;
   }
 
   .luc-hero__heading {
