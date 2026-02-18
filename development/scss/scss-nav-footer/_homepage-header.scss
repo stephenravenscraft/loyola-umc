@@ -93,7 +93,7 @@
 
   &::after {
     content: '\f002';
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 6 Pro';
     font-size: 1.83769rem;
     font-weight: 600;
     color: $luc-white;
@@ -103,7 +103,7 @@
   &[aria-expanded='true'] {
     &::after {
       content: '\f00d';
-      font-family: 'FontAwesome';
+      font-family: 'Font Awesome 6 Pro';
       font-size: 1.83769rem;
       font-weight: 600;
       color: $luc-white;
@@ -145,7 +145,7 @@
 
   &::after {
     content: '\f0c9';
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 6 Pro';
     display: block;
     font-size: 1.83769rem;
     font-weight: 600;
@@ -156,7 +156,7 @@
   &[aria-expanded='true'] {
     &::after {
       content: '\f00d';
-      font-family: 'FontAwesome';
+      font-family: 'Font Awesome 6 Pro';
       font-size: 1.83769rem;
       font-weight: 600;
       color: $luc-white;
@@ -742,7 +742,7 @@
 
   &::before {
     content: '\f002';
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 6 Pro';
     font-size: $luc-baseline * 4; // 1rem / 16px
     font-weight: 600;
     color: $luc-gold;
