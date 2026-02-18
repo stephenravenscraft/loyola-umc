@@ -37,6 +37,20 @@
 		}
 	}
 
+	&__link {
+		&:hover {
+			h3 {
+				text-decoration: underline;
+				text-decoration-line: underline;
+				text-decoration-style: solid;
+				text-decoration-skip-ink: auto;
+				text-decoration-thickness: 4%;
+				text-underline-offset: 10%;
+				text-underline-position: from-font;
+			}
+		}
+	}
+
 	&__grid {
 		display: grid;
 		grid-template-columns: 1fr;

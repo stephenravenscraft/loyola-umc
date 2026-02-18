@@ -51,11 +51,17 @@
 		flex-direction: column;
 		gap: $luc-baseline * 4;
 		text-decoration: none;
-	}
 
-	&__link:hover {
-		.events-listing__title {
-			text-decoration: underline;
+		&:hover {
+			h3 {
+				text-decoration: underline;
+				text-decoration-line: underline;
+				text-decoration-style: solid;
+				text-decoration-skip-ink: auto;
+				text-decoration-thickness: 4%;
+				text-underline-offset: 10%;
+				text-underline-position: from-font;
+			}
 		}
 	}
 
