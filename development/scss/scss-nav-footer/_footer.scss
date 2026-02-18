@@ -151,16 +151,10 @@
 
 // Column headings
 .luc-footer__heading {
-  font-family: $luc-font-family-condensed-bold;
-  font-size: $luc-baseline * 5; // 20px
-  font-weight: normal;
+  @extend .h5;
   letter-spacing: 0.00625rem;
   margin: 0 0 ($luc-baseline * 6); // 24px
   color: $luc-white;
-
-  @media (max-width: #{$luc-footer-breakpoint - 1px}) {
-    font-size: $luc-baseline * 4; // 16px
-  }
 
   // Larger heading for contact section
   &--contact {
@@ -178,11 +172,9 @@
 }
 
 .luc-footer__link {
+  @extend .text-small;
   display: block;
   padding: $luc-baseline 0; // 4px 0
-  font-family: $luc-font-family;
-  font-size: $luc-baseline * 4; // 16px
-  letter-spacing: 0.005rem;
   color: $luc-copper-light;
   text-decoration: none;
   transition: text-decoration $luc-transition-fast;
