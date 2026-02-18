@@ -1,6 +1,7 @@
 .news-feature {
 	padding: $luc-panel $luc-wrap;
 	background-color: $luc-copper-light;
+	overflow: hidden;
 
 	&__header {
 		display: flex;
