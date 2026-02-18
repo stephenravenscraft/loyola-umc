@@ -7,7 +7,7 @@
     top: 0;
     height: 200vh; /* 100vh hero + 4.75rem sticky hero height */
 
-    @media (min-width: 48rem) {
+    @media (min-width: $nav-breakpoint) {
       top: 4.75rem;
       height: calc(200vh + 4.75rem); /* 100vh hero + 4.75rem sticky hero height */
     }
@@ -32,7 +32,7 @@
   overflow: hidden;
   display: block;
 
-  @media (min-width: 48rem) {
+  @media (min-width: $nav-breakpoint) {
     top: 6rem;
     height: calc(100vh + 4.75rem);
   }
@@ -246,6 +246,10 @@
     max-width: 90ch;
     gap: $luc-space-s;
     padding: $luc-space-s;
+    padding-bottom: 10rem;
+  }
+
+  @media (min-width: $nav-breakpoint) {
     padding-bottom: 20rem;
   }
 
@@ -320,7 +324,7 @@
   z-index: 1;
   clip-path: circle(30vh at 50% 100%);
 
-  @media (min-width: 48rem) {
+  @media (min-width: $nav-breakpoint) {
     bottom: calc(4.75rem + 6rem);
     clip-path: circle(30vh at 50% 100%);
   }
@@ -367,6 +371,8 @@
 
   .h1 {
     font-family: $luc-font-family-condensed-bold;
+    font-size: clamp(2rem, 7vw, 4rem);
+    text-shadow: 0 8px 8px rgba(43, 3, 16, 0.60);
   }
 
   @media (max-width: 63.9375rem) {
