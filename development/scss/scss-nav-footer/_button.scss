@@ -21,11 +21,11 @@
   line-height: 1.1;
   text-decoration: none;
   border: none;
-  border: none;
+  overflow: hidden;
   background-color: transparent;
   color: $luc-maroon;
   cursor: pointer;
-  transition: color $luc-transition-slow;
+  transition: color $luc-transition-slow, border-radius $luc-transition-slow;
   z-index: 0;
 
   // Expanding background effect
@@ -63,6 +63,7 @@
   // ==========================================================================
   &:hover {
     color: $luc-white;
+    border-radius: .25rem;
 
     &::before {
       height: 100%;
