@@ -31,7 +31,7 @@
 .luc-footer__container {
   position: relative;
   margin: 0 auto;
-  padding: ($luc-baseline * 2) ($luc-baseline * 8) ($luc-baseline * 8); // 8px 32px 32px
+  padding: $luc-space $luc-wrap;
 
   @media (max-width: #{$nav-breakpoint - 1px}) {
     // Extra top padding for absolutely positioned back-to-top button
@@ -275,9 +275,13 @@
   }
 
   i {
-    font-size: clamp($luc-baseline * 7, $luc-baseline * 7 + 3.5vw, $luc-baseline * 7); // 1.75rem
+    font-size: 2rem;
     color: currentColor;
     transition: color $luc-transition-fast;
+
+    @media (min-width: $nav-breakpoint) {
+      font-size: 1.5rem;
+    }
   }
 }
 
