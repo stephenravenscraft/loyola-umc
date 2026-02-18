@@ -1,13 +1,12 @@
 .cta-panel {
 	width: 100%;
 	color: $luc-white;
-	background-color: $luc-maroon;
 
 	&__container {
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-template-rows: auto auto;
-		background-color: $luc-maroon; // fills gap where content clip meets image
+		background: radial-gradient(583.78% 135.37% at 91.25% 0%, #890B34 0%, $luc-maroon 27.38%, #2B0310 99.04%);
 
 		// Mobile: image first, content second (swap via order)
 		.cta-panel__content {
@@ -20,6 +19,7 @@
 		@media (min-width: 48rem) {
 			grid-template-columns: 1.5fr 1fr;
 			grid-template-rows: 1fr;
+			background: transparent;
 			// min-height: 60vh;
 
 			.cta-panel__content,
@@ -35,7 +35,7 @@
 		gap: $luc-baseline * 6;
 		padding-block: $luc-space;
 		padding-inline: $luc-wrap;
-		background-color: $luc-maroon;
+		// background-color: $luc-maroon;
 
 		h2 {
 			color: $luc-white;
@@ -53,9 +53,12 @@
 		// Desktop: diagonal clips to the right, content overlaps image
 		@media (min-width: 48rem) {
 			margin-right: -20%;
+			background: radial-gradient(701.49% 160.78% at 100% 0%, #890B34 0%, var(--Loyola-Maroon, #5A0722) 45.19%, #340112 99.04%);
+
 			// clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
 			clip-path: polygon(0 0, 80% -20%, 100% 100%, 0 100%);
 			justify-content: center;
+			padding-block: 7.5rem;
 			padding-inline: 0 $luc-baseline * 24;
 			z-index: 1;
 
@@ -108,6 +111,7 @@
 	}
 
 	@media (min-width: 48rem) {
+		background: radial-gradient(701.49% 160.78% at 100% 0%, #890B34 0%, var(--Loyola-Maroon, #5A0722) 45.19%, #340112 99.04%);
 		padding: 0 0 0 $luc-wrap;
 	}
 }
