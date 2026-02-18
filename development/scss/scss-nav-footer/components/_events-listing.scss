@@ -41,7 +41,7 @@
 
 	&__card {
 		background-color: $luc-white;
-		padding: $luc-baseline * 8;
+		padding: $luc-space $luc-wrap;
 		flex: 1;
 		width: 100%;
 	}

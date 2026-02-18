@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: space-between;
   height: $luc-nav-height-mobile;
-  padding: 0 ($luc-baseline * 4); // 16px
+  padding: 0 $luc-wrap; // 16px
 
   @media (min-width: $nav-breakpoint) {
     height: $luc-nav-height;

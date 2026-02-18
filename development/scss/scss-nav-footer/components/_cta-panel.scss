@@ -33,7 +33,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: $luc-baseline * 6;
-		padding: $luc-panel $luc-wrap;
+		padding: $luc-space $luc-wrap;
 		background-color: $luc-maroon;
 
 		h2 {
