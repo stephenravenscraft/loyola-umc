@@ -41,7 +41,7 @@
 
 	&__card {
 		background-color: $luc-white;
-		padding: $luc-space $luc-wrap;
+		padding: 2.5rem;
 		flex: 1;
 		width: 100%;
 	}
@@ -77,14 +77,14 @@
 	&__time {
 		font-family: $luc-font-family;
 		color: $luc-copper-extra-dark;
-		font-size: $luc-baseline * 3.5;
+		font-size: $luc-baseline * 4; // 16px
 		margin: 0;
 	}
 
 	&__location {
 		font-family: $luc-font-family;
 		color: $luc-copper-extra-dark;
-		font-size: $luc-baseline * 3.5;
+		font-size: $luc-baseline * 4; // 16px
 		margin: 0;
 	}
 }

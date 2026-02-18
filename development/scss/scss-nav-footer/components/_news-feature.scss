@@ -2,10 +2,6 @@
 	padding: $luc-panel $luc-wrap;
 	background-color: $luc-copper-light;
 
-	+ .events-listing {
-		padding-top: calc(-1 * #{$luc-panel / 2});
-	}
-
 	&__header {
 		display: flex;
 		flex-direction: column;
@@ -209,5 +205,11 @@
 
 	&__type {
 		font-weight: 700;
+	}
+
+	@media (min-width: 48rem) {
+		+ .events-listing {
+			padding-top: calc(-1 * #{$luc-panel / 2});
+		}
 	}
 }
