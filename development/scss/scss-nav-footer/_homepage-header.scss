@@ -306,9 +306,9 @@
   border: none;
   border-radius: 0;
   background: transparent;
-  font-family: $luc-font-family;
+  font-family: $luc-font-family-condensed-bold;
   font-size: $luc-baseline * 4.5; // 18px
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0.00625rem;
   word-spacing: ($luc-baseline * 0.5); // 0.125rem
   text-transform: capitalize;
@@ -344,6 +344,7 @@
       opacity: 1;
     }
     &::after {
+      background: $luc-black;
       transform: rotate(180deg);
     }
   }
@@ -376,6 +377,7 @@
     width: auto;
     font-family: $luc-font-family;
     font-size: $luc-baseline * 4; // 16px
+    font-weight: 400;
     letter-spacing: 0.005rem;
     color: $luc-maroon;
 
@@ -432,6 +434,10 @@
 
 .luc-nav__toggle-text {
   text-align: left;
+
+  [aria-expanded='true'] & {
+    color: $luc-black;
+  }
 }
 
 .luc-nav__text {
