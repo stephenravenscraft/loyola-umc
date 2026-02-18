@@ -814,11 +814,17 @@
     // Gradient overlay fade: fade out early in scroll (~26% progress = frame 63/240)
     var gradientOverlay = heroSection && heroSection.querySelector('.luc-hero__gradient-overlay');
     if (gradientOverlay) {
-      gsap.set(gradientOverlay, { opacity: 1 });
-      scaleTl.to(gradientOverlay,
-        { opacity: 0, duration: 0.26, ease: "power1.in" },
-        0
-      );
+      var gradientMM = gsap.matchMedia();
+      gradientMM.add("(min-width: 768px)", function() {
+        gsap.set(gradientOverlay, { opacity: 1 });
+        scaleTl.to(gradientOverlay,
+          { opacity: 0, duration: 0.26, ease: "power1.in" },
+          0
+        );
+        return function() {
+          gsap.set(gradientOverlay, { opacity: 1 });
+        };
+      });
     }
 
     gsap.set(sunburstWrapper, { y: "0%" });
