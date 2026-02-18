@@ -299,12 +299,22 @@
 <main id="main-content"class="shell-placeholder">
     <div class="hero-scroll-runway">
         
-        <section class="luc-hero luc-hero--video-hero" data-animate data-animation="fade-in-up">
+        <!-- SVG dome clip-path definition (hidden, zero-size) -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <defs>
+    <clipPath id="dome-clip" clipPathUnits="objectBoundingBox">
+      <path d="M 0 0.07 C 0 0.07, 0.14 0, 0.5 0 C 0.86 0, 1 0.07, 1 0.07 L 1 1 L 0 1 Z" />
+    </clipPath>
+  </defs>
+</svg>
+
+<section class="luc-hero luc-hero--video-hero" data-animate data-animation="fade-in-up">
   <div class="luc-hero__video-hero-container">
     <div class="luc-hero__video-hero-wrapper">
       <video class="luc-hero__video-hero-player" src="https://loyolauniversitychicago.github.io/loyola-template-4.0/deploy/videos/umc-hero-video-720.mp4" autoplay loop muted playsinline>
         <div class="video-error">Sorry, video is not available.</div>
       </video>
+      <div class="luc-hero__gradient-overlay" aria-hidden="true"></div>
       <div class="luc-hero__control-info-container">
         <button class="luc-hero__control-info" aria-describedby="luc-hero__control-info-description">About this video</button>
         <div class="luc-screen-reader-text" id="luc-hero__control-info-description" role="tooltip" hidden>

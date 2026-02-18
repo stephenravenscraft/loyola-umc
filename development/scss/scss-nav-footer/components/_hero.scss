@@ -80,15 +80,15 @@
     height: 100%;
   }
 
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    // background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);
-    background: linear-gradient(180deg, rgba(90, 7, 34, 0) 29.42%, #5A0722 100%), linear-gradient(215deg, rgba(141, 0, 52, 0) 45.79%, rgba(90, 7, 34, 0.7) 68.52%);
-    z-index: 1;
-    pointer-events: none;
-  }
+}
+
+.luc-hero__gradient-overlay {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(90, 7, 34, 0) 29.42%, #5A0722 100%), linear-gradient(215deg, rgba(141, 0, 52, 0) 45.79%, rgba(90, 7, 34, 0.7) 68.52%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .luc-hero__video-hero-player {
@@ -314,14 +314,14 @@
   place-content: center;
   position: fixed;
   inset: 0;
+  height: calc(100vh + 4.75rem);
   bottom: 4.75rem;
   background: $luc-maroon;
   z-index: 1;
-  clip-path: circle(30vh at 50% 100%);
+  clip-path: url(#dome-clip);
 
   @media (min-width: $nav-breakpoint) {
     bottom: calc(4.75rem + 6rem);
-    clip-path: circle(30vh at 50% 100%);
   }
 }
 

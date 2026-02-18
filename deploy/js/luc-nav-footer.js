@@ -619,8 +619,8 @@
       resetHybridText();
     }
 
-    const burstRevealAt = 0.38;
-    const textRevealAt = 0.55;
+    const burstRevealAt = 0.1;
+    const textRevealAt = 0.3;
 
     /* ---- Idempotent show/hide helpers ---- */
     function showBurst() {
@@ -803,12 +803,23 @@
       }
     });
 
+    // Dome rise: translate the sunburst-circle upward from below viewport
     var sunburstCircle = sunburstContainer.querySelector('.sunburst-circle');
-    gsap.set(sunburstCircle, { clipPath: "circle(10vh at 50% 100%)", webkitClipPath: "circle(10vh at 50% 100%)" });
+    gsap.set(sunburstCircle, { y: "90%" });
     scaleTl.to(sunburstCircle,
-      { clipPath: "circle(150vh at 50% 100%)", webkitClipPath: "circle(150vh at 50% 100%)", duration: 1.2, ease: "power2.out" },
+      { y: "-10%", duration: 1.2, ease: "power2.out" },
       0
     );
+
+    // Gradient overlay fade: fade out early in scroll (~26% progress = frame 63/240)
+    var gradientOverlay = heroSection && heroSection.querySelector('.luc-hero__gradient-overlay');
+    if (gradientOverlay) {
+      gsap.set(gradientOverlay, { opacity: 1 });
+      scaleTl.to(gradientOverlay,
+        { opacity: 0, duration: 0.26, ease: "power1.in" },
+        0
+      );
+    }
 
     gsap.set(sunburstWrapper, { y: "0%" });
     scaleTl.to(sunburstWrapper,
