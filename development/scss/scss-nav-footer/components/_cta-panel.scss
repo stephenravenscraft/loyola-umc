@@ -33,7 +33,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: $luc-baseline * 6;
-		padding: $luc-space $luc-wrap;
+		padding-block: $luc-space;
+		padding-inline: $luc-wrap;
 		background-color: $luc-maroon;
 
 		h2 {
@@ -55,7 +56,7 @@
 			// clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
 			clip-path: polygon(0 0, 80% -20%, 100% 100%, 0 100%);
 			justify-content: center;
-			padding-right: $luc-baseline * 24;
+			padding-inline: 0 $luc-baseline * 24;
 			z-index: 1;
 
 			.buttons {
