@@ -101,7 +101,7 @@
     if (menuToggle) {
       menuToggle.setAttribute('aria-expanded', 'false');
     }
-    document.body.style.overflow = '';
+    document.body.classList.remove('overlay-open');
     closeAllNavMenus();
   }
 
@@ -110,7 +110,7 @@
       menuToggle.setAttribute('aria-expanded', 'true');
     }
     closeSearch();
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('overlay-open');
   }
 
   function isMenuOpen() {
@@ -132,7 +132,7 @@
     if (searchPanel) {
       searchPanel.setAttribute('aria-hidden', 'true');
     }
-    document.body.style.overflow = '';
+    document.body.classList.remove('overlay-open');
   }
 
   function openSearch() {
@@ -146,7 +146,7 @@
       const searchInput = searchPanel.querySelector('.luc-search__input');
       searchInput?.focus();
     }
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('overlay-open');
   }
 
   function isSearchOpen() {
