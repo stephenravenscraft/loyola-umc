@@ -972,10 +972,7 @@
               trigger: panelBurst,
               start: "top 50%",
               scrub: false,
-              once: true,
-              onEnter: () => {
-                console.log('Panel burst animation triggered!');
-              }
+              once: true
             }
           });
 
