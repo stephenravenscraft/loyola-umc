@@ -238,7 +238,7 @@
   @media (min-width: 48rem) {
     position: absolute;
     // top: calc(#{$luc-space-2xl} + 4.75rem);
-    left: $luc-space-m;
+    left: $luc-wrap;
     max-width: 90ch;
     gap: $luc-space-s;
     padding: $luc-space-s;
@@ -361,9 +361,9 @@
 .luc-hero .sunburst-text {
   position: relative;
   z-index: 4;
-  margin-left: 20%;
+  margin-left: $luc-wrap;
   padding: 0;
-  max-width: 75%;
+  max-width: 135ch;
 
   .h1 {
     font-family: $luc-font-family-condensed-bold;
