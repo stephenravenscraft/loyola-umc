@@ -89,6 +89,7 @@
   color: $luc-white;
   text-decoration: none;
   transition: opacity $luc-transition-fast;
+  outline-color: $luc-white;
 
   &:hover,
   &:focus {

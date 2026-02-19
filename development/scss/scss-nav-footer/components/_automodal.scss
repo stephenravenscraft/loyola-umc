@@ -44,7 +44,6 @@ $automodal-wrap: $luc-wrap;
 }
 
 .Automodal__close {
-  --outline-color: #{$luc-white};
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -55,7 +54,7 @@ $automodal-wrap: $luc-wrap;
   color: $luc-white;
   z-index: 2;
   transition: $automodal-transition;
-  -webkit-tap-highlight-color: transparent;
+  outline-color: $luc-white;
 
   @container (width <= 64em) {
     &:focus,
@@ -69,17 +68,19 @@ $automodal-wrap: $luc-wrap;
   }
 
   &::before {
-    content: "";
-    display: block;
+    display: grid;
+    place-items: center;
     width: 2rem;
     height: 2rem;
-    background: $luc-gold;
-    mask: url("/images/icon-close.svg") center / 0.875rem no-repeat;
+
+      content: '\f00d';
+      font-family: 'Font Awesome 6 Pro';
+      font-size: 1rem;
+      font-weight: 600;
+      color: $luc-gold;
   }
 
   &:hover {
-    background: $luc-maroon;
-    color: $luc-white;
     transform: scale(1.1);
   }
 }
