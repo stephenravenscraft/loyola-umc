@@ -3,14 +3,8 @@
    ============================================================================= */
 /* Scroll runway: hero sticks for 100vh of scroll, then releases */
 .hero-scroll-runway {
-    position: sticky;
-    top: 0;
-    height: 200vh; /* 100vh hero + 4.75rem sticky hero height */
-
-    @media (min-width: $nav-breakpoint) {
-      top: 4.75rem;
-      height: calc(200vh + 4.75rem); /* 100vh hero + 4.75rem sticky hero height */
-    }
+    position: relative;
+    height: 200vh; /* 100vh hero + 100vh scroll distance; GSAP pin handles sticking */
 }
 
 /* Sections after the hero scroll OVER the sticky hero */
@@ -25,17 +19,11 @@
   --link-underline-color: #{$luc-white};
   background: $luc-maroon;
   color: $luc-white;
-  position: sticky;
-  top: 4.5rem;
+  position: relative;
   z-index: 1;
   height: 100vh;
   overflow: hidden;
   display: block;
-
-  @media (min-width: $nav-breakpoint) {
-    top: 6rem;
-    height: calc(100vh + 4.75rem);
-  }
 }
 
 .luc-hero__video-hero-container {
@@ -298,7 +286,7 @@
 .luc-hero .sunburst-container {
   display: grid;
   place-content: center;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
@@ -313,21 +301,16 @@
 .luc-hero .sunburst-circle {
   display: grid;
   place-content: center;
-  position: fixed;
+  position: absolute;
   inset: 0;
-  height: calc(100vh + 4.75rem);
-  bottom: 4.75rem;
+  height: 120%;
   background: $luc-maroon;
   z-index: 1;
   clip-path: url(#dome-clip);
-
-  @media (min-width: $nav-breakpoint) {
-    bottom: calc(4.75rem + 6rem);
-  }
 }
 
 .luc-hero .sunburst-container .sunburst-wrapper {
-  position: fixed;
+  position: absolute;
   left: -2%;
   top: 3%;
   width: clamp(570px, 75vw, 1520px);

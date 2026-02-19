@@ -530,6 +530,8 @@
 
   gsap.registerPlugin(ScrollTrigger);
 
+  // GSAP's default autoRefreshEvents handles resize correctly with pin: true
+
   document.querySelectorAll('.sunburst-container').forEach(function(sunburstContainer) {
     const sunburstWrapper = sunburstContainer.querySelector('.sunburst-wrapper');
     const svgObject = sunburstContainer.querySelector('.sunburst-svg-object');
@@ -783,9 +785,15 @@
     const scaleTl = gsap.timeline({
       scrollTrigger: {
         trigger: heroSection || "body",
-        start: "top top",
+        start: function() {
+          var rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+          var navHeight = window.innerWidth >= 1190 ? 6 * rem : 4.5 * rem;
+          return "top " + navHeight + "px";
+        },
         end: "+=100%",
-        scrub: 0.3,
+        pin: true,
+        pinSpacing: false,
+        scrub: true,
         onUpdate: (self) => {
           if (self.progress >= burstRevealAt) showBurst();
           else hideBurst();
