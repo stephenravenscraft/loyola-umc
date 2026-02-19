@@ -847,19 +847,26 @@
     const svgObject = panelBurst.querySelector('.panel-burst__svg');
     if (!svgObject) return;
 
-    svgObject.addEventListener('load', function() {
-      try {
-        const svgDoc = svgObject.contentDocument;
-        if (!svgDoc) {
-          console.error('Cannot access SVG content - CORS issue. Please use a local server.');
-          return;
-        }
+    const svgSrc = svgObject.dataset.src;
+    if (!svgSrc) return;
+
+    fetch(svgSrc)
+      .then(function(response) { return response.text(); })
+      .then(function(svgText) {
+        const parser = new DOMParser();
+        const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+        const svgEl = svgDoc.documentElement;
+        svgEl.setAttribute('width', '100%');
+        svgEl.setAttribute('height', '100%');
+        svgObject.appendChild(svgEl);
+
+        try {
 
         const rectsToHide = [
-          svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]'),
-          svgDoc.querySelector('rect[fill="#5A0722"]'),
-          svgDoc.querySelector('rect[fill="white"]'),
-          svgDoc.querySelector('rect[fill="url(#paint131_linear_2321_21298)"]')
+          svgEl.querySelector('rect[fill="url(#pattern0_2321_21298)"]'),
+          svgEl.querySelector('rect[fill="#5A0722"]'),
+          svgEl.querySelector('rect[fill="white"]'),
+          svgEl.querySelector('rect[fill="url(#paint131_linear_2321_21298)"]')
         ];
         rectsToHide.forEach(function(rect) {
           if (rect) {
@@ -868,13 +875,13 @@
           }
         });
 
-        const patternRect = svgDoc.querySelector('rect[fill="url(#pattern0_2321_21298)"]');
-        const backgroundGroup = svgDoc.querySelector('g[opacity="0.8"]');
-        const sunburstGroup = svgDoc.querySelector('g[style*="mix-blend-mode"]');
+        const patternRect = svgEl.querySelector('rect[fill="url(#pattern0_2321_21298)"]');
+        const backgroundGroup = svgEl.querySelector('g[opacity="0.8"]');
+        const sunburstGroup = svgEl.querySelector('g[style*="mix-blend-mode"]');
 
         if (sunburstGroup) {
           const sunburstPaths = Array.from(sunburstGroup.querySelectorAll('path[fill^="url(#paint"][fill*="_linear"]'));
-          const filteredGroups = svgDoc.querySelectorAll('g[filter]');
+          const filteredGroups = svgEl.querySelectorAll('g[filter]');
           const backgroundPaths = [];
           filteredGroups.forEach((group) => {
             const pathsInGroup = group.querySelectorAll('path');
@@ -1017,6 +1024,9 @@
       } catch (error) {
         console.error('Panel burst error:', error);
       }
+    })
+    .catch(function(error) {
+      console.error('Failed to load SVG:', error);
     });
   });
 })();

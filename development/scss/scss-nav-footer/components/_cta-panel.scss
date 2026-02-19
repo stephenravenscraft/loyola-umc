@@ -8,7 +8,6 @@
 		grid-template-rows: auto auto;
 		background: radial-gradient(583.78% 135.37% at 91.25% 0%, #890B34 0%, $luc-maroon 27.38%, #2B0310 99.04%);
 
-		// Mobile: image first, content second (swap via order)
 		.cta-panel__content {
 			order: 2;
 		}
@@ -20,7 +19,6 @@
 			grid-template-columns: 1.5fr 1fr;
 			grid-template-rows: 1fr;
 			background: transparent;
-			// min-height: 60vh;
 
 			.cta-panel__content,
 			.cta-panel__image-wrapper {
@@ -35,7 +33,7 @@
 		gap: $luc-baseline * 6;
 		padding-block: $luc-space;
 		padding-inline: $luc-wrap;
-		// background-color: $luc-maroon;
+		z-index: 3;
 
 		h2 {
 			color: $luc-white;
@@ -50,21 +48,10 @@
 			width: 100%;
 		}
 
-		// Desktop: diagonal clips to the right, content overlaps image
 		@media (min-width: 48rem) {
-			margin-right: -20%;
-			// background: radial-gradient(
-			// 	ellipse at 47.1% -0.6%,
-			// 	#890B34 0%,
-			// 	#5A0722 45.19%,
-			// 	#340112 99.04%
-			// );
-			// clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
-			// clip-path: polygon(0 0, 80% -20%, 100% 100%, 0 100%);
 			justify-content: center;
 			padding-block: 7.5rem;
 			padding-inline: 0 $luc-baseline * 24;
-			z-index: 1;
 
 			.buttons {
 				flex-direction: row;
@@ -85,7 +72,6 @@
 
 	&__image-wrapper {
 		position: relative;
-		// overflow: hidden;
 		aspect-ratio: 16 / 9;
 
 		@media (min-width: 48rem) {
