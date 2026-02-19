@@ -4,6 +4,17 @@
 }
 #isChatWelcomeText {
   font-family: $luc-font-family-condensed-bold !important;
-  font-size: $luc-baseline * 4 !important;
-  font-weight: 700 !important;
+}
+
+@media screen and (max-width: 767px) {
+  body .oda-chat-wrapper .oda-chat-button {
+        width: 50px !important;
+        height: 50px !important;
+    }
+}
+
+.oda-chat-wrapper.oda-chat-loyola-light,
+.isCV_PublicChat {
+  bottom: 1rem !important;
+  right: 1rem !important;
 }
