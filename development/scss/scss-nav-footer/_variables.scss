@@ -60,9 +60,9 @@ $luc-transition-normal: 250ms ease;
 $luc-transition-slow: 500ms ease;
 
 // Focus outline (AA compliant)
-$luc-focus-color: $luc-gray;
-$luc-focus-outline: $luc-baseline dotted $luc-focus-color;
-$luc-focus-offset: $luc-baseline;
+$luc-focus-color: $luc-gray !default;
+$luc-focus-outline: $luc-baseline dotted $luc-focus-color !default;
+$luc-focus-offset: $luc-baseline !default;
 
 $luc-transition: .4s ease;
 $luc-transition-fast: .2s ease;

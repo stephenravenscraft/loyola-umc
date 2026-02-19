@@ -7,6 +7,9 @@
 // =============================================================================
 
 .luc-footer {
+  $luc-outline-color: $luc-white;
+  $luc-focus-outline: $luc-baseline dotted $luc-outline-color;
+
   background-color: $luc-footer-bg;
   color: $luc-footer-text;
   position: relative;
@@ -88,7 +91,7 @@
 
 .luc-footer__logo-link {
   display: inline-block;
-  outline-color: $luc-gray;
+  outline-color: $luc-white;
 }
 
 .luc-footer__logo-img {
@@ -178,6 +181,7 @@
   color: $luc-copper-light;
   text-decoration: none;
   transition: text-decoration $luc-transition-fast;
+  outline-color: $luc-white;
 
   &:hover,
   &:focus {
@@ -214,6 +218,7 @@
   text-decoration: none;
   margin-bottom: $luc-baseline * 10; // 40px
   display: block;
+  outline-color: $luc-white;
 
   &:hover,
   &:focus {
@@ -258,6 +263,7 @@
 .luc-footer__social-link {
   color: $luc-footer-text;
   text-decoration: none;
+  outline-color: $luc-white;
 
   &:hover,
   &:focus {
@@ -340,6 +346,7 @@
   text-decoration: none;
   padding: $luc-baseline 0; // 4px 0
   transition: text-decoration $luc-transition-fast;
+  outline-color: $luc-white;
 
   &:hover,
   &:focus {

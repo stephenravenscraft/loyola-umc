@@ -240,6 +240,10 @@
   &:focus {
     text-decoration: underline;
   }
+
+  &:focus-visible {
+    outline-color: $luc-white;
+  }
 }
 
 .luc-nav__cta-divider {
