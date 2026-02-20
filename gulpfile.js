@@ -109,6 +109,21 @@ function jsNavFooter() {
     .pipe(gulp.dest(config.deployDir + '/js'));
 };
 
+function sassComponents() {
+    return gulp
+    .src(config.devDir + '/scss/scss-nav-footer/luc-components.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(config.deployDir + '/css'));
+};
+
+function jsComponents() {
+    return gulp
+    .src(config.devDir + '/js/luc-components.js')
+    .pipe(gulp.dest(config.deployDir + '/js'));
+};
+
 function referencePaths() {
     return gulp
     .src('./development/*.html')
@@ -157,12 +172,12 @@ function watchFiles() {
     }
   });
   watch('./development/**/*.html', gulp.series('indexBuild', 'browserSyncReload'));
-  watch(config.devDir + '/scss/**/*.scss', gulp.series(parallel('sassFramework', 'sassGrid', 'sassTypography', 'sassPanels', 'sassPanelsDev', 'sassDocumentation', 'sassNavFooter'), 'browserSyncReload'));
-  watch(config.devDir + '/js/**/*.js', gulp.series('jsNavFooter', 'browserSyncReload'));
+  watch(config.devDir + '/scss/**/*.scss', gulp.series(parallel('sassFramework', 'sassGrid', 'sassTypography', 'sassPanels', 'sassPanelsDev', 'sassDocumentation', 'sassNavFooter', 'sassComponents'), 'browserSyncReload'));
+  watch(config.devDir + '/js/**/*.js', gulp.series(parallel('jsNavFooter', 'jsComponents'), 'browserSyncReload'));
 };
 
 exports.default = series(
-  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassNavFooter),
+  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassNavFooter, sassComponents),
   referencePaths,
   indexBuild,
   watchFiles,
@@ -178,6 +193,8 @@ exports.sassPanelsDev = sassPanelsDev;
 exports.sassDocumentation = sassDocumentation;
 exports.sassNavFooter = sassNavFooter;
 exports.jsNavFooter = jsNavFooter;
+exports.sassComponents = sassComponents;
+exports.jsComponents = jsComponents;
 exports.watchFiles = watchFiles;
 exports.browserSync = browserSync;
 exports.browserSyncReload = browserSyncReload;

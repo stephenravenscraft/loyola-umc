@@ -1,8 +1,8 @@
 // =============================================================================
-// LUC Nav + Footer Bundle
+// LUC Components Bundle
 // =============================================================================
-// Self-contained, scoped CSS for header/footer components.
-// Namespace: .luc- prefix on all selectors to avoid production conflicts.
+// Self-contained CSS for 2026 component styles.
+// Separate from the nav/footer bundle for independent inclusion.
 // =============================================================================
 
 // -----------------------------------------------------------------------------
@@ -23,17 +23,6 @@
 @import '../scss-typography/vertical-rhythm';
 
 // -----------------------------------------------------------------------------
-// Framework Imports
-// -----------------------------------------------------------------------------
-// @import '../scss-framework/framework';
-@import '../scss-framework/mixins/breakpoints';
-
-// -----------------------------------------------------------------------------
-// Panels Imports (from existing codebase)
-// -----------------------------------------------------------------------------
-// @import '../scss-panels/panels';
-
-// -----------------------------------------------------------------------------
 // Local Variables
 // -----------------------------------------------------------------------------
 @import 'variables';
@@ -49,15 +38,17 @@
 @import 'typography';
 
 // -----------------------------------------------------------------------------
-// Header / Footer / Global Components
+// 2026 Components
 // -----------------------------------------------------------------------------
-@import 'button';
-@import 'utility-nav';
-@import 'mega-menu';
-@import 'homepage-header';
-@import 'interior-header';
-@import 'mobile-nav';
-@import 'footer';
+@import 'components/hero';
+@import 'components/routing-panel';
+@import 'components/stats';
+@import 'components/news-feature';
+@import 'components/events-listing';
+@import 'components/cta-panel';
+@import 'components/panel-burst';
+@import 'components/automodal';
+@import 'components/chat-bubble';
 
 // -----------------------------------------------------------------------------
 // Utilities
