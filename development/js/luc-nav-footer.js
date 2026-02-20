@@ -622,7 +622,7 @@
     }
 
     const burstRevealAt = 0.1;
-    const textRevealAt = 0.3;
+    const textRevealAt = 0.2;
 
     /* ---- Idempotent show/hide helpers ---- */
     function showBurst() {
@@ -790,7 +790,7 @@
           var navHeight = window.innerWidth >= 1190 ? 6 * rem : 4.5 * rem;
           return "top " + navHeight + "px";
         },
-        end: "+=1600px",
+        end: "+=1000px",
         pin: "#main-content",
         pinSpacing: true,
         scrub: true,
@@ -818,6 +818,16 @@
       { y: "-10%", duration: 1.2, ease: "power2.out" },
       0
     );
+
+    // Video hero blur: blur from 0px to 20px and opacity from 1 to 0.5 between ~10%–30% scroll progress
+    var videoHeroContainer = heroSection && heroSection.querySelector('.luc-hero__video-hero-player');
+    if (videoHeroContainer) {
+      gsap.set(videoHeroContainer, { filter: 'blur(0px)', opacity: 1 });
+      scaleTl.to(videoHeroContainer,
+        { filter: 'blur(50px)', opacity: 0.5, duration: 0.18, ease: "none" },
+        0.12
+      );
+    }
 
     // Gradient overlay fade: fade out early in scroll (~26% progress = frame 63/240)
     var gradientOverlay = heroSection && heroSection.querySelector('.luc-hero__gradient-overlay');
