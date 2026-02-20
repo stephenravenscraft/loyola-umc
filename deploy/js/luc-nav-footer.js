@@ -142,9 +142,11 @@
     }
     if (searchPanel) {
       searchPanel.setAttribute('aria-hidden', 'false');
-      // Focus the search input
+      // Focus the search input after panel transition completes
       const searchInput = searchPanel.querySelector('.luc-search__input');
-      searchInput?.focus();
+      setTimeout(function() {
+        searchInput?.focus();
+      }, 300);
     }
     document.body.classList.add('overlay-open');
   }
