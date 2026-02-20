@@ -125,10 +125,7 @@
 		padding: 2.5rem $luc-wrap;
 		display: flex;
 		flex-direction: column;
-		// padding-inline: $luc-wrap;
 		margin-inline: calc(#{$luc-wrap} / 2) $luc-wrap;
-
-		// margin-left: calc(#{($luc-wrap)} / 2 * -1);
 
 		@media (min-width: 64rem) {
 			position: relative;

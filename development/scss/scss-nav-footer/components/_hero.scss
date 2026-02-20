@@ -275,6 +275,11 @@
   pointer-events: none;
 }
 
+.luc-hero__dome-clip {
+  position: absolute;
+  overflow: hidden;
+}
+
 .luc-hero .sunburst-circle {
   display: grid;
   place-content: center;

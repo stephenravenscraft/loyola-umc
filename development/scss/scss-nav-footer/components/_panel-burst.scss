@@ -1,9 +1,6 @@
 // =============================================================================
 // Panel Burst
 // =============================================================================
-// Reusable animated sunburst component for sections. Loads burst.svg via <object>,
-// rotated 90deg, positioned at top of parent section. GSAP handles animation.
-// =============================================================================
 
 .panel-burst {
 	position: absolute;
@@ -12,7 +9,7 @@
 	width: 50%;
 	height: 100%;
 	overflow: hidden;
-	pointer-events: none; // Decorative overlay
+	pointer-events: none;
 	z-index: 2;
 
 
@@ -38,10 +35,4 @@
 			transform: rotate(90deg) translate(0, -10%);
 		}
 	}
-}
-
-// Ensure parent section has relative positioning for absolute child
-.cta-panel {
-	position: relative;
-	overflow: hidden;
 }
