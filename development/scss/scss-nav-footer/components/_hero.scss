@@ -328,7 +328,7 @@
   .h1 {
     font-family: $luc-font-family-condensed-bold;
     font-size: clamp(2rem, 7vw, 4rem);
-    text-shadow: 0 8px 8px rgba(43, 3, 16, 0.60);
+    text-shadow: 0 0 .75rem rgba(43, 3, 16, 0.60);
   }
 
   @media (max-width: 63.9375rem) {

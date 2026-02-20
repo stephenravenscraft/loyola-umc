@@ -1,10 +1,11 @@
 .stats {
-	padding: $luc-panel $luc-wrap;
+	padding: $luc-panel 0.5rem;
 	background: $luc-white;
 	background-image: url('../images/images-2026/stats-background.png');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	overflow: hidden;
 
 	&__header {
 		display: flex;
@@ -45,6 +46,7 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: $luc-baseline * 14; // 56px
+		padding-inline: calc(#{$luc-wrap} / 2);
 		margin-bottom: $luc-baseline * 10; // 40px
 
 		&:last-child {
@@ -56,6 +58,7 @@
 			gap: $luc-baseline * 26;
 			align-items: center;
 			margin-bottom: $luc-baseline * 4;
+			padding-inline: 0;
 		}
 
 		&--reversed {
@@ -85,7 +88,7 @@
 
 	&__eyebrow {
 		@extend .text-detail;
-		color: $luc-black;
+		color: $luc-copper-extra-dark;
 	}
 
 	&__media {
@@ -110,10 +113,10 @@
 
 	&__card {
 		background-color: $luc-maroon;
-		padding: $luc-baseline * 6; // 24px
+		padding: 1.5rem calc(#{$luc-wrap} / 2);
 		display: flex;
 		flex-direction: column;
-		margin-inline: calc(#{($luc-gutter)} / 1.5 * -1);
+		margin-left: calc(#{($luc-wrap)} / 2 * -1);
 
 		@media (min-width: 64rem) {
 			position: relative;
@@ -163,5 +166,9 @@
 		color: $luc-white;
 		margin: 0;
 		margin-top: $luc-baseline * 3; // 12px
+	}
+
+	@media (min-width: 64rem) {
+		padding-inline: $luc-wrap;
 	}
 }
