@@ -66,11 +66,18 @@
 	}
 
 	&__date {
-		display: inline-block;
+		display: flex;
+		padding: 0.25rem 0.5rem;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 0.625rem;
 		font-family: $luc-font-family-condensed-bold;
 		font-size: $luc-baseline * 4;
 		line-height: 1.5;
 		color: $luc-copper-extra-dark;
+		border-radius: 0.125rem;
+		border: 1px solid $luc-copper-extra-dark;
 		width: fit-content;
 	}
 

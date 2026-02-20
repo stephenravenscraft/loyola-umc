@@ -54,7 +54,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(90, 7, 34, 0) 19.42%, #5A0722 100%), linear-gradient(215deg, rgba(141, 0, 52, 0) 45.79%, rgba(90, 7, 34, 0.7) 68.52%);
+  background: linear-gradient(180deg, rgba(90, 7, 34, 0) 79.42%, #5A0722 100%), linear-gradient(215deg, rgba(141, 0, 52, 0) 65.79%, rgba(90, 7, 34, 0.7) 88.52%);
   z-index: 1;
   pointer-events: none;
 }
@@ -216,7 +216,7 @@
 
   .luc-hero__heading {
     @extend .h1;
-    text-shadow: 0 8px 8px rgba(43, 3, 16, 0.40);
+    text-shadow: 0 0.25rem 0.75rem rgba(43, 3, 16, 0.5);
     margin: 0;
     color: $luc-white;
   }
