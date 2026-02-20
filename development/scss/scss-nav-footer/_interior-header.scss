@@ -51,6 +51,10 @@
   letter-spacing: 0.00625rem;
   color: $luc-white;
 
+  .luc-header--interior & {
+    outline-color: $luc-white;
+  }
+
   &::before {
     content: '';
     display: block;
@@ -103,6 +107,10 @@
 
   &:focus-visible {
     outline-color: $luc-maroon;
+
+    .luc-header--interior & {
+      outline-color: $luc-white;
+    }
   }
 }
 

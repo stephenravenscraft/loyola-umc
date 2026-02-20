@@ -29,6 +29,10 @@
   outline-color: $luc-maroon;
   display: block;
   text-decoration: none;
+
+  .luc-header--interior & {
+    outline-color: $luc-white;
+  }
 }
 
 .luc-utility__logo-img {
