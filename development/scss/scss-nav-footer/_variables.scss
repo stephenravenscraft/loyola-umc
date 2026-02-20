@@ -84,7 +84,7 @@ $luc-space-l-xl: clamp(2rem, 1.2841rem + 3.1818vw, 3.75rem);
 $luc-gap: clamp(1rem, 4vw, 2rem);
 $luc-gutter: clamp(1.5rem, 4vw, 4rem);
 $luc-space: clamp(2.5rem, 4vw, 5rem);
-$luc-panel: clamp(1.5rem, 4vw, 4rem);
+$luc-panel: clamp(2.5rem, 4vw, 5rem);
 $luc-wrap: #{max(#{$luc-gutter}, (100% - 90rem) / 2)};
 $luc-wrap-sm: #{max(#{$luc-gutter}, (100% - 56.25rem) / 2)};
 $luc-wrap-lg: #{max(#{$luc-gutter}, (100% - 100rem) / 2)};

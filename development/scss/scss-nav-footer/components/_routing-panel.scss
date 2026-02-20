@@ -1,4 +1,6 @@
 .routing-panel {
+  overflow: hidden;
+
 	&__container {
     position: relative;
     z-index: 2;

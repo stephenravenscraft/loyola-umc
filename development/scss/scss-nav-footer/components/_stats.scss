@@ -1,5 +1,5 @@
 .stats {
-	padding: $luc-panel 0.5rem;
+	padding: $luc-panel 0;
 	background: $luc-white;
 	background-image: url('../images/images-2026/stats-background.png');
 	background-size: cover;
@@ -11,6 +11,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: $luc-baseline * 8;
+		padding-inline: $luc-wrap;
 		margin-bottom: $luc-baseline * 9;
 
 		@media (min-width: 64rem) {
@@ -18,6 +19,7 @@
 			justify-content: space-between;
 			align-items: flex-start;
 			gap: $luc-space-xl;
+			padding-inline: 0;
 			margin-bottom: $luc-baseline * 16;
 		}
 	}
@@ -46,7 +48,6 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: $luc-baseline * 14; // 56px
-		padding-inline: calc(#{$luc-wrap} / 2);
 		margin-bottom: $luc-baseline * 10; // 40px
 
 		&:last-child {
@@ -73,6 +74,9 @@
 	}
 
 	&__text {
+		padding-inline: $luc-wrap;
+		margin-inline: calc(#{$luc-wrap} / 2);
+
 		h3 {
 			margin-top: $luc-baseline * 1; // 16px
 		}
@@ -83,6 +87,11 @@
 
 		.buttons {
 			margin-top: $luc-baseline * 4; // 16px
+		}
+
+		@media (min-width: 64rem) {
+			padding-inline: 0;
+			margin-inline: 0;
 		}
 	}
 
@@ -113,24 +122,27 @@
 
 	&__card {
 		background-color: $luc-maroon;
-		padding: 1.5rem calc(#{$luc-wrap} / 2);
+		padding: 2.5rem $luc-wrap;
 		display: flex;
 		flex-direction: column;
-		margin-left: calc(#{($luc-wrap)} / 2 * -1);
+		// padding-inline: $luc-wrap;
+		margin-inline: calc(#{$luc-wrap} / 2) $luc-wrap;
+
+		// margin-left: calc(#{($luc-wrap)} / 2 * -1);
 
 		@media (min-width: 64rem) {
 			position: relative;
 			margin-top: -($luc-baseline * 24);
 			width: 90%;
 			padding: $luc-baseline * 8;
-			margin-inline: -1.5rem 0;
+			margin-inline: calc(#{$luc-wrap} / 2 * -1) 0;
 		}
 
 		// Reversed blocks: card aligns left
 		.stats__block--reversed & {
 			@media (min-width: 64rem) {
 				margin-left: auto;
-				margin-right: -1.5rem;
+				margin-right: calc(#{$luc-wrap} / 2 * -1);
 			}
 		}
 	}
