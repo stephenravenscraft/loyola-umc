@@ -848,6 +848,20 @@
         0
       );
     }
+
+    // Skip the hero pin when keyboard focus moves past the hero,
+    // and scroll back when focus returns to the hero from below
+    var heroST = scaleTl.scrollTrigger;
+    document.addEventListener('focusin', function(e) {
+      if (!heroSection) return;
+      var inHero = heroSection.contains(e.target);
+      var afterHero = !inHero && e.target.compareDocumentPosition(heroSection) & Node.DOCUMENT_POSITION_PRECEDING;
+      if (afterHero && heroST.progress < 1) {
+        window.scrollTo({ top: heroST.end + heroSection.offsetHeight, behavior: 'instant' });
+      } else if (inHero && heroST.progress >= 1) {
+        window.scrollTo({ top: heroST.start, behavior: 'instant' });
+      }
+    });
   });
 
   // Panel Burst animations for reusable sunburst sections
