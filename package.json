@@ -27,7 +27,8 @@
     "yarn": "^1.22.21"
   },
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-zip": "^6.1.0"
   },
   "keywords": [],
   "description": ""
