@@ -790,9 +790,9 @@
           var navHeight = window.innerWidth >= 1190 ? 6 * rem : 4.5 * rem;
           return "top " + navHeight + "px";
         },
-        end: "+=100%",
-        pin: true,
-        pinSpacing: false,
+        end: "+=1600px",
+        pin: "#main-content",
+        pinSpacing: true,
         scrub: true,
         onUpdate: (self) => {
           if (self.progress >= burstRevealAt) showBurst();
@@ -837,7 +837,7 @@
 
     gsap.set(sunburstWrapper, { y: "0%" });
     scaleTl.to(sunburstWrapper,
-      { y: "-40%", duration: 1.2, ease: "none" },
+      { y: "-60%", duration: 1.2, ease: "none" },
       0
     );
 
@@ -884,7 +884,7 @@
         });
 
         const patternRect = svgEl.querySelector('rect[fill="url(#pattern0_2321_21298)"]');
-        const backgroundGroup = svgEl.querySelector('g[opacity="0.8"]');
+        const backgroundGroup = svgEl.querySelector('g[opacity="1"]');
         const sunburstGroup = svgEl.querySelector('g[style*="mix-blend-mode"]');
 
         if (sunburstGroup) {

@@ -1,17 +1,6 @@
 /* =============================================================================
    LUC Hero Component - Video Hero Variant
    ============================================================================= */
-/* Scroll runway: hero sticks for 100vh of scroll, then releases */
-.hero-scroll-runway {
-    position: relative;
-    height: 200vh; /* 100vh hero + 100vh scroll distance; GSAP pin handles sticking */
-}
-
-/* Sections after the hero scroll OVER the sticky hero */
-.hero-scroll-runway ~ * {
-    position: relative;
-    z-index: 2;
-}
 
 .luc-hero--video-hero {
   --heading: #{$luc-white};
@@ -21,9 +10,14 @@
   color: $luc-white;
   position: relative;
   z-index: 1;
-  height: 100vh;
+  height: calc(100vh - 4.5rem);
+  max-height: 50rem;
   overflow: hidden;
   display: block;
+
+  @media (min-width: $nav-breakpoint) {
+    height: calc(95vh - 10.5rem);
+  }
 }
 
 .luc-hero__video-hero-container {
@@ -37,35 +31,21 @@
   z-index: 9;
   background: rgba(90, 7, 34, 0.85);
 
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   inset: 0;
-  //   background: linear-gradient(180deg, rgba(90, 7, 34, 0.00) 79.42%, #5A0722 100%), linear-gradient(215deg, rgba(141, 0, 52, 0.00) 55.79%, rgba(90, 7, 34, 0.70) 78.52%);
-  //   z-index: 1;
-  //   pointer-events: none;
-  // }
-
   @media (min-width: 48rem) {
     position: relative;
     justify-content: flex-end;
-
-    // min-height: clamp(30rem, 50vw, 40rem);
     z-index: 2;
   }
 }
 
 .luc-hero__video-hero-wrapper {
-  position: relative;
+  position: absolute;
   width: 100%;
-  overflow: hidden;
+  inset: 0;
 
   @media (min-width: 48rem) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     height: 100%;
+    max-height: 50rem;
   }
 
 }
@@ -74,7 +54,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(90, 7, 34, 0) 29.42%, #5A0722 100%), linear-gradient(215deg, rgba(141, 0, 52, 0) 45.79%, rgba(90, 7, 34, 0.7) 68.52%);
+  background: linear-gradient(180deg, rgba(90, 7, 34, 0) 19.42%, #5A0722 100%), linear-gradient(215deg, rgba(141, 0, 52, 0) 45.79%, rgba(90, 7, 34, 0.7) 68.52%);
   z-index: 1;
   pointer-events: none;
 }
@@ -102,7 +82,7 @@
   right: 0;
   z-index: 10;
   border-radius: 0 0 0 1rem;
-  background: rgba(255, 255, 255, 0.70);
+  background: rgba(242, 239, 229, 0.8);
   display: flex;
   align-items: center;
   gap: $luc-space-2xs;
@@ -136,12 +116,13 @@
     margin-top: 0.5rem;
     right: 0;
     padding: 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.70);
+    background: $luc-copper-light;
     color: $luc-maroon;
     font-family: $luc-font-family;
     font-size: 0.875rem;
     line-height: 150%;
     outline-color: $luc-maroon;
+    box-shadow: 0 ($luc-baseline * 2) ($luc-baseline * 8) ($luc-baseline * 4) rgba(0, 0, 0, 0.25); // 0 8px 32px 16px rgba(0, 0, 0, 0.25)
     z-index: 20;
 
 
@@ -218,23 +199,19 @@
   position: relative;
   z-index: 2;
   display: flex;
+  height: 100%;
   flex-direction: column;
+  justify-content: flex-end;
   gap: $luc-space-s;
   padding: $luc-space-s;
-  padding-bottom: 10rem;
+  padding-bottom: 5rem;
 
   @media (min-width: 48rem) {
     position: absolute;
-    // top: calc(#{$luc-space-2xl} + 4.75rem);
     left: $luc-wrap;
     max-width: 90ch;
     gap: $luc-space-s;
-    padding: $luc-space-s;
-    padding-bottom: 10rem;
-  }
-
-  @media (min-width: $nav-breakpoint) {
-    padding-bottom: 20rem;
+    padding-bottom: 5rem;
   }
 
   .luc-hero__heading {
@@ -280,7 +257,7 @@
 }
 
 /* ============================================================
-   Sunburst — lives inside the sticky video hero
+   Sunburst — lives inside the video hero
    ============================================================ */
 
 .luc-hero .sunburst-container {
@@ -295,7 +272,7 @@
   height: 100%;
   overflow: hidden;
   z-index: 9;
-  pointer-events: none; /* decorative overlay — don't block clicks */
+  pointer-events: none;
 }
 
 .luc-hero .sunburst-circle {
@@ -311,14 +288,14 @@
 
 .luc-hero .sunburst-container .sunburst-wrapper {
   position: absolute;
-  left: -2%;
-  top: 3%;
+  left: -1%;
+  top: 33%;
   width: clamp(570px, 75vw, 1520px);
   height: auto;
   margin: 0 auto;
   z-index: 2;
   opacity: 0.5;
-  transform: translate(-50%, calc(-50% + 30vh));
+  transform: translate(-50%, -50%);
 }
 
 .luc-hero .sunburst-container .sunburst-svg-object {
@@ -331,9 +308,9 @@
 
 .luc-hero .sunburst-container .sunburst-wrapper .sunburst-flare {
   position: absolute;
-  left: 22%;
-  top: 28%;
-  width: 50%;
+  left: 10%;
+  top: 20%;
+  width: 100%;
   height: auto;
   pointer-events: none;
   mix-blend-mode: lighten;
