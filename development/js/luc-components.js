@@ -246,9 +246,9 @@
         sunburstContainer._textRevealTl.kill();
         sunburstContainer._textRevealTl = null;
       }
-      gsap.set(sunburstTextEl, { visibility: 'hidden', opacity: 0, y: 30 });
-      if (whiteWordSpans.length) gsap.set(whiteWordSpans, { visibility: 'hidden', opacity: 0, y: 10 });
-      if (goldSegment) gsap.set(goldSegment, { visibility: 'hidden', opacity: 0, y: 16 });
+      gsap.set(sunburstTextEl, { opacity: 0, y: 30 });
+      if (whiteWordSpans.length) gsap.set(whiteWordSpans, { opacity: 0, y: 10 });
+      if (goldSegment) gsap.set(goldSegment, { opacity: 0, y: 16 });
     }
 
     function playHybridText() {
@@ -259,9 +259,9 @@
       }
 
       if (prefersReducedMotion) {
-        gsap.set(sunburstTextEl, { visibility: 'visible', opacity: 1, y: 0 });
-        if (whiteWordSpans.length) gsap.set(whiteWordSpans, { visibility: 'visible', opacity: 1, y: 0 });
-        if (goldSegment) gsap.set(goldSegment, { visibility: 'visible', opacity: 1, y: 0 });
+        gsap.set(sunburstTextEl, { opacity: 1, y: 0 });
+        if (whiteWordSpans.length) gsap.set(whiteWordSpans, { opacity: 1, y: 0 });
+        if (goldSegment) gsap.set(goldSegment, { opacity: 1, y: 0 });
         return;
       }
 
@@ -269,20 +269,20 @@
       sunburstContainer._textRevealTl = gsap.timeline();
       sunburstContainer._textRevealTl.to(
         sunburstTextEl,
-        { visibility: 'visible', opacity: 1, y: 0, duration: 0.35, ease: "power2.out" },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" },
         0
       );
       if (whiteWordSpans.length) {
         sunburstContainer._textRevealTl.to(
           whiteWordSpans,
-          { visibility: 'visible', opacity: 1, y: 0, duration: 2, stagger: 0.06, ease: "power2.out" },
+          { opacity: 1, y: 0, duration: 2, stagger: 0.06, ease: "power2.out" },
           0.1
         );
       }
       if (goldSegment) {
         sunburstContainer._textRevealTl.to(
           goldSegment,
-          { visibility: 'visible', opacity: 1, y: 0, duration: 2, ease: "power2.out" },
+          { opacity: 1, y: 0, duration: 2, ease: "power2.out" },
           0.9
         );
       }
@@ -347,9 +347,9 @@
         sunburstContainer._textRevealTl.kill();
         sunburstContainer._textRevealTl = null;
       }
-      gsap.set(sunburstTextEl, { visibility: 'visible', opacity: 1, y: 0 });
-      if (whiteWordSpans.length) gsap.set(whiteWordSpans, { visibility: 'visible', opacity: 1, y: 0 });
-      if (goldSegment) gsap.set(goldSegment, { visibility: 'visible', opacity: 1, y: 0 });
+      gsap.set(sunburstTextEl, { opacity: 1, y: 0 });
+      if (whiteWordSpans.length) gsap.set(whiteWordSpans, { opacity: 1, y: 0 });
+      if (goldSegment) gsap.set(goldSegment, { opacity: 1, y: 0 });
     }
 
     function initBurstRays() {
