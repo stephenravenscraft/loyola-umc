@@ -270,6 +270,7 @@
   padding: 0;
   margin: 0;
   height: 100%;
+  max-width: 100%;
   overflow: hidden;
   z-index: 9;
 }
@@ -296,7 +297,8 @@
   position: absolute;
   left: -1%;
   top: 33%;
-  width: clamp(570px, 75vw, 1520px);
+  width: clamp(320px, 75vw, 1520px);
+  max-width: 100%;
   height: auto;
   margin: 0 auto;
   z-index: 2;
