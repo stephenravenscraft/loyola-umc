@@ -299,6 +299,7 @@
     function showBurst() {
       if (sunburstContainer._burstShowing) return;
       sunburstContainer._burstShowing = true;
+      sunburstContainer.style.zIndex = '9';
       gsap.to(svgObject, { opacity: 0.4, duration: 0.3, overwrite: "auto" });
       if (flareEl) {
         gsap.fromTo(flareEl,
@@ -312,6 +313,7 @@
     function hideBurst() {
       if (!sunburstContainer._burstShowing) return;
       sunburstContainer._burstShowing = false;
+      sunburstContainer.style.zIndex = '';
       if (sunburstContainer._burstTl) {
         sunburstContainer._burstTl.kill();
         sunburstContainer._burstTl = null;
@@ -323,6 +325,7 @@
 
     function showBurstInstant() {
       sunburstContainer._burstShowing = true;
+      sunburstContainer.style.zIndex = '9';
       gsap.set(svgObject, { opacity: 0.4 });
       if (flareEl) gsap.set(flareEl, { opacity: 0.8 });
       if (sunburstContainer._setBurstEndState) sunburstContainer._setBurstEndState();
