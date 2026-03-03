@@ -575,7 +575,7 @@
     background-position: center;
     background-repeat: no-repeat;
     position: absolute;
-    right: $luc-baseline * 2; // 8px
+    right: -($luc-baseline * 2); // 8px
     transform-origin: right;
     opacity: 0;
     transition: opacity $luc-transition-fast, transform $luc-transition-fast;
