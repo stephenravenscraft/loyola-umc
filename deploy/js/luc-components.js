@@ -201,7 +201,49 @@
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // GSAP's default autoRefreshEvents handles resize correctly with pin: true
+  // Refresh pin spacer: body (viewport/zoom), #main-content (content growth, font scaling, letter-spacing)
+  var heroPinTriggers = [];
+  function getViewportPinThreshold() {
+    var val = getComputedStyle(document.documentElement).getPropertyValue('--hero-min-height-pin').trim();
+    return parseFloat(val) || 500;
+  }
+  function viewportTooShort() {
+    var vh = window.innerHeight;
+    return vh <= getViewportPinThreshold();
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    var refreshTid;
+    function debouncedRefresh() {
+      clearTimeout(refreshTid);
+      refreshTid = setTimeout(function() {
+        var disable = viewportTooShort();
+        heroPinTriggers.forEach(function(t) {
+          if (disable) {
+            t.onDisable && t.onDisable();
+            t.heroST.disable(true);
+          } else {
+            t.heroST.enable();
+          }
+        });
+        ScrollTrigger.refresh();
+      }, 150);
+    }
+    new ResizeObserver(debouncedRefresh).observe(document.body);
+    var mainContent = document.getElementById('main-content');
+    if (mainContent) new ResizeObserver(debouncedRefresh).observe(mainContent);
+  }
+  window.refreshScrollTrigger = function() {
+    var disable = viewportTooShort();
+    heroPinTriggers.forEach(function(t) {
+      if (disable) {
+        t.onDisable && t.onDisable();
+        t.heroST.disable(true);
+      } else {
+        t.heroST.enable();
+      }
+    });
+    ScrollTrigger.refresh();
+  };
 
   document.querySelectorAll('.sunburst-container').forEach(function(sunburstContainer) {
     const sunburstWrapper = sunburstContainer.querySelector('.sunburst-wrapper');
@@ -476,6 +518,14 @@
           else hideText();
         },
         onRefresh: (self) => {
+          if (viewportTooShort()) {
+            showBurstInstant();
+            showTextInstant();
+            scaleTl.progress(1);
+            if (videoHeroContainer) gsap.set(videoHeroContainer, { filter: 'blur(0px)', opacity: 1 });
+            gsap.set(sunburstWrapper, { clearProps: 'all' });
+            return;
+          }
           if (self.progress >= burstRevealAt) showBurstInstant();
           else hideBurst();
 
@@ -533,9 +583,18 @@
       );
     }
 
-    // Skip the hero pin when keyboard focus moves past the hero,
-    // and scroll back when focus returns to the hero from below
     var heroST = scaleTl.scrollTrigger;
+    heroPinTriggers.push({
+      heroSection: heroSection,
+      heroST: heroST,
+      onDisable: function() {
+        showBurstInstant();
+        showTextInstant();
+        scaleTl.progress(1);
+        if (videoHeroContainer) gsap.set(videoHeroContainer, { filter: 'blur(0px)', opacity: 1 });
+        gsap.set(sunburstWrapper, { clearProps: 'all' });
+      }
+    });
     document.addEventListener('focusin', function(e) {
       if (!heroSection) return;
       var inHero = heroSection.contains(e.target);
@@ -547,6 +606,19 @@
       }
     });
   });
+
+  if (heroPinTriggers.length) {
+    var disable = viewportTooShort();
+    heroPinTriggers.forEach(function(t) {
+      if (disable) {
+        t.onDisable && t.onDisable();
+        t.heroST.disable(true);
+      } else {
+        t.heroST.enable();
+      }
+    });
+    ScrollTrigger.refresh();
+  }
 
   // Panel Burst animations for reusable sunburst sections
   document.querySelectorAll('.panel-burst').forEach(function(panelBurst) {

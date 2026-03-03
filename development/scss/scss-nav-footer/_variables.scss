@@ -94,6 +94,8 @@ $luc-shadow-heavy: 0px 4px 30px 0px rgba(32, 16, 14, .4);
 $luc-shadow-lg: 0px 4px 30px 0px rgba(32, 16, 14, .4);
 $luc-shadow: 0px 4px 20px 0px rgba(32, 16, 14, .25);
 $luc-shadow-sm: 0px 2px 10px 0px rgba(32, 16, 14, .2);
+$hero-min-height-pin: 500; // px viewport height, below this disable pin (zoom/small viewport)
+
 $luc-radius: .25rem;
 $luc-radius-s: .125rem;
 $luc-radius-m: .75rem;
