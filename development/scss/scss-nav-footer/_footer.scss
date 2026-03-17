@@ -14,6 +14,7 @@
   color: $luc-footer-text;
   position: relative;
   z-index: 1;
+  padding: 0;
 
   .luc-button {
     font-size: $luc-baseline * 5; // 20px
@@ -35,6 +36,7 @@
   position: relative;
   margin: 0 auto;
   padding: $luc-space $luc-wrap;
+  width: 100%;
 
   @media (max-width: #{$nav-breakpoint - 1px}) {
     // Extra top padding for absolutely positioned back-to-top button
