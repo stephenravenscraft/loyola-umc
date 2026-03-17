@@ -154,8 +154,10 @@
 
 // Column headings
 .luc-footer__heading {
-  @extend .h5;
-  letter-spacing: 0.00625rem;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: clamp(1.125rem, 5vw, 1.25rem);
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
   margin: 0 0 ($luc-baseline * 6); // 24px
   color: $luc-white;
 
@@ -175,7 +177,10 @@
 }
 
 .luc-footer__link {
-  @extend .text-small;
+  font-family: $luc-font-family;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
   display: block;
   padding: $luc-baseline 0; // 4px 0
   color: $luc-copper-light;
