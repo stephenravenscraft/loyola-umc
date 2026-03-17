@@ -15,7 +15,7 @@
 // -----------------------------------------------------------------------------
 @import '../scss-typography/custom-variables';
 @import '../scss-typography/antenna';
-@import '../scss-framework/mixins/breakpoints';
+@import 'mixins/breakpoints';
 
 // -----------------------------------------------------------------------------
 // Vertical Rhythm Imports (from existing codebase)
@@ -26,7 +26,6 @@
 // Framework Imports
 // -----------------------------------------------------------------------------
 // @import '../scss-framework/framework';
-@import '../scss-framework/mixins/breakpoints';
 
 // -----------------------------------------------------------------------------
 // Panels Imports (from existing codebase)
