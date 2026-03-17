@@ -17,6 +17,7 @@ const concat = require('gulp-concat');
 // const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const zip = require('gulp-zip').default;
+const streamSeries = require('stream-series');
 // const cssnano = require('gulp-cssnano');
 // const gulpSequence = require('gulp-sequence');
 
@@ -78,6 +79,16 @@ function sassPanels() {
 function sassPanelsDev() {
   return gulp
   .src(config.devDir + '/scss/scss-panels-dev/**/*.scss')
+  .pipe(sourcemaps.init())  // Process the original sources
+  .pipe(sass())
+  .pipe(sourcemaps.write()) // Add the map to modified source.
+  .pipe(gulp.dest(config.deployDir + '/css'));
+  cb();
+};
+
+function sassCarnegieComponents() {
+  return gulp
+  .src(config.devDir + '/scss/scss-carnegie-components/**/*.scss')
   .pipe(sourcemaps.init())  // Process the original sources
   .pipe(sass())
   .pipe(sourcemaps.write()) // Add the map to modified source.
@@ -181,7 +192,11 @@ function indexBuild(cb) {
     .pipe(uglify()) // minify bundle.js
     .pipe(gulp.dest('./deploy/js')); // Save the bundle.js file in the ./deploy/js directory
 
-  var cssSources = gulp.src('./deploy/css/**/*.css');
+  var cssSources = streamSeries(
+    gulp.src(['./deploy/css/**/*.css', '!./deploy/css/luc-nav-footer.css', '!./deploy/css/luc-components.css']),
+    gulp.src('./deploy/css/luc-nav-footer.css'),
+    gulp.src('./deploy/css/luc-components.css'),
+  );
 
   return target
     .pipe(inject(jsSources, { ignorePath: 'deploy/', addRootSlash: false }))
@@ -220,9 +235,10 @@ exports.indexBuild = indexBuild;
 exports.referencePaths = referencePaths;
 exports.sassFramework = sassFramework;
 exports.sassGrid = sassGrid;
-exports.sassTypography = sassTypography;
+exports.sassTypography = sassTypography; 
 exports.sassPanels = sassPanels;
 exports.sassPanelsDev = sassPanelsDev;
+// exports.sassCarnegieComponents = sassCarnegieComponents;
 exports.sassDocumentation = sassDocumentation;
 exports.sassNavFooter = sassNavFooter;
 exports.jsNavFooter = jsNavFooter;

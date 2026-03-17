@@ -28,7 +28,9 @@
   },
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-zip": "^6.1.0"
+    "gulp-zip": "^6.1.0",
+    "merge-stream": "^2.0.0",
+    "stream-series": "^0.1.1"
   },
   "keywords": [],
   "description": ""
