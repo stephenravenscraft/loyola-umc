@@ -9,6 +9,12 @@
 // 1. Header Wrappers
 // =============================================================================
 
+// Body scroll lock when menu/search is open
+body.luc-menu-open,
+body.luc-search-open {
+  overflow: hidden;
+}
+
 .luc-header--homepage {
   position: sticky;
   top: 0;
@@ -26,7 +32,7 @@
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 998;
+  z-index: 1000;
   background: $luc-white;
   border-bottom: 1px solid $luc-gray-lightest;
 
@@ -595,7 +601,6 @@
     background: transparent;
     color: $luc-maroon;
     text-decoration: none;
-    border-radius: 0;
   }
 
   // Mobile: Gold border, maroon on active
@@ -669,11 +674,6 @@
       }
     }
   }
-  &:hover {
-    &::after {
-      background: $luc-maroon;
-    }
-  }
 }
 
 .luc-nav__toggle-text {
@@ -730,7 +730,6 @@
   text-underline-offset: 0.125em;
   text-decoration-color: rgba($luc-maroon, 0.5);
   text-underline-position: from-font;
-  line-height: 1.5;
   transition: text-decoration-thickness var(--transition-fast);
 
   &:hover {
