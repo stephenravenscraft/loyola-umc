@@ -9,14 +9,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
 <body>
-	<!-- HEADER -->
-	@@include('./partials/framework/luc-search-overlay.html')
-	@@include('./partials/framework/luc-sliding-menu-V2.html')
-	<header>
-		@@include('./partials/framework/luc-audience-directory.html')
-		@@include('./partials/panels/proposed/luc-header-proposed.html')
-	</header>
-		@@include('./partials/framework/luc-nav-desktop-accessible.html')
+	<!-- Header -->
+	@@include('./partials/panels/proposed/luc-interior-header.html')
+	<!-- Main Content -->
 	<main id="main-content-start" alt="This is the beginning of the main content of the page">
 		<aside id="social-icon-bar">
 			@@include('./partials/panels/proposed/luc-social-media-bar-proposed.html')
@@ -31,9 +26,8 @@
 			</section>
 		</div>
 	</main>
-    <footer>
-        @@include('./partials/panels/proposed/luc-footer-proposed.html')
-    </footer>
+	<!-- Footer -->
+	@@include('./partials/panels/proposed/luc-global-footer.html')
 </script>
 <!-- inject:js -->
 <!-- endinject -->

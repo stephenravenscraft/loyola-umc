@@ -5,18 +5,18 @@
 	@@include('./partials/framework/luc-head.html')
 	<!-- inject:css -->
 	<!-- endinject -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+	<!-- Header -->
+	@@include('./partials/panels/proposed/luc-interior-header.html')
+	<!-- Main Content -->
 	<div id="main-wrapper">
-		@@include('./partials/framework/luc-search-overlay.html')
-		@@include('./partials/framework/luc-sliding-menu.html')
-		<!-- HEADER -->
-		<header id="luc-header">
-			@@include('./partials/panels/proposed/luc-header-proposed.html')
-		</header>
-		@@include('./partials/framework/luc-nav-desktop-accessible-v2.html')
 		<main id="main-content-start" alt="This is the beginning of the main content of the page">
 			<aside id="social-icon-bar">
 				<!-- sidebar content here -->
@@ -57,13 +57,15 @@
 			<aside id="social-icon-bar" class="social-not-fixed">
 				@@include('./partials/framework/luc-social-media-bar.html')
 			</aside>
-			<footer id="footer-not-fixed">
-				@@include('./partials/framework/luc-footer.html')
-			</footer>
-			<footer id="footer-fixed">
-				@@include('./partials/framework/luc-footer.html')
-			</footer>
 		</main>
+		<!-- Footer -->
+		@@include('./partials/panels/proposed/luc-global-footer.html')
+
+		<!-- Nav/Footer Bundle JS -->
+<script src="js/luc-nav-footer.js"></script>
+<!-- Components Bundle JS -->
+<script src="js/luc-components.js"></script>
+
 		<!-- inject:js -->
 		<!-- endinject -->
 	</div>

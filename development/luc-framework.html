@@ -13,146 +13,136 @@
 
 </style>
 	<!-- <body id="page-layout-faculty-profile"> -->
-	<div id="main-wrapper">
-		@@include('./partials/framework/luc-search-overlay.html')
-		@@include('./partials/framework/luc-sliding-menu.html')
-		<header id="luc-header">
-			@@include('./partials/panels/proposed/luc-header-proposed.html')
-		</header>
-		@@include('./partials/framework/luc-nav-desktop-accessible.html')
-		<!-- @@include('./partials/framework/luc-nav-desktop-accessible-t4.html') -->
-		<main id="main-content-start" alt="This is the beginning of the main content of the page">
-			<aside id="social-icon-bar">
-				@@include('./partials/framework/luc-social-media-bar.html')
-			</aside>
-			<!-- main content here
-			by ID
-			span9 (main-content-wrapper)
-			span12 (main-content-wrapper-full-width) -->
-			<section class="container-fluid">
-				@@include('./partials/framework/luc-alert.html')
-			</section>
-			<section id="panel-image-caption" class="container-fluid ">
-				<div class="container container-100">
-				  <div class="grid-wrapper-min-max">
-						<div class="grid-item margin-none image-resize-background-image hero-wrap">
-							<img src="./images/images-image-hero-random/1800x450_3.jpg" alt=""/>
-						</div>
+	@@include('./partials/panels/proposed/luc-interior-header.html')
+	<main id="main-content">
+		<aside id="social-icon-bar">
+			@@include('./partials/framework/luc-social-media-bar.html')
+		</aside>
+		<!-- main content here
+		by ID
+		span9 (main-content-wrapper)
+		span12 (main-content-wrapper-full-width) -->
+		<section class="container-fluid">
+			@@include('./partials/framework/luc-alert.html')
+		</section>
+		<section id="panel-image-caption" class="container-fluid ">
+			<div class="container container-100">
+				<div class="grid-wrapper-min-max">
+					<div class="grid-item margin-none image-resize-background-image hero-wrap">
+						<img src="./images/images-image-hero-random/1800x450_3.jpg" alt=""/>
 					</div>
 				</div>
+			</div>
+		</section>
+		<div id="main-content-wrapper" class="grid-wrapper-min-max">
+			<section id="main-section-wrapper" style="background: green;">
+				<h2>Main content</h2>
 			</section>
-			<div id="main-content-wrapper" class="grid-wrapper-min-max">
-				<section id="main-section-wrapper" style="background: green;">
-					<h2>Main content</h2>
-				</section>
-				<aside id="main-aside-wrapper-navigation" style="background: green;">
-					<section class="container-fluid">
-						<div class="container">
-							<h2>Aside A</h2>
-							<div id="interiorpagenav" class="grid-item">
-								<div class="intro-grid-area-aside-navigation">
-							  <div id="t4-navigation">
-								<button class="t4-navigation-toggle-btn">In this section <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
-								  <nav class="t4-navigation-wrapper" aria-hidden="false">
-									<div class="animationOverlay"></div>
-									<ul class="t4-navigation-list" data-level="Main Menu">
-										<li><a href="/mission/about/">About</a>
-											<ul class="multilevel-linkul-0">
-												<li><a href="/mission/about/meettheteam/">Meet The Team</a></li>
-												<li><a href="/mission/about/stignatiushistory/">St. Ignatius History</a></li>
-												<li><a href="/mission/about/jesuitcommunity/">Jesuit Community</a></li>
-												<li><a href="/mission/about/newsandevents/">News and Events</a></li>
-												<li><a href="/mission/about/contact/">Contact</a></li>
-											</ul>
-										</li>
-										<li><a href="/mission/facultyandstaffformation/">Faculty and Staff Formation</a>
-											<ul class="multilevel-linkul-0">
-												<li><a href="/mission/facultyandstaffformation/missionorientation/">Mission Orientation</a></li>
-												<li><a href="/mission/facultyandstaffformation/retreats/">Retreats</a>
-												<ul class="multilevel-linkul-1">
-												<li><a href="/mission/facultyandstaffformation/retreats/inner-missionemployeeretreat/">Inner-Mission Employee Retreat</a></li>
-												<li><a href="/mission/facultyandstaffformation/retreats/facultywritingretreat/">Faculty Writing Retreat</a></li>
-												<li><a href="/mission/facultyandstaffformation/retreats/ignatiancontemplationretreat/">Ignatian Contemplation Retreat</a></li>
-												<li><a href="/mission/facultyandstaffformation/retreats/spiritualexercisesineverydaylifeseelorthe19thannotation/">Spiritual Exercises in Everyday Life (SEEL or the 19th Annotation)</a></li>
-												<li><a href="/mission/facultyandstaffformation/retreats/busypersonretreat/">Busy Person Retreat</a></li>
-												<li><a href="/mission/facultyandstaffformation/retreats/mayretreat/">May Retreat</a></li>
-											</ul>
-										</li>
-										<li><a href="/mission/facultyandstaffformation/allthingsignatianstaffseminar/">All Things Ignatian Staff Seminar</a></li>
-										<li><a href="/mission/facultyandstaffformation/bookclubs/">Book Clubs</a></li>
-										<li><a href="/mission/facultyandstaffformation/spiritualdirection/">Spiritual Direction</a></li>
-										<li><a href="/mission/facultyandstaffformation/damenlegacyfellowship/">Damen Legacy Fellowship</a></li>
-										<li><a href="/mission/facultyandstaffformation/missionintegrationfacultyseminar/">Mission Integration Faculty Seminar</a></li>
-									</ul>
-									
-									</li>
-									<li><a href="/mission/ignatianheritage/">Ignatian Heritage</a>
+			<aside id="main-aside-wrapper-navigation" style="background: green;">
+				<section class="container-fluid">
+					<div class="container">
+						<h2>Aside A</h2>
+						<div id="interiorpagenav" class="grid-item">
+							<div class="intro-grid-area-aside-navigation">
+							<div id="t4-navigation">
+							<button class="t4-navigation-toggle-btn">In this section <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+								<nav class="t4-navigation-wrapper" aria-hidden="false">
+								<div class="animationOverlay"></div>
+								<ul class="t4-navigation-list" data-level="Main Menu">
+									<li><a href="/mission/about/">About</a>
 										<ul class="multilevel-linkul-0">
-											<li><a href="/mission/ignatianheritage/transformativeeducation/">Transformative Education</a></li>
-											<li><a href="/mission/ignatianheritage/missionpriorityexamen/">Mission Priority Examen</a></li>
-											<li><a href="/mission/ignatianheritage/ignatianheritagemonth/">Ignatian Heritage Month</a>
-												<ul class="multilevel-linkul-1">
-													<li><a href="/mission/ignatianheritage/ignatianheritagemonth/examensandpodcasts/">Examens and Podcasts</a>
-														<ul class="multilevel-linkul-2">
-															<li><a href="/mission/ignatianheritage/ignatianheritagemonth/examensandpodcasts/dailyexamens/">Daily Examens</a></li>
-														</ul>
-													</li>
-												</ul>
-											</li>
-											<li><a href="/mission/ignatianheritage/examens/">Examens</a></li>
-											<li><a href="/mission/resources/">Resources</a></li>
-											<li><a href="/mission/universitypartners/">University Partners</a></li>
+											<li><a href="/mission/about/meettheteam/">Meet The Team</a></li>
+											<li><a href="/mission/about/stignatiushistory/">St. Ignatius History</a></li>
+											<li><a href="/mission/about/jesuitcommunity/">Jesuit Community</a></li>
+											<li><a href="/mission/about/newsandevents/">News and Events</a></li>
+											<li><a href="/mission/about/contact/">Contact</a></li>
 										</ul>
 									</li>
-								</nav>
-							  </div>
+									<li><a href="/mission/facultyandstaffformation/">Faculty and Staff Formation</a>
+										<ul class="multilevel-linkul-0">
+											<li><a href="/mission/facultyandstaffformation/missionorientation/">Mission Orientation</a></li>
+											<li><a href="/mission/facultyandstaffformation/retreats/">Retreats</a>
+											<ul class="multilevel-linkul-1">
+											<li><a href="/mission/facultyandstaffformation/retreats/inner-missionemployeeretreat/">Inner-Mission Employee Retreat</a></li>
+											<li><a href="/mission/facultyandstaffformation/retreats/facultywritingretreat/">Faculty Writing Retreat</a></li>
+											<li><a href="/mission/facultyandstaffformation/retreats/ignatiancontemplationretreat/">Ignatian Contemplation Retreat</a></li>
+											<li><a href="/mission/facultyandstaffformation/retreats/spiritualexercisesineverydaylifeseelorthe19thannotation/">Spiritual Exercises in Everyday Life (SEEL or the 19th Annotation)</a></li>
+											<li><a href="/mission/facultyandstaffformation/retreats/busypersonretreat/">Busy Person Retreat</a></li>
+											<li><a href="/mission/facultyandstaffformation/retreats/mayretreat/">May Retreat</a></li>
+										</ul>
+									</li>
+									<li><a href="/mission/facultyandstaffformation/allthingsignatianstaffseminar/">All Things Ignatian Staff Seminar</a></li>
+									<li><a href="/mission/facultyandstaffformation/bookclubs/">Book Clubs</a></li>
+									<li><a href="/mission/facultyandstaffformation/spiritualdirection/">Spiritual Direction</a></li>
+									<li><a href="/mission/facultyandstaffformation/damenlegacyfellowship/">Damen Legacy Fellowship</a></li>
+									<li><a href="/mission/facultyandstaffformation/missionintegrationfacultyseminar/">Mission Integration Faculty Seminar</a></li>
+								</ul>
+								
+								</li>
+								<li><a href="/mission/ignatianheritage/">Ignatian Heritage</a>
+									<ul class="multilevel-linkul-0">
+										<li><a href="/mission/ignatianheritage/transformativeeducation/">Transformative Education</a></li>
+										<li><a href="/mission/ignatianheritage/missionpriorityexamen/">Mission Priority Examen</a></li>
+										<li><a href="/mission/ignatianheritage/ignatianheritagemonth/">Ignatian Heritage Month</a>
+											<ul class="multilevel-linkul-1">
+												<li><a href="/mission/ignatianheritage/ignatianheritagemonth/examensandpodcasts/">Examens and Podcasts</a>
+													<ul class="multilevel-linkul-2">
+														<li><a href="/mission/ignatianheritage/ignatianheritagemonth/examensandpodcasts/dailyexamens/">Daily Examens</a></li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li><a href="/mission/ignatianheritage/examens/">Examens</a></li>
+										<li><a href="/mission/resources/">Resources</a></li>
+										<li><a href="/mission/universitypartners/">University Partners</a></li>
+									</ul>
+								</li>
+							</nav>
 							</div>
-						  </div>
 						</div>
-					</section>
-				</aside>
-				<aside id="main-aside-wrapper-content" style="background: green;">
-					<section class="container-fluid" class="grid-wrapper-min-max">
-						<div class="container">
-							<h2>Aside B</h2>
-							<section id="panel-buttons" class="container-fluid ">
-								<div class="grid-item">
-									<button class="container-100" onclick="window.open('https://google.com', '_self')" title="Link to Google">Link to Google</button>
-								</div>  
-							</section>
-							<div id="918432" class="padding-sm "></div>
-							<section class="container-fluid " id="panel-cards">
-								<div class="container container-100">
-									<div class="grid-wrapper-min-max ">
-										<div class="grid-item">
-											<div class="image-wrapper" https:="" cms4.luc.edu="" terminalfour="" sitemanager?ctfn="download&amp;fnno=60&amp;ceid=3d1e55c8cc632711b87f2cbf572fc5d4e6be5db9">
-												<img src="images/images-image-grid/amy-liesemeyer-1000x560.jpg" alt="Alternate description goes here" title="Title goes here">
-											</div>
-											<div class="content-grid-wrapper ">
-												<div class="flex-item content">
-													<h6>Category Label</h6>
-													<div class="explainer">
-														<p>Explainer or Lead In Text Here</p>
-													</div>
-													<p>This is the readout Lorem ipsum lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-													<a class="cta" alt="Read Story" title="Read Story" href="https://cms4.luc.edu/terminalfour/preview/8/en/122439">Read Story</a>
+						</div>
+					</div>
+				</section>
+			</aside>
+			<aside id="main-aside-wrapper-content" style="background: green;">
+				<section class="container-fluid" class="grid-wrapper-min-max">
+					<div class="container">
+						<h2>Aside B</h2>
+						<section id="panel-buttons" class="container-fluid ">
+							<div class="grid-item">
+								<button class="container-100" onclick="window.open('https://google.com', '_self')" title="Link to Google">Link to Google</button>
+							</div>  
+						</section>
+						<div id="918432" class="padding-sm "></div>
+						<section class="container-fluid " id="panel-cards">
+							<div class="container container-100">
+								<div class="grid-wrapper-min-max ">
+									<div class="grid-item">
+										<div class="image-wrapper" https:="" cms4.luc.edu="" terminalfour="" sitemanager?ctfn="download&amp;fnno=60&amp;ceid=3d1e55c8cc632711b87f2cbf572fc5d4e6be5db9">
+											<img src="images/images-image-grid/amy-liesemeyer-1000x560.jpg" alt="Alternate description goes here" title="Title goes here">
+										</div>
+										<div class="content-grid-wrapper ">
+											<div class="flex-item content">
+												<h6>Category Label</h6>
+												<div class="explainer">
+													<p>Explainer or Lead In Text Here</p>
 												</div>
+												<p>This is the readout Lorem ipsum lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+												<a class="cta" alt="Read Story" title="Read Story" href="https://cms4.luc.edu/terminalfour/preview/8/en/122439">Read Story</a>
 											</div>
 										</div>
 									</div>
 								</div>
-							</section>
-						</div>
-					</section>
-				</aside>
-			</div>
-			<footer>
-				@@include('./partials/panels/proposed/luc-footer-proposed.html')
-			</footer>
-		</main>
-		<!-- inject:js -->
-		<!-- endinject -->
-	</div>
+							</div>
+						</section>
+					</div>
+				</section>
+			</aside>
+		</div>
+	</main>
+	@@include('./partials/panels/proposed/luc-global-footer.html')
+	<!-- inject:js -->
+	<!-- endinject -->
 </body>
 
 </html>

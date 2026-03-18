@@ -9,14 +9,9 @@
 </head>
 
 <body id="page-layout-faculty-profile">
+	<!-- HEADER -->
+	@@include('./partials/panels/proposed/luc-interior-header.html')
 	<div id="main-wrapper">
-		@@include('./partials/framework/luc-search-overlay.html')
-		@@include('./partials/framework/luc-sliding-menu.html')
-		<!-- HEADER -->
-		<header id="luc-header">
-			@@include('./partials/panels/proposed/luc-header-proposed.html')
-		</header>
-		@@include('./partials/framework/luc-nav-desktop-accessible.html')
 		<main id="main-content-start" alt="This is the beginning of the main content of the page">
 			<aside id="social-icon-bar">
 				@@include('./partials/framework/luc-social-media-bar.html')
@@ -36,10 +31,9 @@
 					@@include('./partials/panels/panel-faculty-profile-content-aside.html')
 				</aside>
 			</div>
-			<footer>
-				@@include('./partials/panels/proposed/luc-footer-proposed.html')
-			</footer>
 		</main>
+		<!-- FOOTER -->
+		@@include('./partials/panels/proposed/luc-global-footer.html')
 		<!-- inject:js -->
 		<!-- endinject -->
 	</div>

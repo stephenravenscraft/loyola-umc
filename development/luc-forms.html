@@ -10,12 +10,9 @@
 
 <body>
 	<div id="main-wrapper">
-		@@include('./partials/framework/luc-search-overlay.html')
-		@@include('./partials/framework/luc-sliding-menu.html')
-		<header id="luc-header">
-			@@include('./partials/panels/proposed/luc-header-proposed.html')
-		</header>
-		@@include('./partials/framework/luc-nav-desktop-accessible.html')
+		<!-- Header -->
+		@@include('./partials/panels/proposed/luc-interior-header.html')
+		<!-- Main Content -->
 		<main id="main-content-start" alt="This is the beginning of the main content of the page">
 			<aside id="social-icon-bar">
 				@@include('./partials/framework/luc-social-media-bar.html')
@@ -34,10 +31,9 @@
 					<!-- sidebar content here -->
 				</aside>
 			</div>
-			<footer>
-				@@include('./partials/panels/proposed/luc-footer-proposed.html')
-			</footer>
 		</main>
+		<!-- Footer -->
+		@@include('./partials/panels/proposed/luc-global-footer.html')
 		<!-- inject:js -->
 		<!-- endinject -->
 	</div>
