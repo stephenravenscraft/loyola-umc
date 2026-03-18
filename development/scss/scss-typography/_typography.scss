@@ -11,10 +11,14 @@
 html { font-size: 100%; } /* matches browsers default */
 
 body {
-  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-family: $luc-font-family;
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.005rem;
   color: $black;
   background-color: none;
   overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
 }
 
 p, ul, ol {
