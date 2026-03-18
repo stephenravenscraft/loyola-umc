@@ -1,8 +1,12 @@
 // =============================================================================
-// Homepage Header - Unified Mobile/Desktop
+// Header - Unified Homepage & Interior
 // =============================================================================
-// Single HTML structure that transforms via CSS between mobile and desktop.
-// Pattern based on Header.astro approach - no duplicate HTML.
+// Single merged file for both .luc-header--homepage and .luc-header--interior.
+// Shared base styles first, then variant-specific overrides inline.
+// =============================================================================
+
+// =============================================================================
+// 1. Header Wrappers
 // =============================================================================
 
 .luc-header--homepage {
@@ -18,18 +22,166 @@
   }
 }
 
+.luc-header--interior {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 998;
+  background: $luc-white;
+  border-bottom: 1px solid $luc-gray-lightest;
+
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    height: $luc-interior-header-total-height;
+  }
+
+  @media (min-width: $nav-breakpoint) {
+    top: -$luc-utility-height+$luc-interior-return-height;
+  }
+}
+
 // =============================================================================
-// Utility Bar (hidden on mobile, visible on desktop)
+// 2. Interior: Return Link
 // =============================================================================
+
+.luc-header__return {
+  display: none;
+  @media (min-width: $nav-breakpoint) {
+    display: block;
+    background-color: $luc-maroon;
+    height: $luc-interior-return-height;
+  }
+}
+
+.luc-header__return-content {
+  display: flex;
+  align-items: center;
+  margin-inline: $luc-baseline * 8; // 32px
+  padding-block: $luc-baseline * 2; // 8px
+  border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+}
+
+.luc-header__return-link {
+  display: flex;
+  align-items: center;
+  gap: $luc-baseline * 2; // 0.5rem / 8px
+  color: $luc-white;
+  text-decoration: none;
+  font-family: $luc-font-family;
+  font-size: $luc-baseline * 3.5; // 14px
+  font-weight: 400;
+  letter-spacing: 0.00625rem;
+  color: $luc-white;
+
+  .luc-header--interior & {
+    outline-color: $luc-white;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    width: $luc-baseline * 4.5; // 1.125rem / 18px
+    height: $luc-baseline * 2; // 0.5rem / 8px
+    transform: rotate(180deg);
+    mask-image: url('../images/icon-arrow-right.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    background-color: currentColor;
+    transition: background-color $luc-transition-fast;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// =============================================================================
+// 3. Utility Bar
+// =============================================================================
+
+// Homepage: hide utility bar on mobile
 .luc-header--homepage .luc-utility {
   @media (max-width: #{$nav-breakpoint - 1px}) {
     display: none;
   }
 }
 
+// Interior: utility bar (maroon)
+.luc-utility--interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $luc-interior-nav-height;
+  padding: 0 ($luc-baseline * 4); // 16px
+  background-color: $luc-maroon;
+
+  @media (min-width: $nav-breakpoint) {
+    height: $luc-utility-height;
+    padding: 0 ($luc-baseline * 8); // 32px
+  }
+}
+
+// Interior: mobile controls (white icons on maroon)
+.luc-header--interior .luc-nav__mobile-controls {
+  display: flex;
+  align-items: center;
+  gap: $luc-baseline * 2; // 8px
+
+  @media (min-width: $nav-breakpoint) {
+    display: none;
+  }
+}
+
+.luc-nav__search-toggle--interior,
+.luc-nav__menu-toggle--interior {
+  color: $luc-white;
+
+  &:focus-visible {
+    outline-color: $luc-maroon;
+
+    .luc-header--interior & {
+      outline-color: $luc-white;
+    }
+  }
+}
+
+.luc-nav__menu-toggle-icon--interior {
+  // background: $luc-white !important;
+
+  &::before,
+  &::after {
+    background: $luc-white !important;
+  }
+}
+
 // =============================================================================
-// Primary Navigation Bar
+// 4. Interior: Subbrand Bar
 // =============================================================================
+
+.luc-subbrand {
+  display: flex;
+  align-items: center;
+  min-height: $luc-interior-subbrand-height;
+  padding: $luc-baseline * 4; // 16px
+  background: $luc-white;
+  border-bottom: 1px solid $gray-extra-light;
+
+  @media (min-width: $nav-breakpoint) {
+    display: none; // Desktop shows label in nav menu instead
+  }
+}
+
+.luc-subbrand__label {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: $luc-baseline * 5; // 20px
+  font-weight: normal;
+  letter-spacing: 0.00625rem;
+  color: $luc-maroon;
+}
+
+// =============================================================================
+// 5. Primary Navigation Bar
+// =============================================================================
+
 .luc-nav-primary {
   display: flex;
   gap: $luc-baseline * 4; // 16px
@@ -44,7 +196,10 @@
   }
 }
 
-// Logo
+// =============================================================================
+// 6. Logo
+// =============================================================================
+
 .luc-nav__logo-link {
   display: flex;
   align-items: center;
@@ -66,8 +221,9 @@
 }
 
 // =============================================================================
-// Mobile Controls (hidden on desktop)
+// 7. Mobile Controls (hidden on desktop)
 // =============================================================================
+
 .luc-nav__mobile-controls {
   display: flex;
   align-items: center;
@@ -78,7 +234,10 @@
   }
 }
 
-// Search toggle (mobile)
+// =============================================================================
+// 8. Search Toggle (mobile)
+// =============================================================================
+
 .luc-nav__search-toggle {
   display: flex;
   align-items: center;
@@ -122,7 +281,10 @@
   }
 }
 
-// Menu toggle (hamburger)
+// =============================================================================
+// 9. Menu Toggle (hamburger)
+// =============================================================================
+
 .luc-nav__menu-toggle {
   display: flex;
   align-items: center;
@@ -171,8 +333,10 @@
 }
 
 // =============================================================================
-// Main Menu - Transforms between mobile overlay and desktop inline
+// 10. Main Menu - Transforms between mobile overlay and desktop inline
 // =============================================================================
+
+// Homepage menu
 .luc-nav__menu {
   float: unset;
   margin: 0;
@@ -202,7 +366,7 @@
   }
 }
 
-// Show mobile menu when toggle is expanded - using :has() for non-sibling structure
+// Show homepage mobile menu when toggle is expanded - using :has()
 .luc-header:has(.luc-nav__menu-toggle[aria-expanded='true']) .luc-nav__menu {
   @media (max-width: #{$nav-breakpoint - 1px}) {
     opacity: 1;
@@ -210,9 +374,57 @@
   }
 }
 
+// Interior menu variant
+.luc-nav__menu--interior {
+  // Mobile: Fixed overlay
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    position: fixed;
+    top: $luc-interior-header-total-height;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-bottom: $luc-baseline * 16; // 64px
+    background: $luc-copper-light;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $luc-transition-normal, visibility $luc-transition-normal;
+  }
+
+  // Desktop: Flex container for section label + nav items
+  @media (min-width: $nav-breakpoint) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $luc-nav-height;
+    padding: 0 ($luc-baseline * 8); // 32px
+    gap: $luc-baseline * 6; // 1.5rem / 24px
+    background: $luc-white;
+    position: relative;
+  }
+}
+
+// Show interior mobile menu when toggle is expanded - using :has()
+.luc-header--interior:has(.luc-nav__menu-toggle[aria-expanded='true']) .luc-nav__menu--interior {
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Show interior search panel when toggle is expanded - using :has()
+.luc-header--interior:has(.luc-nav__search-toggle[aria-expanded='true']) .luc-search {
+  @media (max-width: #{$nav-breakpoint - 1px}) {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 // =============================================================================
-// CTA Bar (visible only in mobile menu)
+// 11. CTA Bar (visible only in mobile menu)
 // =============================================================================
+
 .luc-nav__cta-bar {
   position: fixed;
   bottom: 0;
@@ -259,8 +471,9 @@
 }
 
 // =============================================================================
-// Nav Items
+// 12. Nav Items
 // =============================================================================
+
 .luc-nav__items {
   margin: 0;
   padding: 0;
@@ -303,9 +516,10 @@
 }
 
 // =============================================================================
-// Nav Toggle Button
+// 13. Nav Toggle Button
 // Per Figma specs: Desktop uses Antenna Medium 16px, Mobile uses Antenna Condensed Bold 18px
 // =============================================================================
+
 .luc-nav__toggle {
   position: relative;
   display: flex;
@@ -368,6 +582,7 @@
     background: transparent;
     color: $luc-maroon;
     text-decoration: none;
+    border-radius: 0;
   }
 
   // Mobile: Gold border, maroon on active
@@ -441,6 +656,11 @@
       }
     }
   }
+  &:hover {
+    &::after {
+      background: $luc-maroon;
+    }
+  }
 }
 
 .luc-nav__toggle-text {
@@ -471,8 +691,46 @@
 }
 
 // =============================================================================
-// Mega Menu - Accordion (mobile) / Dropdown (desktop)
+// 14. Interior: Section Label
 // =============================================================================
+
+.luc-nav__section-label {
+  display: none; // Hidden on mobile - shown in .luc-subbrand instead
+
+  @media (min-width: $nav-breakpoint) {
+    display: block;
+    font-family: $luc-font-family-condensed-bold;
+    font-size: $luc-baseline * 5; // 20px
+    font-weight: normal;
+    line-height: 1.4;
+    letter-spacing: 0.00625rem;
+    color: $luc-maroon;
+    text-decoration: none;
+    width: $luc-baseline * 100; // 25rem / 400px
+  }
+}
+
+.luc-nav__section-label-link {
+  color: $luc-maroon;
+  text-decoration: underline;
+  text-decoration-thickness: 0.0625em;
+  text-underline-offset: 0.125em;
+  text-decoration-color: rgba($luc-maroon, 0.5);
+  text-underline-position: from-font;
+  line-height: 1.5;
+  transition: text-decoration-thickness var(--transition-fast);
+
+  &:hover {
+    text-decoration-color: $luc-maroon;
+    text-decoration-thickness: 0.125em;
+    transition: text-decoration-thickness var(--transition-fast);
+  }
+}
+
+// =============================================================================
+// 15. Mega Menu - Accordion (mobile) / Dropdown (desktop)
+// =============================================================================
+
 .luc-mega-menu {
   // Mobile: Accordion using CSS Grid
   @media (max-width: #{$nav-breakpoint - 1px}) {
@@ -604,8 +862,9 @@
 }
 
 // =============================================================================
-// Audience Links (visible only in mobile menu)
+// 16. Audience Links (visible only in mobile menu)
 // =============================================================================
+
 .luc-nav__audience-mobile {
   padding: ($luc-baseline * 6) ($luc-baseline * 4); // 24px 16px
   margin-top: $luc-baseline * 4; // 16px
@@ -657,8 +916,9 @@
 }
 
 // =============================================================================
-// Search Panel (mobile overlay)
+// 17. Search Panel (mobile overlay)
 // =============================================================================
+
 .luc-search {
   position: fixed;
   top: $luc-nav-height-mobile; // Below mobile header bar
@@ -685,7 +945,7 @@
   }
 }
 
-// Alternative: Show search panel when toggle is expanded - using :has()
+// Show search panel when toggle is expanded - using :has()
 .luc-header:has(.luc-nav__search-toggle[aria-expanded='true']) .luc-search {
   @media (max-width: #{$nav-breakpoint - 1px}) {
     opacity: 1;
@@ -693,7 +953,12 @@
   }
 }
 
-// Search panel content - directly in the panel, no header
+// Interior: position search below utility + subbrand bars
+.luc-header--interior .luc-search {
+  top: $luc-interior-header-total-height;
+}
+
+// Search panel content
 
 .luc-search__title {
   margin: 0 0 ($luc-baseline * 4); // 16px
