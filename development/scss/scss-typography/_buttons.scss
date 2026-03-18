@@ -1,140 +1,199 @@
-/* BUTTONS */
+// =============================================================================
+// Button Component
+// =============================================================================
+// Base class: .luc-button
+// Themes: default (for light bg), --dark (for dark backgrounds)
+// Merged from nav-footer design with typography width/container rules
+// =============================================================================
 
-/* covers symantic button and div .button a */
-
-/* buttons */
-/* this might need to be edited for card specific only IMPORTANT !!! */
-
-/* button */
-
-button, .button {
-  display: block;
-  margin: .75rem 0;
-  padding: .625rem 1rem .5rem;
-  width: auto;
-  height: auto;
-  font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
-  font-size: clamp(#{$font-step-1}, #{$font-step-1} + 3.5vw, #{$font-step-1});
-  line-height: 1.35;
-  letter-spacing: .0125rem;
-  word-spacing: .125rem;
-  color: $white;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none !important;
+.luc-button,
+.button,
+button.button,
+button.luc-button,
+button.container-100,
+button.container-auto,
+button.container-50 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: left;
+  gap: $luc-baseline * 2; // 0.5rem / 8px
+  padding: ($luc-baseline * 3) ($luc-baseline * 2); // 0.75rem 0.5rem
+  width: fit-content;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: $luc-baseline * 4; // 1rem / 16px
+  font-weight: 700;
+  letter-spacing: 0.005rem;
+  line-height: 1.1;
+  text-decoration: none;
   border: none;
-  border-radius: .33rem;
-  background: $maroon;
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
-  &:hover {
-    color: $white;
-    background-color: lighten($maroon, 10%);
+  overflow: hidden;
+  background-color: transparent;
+  color: $luc-maroon;
+  cursor: pointer;
+  transition: color $luc-transition-slow, border-radius $luc-transition-slow;
+  z-index: 0;
+
+  // Expanding background effect
+  &::before {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 1px;
+    transition: height $luc-transition-slow;
+    background: $luc-maroon;
+    z-index: -1;
   }
-  :focus {
-    outline: 3px solid $white;
-    outline-offset: -3px;
-    border-radius: .33rem !important;
-    -moz-outline-border: .33rem;
+
+  // Arrow icon using mask
+  &::after {
+    content: '';
+    display: block;
+    width: $luc-baseline * 4.5; // 1.125rem / 18px
+    height: $luc-baseline * 2; // 0.5rem / 8px
+    mask-image: url('../images/icon-arrow-right.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    background-color: currentColor;
+    transition: background-color $luc-transition-fast;
+  }
+
+  // ==========================================================================
+  // HOVER STATE - Expanding maroon background
+  // ==========================================================================
+  &:hover {
+    color: $luc-white;
+    border-radius: .25rem;
+
+    &::before {
+      height: 100%;
+    }
+
+    &::after {
+      background-color: $luc-gold;
+    }
+  }
+
+  // ==========================================================================
+  // DISABLED STATE
+  // ==========================================================================
+  &:disabled,
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 }
 
+.luc-button,
+.button,
+button {
+  // ==========================================================================
+  // DARK THEME - For use on dark backgrounds
+  // ==========================================================================
+  &.luc-button--dark,
+  &.button--dark {
+    color: $luc-white;
+    border-bottom-color: $luc-gold;
+    background-color: transparent;
+
+    &::before {
+      background: $luc-gold;
+    }
+
+    &:focus-visible {
+      outline-color: $luc-white;
+    }
+
+    &::after {
+      background-color: $luc-white;
+    }
+
+    // Hover: expanding gold background
+    &:hover {
+      color: $luc-maroon;
+
+      &::before {
+        height: 100%;
+      }
+
+      &::after {
+        background-color: $luc-maroon;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // NO ARROW VARIANT
+  // ==========================================================================
+  &--no-arrow {
+    &::after {
+      display: none;
+    }
+  }
+
+  // ==========================================================================
+  // LARGE VARIANT
+  // ==========================================================================
+  &--lg {
+    font-size: $luc-baseline * 5; // 20px
+  }
+}
+
+// =============================================================================
+// Width / Container / Layout rules (from typography)
+// =============================================================================
+
 a button,
-a button.button {
+a button.button,
+a .luc-button {
   height: auto !important;
 }
 
-button.container-100 {
+.luc-button.container-100,
+button.container-100,
+.button.container-100 {
   width: 100%;
 }
 
-button.container-50 {
+.luc-button.container-50,
+button.container-50,
+.button.container-50 {
   width: 50%;
 }
 
-button.container-auto {
+.luc-button.container-auto,
+button.container-auto,
+.button.container-auto {
   width: auto;
 }
 
-button.center {
+.luc-button.center,
+button.center,
+.button.center {
   margin: .75rem auto;
 }
 
-.button-maroon button,
-.button-patina button,
-.bg-maroon button,
-.bg-brick button,
-.bg-gray button {
-  color: $white !important;
-  border: none !important;
-}
-
-.bg-maroon button,
-.bg-brick button,
-.button-gold button,
-.bg-maroon .button-gold button {
-  color: $black !important;
+.flex-item button,
+.flex-item .luc-button,
+.flex-item .button {
+  width: 100%;
 }
 
 .grid-item button,
+.grid-item .luc-button,
 .grid-item .button {
   height: 100%;
 }
 
-.button-maroon button { background-color: $maroon; }
-.button-brick button { background-color: $brick; }
-.button-patina button { background-color: $patina; }
-.button-gold button { background-color: desaturate($gold,5%); color: $black !important; }
-
-.bg-maroon button,
-.bg-brick button { background-color: $gold;
-  &:hover {
-    color: $white;
-    border: none;
-    background: lighten($gold, 10%) !important;
-  }
-}
-
-.bg-gold button,
-.bg-gray button,
-.bg-terracotta-extra-light button { background-color: $maroon; color: #000000 !important }
-
-.button-maroon button:hover { background-color: lighten($maroon, 10%) !important; }
-.bg-maroon .button-maroon button:hover { background-color: lighten($gold, 10%) !important; }
-.button-patina button:hover { background-color: $patina-dark !important; }
-.button-gold button:hover { background-color: lighten($gold,10%) !important; }
-
-.button-open button {
-  color: $maroon;
-  border: solid .125rem $maroon;
-  background: none;
-  &:hover {
-    color: $white;
-    border: solid .125rem lighten($maroon, 10%);
-    background: lighten($maroon, 10%);
-  }
-}
-
-.card .content-grid-wrapper.bg-maroon .button-open button {
-  color: lighten($gold, 10%) !important;
-  border: solid .125rem lighten($gold, 10%) !important;
-  background: none;
-  &:hover {
-    color: lighten($gold, 10%);
-    border: solid .125rem lighten($gold, 10%);
-    background: lighten($maroon, 10%);
-  }
-}
-
-.flex-item button {
-  width: 100%;
-}
-
-#panel-buttons button {
+#panel-buttons button,
+#panel-buttons .luc-button,
+#panel-buttons .button {
   height: 100%;
 }
 
-#panel-cards button {
+#panel-cards button,
+#panel-cards .luc-button,
+#panel-cards .button {
   width: 100% !important;
 }
