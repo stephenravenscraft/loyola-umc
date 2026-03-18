@@ -1,7 +1,7 @@
 
 /* GENERAL */
 
-body {
+/* body {
     margin-left: 0px;
     margin-top: 0px;
     margin-right: 0px;
@@ -41,18 +41,18 @@ body {
 #main-section-wrapper .container.container-80 {
     width: 100%;
 }
-h1 {
+h1 { */
 /*  font-size: 2.75rem; */
-    font-weight: bold;
+    /* font-weight: bold;
 }
-h2 {
+h2 { */
 /*  font-size: 2.25rem; */
-    font-weight: bold;
+    /* font-weight: bold;
 }
 #main-section-wrapper .container.container-50 nav a {
     margin: 0 .75rem 0 0;
     text-transform: uppercase;
-}
+} */
 
 /* FORMS */
 

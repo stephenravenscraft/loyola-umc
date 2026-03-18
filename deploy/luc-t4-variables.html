@@ -56,6 +56,7 @@
 
 	<!-- inject:css -->
 	<link rel="stylesheet" href="css/antenna-template.css">
+	<link rel="stylesheet" href="css/styles-carnegie.css">
 	<link rel="stylesheet" href="css/styles-documentation.css">
 	<link rel="stylesheet" href="css/styles-framework.css">
 	<link rel="stylesheet" href="css/styles-grid.css">
@@ -63,265 +64,284 @@
 	<link rel="stylesheet" href="css/styles-panels.css">
 	<link rel="stylesheet" href="css/styles-typography.css">
 	<link rel="stylesheet" href="css/css-alert/styles-alert.css">
-	<link rel="stylesheet" href="css/luc-nav-footer.css">
-	<link rel="stylesheet" href="css/luc-components.css">
 	<!-- endinject -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 	<div id="main-wrapper">
-		<div id="search-overlay-wrapper">
-  <div id="search-overlay" class="overlay">
-    <div class="container">
-      <form class="form-group" role="search">
-        <input id="global-search-input" type="search" class="search-input" placeholder="Search LUC.EDU" name="global-search" aria-labelledby="global-search-input">
-        <button id="gloabal-search-submit" type="submit">Search</button>
-      </form>
-      <span id="search-close" title="Close Overlay">×</span>
+		<!-- Header -->
+		<!-- ============================================
+     LUC Interior Header
+     Scoped bundle: .luc-* namespace
+     Single HTML structure - CSS transforms mobile/desktop
+     Two bars: Utility (maroon) + Subbrand Nav (white)
+     ============================================ -->
+
+<a class="luc-skip-link luc-screen-reader-text" href="#main-content" tabindex="1">Skip to main content</a>
+
+<header class="luc-header luc-header--interior">
+
+    <!-- Return to Main Link (visible only on desktop) -->
+    <div class="luc-header__return">
+        <div class="luc-header__return-content">
+            <a href="#" class="luc-header__return-link">Back to LUC.edu</a>
+        </div>
     </div>
-  </div>
-</div>
 
-		<!-- nav-sliding-menu -->
-<nav id="side-nav" aria-label="Main navigation" class="sidenav">
-	<div id="sidenav-inner-wrapper">
-		<div id="side-nav-search-wrapper">
-			<form class="form-group" role="search">
-				<input id="global-search-input" type="search" class="search-input" placeholder="Search LUC.EDU" name="search" aria-labelledby="search">
-				<button id="gloabal-search-submit" type="submit" aria-labelledby="search"><i class="fa fa-search"></i></button>
-			</form>
-		</div>
-		<section>
-  <nav class="multi-level-sliding-navigation" id="nav" aria-labelledby="multi-level-sliding-navigation-heading">
-    <div class="multi-level-sliding-navigation-body">
-      <div class="multi-level-sliding-navigation-main">
+    <!-- Utility Bar (maroon) - transforms for mobile -->
+    <div class="luc-utility luc-utility--interior">
+        <div class="luc-utility__logo">
+            <a href="/" class="luc-utility__logo-link">
+                <img src="images/Loyola-University-Chicago-white.svg" alt="Loyola University Chicago" class="luc-utility__logo-img">
+            </a>
+        </div>
 
-        <ul class="t4-mobile-navigation multi-level-sliding-navigation-menu" data-level="Main Menu"
-        aria-hidden="false">
-          <li class="heading"><span>Main Menu</span></li>
-          <li><a href="#">About</a>
-            <ul class="multilevel-linkul-0">
-              <li><a href="#">Loyola at Glance</a>
-                <ul class="multilevel-linkul-1">
-                  <li><a href="#">Accreditation</a>
-                  <li><a href="#">Board if Trustees</a>
-                </ul>
-              </li>
-              <li><a href="#">Office of the President</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Admissions</a></li>
-          <li><a href="#">Academics</a>
-            <ul class="multilevel-linkul-0">
-              <li><a href="#">Professional Certificates</a></li>
-              <li><a href="#">Undergraduate Degrees</a>
-                <ul class="multilevel-linkul-1">
-                  <li><a href="#">Applied Psychology</a></li>
-                    <li><a href="#">Applied Studies</a></li>
-                    <li><a href="#">Information Technology</a></li>
-                    <li><a href="#">Paralegal Studies</a>
-                    <ul class="multilevel-linkul-2">
-                      <li><a href="#">Curriculum</a></li>
-                      <li><a href="#">Program Learning Outcomes</a></li>
-                      <li><a href="#">Faculty</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Web Technologies</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="#">Student Experience</a></li>
+        <!-- Mobile Controls (visible only on mobile) -->
+        <div class="luc-nav__mobile-controls">
+            <button
+                class="luc-nav__search-toggle luc-nav__search-toggle--interior"
+                aria-label="Search"
+                aria-expanded="false"
+                aria-controls="luc-search-panel"
+            >
+            </button>
+            <button
+                class="luc-nav__menu-toggle luc-nav__menu-toggle--interior"
+                aria-expanded="false"
+                aria-controls="luc-nav-menu"
+                aria-label="Toggle navigation menu"
+            >
+            </button>
+        </div>
+
+        <!-- Desktop-only content -->
+        <div class="luc-utility__right">
+            <nav class="luc-utility__audience" aria-label="Audience navigation">
+                <a href="#" class="luc-utility__link">Current Students</a>
+                <a href="#" class="luc-utility__link">Faculty &amp; Staff</a>
+                <a href="#" class="luc-utility__link">Alumni</a>
+            </nav>
+
+            <span class="luc-utility__divider"></span>
+
+            <div class="luc-utility__actions">
+                <a href="#" class="luc-utility__link">Request Info</a>
+                <a href="#" class="luc-utility__link">Visit</a>
+                <a href="#" class="luc-utility__link">Apply</a>
+                <span class="luc-utility__divider"></span>
+                <a href="#" class="luc-utility__link">Give</a>
+            </div>
+
+            <form class="luc-utility__search" role="search" action="/search">
+                <input
+                    type="search"
+                    class="luc-utility__search-input"
+                    placeholder="Search"
+                    aria-label="Search Loyola"
+                >
+                <button type="submit" class="luc-utility__search-btn" aria-label="Submit search"></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Subbrand Bar (white) - section label + nav -->
+    <div class="luc-subbrand">
+        <span class="luc-subbrand__label"><a href="#" class="luc-nav__section-label-link">Site name Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit</a></span>
+    </div>
+
+    <!-- Main Menu - transforms between mobile overlay and desktop inline -->
+    <nav id="luc-nav-menu" class="luc-nav__menu luc-nav__menu--interior" aria-label="Section navigation">
+
+        <!-- Section Label (visible in desktop subbrand bar) -->
+        <span class="luc-nav__section-label"><a href="#" class="luc-nav__section-label-link">Site name Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit</a></span>
+
+        <!-- Nav Items -->
+        <ul class="luc-nav__items luc-nav__items--interior">
+            <li class="luc-nav__item">
+                <button
+                    class="luc-nav__toggle"
+                    aria-expanded="false"
+                    aria-controls="mega-int-menu1"
+                >
+                    <span class="luc-nav__toggle-text">Navigation Link</span>
+                </button>
+                <div id="mega-int-menu1" class="luc-mega-menu">
+                    <div class="luc-mega-menu__collapse">
+                        <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                            Parent Page Link
+                        </a>
+                        <ul class="luc-mega-menu__list">
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li class="luc-nav__item">
+                <button
+                    class="luc-nav__toggle"
+                    aria-expanded="false"
+                    aria-controls="mega-int-menu2"
+                >
+                    <span class="luc-nav__toggle-text">Navigation Link</span>
+                </button>
+                <div id="mega-int-menu2" class="luc-mega-menu">
+                    <div class="luc-mega-menu__collapse">
+                        <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                            Parent Page Link
+                        </a>
+                        <ul class="luc-mega-menu__list">
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li class="luc-nav__item">
+                <button
+                    class="luc-nav__toggle"
+                    aria-expanded="false"
+                    aria-controls="mega-int-menu3"
+                >
+                    <span class="luc-nav__toggle-text">Navigation Link</span>
+                </button>
+                <div id="mega-int-menu3" class="luc-mega-menu">
+                    <div class="luc-mega-menu__collapse">
+                        <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                            Parent Page Link
+                        </a>
+                        <ul class="luc-mega-menu__list">
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li class="luc-nav__item">
+                <button
+                    class="luc-nav__toggle"
+                    aria-expanded="false"
+                    aria-controls="mega-int-menu4"
+                >
+                    <span class="luc-nav__toggle-text">Navigation Link</span>
+                </button>
+                <div id="mega-int-menu4" class="luc-mega-menu">
+                    <div class="luc-mega-menu__collapse">
+                        <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                            Parent Page Link
+                        </a>
+                        <ul class="luc-mega-menu__list">
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li class="luc-nav__item">
+                <button
+                    class="luc-nav__toggle"
+                    aria-expanded="false"
+                    aria-controls="mega-int-menu5"
+                >
+                    <span class="luc-nav__toggle-text">Navigation Link</span>
+                </button>
+                <div id="mega-int-menu5" class="luc-mega-menu">
+                    <div class="luc-mega-menu__collapse">
+                        <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                            Parent Page Link
+                        </a>
+                        <ul class="luc-mega-menu__list">
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                            <li><a href="#" class="luc-mega-menu__link">Subnavigation Link Lorem Ipsum</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
         </ul>
 
-      </div>
-      <!--/Nav__main-->
-    </div>
-    <!--/Nav__body-->
-  </nav>
-  <!--/Nav-->
-</section>
+        <!-- Audience Links (visible only in mobile menu) -->
+        <div class="luc-nav__audience-mobile">
+            <h3 class="luc-nav__audience-heading">Info For</h3>
+            <ul class="luc-nav__audience-list">
+                <li><a href="#" class="luc-nav__audience-link">Current Students</a></li>
+                <li><a href="#" class="luc-nav__audience-link">Faculty &amp; Staff</a></li>
+                <li><a href="#" class="luc-nav__audience-link">Alumni</a></li>
+            </ul>
+        </div>
 
-		<div id="global-ctas" class="button-maroon">
-			<button>Apply now</button>
-			<button>Get info</button>
-			<button>Come visit</button>
-		</div>
-	</div>
-</nav>
-		<header id="luc-header">
-			<!-- header - nav -->
-<div id="header-white">
-  <a class="skip-main" href="#main-content-start">Skip to main content</a>
-  
-  <!-- brand -->
-  <div id="site-brand-wrapper" class="container-fluid">
-    <span id="brand">
-      <a href="https://www.luc.edu/">
-        <img src="images/loy-3color-main.svg" alt="Loyola University Chicago logo">
-      </a>
-    </span>
-    <span id="loyola-university-chicago">
-      <a href="https://www.luc.edu/">
-        Loyola University Chicago
-      </a>
-    </span>
-    <span id="site-name">
-      <span class="subsite-label">Department of Fine and Performing Arts</span>
-      <a href="https://www.luc.edu/">
-        Sitename Goeshere
-      </a>
-    </span>
-    <nav id="main-mobile" aria-label="Menu" role="menu">
-      <button id="menu-button-mobile" aria-label="Menu Item" aria-controls="side-nav" aria-haspopup="true" tabindex="0" type="button" role="menuitem">
-        <span class="menu-bar menu-bar-one"></span>
-        <span class="menu-bar menu-bar-two"></span>
-        <span class="menu-bar menu-bar-three"></span>
-        <span class="menu-bar menu-bar-four"></span>
-        <span class="menu-text">Menu</span>
-      </button>
+        <!-- CTA Bar (visible only in mobile menu) -->
+        <div class="luc-nav__cta-bar">
+            <a href="#" class="luc-nav__cta">Request Info</a>
+            <a href="#" class="luc-nav__cta">Visit</a>
+            <a href="#" class="luc-nav__cta">Apply</a>
+            <span class="luc-nav__cta-divider"></span>
+            <a href="#" class="luc-nav__cta">Give</a>
+        </div>
     </nav>
-  </div>
-</div>
-		</header>
-		<!-- nav-accessible -->
-<nav id="main" aria-labelledby="site-nav">
-  <!-- site menu -->
-  <ul id="site-nav" class="disclosure-nav" role="menubar">
-    <li>
-      <button type="button"
-              role="button"
-              aria-expanded="false"
-              aria-controls="id_item_one_menu">
-        Item One
-      </button>
-      <ul role="menu" id="id_item_one_menu">
-        <li role="menuitem">
-          <a href="#####">Link One</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Two</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Three</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Four</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <button type="button"
-              role="button"
-              aria-expanded="false"
-              aria-controls="id_item_two_menu">
-        Item One
-      </button>
-      <ul role="menu" id="id_item_two_menu">
-        <li role="menuitem">
-          <a href="#####">Link One</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Two</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Three</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Four</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <button type="button"
-              role="button"
-              aria-expanded="false"
-              aria-controls="id_item_three_menu">
-        Item Three
-      </button>
-      <ul role="menu" id="id_item_three_menu">
-        <li role="menuitem">
-          <a href="#####">Link One</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Two</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Three</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Four</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <button type="button"
-              role="button"
-              aria-expanded="false"
-              aria-controls="id_item_four_menu">
-        Item Four
-      </button>
-      <ul role="menu" id="id_item_four_menu">
-        <li role="menuitem">
-          <a href="#####">Link One</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Two</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Three</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Four</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <button type="button" role="button" aria-expanded="false" aria-controls="">
-        <a href="https://cms4.luc.edu/terminalfour/preview/8/en/161392">Item Five No Child</a>
-      </button>
-    </li>
-  </ul>
-  <!-- cta menu -->
-  <ul id="cta-nav" class="disclosure-nav" role="menubar">
-    <li><button type="button" role="button">Apply</button></li>
-    <li><button type="button" role="button">Info</button></li>
-    <li><button type="button" role="button">Visit</button></li>
-    <li id="information" role="none">
-      <button id="information-button"
-              type="button"
-              aria-expanded="false"
-              aria-controls="information-nav">
-          i
-      </button>
-      <ul role="menu" id="information-nav">
-        <li role="menuitem">
-          <a href="#####">Link One</a>
-        </li>
-        <li role="menuitem">
-          <a href="#####">Link Two</a>
-        </li>
-      </ul>
-    </li>
-    <li id="search" role="none">
-      <button id="search-button"
-              type="button"
-              aria-expanded="true">
-        <i class="fa fa-search"></i>
-      </button>
-    </li>
-  </ul>
-</nav>
-<script type="text/javascript">
-  var menubar = new Menubar(document.getElementById('site-nav'));
-  menubar.init();
-</script>
-<script type="text/javascript">
-  var menubar = new Menubar(document.getElementById('cta-nav'));
-  menubar.init();
-</script>
 
+    <!-- Search Panel (mobile overlay) -->
+    <div id="luc-search-panel" class="luc-search" aria-hidden="true">
+        <h2 class="luc-search__title">Search LUC.edu</h2>
+        <form class="luc-search__form" role="search" action="/search">
+            <input
+                type="search"
+                class="luc-search__input"
+                placeholder="Search..."
+                aria-label="Search Loyola"
+            >
+            <button type="submit" class="luc-search__submit" aria-label="Submit search"></button>
+        </form>
+    </div>
+
+</header>
+
+		<!-- Main Content -->
 		<main id="main-content-start" alt="This is the beginning of the main content of the page">
 			<aside id="social-icon-bar">
 				<!-- sidebar content here -->
@@ -1050,45 +1070,113 @@
 				</aside>
 				-->
 			</div>
-			<footer>
-				<!-- footer -->
-<div class="container-fluid footer-top p-0">
-  <div class="flex-item">
-    <div id="footer-icon-bar">
-      <!-- FACEBOOK --><a target="_blank" title="Facebook Link" href="https://www.facebook.com/LoyolaChicago"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
-      <!-- X/TWITTER --><a target="_blank" title="X Link" href="https://twitter.com/LoyolaChicago"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
-      <!-- INSTAGRAM --><a target="_blank" title="Instragram Link" href="https://www.instagram.com/loyolachicago/"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-      <!-- YOUTUBE --><a target="_blank" title="YouTube Link" href="https://www.youtube.com/LoyolaChicago"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
-    </div>
-    <div id="footer-address">
-      <p>Loyola University Chicago</p>
-      <p>1032 W. Sheridan Rd., Chicago, Il, 60660</p>
-      <p><a href="">773.274.3000 digitalteam@luc.edu</a></p>
-    </div>
-  </div>
-  <div>
-    <div id="brand">
-      <a href="https://www.luc.edu/">
-        <img src="images/LUC_stacked_reverse.svg" alt="Loyola University Chicago logo in footer of site">
-      </a>
-    </div>
-  </div>
-</div>
-<div class="container-fluid footer-bottom p-0">
-  <div class="flex-item">
-    <div id="footer-copyright">
-      <div id="footer-jesuit-icon">
-        <img src="images/jesuit-educated-logo-reverse-940x380.png" alt="We Are Jesuit Educated" title="We Are Jesuit Educated">
-      </div>
-      <div id="footer-copyright-content">
-        <p><a href="">&copy; Copyright and Disclaimer 2025</a>, <a href="">Privacy Policy</a></p>
-        <p><a href="">Non-discrimination Policy</a><span class="bullet">•</span><a href="">Institutional Mission Statement</a><span class="bullet">•</span><a href="">Land Aknowledgement Statement</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-			</footer>
 		</main>
+		<!-- Footer -->
+		<!-- ============================================
+     LUC Global Footer
+     Same on homepage and interior pages
+     Per Figma: gold bar, centered logo
+     Desktop: Contact | About | Resources | Back to Top
+     Mobile: Back to Top, Logo, About, Resources, Contact
+     ============================================ -->
+
+<footer class="luc-footer">
+    <div class="luc-footer__container">
+
+        <!-- Centered Logo -->
+        <div class="luc-footer__logo">
+            <a href="/" class="luc-footer__logo-link">
+                <img src="images/Loyola-University-Chicago-white.svg" alt="Loyola University Chicago" class="luc-footer__logo-img">
+            </a>
+        </div>
+
+        <!-- Footer Grid -->
+        <!-- Desktop order: Contact | About | Resources | Back to Top -->
+        <!-- Mobile order: About | Resources | Contact (via CSS order) -->
+        <div class="luc-footer__grid">
+
+            <!-- Contact Info (first on desktop, third on mobile) -->
+            <div class="luc-footer__column luc-footer__column--contact">
+                <h2 class="luc-footer__heading luc-footer__heading--contact">Loyola University Chicago</h2>
+                <address class="luc-footer__address">
+                    1032 W. Sheridan Rd.<br>
+                    Chicago, IL 60660
+                </address>
+                <a href="tel:7732743000" class="luc-footer__phone">773.274.3000</a>
+
+                <div class="luc-footer__ctas">
+                    <a href="#" class="luc-button luc-button--dark">
+                        Contact Us
+                    </a>
+                    <a href="#" class="luc-button luc-button--dark">
+                        Maps &amp; Directions
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="luc-footer__social">
+                    <a href="#" class="luc-footer__social-link" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook" title="A link to the Loyola University Chicago Facebook account"></i>
+                    </a>
+                    <a href="#" class="luc-footer__social-link" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram" title="A link to the Loyola University Chicago Instagram account"></i>
+                    </a>
+                    <a href="#" class="luc-footer__social-link" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin" title="A link to the Loyola University Chicago Linkedin account"></i>
+                    </a>
+                    <a href="#" class="luc-footer__social-link" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube" title="A link to the Loyola University Chicago YouTube account"></i>
+                    </a>
+                    <a href="#" class="luc-footer__social-link" aria-label="X (Twitter)">
+                        <i class="fa-brands fa-x-twitter" title="A link to the Loyola University Chicago Twitter account"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- About Loyola (second on desktop, first on mobile) -->
+            <div class="luc-footer__column luc-footer__column--about">
+                <h2 class="luc-footer__heading">About Loyola</h2>
+                <ul class="luc-footer__list">
+                    <li><a href="#" class="luc-footer__link">News</a></li>
+                    <li><a href="#" class="luc-footer__link">Events</a></li>
+                    <li><a href="#" class="luc-footer__link">Careers</a></li>
+                    <li><a href="#" class="luc-footer__link">Mission &amp; Values</a></li>
+                </ul>
+            </div>
+
+            <!-- Campus Resources (third on desktop, second on mobile) -->
+            <div class="luc-footer__column luc-footer__column--resources">
+                <h2 class="luc-footer__heading">Campus Resources</h2>
+                <ul class="luc-footer__list">
+                    <li><a href="#" class="luc-footer__link">LOCUS</a></li>
+                    <li><a href="#" class="luc-footer__link">Directories</a></li>
+                    <li><a href="#" class="luc-footer__link">University Libraries</a></li>
+                    <li><a href="#" class="luc-footer__link">Registration &amp; Records</a></li>
+                    <li><a href="#" class="luc-footer__link">A-Z</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="luc-footer__bottom">
+            <p class="luc-footer__copyright"><a href="#" class="luc-footer__copyright-link">Copyright &amp; Disclaimer 2026</a></p>
+            <ul class="luc-footer__legal">
+                <li><a href="#" class="luc-footer__legal-link">Privacy Policy</a></li>
+                <li><a href="#" class="luc-footer__legal-link">IBHE Complaint System</a></li>
+                <li><a href="#" class="luc-footer__legal-link">Land Acknowledgement</a></li>
+                <li><a href="#" class="luc-footer__legal-link">Nondiscrimination Policy</a></li>
+            </ul>
+        </div>
+
+        <!-- Back to Top (last in DOM for tab order, CSS positions visually) -->
+        <button class="luc-footer__back-to-top luc-button luc-button--dark" aria-label="Back to top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+            Back to Top
+        </button>
+
+    </div>
+</footer>
+
 		<!-- inject:js -->
 		<script src="js/bundle.js"></script>
 		<!-- endinject -->
