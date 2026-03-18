@@ -1,0 +1,258 @@
+<!-- ============================================
+     LUC Homepage Header
+     Scoped bundle: .luc-* namespace
+     Single HTML structure - CSS transforms mobile/desktop
+     ============================================ -->
+
+<a class="luc-skip-link luc-screen-reader-text" href="#main-content">Skip to main content</a>
+
+<header class="luc-header luc-header--homepage">
+
+    <!-- Utility Bar (hidden on mobile, visible on desktop) -->
+    <div class="luc-utility">
+        <nav class="luc-utility__audience" aria-label="Audience navigation">
+            <a href="#" class="luc-utility__link">Current Students</a>
+            <a href="#" class="luc-utility__link">Faculty &amp; Staff</a>
+            <a href="#" class="luc-utility__link">Alumni</a>
+        </nav>
+
+        <div class="luc-utility__actions">
+            <a href="#" class="luc-utility__link">Request Info</a>
+            <a href="#" class="luc-utility__link">Visit</a>
+            <a href="#" class="luc-utility__link">Apply</a>
+            <span class="luc-utility__divider"></span>
+            <a href="#" class="luc-utility__link">Give</a>
+
+            <form class="luc-utility__search" role="search" action="/search">
+                <input
+                    type="search"
+                    class="luc-utility__search-input"
+                    placeholder="Search"
+                    aria-label="Search Loyola"
+                >
+                <button type="submit" class="luc-utility__search-btn" aria-label="Submit search"></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Primary Navigation Bar -->
+    <div class="luc-nav-primary">
+        <!-- Logo -->
+        <a href="/" class="luc-nav__logo-link">
+            <img src="images/Loyola-University-Chicago-maroon.svg" alt="Loyola University Chicago" class="luc-nav__logo-img">
+        </a>
+
+        <!-- Mobile Controls (hidden on desktop) -->
+        <div class="luc-nav__mobile-controls">
+            <button
+                class="luc-nav__search-toggle"
+                aria-label="Search"
+                aria-expanded="false"
+                aria-controls="luc-search-panel"
+            >
+            </button>
+            <button
+                class="luc-nav__menu-toggle"
+                aria-expanded="false"
+                aria-controls="luc-nav-menu"
+                aria-label="Toggle navigation menu"
+            >
+            </button>
+        </div>
+
+        <!-- Main Menu - transforms between mobile overlay and desktop inline -->
+        <nav id="luc-nav-menu" class="luc-nav__menu" aria-label="Main navigation">
+
+            <!-- CTA Bar (visible only in mobile menu) -->
+            <div class="luc-nav__cta-bar">
+                <a href="#" class="luc-nav__cta">Request Info</a>
+                <a href="#" class="luc-nav__cta">Visit</a>
+                <a href="#" class="luc-nav__cta">Apply</a>
+                <span class="luc-nav__cta-divider"></span>
+                <a href="#" class="luc-nav__cta">Give</a>
+            </div>
+
+            <!-- Nav Items -->
+            <ul class="luc-nav__items luc-nav__items--interior">
+                <li class="luc-nav__item">
+                    <button
+                        class="luc-nav__toggle"
+                        aria-expanded="false"
+                        aria-controls="mega-int-academics"
+                    >
+                        <span class="luc-nav__toggle-text">Academics</span>
+                    </button>
+                    <div id="mega-int-academics" class="luc-mega-menu">
+                        <div class="luc-mega-menu__collapse">
+                            <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                                Academics
+                            </a>
+                            <ul class="luc-mega-menu__list">
+                                <li><a href="#" class="luc-mega-menu__link">Colleges and Schools</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Study Abroad Programs</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Departments and Programs</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Calendars and Schedules</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Online Learning</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Academic Catalog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="luc-nav__item">
+                    <button
+                        class="luc-nav__toggle"
+                        aria-expanded="false"
+                        aria-controls="mega-int-admission"
+                    >
+                        <span class="luc-nav__toggle-text">Admission &amp; Aid</span>
+                    </button>
+                    <div id="mega-int-admission" class="luc-mega-menu">
+                        <div class="luc-mega-menu__collapse">
+                            <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                                Admission &amp; Aid
+                            </a>
+                            <ul class="luc-mega-menu__list">
+                                <li><a href="#" class="luc-mega-menu__link">Undergraduate Admission</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Graduate and Professional International Admissions</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Graduate Admission</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Tuition and Fees</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Adult Education</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Financial Aid</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Executive and Professional Education</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">January Term</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">International Admission</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Summer Sessions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="luc-nav__item">
+                    <button
+                        class="luc-nav__toggle"
+                        aria-expanded="false"
+                        aria-controls="mega-int-research"
+                    >
+                        <span class="luc-nav__toggle-text">Research</span>
+                    </button>
+                    <div id="mega-int-research" class="luc-mega-menu">
+                        <div class="luc-mega-menu__collapse">
+                            <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                                Research
+                            </a>
+                            <ul class="luc-mega-menu__list">
+                                <li><a href="#" class="luc-mega-menu__link">Current Initiatives</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Undergraduate Research</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Centers and Institutes</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Office of the Vice-Provost of Research</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="luc-nav__item">
+                    <button
+                        class="luc-nav__toggle"
+                        aria-expanded="false"
+                        aria-controls="mega-int-community"
+                    >
+                        <span class="luc-nav__toggle-text">Community &amp; Faith</span>
+                    </button>
+                    <div id="mega-int-community" class="luc-mega-menu">
+                        <div class="luc-mega-menu__collapse">
+                            <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                                Community &amp; Faith
+                            </a>
+                            <ul class="luc-mega-menu__list">
+                                <li><a href="#" class="luc-mega-menu__link">Jesuit Catholic Identity</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Campus Ministry</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Interfaith Community</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Community Service &amp; Action</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="luc-nav__item">
+                    <button
+                        class="luc-nav__toggle"
+                        aria-expanded="false"
+                        aria-controls="mega-int-campus"
+                    >
+                        <span class="luc-nav__toggle-text">Campus Life</span>
+                    </button>
+                    <div id="mega-int-campus" class="luc-mega-menu">
+                        <div class="luc-mega-menu__collapse">
+                            <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                                Campus Life
+                            </a>
+                            <ul class="luc-mega-menu__list">
+                                <li><a href="#" class="luc-mega-menu__link">Athletics</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Fitness &amp; Recreation</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Clubs &amp; Activities</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Student Belonging</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Housing</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Museum of Art</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Dining</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Campus Safety</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Health &amp; Wellness</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="luc-nav__item">
+                    <button
+                        class="luc-nav__toggle"
+                        aria-expanded="false"
+                        aria-controls="mega-int-about"
+                    >
+                        <span class="luc-nav__toggle-text">About</span>
+                    </button>
+                    <div id="mega-int-about" class="luc-mega-menu">
+                        <div class="luc-mega-menu__collapse">
+                            <a href="#" class="luc-button luc-button--lg luc-mega-menu__section-header">
+                                About
+                            </a>
+                            <ul class="luc-mega-menu__list">
+                                <li><a href="#" class="luc-mega-menu__link">Loyola at a Glance</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">University Leadership</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Accreditation</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Visit Campus</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Loyola and Chicago</a></li>
+                                <li><a href="#" class="luc-mega-menu__link">Student Achievement</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+            <!-- Audience Links (visible only in mobile menu) -->
+            <div class="luc-nav__audience-mobile">
+                <h3 class="luc-nav__audience-heading">Info For</h3>
+                <ul class="luc-nav__audience-list">
+                    <li><a href="#" class="luc-nav__audience-link">Current Students</a></li>
+                    <li><a href="#" class="luc-nav__audience-link">Faculty &amp; Staff</a></li>
+                    <li><a href="#" class="luc-nav__audience-link">Alumni</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Search Panel (mobile overlay) -->
+    <div id="luc-search-panel" class="luc-search" aria-hidden="true">
+        <h2 class="luc-search__title">Search LUC.edu</h2>
+        <form class="luc-search__form" role="search" action="/search">
+            <input
+                type="search"
+                class="luc-search__input"
+                placeholder="Search..."
+                aria-label="Search Loyola"
+            >
+            <button type="submit" class="luc-search__submit" aria-label="Submit search"></button>
+        </form>
+    </div>
+
+</header>
