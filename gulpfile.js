@@ -16,8 +16,6 @@ const autoprefixer = require('autoprefixer');
 const concat = require('gulp-concat');
 // const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
-const zip = require('gulp-zip').default;
-const streamSeries = require('stream-series');
 // const cssnano = require('gulp-cssnano');
 // const gulpSequence = require('gulp-sequence');
 
@@ -106,67 +104,6 @@ function sassDocumentation() {
     cb();
 };
 
-function sassNavFooter() {
-    return gulp
-    .src(config.devDir + '/scss/scss-nav-footer/luc-nav-footer.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.deployDir + '/css'));
-};
-
-function jsNavFooter() {
-    return gulp
-    .src(config.devDir + '/js/luc-nav-footer.js')
-    .pipe(gulp.dest(config.deployDir + '/js'));
-};
-
-function sassComponents() {
-    return gulp
-    .src(config.devDir + '/scss/scss-nav-footer/luc-components.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.deployDir + '/css'));
-};
-
-function jsComponents() {
-    return gulp
-    .src(config.devDir + '/js/luc-components.js')
-    .pipe(gulp.dest(config.deployDir + '/js'));
-};
-
-function zipNavFooter() {
-    return gulp.src([
-        'deploy/luc-header-footer-homepage.html',
-        'deploy/luc-header-footer-interior.html',
-        'deploy/css/luc-nav-footer.css',
-        'deploy/js/luc-nav-footer.js',
-        'deploy/images/Loyola-University-Chicago-maroon.svg',
-        'deploy/images/Loyola-University-Chicago-white.svg'
-    ], { base: './deploy' })
-    .pipe(zip('luc-nav-footer-dist.zip'))
-    .pipe(gulp.dest(config.deployDir));
-};
-
-function zipComponents() {
-    return gulp.src([
-        'deploy/luc-2026-homepage.html',
-        'deploy/css/luc-nav-footer.css',
-        'deploy/css/luc-components.css',
-        'deploy/js/luc-nav-footer.js',
-        'deploy/js/luc-components.js',
-        'deploy/images/Loyola-University-Chicago-maroon.svg',
-        'deploy/images/Loyola-University-Chicago-white.svg',
-        'deploy/images/flare-sunburst.png',
-        'deploy/images/burst.svg',
-        'deploy/images/images-2026/**/*',
-        'deploy/videos/luc-video-hero-121925.mp4'
-    ], { base: './deploy' })
-    .pipe(zip('luc-components-dist.zip'))
-    .pipe(gulp.dest(config.deployDir));
-};
-
 function referencePaths() {
     return gulp
     .src('./development/*.html')
@@ -192,11 +129,7 @@ function indexBuild(cb) {
     .pipe(uglify()) // minify bundle.js
     .pipe(gulp.dest('./deploy/js')); // Save the bundle.js file in the ./deploy/js directory
 
-  var cssSources = streamSeries(
-    gulp.src(['./deploy/css/**/*.css', '!./deploy/css/luc-nav-footer.css', '!./deploy/css/luc-components.css']),
-    gulp.src('./deploy/css/luc-nav-footer.css'),
-    gulp.src('./deploy/css/luc-components.css'),
-  );
+  var cssSources = gulp.src('./deploy/css/**/*.css');
 
   return target
     .pipe(inject(jsSources, { ignorePath: 'deploy/', addRootSlash: false }))
@@ -219,15 +152,14 @@ function watchFiles() {
     }
   });
   watch('./development/**/*.html', gulp.series('indexBuild', 'browserSyncReload'));
-  watch(config.devDir + '/scss/**/*.scss', gulp.series(parallel('sassFramework', 'sassGrid', 'sassTypography', 'sassPanels', 'sassPanelsDev', 'sassDocumentation', 'sassNavFooter', 'sassComponents'), parallel('zipNavFooter', 'zipComponents'), 'browserSyncReload'));
-  watch(config.devDir + '/js/**/*.js', gulp.series(parallel('jsNavFooter', 'jsComponents'), parallel('zipNavFooter', 'zipComponents'), 'browserSyncReload'));
+  watch(config.devDir + '/scss/**/*.scss', gulp.series(parallel('sassFramework', 'sassGrid', 'sassTypography', 'sassPanels', 'sassPanelsDev', 'sassCarnegieComponents', 'sassDocumentation'), 'browserSyncReload'));
+  watch(config.devDir + '/js/**/*.js', gulp.series('browserSyncReload'));
 };
 
 exports.default = series(
-  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassNavFooter, sassComponents),
+  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassCarnegieComponents, sassDocumentation),
   referencePaths,
   indexBuild,
-  parallel(zipNavFooter, zipComponents),
   watchFiles,
   browserSyncReload
 );
@@ -235,17 +167,11 @@ exports.indexBuild = indexBuild;
 exports.referencePaths = referencePaths;
 exports.sassFramework = sassFramework;
 exports.sassGrid = sassGrid;
-exports.sassTypography = sassTypography; 
+exports.sassTypography = sassTypography;
 exports.sassPanels = sassPanels;
 exports.sassPanelsDev = sassPanelsDev;
-// exports.sassCarnegieComponents = sassCarnegieComponents;
+exports.sassCarnegieComponents = sassCarnegieComponents;
 exports.sassDocumentation = sassDocumentation;
-exports.sassNavFooter = sassNavFooter;
-exports.jsNavFooter = jsNavFooter;
-exports.sassComponents = sassComponents;
-exports.jsComponents = jsComponents;
-exports.zipNavFooter = zipNavFooter;
-exports.zipComponents = zipComponents;
 exports.watchFiles = watchFiles;
 exports.browserSync = browserSync;
 exports.browserSyncReload = browserSyncReload;
