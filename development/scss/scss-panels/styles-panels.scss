@@ -4,6 +4,7 @@
 //@import 'mixins';
 @import 'mixins/breakpoints';
 @import '../scss-typography/custom-variables';
+@import '../scss-typography/typography';
 @import '../scss-typography/vertical-rhythm';
 @import '../scss-typography/font-size-function';
 @import 'accessible-accordion-aria';
@@ -24,3 +25,16 @@
 @import 'panels';
 @import 'carousel';
 @import 'carousel-scroll';
+
+// -----------------------------------------------------------------------------
+// 2026 Components
+// -----------------------------------------------------------------------------
+@import 'hero';
+@import 'routing-panel';
+@import 'stats';
+@import 'news-feature';
+@import 'events-listing';
+@import 'cta-panel';
+@import 'panel-burst';
+// @import 'automodal';
+@import 'chat-bubble';
