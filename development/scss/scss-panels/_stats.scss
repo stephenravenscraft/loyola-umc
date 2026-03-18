@@ -1,0 +1,183 @@
+.stats {
+	padding: $luc-panel 0;
+	background: $luc-white;
+	background-image: url('../images/images-2026/stats-background.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+
+	&__header {
+		display: flex;
+		flex-direction: column;
+		gap: $luc-baseline * 8;
+		padding-inline: $luc-wrap;
+		margin-bottom: $luc-baseline * 9;
+
+		@media (min-width: 64rem) {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: $luc-space-xl;
+			padding-inline: 0;
+			margin-bottom: $luc-baseline * 16;
+		}
+	}
+
+	&__header-content {
+		display: flex;
+		flex-direction: column;
+		gap: $luc-baseline * 6;
+
+		@media (min-width: 64rem) {
+			max-width: 56.25rem;
+		}
+	}
+
+	// Header CTA aligns top-right on desktop
+	> .button {
+		flex-shrink: 0;
+		width: auto;
+
+		@media (min-width: 64rem) {
+			max-width: 30%;
+		}
+	}
+
+	&__block {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: $luc-baseline * 14; // 56px
+		margin-bottom: $luc-baseline * 10; // 40px
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		@media (min-width: 64rem) {
+			grid-template-columns: 1fr 1fr;
+			gap: $luc-baseline * 26;
+			align-items: center;
+			margin-bottom: $luc-baseline * 4;
+			padding-inline: 0;
+		}
+
+		&--reversed {
+			@media (min-width: 64rem) {
+				direction: rtl;
+
+				> * {
+					direction: ltr;
+				}
+			}
+		}
+	}
+
+	&__text {
+		padding-inline: $luc-wrap;
+		margin-inline: calc(#{$luc-wrap} / 2);
+
+		h3 {
+			margin-top: $luc-baseline * 1; // 16px
+		}
+
+		p {
+			margin-top: $luc-baseline * 4; // 16px
+		}
+
+		.buttons {
+			margin-top: $luc-baseline * 4; // 16px
+		}
+
+		@media (min-width: 64rem) {
+			padding-inline: 0;
+			margin-inline: 0;
+		}
+	}
+
+	&__eyebrow {
+		@extend .text-detail;
+		color: $luc-copper-extra-dark;
+	}
+
+	&__media {
+		position: relative;
+	}
+
+	&__image-container {
+		margin-inline: calc(#{$luc-gutter} * -1);
+		margin-bottom: calc(#{$luc-baseline * 5} * -1); // -20px
+
+		@media (min-width: 64rem) {
+			margin: 0;
+		}
+	}
+
+	&__image {
+		width: 100%;
+		height: auto;
+		display: block;
+		object-fit: cover;
+	}
+
+	&__card {
+		background-color: $luc-maroon;
+		padding: 2.5rem $luc-wrap;
+		display: flex;
+		flex-direction: column;
+		margin-inline: calc(#{$luc-wrap} / 2) $luc-wrap;
+
+		@media (min-width: 64rem) {
+			position: relative;
+			margin-top: -($luc-baseline * 24);
+			width: 90%;
+			padding: $luc-baseline * 8;
+			margin-inline: calc(#{$luc-wrap} / 2 * -1) 0;
+		}
+
+		// Reversed blocks: card aligns left
+		.stats__block--reversed & {
+			@media (min-width: 64rem) {
+				margin-left: auto;
+				margin-right: calc(#{$luc-wrap} / 2 * -1);
+			}
+		}
+	}
+
+	&__card-eyebrow {
+		@extend .text-detail;
+		color: $luc-white;
+	}
+
+	&__card-number {
+		display: inline-flex;
+		flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+		font-family: $luc-font-family-condensed-black;
+		font-size: clamp(3rem, 6vw, 4rem);
+		line-height: 1.1;
+		color: $luc-gold;
+		margin-top: $luc-baseline * 2; // 16px
+
+		span {
+			font-family: $luc-font-family-condensed-light;
+			font-size: 0.5em;
+			color: $luc-gold;
+			line-height: 1.1;
+		}
+	}
+
+	&__card-description {
+		font-family: $luc-font-family;
+		font-size: $luc-baseline * 4; // 16px
+		line-height: 1.6;
+		color: $luc-white;
+		margin: 0;
+		margin-top: $luc-baseline * 3; // 12px
+	}
+
+	@media (min-width: 64rem) {
+		padding-inline: $luc-wrap;
+	}
+}

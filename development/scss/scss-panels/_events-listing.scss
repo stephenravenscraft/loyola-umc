@@ -1,0 +1,102 @@
+.events-listing {
+	padding: $luc-panel $luc-wrap;
+	background-color: $luc-copper-light;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: $luc-space-l;
+
+	@media (min-width: 48rem) {
+		grid-template-columns: 14rem 1fr;
+		gap: $luc-space-xl;
+		align-items: start;
+	}
+
+	@media (min-width: 64rem) {
+		grid-template-columns: 26.25rem 1fr;
+		gap: $luc-space-xl;
+		align-items: start;
+	}
+
+	&__header {
+		display: flex;
+		flex-direction: column;
+		align-self: center;
+		gap: $luc-baseline * 6;
+
+		@media (min-width: 64rem) {
+			gap: $luc-baseline * 10;
+		}
+	}
+
+	&__grid {
+		display: flex;
+		flex-direction: column;
+		gap: $luc-baseline * 4;
+
+		@media (min-width: 48rem) {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+	}
+
+	&__card {
+		background-color: $luc-white;
+		padding: 2.5rem;
+		flex: 1;
+		width: 100%;
+	}
+
+	&__link {
+		display: flex;
+		flex-direction: column;
+		gap: $luc-baseline * 4;
+		text-decoration: none;
+
+		&:hover {
+			h3 {
+				text-decoration: underline;
+				text-decoration-line: underline;
+				text-decoration-style: solid;
+				text-decoration-skip-ink: auto;
+				text-decoration-thickness: 4%;
+				text-underline-offset: 10%;
+				text-underline-position: from-font;
+			}
+		}
+	}
+
+	&__date {
+		display: flex;
+		padding: 0.25rem 0.5rem;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 0.625rem;
+		font-family: $luc-font-family-condensed-bold;
+		font-size: $luc-baseline * 4;
+		line-height: 1.5;
+		color: $luc-copper-extra-dark;
+		border-radius: 0.125rem;
+		border: 1px solid $luc-copper-extra-dark;
+		width: fit-content;
+	}
+
+	&__title {
+		@extend .h4;
+		margin: 0;
+	}
+
+	&__time {
+		font-family: $luc-font-family;
+		color: $luc-copper-extra-dark;
+		font-size: $luc-baseline * 4; // 16px
+		margin: 0;
+	}
+
+	&__location {
+		font-family: $luc-font-family;
+		color: $luc-copper-extra-dark;
+		font-size: $luc-baseline * 4; // 16px
+		margin: 0;
+	}
+}
