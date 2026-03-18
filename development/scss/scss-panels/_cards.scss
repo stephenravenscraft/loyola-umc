@@ -436,64 +436,64 @@
 
 /* buttons */
 
-button {
-  display: block;
-  margin: 1rem 0;
-  padding: .625rem 1rem .5rem;
-  width: 100%;
-  height: auto;
-  font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
-  font-size: .925rem;
-  line-height: 1.45;
-  color: #8D0034;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: solid 1px #8D0034;
-  border-radius: .33rem;
-  background: rgba(0,0,0,.1);
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
-}
+// button {
+//   display: block;
+//   margin: 1rem 0;
+//   padding: .625rem 1rem .5rem;
+//   width: 100%;
+//   height: auto;
+//   font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
+//   font-size: .925rem;
+//   line-height: 1.45;
+//   color: #8D0034;
+//   text-align: center;
+//   text-transform: uppercase;
+//   text-decoration: none;
+//   border: solid 1px #8D0034;
+//   border-radius: .33rem;
+//   background: rgba(0,0,0,.1);
+//   -webkit-transition: .3s;
+//   -o-transition: .3s;
+//   transition: .3s;
+// }
 
-button:hover {
-  color: #f1f1f1;
-  background: #8D0034;
-  cursor: pointer;
-}
+// button:hover {
+//   color: #f1f1f1;
+//   background: #8D0034;
+//   cursor: pointer;
+// }
 
-button:focus {
-  outline: 3px solid #f2b724;
-  outline-offset: -3px;
-  border-radius: .33rem;
-  -moz-outline-border: .33rem;
-}
+// button:focus {
+//   outline: 3px solid #f2b724;
+//   outline-offset: -3px;
+//   border-radius: .33rem;
+//   -moz-outline-border: .33rem;
+// }
 
-/* button text color */
+// /* button text color */
 
-.button-maroon button, .button-patina button {
-  color: #f1f1f1;
-  border: none;
-}
+// .button-maroon button, .button-patina button {
+//   color: #f1f1f1;
+//   border: none;
+// }
 
-.button-gold button {
-  color: $white;
-}
+// .button-gold button {
+//   color: $white;
+// }
 
-.button-gold button:hover {
-  color: $white;
-}
+// .button-gold button:hover {
+//   color: $white;
+// }
 
-/* button background color */
+// /* button background color */
 
-.button-maroon button { background: $maroon; }
-.button-patina button { background: $patina; }
-.button-gold button { background: $gold; }
+// .button-maroon button { background: $maroon; }
+// .button-patina button { background: $patina; }
+// .button-gold button { background: $gold; }
 
-.button-maroon button:hover { background: $brick !important; }
-.button-patina button:hover { background: $patina-dark !important; }
-.button-gold button:hover { background: $opus !important; }
+// .button-maroon button:hover { background: $brick !important; }
+// .button-patina button:hover { background: $patina-dark !important; }
+// .button-gold button:hover { background: $opus !important; }
 
 /* cards numbers */
 
