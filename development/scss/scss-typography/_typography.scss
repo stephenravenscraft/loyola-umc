@@ -188,11 +188,11 @@ p strong, .standard-paragraph p strong, li strong, li a strong, ol strong, ol a 
 }
 
 p a, a.cta, li a, p a strong, li a strong, a.cta, strong a.cta {
-  color: $maroon;
-  text-decoration: none;
-  &:hover, &:visited {
-    color: $brick;
-  }
+  // color: $maroon;
+  // text-decoration: none;
+  // &:hover, &:visited {
+  //   color: $brick;
+  // }
 }
 
 /* paragraphs */
@@ -319,12 +319,17 @@ a {
 a {
   display: inline;
   font-family: inherit;
-  font-weight: 700;
-  color: $maroon;
-  &:focus {
-    outline-style: solid;
-    outline-offset: -3px;
-    outline: 3px solid $gold;
+  // font-weight: 700;
+  // color: $maroon;
+  color: inherit;
+  // &:focus {
+  //   outline-style: solid;
+  //   outline-offset: -3px;
+  //   outline: 3px solid $gold;
+  // }
+
+  &:hover {
+    text-underline-offset: 3px;
   }
 }
 
@@ -335,9 +340,9 @@ table tr a {
 }
 
 p a {
-  text-decoration: underline;
+  // text-decoration: underline;
   font-size: inherit;
-  font-weight: 700;
+  // font-weight: 700;
 }
 
 a.cta {
@@ -800,25 +805,25 @@ p span.highlight.bg-success { color: $white; background: lighten($patina,5%); }
 p span.highlight.bg-warning { color: $white; background: lighten($opus,5%); }
 p span.highlight.bg-danger { color: $white; background: $maroon; }
 */
-#main-section-wrapper {
-  p a, a.cta, li a, p a strong, li a strong, a.cta, strong a.cta,
-  p span.highlight.bg-info,
-  p span.highlight.bg-success,
-  p span.highlight.bg-warning,
-  p span.highlight.bg-danger {
-    color: $maroon;
-    font-family: 'Open Sans', 'Arial', sans-serif;
-    background-image: linear-gradient(120deg, $gray-extra-light 0%, $gray-extra-light 100%);
-    background-repeat: no-repeat;
-    background-size: 106% 0.1rem;
-    background-position: -3% 103%;
-    transition: all 0.25s ease-in;
-    &:hover {
-      color: $black;
-      background-size: 100% 106%;
-    }
-  }
-}
+// #main-section-wrapper {
+//   p a, a.cta, li a, p a strong, li a strong, a.cta, strong a.cta,
+//   p span.highlight.bg-info,
+//   p span.highlight.bg-success,
+//   p span.highlight.bg-warning,
+//   p span.highlight.bg-danger {
+//     color: $maroon;
+//     font-family: 'Open Sans', 'Arial', sans-serif;
+//     background-image: linear-gradient(120deg, $gray-extra-light 0%, $gray-extra-light 100%);
+//     background-repeat: no-repeat;
+//     background-size: 106% 0.1rem;
+//     background-position: -3% 103%;
+//     transition: all 0.25s ease-in;
+//     &:hover {
+//       color: $black;
+//       background-size: 100% 106%;
+//     }
+//   }
+// }
 #main-section-wrapper {
   .bg-maroon p a,
   .bg-maroon a.cta,
@@ -975,5 +980,88 @@ blockquote cite { line-height: 1.35; }
     }
   }
 }
+
+
+
+
+
+
+p {
+  font-family: $luc-font-family;
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.005rem;
+}
+
+h1,
+.h1 {
+  color: $luc-maroon;
+  font-family: $luc-font-family-condensed-black;
+  font-size: clamp(3rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+h2,
+.h2 {
+  color: $luc-maroon;
+  font-family: $luc-font-family-condensed-black;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  line-height: 1.3;
+  letter-spacing: 0.005rem;
+}
+
+h3,
+.h3 {
+  color: $luc-maroon;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: clamp(1.5rem, 5vw, 1.875rem);
+  line-height: 1.3;
+  letter-spacing: 0.005rem;
+}
+
+h4,
+.h4 {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
+  line-height: 1.4;
+  letter-spacing: 0.005rem;
+}
+
+h5,
+.h5 {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: clamp(1.125rem, 5vw, 1.25rem);
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
+}
+
+h6,
+.h6 {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
+}
+
+.text-detail {
+  font-family: $luc-font-family;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
+}
+
+.text-small {
+  font-family: $luc-font-family;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
+}
+
+
+
+
+
 
 /* END - TYPOGRAPHY - CSS */
