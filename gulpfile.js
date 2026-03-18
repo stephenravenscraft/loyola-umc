@@ -84,15 +84,15 @@ function sassPanelsDev() {
   cb();
 };
 
-function sassCarnegieComponents() {
-  return gulp
-  .src(config.devDir + '/scss/scss-carnegie-components/**/*.scss')
-  .pipe(sourcemaps.init())  // Process the original sources
-  .pipe(sass())
-  .pipe(sourcemaps.write()) // Add the map to modified source.
-  .pipe(gulp.dest(config.deployDir + '/css'));
-  cb();
-};
+// function sassCarnegieComponents() {
+//   return gulp
+//   .src(config.devDir + '/scss/scss-carnegie-components/**/*.scss')
+//   .pipe(sourcemaps.init())  // Process the original sources
+//   .pipe(sass())
+//   .pipe(sourcemaps.write()) // Add the map to modified source.
+//   .pipe(gulp.dest(config.deployDir + '/css'));
+//   cb();
+// };
 
 function sassDocumentation() {
     return gulp
@@ -152,12 +152,12 @@ function watchFiles() {
     }
   });
   watch('./development/**/*.html', gulp.series('indexBuild', 'browserSyncReload'));
-  watch(config.devDir + '/scss/**/*.scss', gulp.series(parallel('sassFramework', 'sassGrid', 'sassTypography', 'sassPanels', 'sassPanelsDev', 'sassCarnegieComponents', 'sassDocumentation'), 'browserSyncReload'));
+  watch(config.devDir + '/scss/**/*.scss', gulp.series(parallel('sassFramework', 'sassGrid', 'sassTypography', 'sassPanels', 'sassPanelsDev', 'sassDocumentation'), 'browserSyncReload'));
   watch(config.devDir + '/js/**/*.js', gulp.series('browserSyncReload'));
 };
 
 exports.default = series(
-  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassCarnegieComponents, sassDocumentation),
+  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation),
   referencePaths,
   indexBuild,
   watchFiles,
@@ -170,7 +170,7 @@ exports.sassGrid = sassGrid;
 exports.sassTypography = sassTypography;
 exports.sassPanels = sassPanels;
 exports.sassPanelsDev = sassPanelsDev;
-exports.sassCarnegieComponents = sassCarnegieComponents;
+// exports.sassCarnegieComponents = sassCarnegieComponents;
 exports.sassDocumentation = sassDocumentation;
 exports.watchFiles = watchFiles;
 exports.browserSync = browserSync;
