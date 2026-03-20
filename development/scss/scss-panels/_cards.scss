@@ -497,15 +497,15 @@
 
 /* cards numbers */
 
-.grid-wrapper-min-max.number h6,
-.grid-wrapper-min-max.number h4,
-.grid-wrapper-min-max.number h5,
-.grid-wrapper-min-max.number p,
-.grid-wrapper-min-max.number a {
-  display: block;
-  width: 100%;
-  text-align: center;
-}
+// .grid-wrapper-min-max.number h6,
+// .grid-wrapper-min-max.number h4,
+// .grid-wrapper-min-max.number h5,
+// .grid-wrapper-min-max.number p,
+// .grid-wrapper-min-max.number a {
+//   display: block;
+//   width: 100%;
+//   text-align: center;
+// }
 
 .grid-wrapper-min-max.number .image-wrapper,
 .grid-wrapper-min-max.number p,
@@ -679,3 +679,38 @@
 /* 736 */
 
 /* 580 */
+
+
+
+
+
+
+
+/* 2026 overrides */
+
+
+.grid-wrapper-min-max.number,
+.grid-wrapper-min-max:has(.flex-item.content.center) {
+  text-align: center;
+
+  .flex-item.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .stat-number {
+      color: $maroon;
+      text-align: center;
+      font-family: $luc-font-family-condensed-black;
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+
+      .bg-maroon & {
+        color: $gold;
+      }
+    }
+  }
+}
