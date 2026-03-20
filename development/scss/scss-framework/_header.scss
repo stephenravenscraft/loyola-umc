@@ -13,7 +13,7 @@
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 998;
   background: $luc-white;
   border-bottom: 1px solid $luc-gray-lightest;
 
@@ -940,7 +940,7 @@
   height: fit-content;
   background: $luc-maroon;
   box-shadow: 0 ($luc-baseline * 2) ($luc-baseline * 8) ($luc-baseline * 4) rgba(0, 0, 0, 0.25); // 0 8px 32px 16px rgba(0, 0, 0, 0.25)
-  z-index: 999; // Below header
+  z-index: 997; // Below header
   padding: $luc-baseline * 4; // 16px
   opacity: 0;
   visibility: hidden;
