@@ -2079,10 +2079,10 @@ img.inline-icon {
   z-index: 2;
 
   #content-pagination-breadcrumbs {
-    padding: 0.5rem max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2);
+    padding: 0.5rem 2rem;
 
     @media (min-width: 64rem) {
-      padding: 2rem max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2);
+      padding: 2rem 2rem;
     }
 
     .grid-wrapper-min-max {
@@ -2142,6 +2142,8 @@ img.inline-icon {
         display: grid;
         grid-template-columns: 1fr 1fr !important;
         max-height: 500px;
+        max-width: 120rem;
+        margin-inline: auto;
       }
 
       .grid-area-content {

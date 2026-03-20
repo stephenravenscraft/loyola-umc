@@ -15,7 +15,6 @@
     background: $luc-white;
     display: flex;
     flex-direction: column;
-    gap: $luc-baseline * 6; // 24px
 
     @media (min-width: 64rem) {
       width: 50%;

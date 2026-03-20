@@ -30,7 +30,6 @@
 	&__content {
 		display: flex;
 		flex-direction: column;
-		gap: $luc-baseline * 6;
 		padding-block: $luc-space;
 		padding-inline: $luc-wrap;
 		z-index: 3;

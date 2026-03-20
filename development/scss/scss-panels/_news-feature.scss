@@ -21,7 +21,6 @@
 	&__header-content {
 		display: flex;
 		flex-direction: column;
-		gap: $luc-baseline * 6;
 		width: 100%;
 
 		@media (min-width: 48rem) {
@@ -112,7 +111,6 @@
 		.news-feature__content {
 			display: flex;
 			flex-direction: column;
-			gap: $luc-baseline * 4;
 		}
 	}
 
@@ -172,7 +170,6 @@
 		.news-feature__content {
 			display: flex;
 			flex-direction: column;
-			gap: $luc-baseline * 4;
 		}
 
 		@media (min-width: 48rem) {
