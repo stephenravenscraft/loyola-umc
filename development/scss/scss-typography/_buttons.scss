@@ -12,7 +12,8 @@ button.button,
 button.luc-button,
 button.container-100,
 button.container-auto,
-button.container-50 {
+button.container-50,
+.cta {
   display: inline-flex;
   position: relative;
   align-items: center;
@@ -87,7 +88,7 @@ button.container-50 {
 
 .luc-button,
 .button,
-button {
+button { 
   // ==========================================================================
   // DARK THEME - For use on dark backgrounds
   // ==========================================================================
