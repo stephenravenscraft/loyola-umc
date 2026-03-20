@@ -1,0 +1,214 @@
+:root {
+  --swiper-navigation-top-offset: calc(100% - (var(--swiper-navigation-size) / 2) - 0.5rem);
+  --swiper-navigation-sides-offset: 0.5rem;
+  --swiper-navigation-size: 3rem;
+  --swiper-pagination-height: 14px;
+  --swiper-pagination-bottom: calc((var(--swiper-navigation-size) / 2) - calc(var(--swiper-pagination-height) / 2) + 0.5rem);
+}
+
+.swiper {
+  &:not(:has(.swiper-pagination-lock)) {
+    @media (width >= 64em) {
+      padding-bottom: calc(var(--space-xl) + var(--swiper-pagination-height));
+    }
+  }
+  &:has(.swiper-pagination-lock) {
+    .swiper-button-prev, .swiper-button-next {
+      display: none;
+    }
+  }
+
+  .swiper-pagination-lock {
+    display: none;
+    visibility: hidden;
+  }
+
+  @container (width >= 64rem) {
+    &:not(:has(.swiper-pagination-lock)):not(.ContentSidebar__content &) {
+      --swiper-navigation-size: 3.5rem;
+      --swiper-navigation-top-offset: calc(50% - calc(var(--space-xl) + (var(--swiper-pagination-height) + var(--swiper-pagination-bottom)) - calc(var(--swiper-navigation-size) / 2)));
+
+      .swiper-content {
+        margin: 0 calc((var(--gutter) / 2) + var(--swiper-navigation-size));
+        padding-block: 1rem;
+      }
+    }
+  }
+}
+
+[data-swiper] {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.swiper-content {
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.swiper-nav {
+  &:not(:has(.swiper-pagination-lock)) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.swiper-button-prev, .swiper-button-next {
+  background: transparent;
+  border: 3px solid var(--link);
+  border-radius: 100%;
+  width: var(--swiper-navigation-size);
+  height: var(--swiper-navigation-size);
+  transition: background-color var(--transition-base), color var(--transition-base);
+
+  &::after {
+    content: "";
+    display: block;
+    width: 1.125rem;
+    height: 0.5rem;
+    background-color: var(--link);
+    mask-image: url('../images/icon-arrow-right.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+  }
+
+  &:hover {
+    background-color: var(--link);
+    &::after {
+      background: var(--swiper-nav-hover, var(--white));
+    }
+  }
+
+  @container (width < 64rem) {
+    position: unset;
+    margin-top: unset;
+
+    .theme-green-horizontal-two-thirds & {
+      --outline-color: var(--green);
+    }
+  }
+}
+
+.swiper-button-prev {
+  &::after {
+    transform: rotate(180deg);
+  }
+}
+
+.swiper-button-next {
+  order: 1;
+}
+
+.swiper-pagination {
+  display: flex;
+  gap: 0.5rem;
+  font-size: var(--size-step-00);
+  font-weight: var(--font-heavy);
+  line-height: var(--leading-flat);
+  color: var(--heading);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
+
+  span {
+    color: var(--heading);
+
+    &:first-child {
+      border-bottom: 1px solid var(--heading);
+    }
+  }
+
+  .theme-green-horizontal-two-thirds & {
+    background-color: var(--white);
+    color: var(--green-bright);
+
+    span {
+      color: var(--green);
+
+      &:first-child {
+        border-color: var(--green);
+      }
+    }
+  }
+
+  .theme-green &,
+  .theme-dark-shape & {
+    color: var(--yellow);
+
+    span {
+      color: var(--white);
+
+      &:first-child {
+        border-color: var(--white);
+      }
+    }
+  }
+
+  @container (width < 64rem) {
+    position: unset;
+    margin: unset;
+  }
+}
+
+.CarouselNav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.CarouselNav--vertical {
+  flex-direction: column;
+}
+
+.CarouselNav--horizontal {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.CarouselNav__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: currentColor;
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    transition: transform var(--transition);
+  }
+
+  &:hover svg {
+    transform: scale(1.15);
+  }
+}
+
+.CarouselNav__status {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font: var(--font-bold) 1rem / 1.25 var(--font-heading);
+  color: currentColor;
+}
+
+.CarouselNav__current {
+  font-weight: var(--font-bold);
+}
+
+.CarouselNav__of {
+  font-style: italic;
+  font-weight: var(--font-regular);
+}
+
+.CarouselNav__total {
+  font-weight: var(--font-bold);
+}
