@@ -2254,6 +2254,8 @@ img.inline-icon {
 /* panel-image-overlay — Blockquote with Image Overlay */
 
 #panel-image-overlay {
+  gap: 0;
+
   &.container {
     padding: clamp(2.5rem, 5vw, 5rem) max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2);
     width: 100%;
@@ -2292,10 +2294,11 @@ img.inline-icon {
       margin: 0;
     }
 
-    // @media (min-width: 64rem) {
-    //   position: absolute;
-    //   margin-bottom: 0;
-    // }
+    @media (min-width: 64rem) {
+      position: absolute;
+      margin-bottom: 0;
+      max-width: unset;
+    }
   }
 
   .content-image-overlay {
@@ -2663,25 +2666,26 @@ img.inline-icon {
 
 .grid-wrapper-min-max.cta-column {
   grid-template-columns: 100%;
+  gap: 2rem;
 
   .grid-item:last-child {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+  }
+  p {
+    margin-bottom: 0;
   }
 
   @media (min-width: 64rem) {
     grid-template-columns: 1fr 350px;
     justify-content: space-between;
 
-    p {
-      margin-bottom: 0;
-    }
 
     .grid-item:last-child {
       display: flex;
-      justify-content: flex-end;
-      align-items: flex-start;
+      justify-content: flex-start;
+      align-items: flex-end;
     }
   }
 }
