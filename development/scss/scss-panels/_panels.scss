@@ -2072,17 +2072,14 @@ img.inline-icon {
    ============================================================================= */
 
 #panel-pagination:has(+ .lead-panel-two-column-left-right) {
-  position: absolute;
   background: $luc-copper-light;
-  margin: 0;
-  padding: 0;
-  z-index: 2;
 
   #content-pagination-breadcrumbs {
-    padding: 0.5rem 2rem;
+    padding: 0.5rem max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2);
 
     @media (min-width: 64rem) {
-      padding: 2rem 2rem;
+      padding: 2rem 0;
+      max-width: 50%;
     }
 
     .grid-wrapper-min-max {
@@ -2090,46 +2087,91 @@ img.inline-icon {
       border: none;
       background: none;
 
+      nav {
+        display: inline-flex;
+        flex-wrap: wrap;
+
+        span {
+          position: relative;
+          line-height: 1;
+          padding: 0.25rem 0;
+          margin-right: 0.75rem;
+
+          a {
+            display: inline;
+            margin: 0;
+            padding: 0;
+            font-family: $luc-font-family;
+            font-size: 0.75rem;
+            line-height: 1;
+            color: $maroon;
+            text-transform: none;
+            text-decoration: none;
+            border: none;
+            background: none;
+  
+            &::before {
+              display: none;
+            }
+          }
+  
+          &::before {
+            content: "/";
+            display: inline;
+            margin-right: 0.75rem;
+            color: $luc-copper-extra-dark;
+            font-size: 0.875rem;
+          }
+  
+          &:first-of-type {
+            &::before {
+              display: none;
+            }
+          }
+  
+          &:last-of-type {
+            a {
+              color: $luc-copper-extra-dark;
+  
+              &:hover {
+                color: $luc-copper-extra-dark;
+              }
+            }
+          }
+  
+          a:hover {
+            color: $maroon;
+            text-decoration: underline;
+            font-weight: normal;
+          }
+        }
+      }
+
       .grid-item {
         margin: 0;
         padding: 0;
       }
 
-      a {
-        display: inline;
-        margin: 0;
-        padding: 0.25rem 0;
-        font-family: $luc-font-family;
-        font-size: 0.75rem;
-        line-height: 1;
-        color: $maroon;
-        text-transform: none;
-        text-decoration: none;
-        border: none;
-        background: none;
-
-        &:last-of-type {
-          color: $luc-copper-extra-dark;
-        }
-
-        &::before {
-          content: "/";
-          display: inline;
-          margin: 0 0.5rem;
-          color: $luc-copper-extra-dark;
-          font-size: 0.875rem;
-        }
-
-        &:first-of-type::before {
-          display: none;
-        }
-
-        &:hover {
-          color: $maroon;
-          text-decoration: underline;
-        }
-      }
     }
+
+    @media (min-width: 64rem) {
+      padding-block: 1rem;
+    }
+  }
+
+  .grid-area-content {
+    padding-block: 0;
+  }
+
+  @media (min-width: 64rem) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 4rem;
+    max-width: 120rem;
+    margin-inline: auto;
+    z-index: 2;
+    background: transparent;
   }
 }
 
@@ -2148,9 +2190,11 @@ img.inline-icon {
 
       .grid-area-content {
         grid-area: 1 / 1 / span 1 / span 4 !important;
+        padding-block: 0;
 
         @media (min-width: 64rem) {
           grid-area: 1 / 1 / span 1 / span 1 !important;
+          padding: 5rem 4rem;
         }
       }
 
@@ -2170,11 +2214,11 @@ img.inline-icon {
         justify-content: flex-end;
         height: 100%;
         padding: 1.5rem 0 0;
-        // background: $luc-copper-light !important;
         contain: none;
 
         @media (min-width: 64rem) {
           padding: 0;
+          justify-content: center;
         }
 
         h1 {
@@ -2752,6 +2796,7 @@ img.inline-icon {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  padding: 0.125rem 0;
 
   @media (min-width: 64rem) {
     flex-direction: row;
