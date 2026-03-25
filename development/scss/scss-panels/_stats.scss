@@ -61,7 +61,7 @@
 			padding-inline: 0;
 		}
 
-		&--reversed {
+		&:nth-child(even) {
 			@media (min-width: 64rem) {
 				direction: rtl;
 
@@ -134,8 +134,7 @@
 			margin-inline: calc(#{$luc-wrap} / 2 * -1) 0;
 		}
 
-		// Reversed blocks: card aligns left
-		.stats__block--reversed & {
+		.stats__block:nth-child(even) & {
 			@media (min-width: 64rem) {
 				margin-left: auto;
 				margin-right: calc(#{$luc-wrap} / 2 * -1);
