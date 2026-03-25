@@ -54,9 +54,9 @@
   position: absolute !important;
 
   &::after {
-    width: 0.76875rem;
-    height: 0.86406rem;
-    mask-image: url('../images/icon-to-top.svg');
+    width: 0.76875rem !important;
+    height: 0.86406rem !important;
+    mask-image: url('../images/icon-to-top.svg') !important;
   }
 
   // Mobile: positioned at top center of footer

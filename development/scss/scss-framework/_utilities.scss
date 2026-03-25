@@ -93,6 +93,15 @@
 .buttons {
   display: flex;
   gap: $luc-baseline * 8;
+
+  .button {
+    height: auto !important;
+    width: fit-content !important;
+  }
+
+  .center & {
+    justify-content: center;
+  }
 }
 
 .overlay-open {
