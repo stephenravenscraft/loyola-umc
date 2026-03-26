@@ -61,7 +61,8 @@
 			padding-inline: 0;
 		}
 
-		&:nth-child(even) {
+		&--reversed,
+		&:nth-child(even of .stats__block) {
 			@media (min-width: 64rem) {
 				direction: rtl;
 
@@ -134,7 +135,8 @@
 			margin-inline: calc(#{$luc-wrap} / 2 * -1) 0;
 		}
 
-		.stats__block:nth-child(even) & {
+		.stats__block--reversed &,
+		.stats__block:nth-child(even of .stats__block) & {
 			@media (min-width: 64rem) {
 				margin-left: auto;
 				margin-right: calc(#{$luc-wrap} / 2 * -1);
