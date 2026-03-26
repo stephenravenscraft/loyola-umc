@@ -2462,8 +2462,12 @@ img.inline-icon {
   @media (min-width: 48rem) {
     // padding-block: 5rem;
     max-width: 72rem;
+  }
+}
 
-    .toggle-grid-area & {
+#panel-image-text {
+  .grid-wrapper-grid-area.toggle-grid-area .grid-area-content {
+    @media (min-width: 48rem) {
       justify-self: flex-end;
     }
   }
