@@ -1,0 +1,130 @@
+// ============================================
+// LUC Second Level Page
+// ============================================
+// Overrides specific to elevated navigation pages (/academics/, etc.)
+// Breadcrumbs, hero panel, card layouts, blockquote overlay.
+//
+// Loaded on: elevated navigation pages only (not homepage, not subsites)
+// Live link tag: <link href="/media/luc-redesign-2026/css/secondlevelpage.css">
+// ============================================
+
+@import '../scss-typography/custom-variables';
+@import '../scss-typography/antenna';
+@import 'mixins/breakpoints';
+@import '../scss-typography/vertical-rhythm';
+@import 'variables';
+
+// ---- Links ----
+.flex-item.content a.cta {
+  font-family: 'Antenna Condensed Bold', 'Arial', sans-serif !important;
+  font-weight: 100;
+  letter-spacing: 0rem;
+  word-spacing: .085rem;
+  text-transform: none;
+}
+
+// ---- Images ----
+.panel-image-group.container-fluid {
+  background: $maroon;
+}
+
+#panel-image-text .grid-area.grid-area-content .content-image-text.two-column-text-only {
+  contain: none;
+  background: #ffffff;
+}
+
+#panel-image-text .grid-area .content-image-text.two-column-text-only .grid-wrapper-min-max.one-column.bg-terracotta-extra-light {
+  background: #e4ddcb !important;
+}
+
+#panel-image-overlay img {
+  max-width: none !important;
+}
+
+// ---- Breadcrumbs ----
+// Only apply cream background/padding on non-elevated pages.
+// Elevated pages (with .lead-panel-two-column-left-right) use the
+// framework's :has() rules in _panels.scss for transparent overlay breadcrumbs.
+#main-content-wrapper-full-width #panel-pagination:not(:has(+ .lead-panel-two-column-left-right)) {
+  background: $copper-extra-light;
+}
+
+#main-content-wrapper-full-width #panel-pagination:not(:has(+ .lead-panel-two-column-left-right)) #content-pagination-breadcrumbs {
+  padding: 2rem 4rem;
+  width: 100%;
+  background: $copper-extra-light;
+}
+
+#main-content-wrapper-full-width #panel-pagination #content-pagination-breadcrumbs a {
+  color: $maroon;
+  text-transform: none;
+}
+
+#main-content-wrapper-full-width #panel-pagination #content-pagination-breadcrumbs a:last-of-type {
+  color: $luc-copper-dark;
+}
+
+#main-content-wrapper-full-width #panel-pagination #content-pagination-breadcrumbs a:last-of-type:hover {
+  color: $maroon;
+}
+
+// ---- Container-80 Panel ----
+.grid-wrapper-min-max.one-column .grid-item.container.container-80 {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+// ---- Blockquote Overlay ----
+#panel-image-overlay {
+  max-height: 70vh;
+  // Override framework overflow:hidden when using container-wrap layout
+  &.container-wrap {
+    overflow: visible;
+  }
+}
+
+// ---- Cards ----
+#main-content-wrapper .card .image-wrapper img,
+.card .image-wrapper img {
+  margin: 0 0 -2rem;
+}
+
+.content-grid-wrapper {
+  border-radius: 0 2rem 0 0;
+}
+
+#panel-numbers .flex-item.content {
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: 100%;
+}
+
+#panel-numbers .flex-item.content h5 {
+  display: block;
+  color: #ffffff !important;
+}
+
+// ---- Media Queries ----
+@media only screen and (max-width: 600px) {
+  #main-content-wrapper-full-width #panel-pagination #content-pagination-breadcrumbs {
+    padding: 2rem;
+  }
+
+  .grid-wrapper-min-max.one-column .grid-item.container.container-80 {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  #panel-image-overlay {
+    max-height: 100vh;
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  #panel-image img,
+  #panel-columns-varied .image-wrapper img {
+    max-width: none !important;
+  }
+}

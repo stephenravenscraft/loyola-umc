@@ -1,0 +1,273 @@
+// ============================================
+// LUC Adjust Carnegie Global
+// ============================================
+// Overrides for the old Carnegie framework CSS on ALL interior pages.
+// These fixes correct typography, color tokens, CTA styling, accordions,
+// and other framework-level rendering issues.
+//
+// Loaded on: all interior pages (after framework CSS and luc-nav-footer/components)
+// Live link tag: <link href="/media/luc-redesign-2026/css/adjust-carnegie-global.css">
+// ============================================
+
+@import '../scss-typography/custom-variables';
+@import '../scss-typography/antenna';
+@import 'mixins/breakpoints';
+@import '../scss-typography/vertical-rhythm';
+@import 'variables';
+
+// ---- Headlines ----
+// Force maroon on all headings (overrides Carnegie framework defaults)
+h1, h2, h3, h4, h5,
+#panel-cards .grid-wrapper-min-max.card .flex-item.content h4 {
+  color: $maroon !important;
+}
+
+// ---- Social Icon Bar ----
+// Hide Carnegie social icon bar on interior pages
+#social-icon-bar {
+  display: none;
+}
+
+// ---- Terracotta / Copper Token Fix ----
+// Carnegie used different bg color values; normalize to design system token
+.bg-terracotta-extra-light,
+.bg-terracotta-extra-light button,
+#panel-accordion.bg-terracotta-extra-light,
+#panel-cards.bg-terracotta-extra-light,
+.card .content-grid-wrapper.bg-terracotta-extra-light {
+  background: $copper-extra-light !important;
+}
+
+// ---- Accordions ----
+// Fix Carnegie accordion header/chevron rendering
+#panel-accordion.bg-terracotta-extra-light .js-accordion__panel.minimalist-accordion__panel {
+  background: #e4ddc8 !important;
+}
+
+.minimalist-accordion__header,
+.minimalist-noanim-accordion__header,
+.minimalist-css-accordion__header,
+#panel-table-accordion h4.table-accordion-header {
+  background-image: none !important;
+}
+
+.minimalist-accordion__header::after,
+.minimalist-noanim-accordion__header::after,
+.minimalist-css-accordion__header::after,
+#panel-table-accordion h4.table-accordion-header::after {
+  background-image: url('/media/luc-template-2020/images/ui-arrow-dark-gray.png') !important;
+  transform: rotate(-90deg) !important;
+  mask-image: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+[aria-expanded=true].minimalist-accordion__header::after,
+[aria-expanded=true].minimalist-noanim-accordion__header::after,
+[aria-expanded=true].minimalist-css-accordion__header::after {
+  margin: 0.4rem -1.25rem 0 0;
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
+  filter: invert(1);
+}
+
+.bg-terracotta-extra-light button:hover {
+  background: #e4ddc8 !important;
+}
+
+// ---- Carnegie Panel (image-text) Fixes ----
+// Fix two-column panel layouts that Carnegie framework renders incorrectly
+.lead-panel-two-column-left-right #panel-image-text .content-image-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 125%;
+  background: $copper-extra-light;
+  clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+}
+
+#panel-image-text.bg-white .content-image-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#panel-image-text .content-image-text-image,
+.lead-panel-two-column-left-right #panel-image-text .content-image-text-image {
+  padding-top: 0;
+}
+
+#panel-image-text .content-image-text-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content-image-text h1,
+.content-image-text h2,
+.content-image-text p {
+  width: 80%;
+}
+
+#panel-image-text .grid-area.grid-area-content h1,
+#panel-image-text .grid-area.grid-area-content h2 {
+  color: $maroon;
+}
+
+#panel-image-text .grid-area.grid-area-image .content-image-text-image {
+  background-image: none !important;
+}
+
+#panel-image-text .content-image-text,
+#panel-image-text .content-image-text-image img {
+  contain: none;
+}
+
+#panel-image-text .content-image-text-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+// ---- Carnegie CTA / Link Fixes ----
+// Fix CTA link rendering, arrow icons, hover states
+#panel-image-text .grid-area.grid-area-content a:has(p) {
+  display: flex;
+  width: auto;
+}
+
+// Typography override for body text on interior pages
+p a, a.cta, p.open-sans, p em, li em, li em a, li a em,
+p em span, li em span, li em span a, li a span em,
+p, .explainer p .standard-paragraph p, .sans-serif, .sans-serif p,
+.standard-paragraph p, .standard-paragraph p em,
+p strong, .standard-paragraph p strong, li strong, li a strong,
+ol strong, ol a strong,
+.flex-item.content p, .flex-item.content p.explainer,
+.modaal-content-container .intro-paragraph > p,
+#main-content-wrapper ol, #main-content-wrapper ul,
+#main-content-wrapper-full-width ol, #main-content-wrapper-full-width ul,
+#panel-intro .intro-paragraph > p, .intro-paragraph > p,
+#panel-intro .intro-paragraph > p strong, .intro-paragraph > p strong,
+#panel-intro .caption p, .caption p, .leadin, .caption .leadin,
+#panel-table-accordion p,
+#panel-image-text .grid-area.grid-area-content p {
+  font-family: "Antenna", "Arial", sans-serif !important;
+  font-size: 1rem;
+  font-weight: 100;
+  line-height: 1.7;
+  letter-spacing: -0.025rem;
+  word-spacing: 0.005rem;
+}
+
+p strong, .standard-paragraph p strong,
+li strong, li a strong, ol strong, ol a strong {
+  font-family: "Antenna Bold", "Arial Bold", sans-serif !important;
+  font-weight: 800;
+}
+
+// CTA button styling for interior pages
+#panel-numbers a.cta,
+#main-content-wrapper-full-width section .grid-wrapper-min-max p a,
+#main-content-wrapper-full-width section .grid-wrapper-min-max p strong a,
+#panel-image-text .grid-area.grid-area-content p a,
+#panel-image-text .grid-area.grid-area-content p strong a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.5rem;
+  width: auto;
+  font-family: "Antenna Condensed Bold", "Arial", sans-serif !important;
+  font-size: 1rem;
+  font-weight: 700 !important;
+  color: $maroon;
+  letter-spacing: 0;
+  line-height: 1.1;
+  text-decoration: none;
+  text-transform: none;
+  border: none;
+  border-radius: 0.25rem 0.25rem 0 0;
+  border-bottom: solid 1px $maroon;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease;
+}
+
+#panel-numbers a.cta {
+  align-items: end;
+  justify-content: space-between;
+  width: 100%;
+  line-height: 1.4;
+  text-align: left;
+}
+
+#panel-numbers a.cta:hover {
+  color: $maroon;
+  background-color: $gold;
+}
+
+#main-content-wrapper-full-width section .grid-wrapper-min-max p a:hover,
+#main-content-wrapper-full-width section .grid-wrapper-min-max p strong a:hover,
+#panel-image-text .grid-area.grid-area-content p a:hover,
+#panel-image-text .grid-area.grid-area-content p strong a:hover,
+button:hover {
+  color: #ffffff;
+  background-color: $maroon;
+}
+
+// Maroon background variants
+#main-content-wrapper-full-width .grid-wrapper-min-max.bg-maroon h2,
+#panel-numbers.bg-maroon .flex-item.content h4 {
+  color: $gold !important;
+}
+
+#panel-numbers.bg-maroon .flex-item.content h5 {
+  text-transform: none;
+}
+
+#main-content-wrapper-full-width #panel-numbers.bg-maroon .grid-wrapper-min-max a.cta,
+#main-content-wrapper-full-width .grid-wrapper-min-max.bg-maroon p a,
+#main-content-wrapper-full-width .grid-wrapper-min-max.bg-maroon p strong a {
+  color: #ffffff !important;
+  border-bottom: solid 1px $gold !important;
+}
+
+// CTA arrow icon (mask-image approach)
+#main-content-wrapper-full-width #panel-numbers.bg-maroon .grid-wrapper-min-max a.cta:after,
+#main-content-wrapper-full-width section .grid-wrapper-min-max p a::after,
+#main-content-wrapper-full-width section .grid-wrapper-min-max p strong a::after,
+#panel-image-text .grid-area.grid-area-content p a::after,
+#panel-image-text .grid-area.grid-area-content p strong a::after,
+button::after,
+.flex-item.content a.cta::after {
+  content: "";
+  display: inline-block;
+  margin-top: 2px;
+  width: 1.125rem;
+  height: 0.5rem;
+  mask-image: url('/media/luc-template-2020/images/icon-arrow-right.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  background-color: currentColor;
+  transition: margin-left 0.2s ease, background-color 0.2s ease;
+}
+
+button#menu-button-mobile:after {
+  mask-image: none;
+}
+
+// ---- Media Queries ----
+@media only screen and (max-width: 600px) {
+  .lead-panel-two-column-left-right #panel-image-text .content-image-text {
+    padding: 2rem;
+    width: 100%;
+    background: $copper-extra-light;
+    clip-path: none;
+  }
+
+  #panel-image-text .content-image-text {
+    padding: 2rem;
+  }
+}
