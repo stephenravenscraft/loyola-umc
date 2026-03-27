@@ -538,6 +538,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
   width: 100%;
   padding: ($luc-baseline * 2) $luc-baseline; // 0.5rem 0.25rem
   margin: 0;
@@ -559,7 +560,7 @@
     position: absolute;
     right: $luc-baseline; // 0.25rem
     display: block;
-    width: $luc-baseline * 10; // 2.5rem / 40px
+    width: $luc-baseline * 2; // 2.5rem / 40px
     height: $luc-baseline * 10; // 2.5rem / 40px
     background: #e4ddc8;
     border-radius: 50%;
@@ -570,7 +571,7 @@
   &::after {
     content: '';
     display: block;
-    width: $luc-baseline * 10; // 2.5rem / 40px
+    width: $luc-baseline * 2; 
     height: $luc-baseline * 10; // 2.5rem / 40px
     mask: url('../images/icon-caret-down.svg') no-repeat center center / ($luc-baseline * 2.5); // 10px
     background: $luc-maroon;
@@ -600,10 +601,9 @@
 
   // Mobile: Gold border, maroon on active
   @media (max-width: #{$nav-breakpoint - 1px}) {
-    &[aria-expanded='true'] {
-      &::after {
-        // background-color: $luc-gold;
-      }
+    &::before,
+    &::after {
+      width: $luc-baseline * 10;
     }
   }
 

@@ -16,8 +16,9 @@
 @import 'variables';
 
 // ---- Headlines ----
-// Force maroon on all headings (overrides Carnegie framework defaults)
-h1, h2, h3, h4, h5,
+// Force maroon on all headings within main content (overrides Carnegie framework defaults)
+// Scoped to #main-content to avoid bleeding into luc-footer/luc-header
+#main-content h1, #main-content h2, #main-content h3, #main-content h4, #main-content h5,
 #panel-cards .grid-wrapper-min-max.card .flex-item.content h4 {
   color: $maroon !important;
 }
@@ -80,9 +81,7 @@ h1, h2, h3, h4, h5,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 125%;
   background: $copper-extra-light;
-  clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
 }
 
 #panel-image-text.bg-white .content-image-text {
@@ -212,13 +211,14 @@ li strong, li a strong, ol strong, ol a strong {
 #main-content-wrapper-full-width section .grid-wrapper-min-max p strong a:hover,
 #panel-image-text .grid-area.grid-area-content p a:hover,
 #panel-image-text .grid-area.grid-area-content p strong a:hover,
-button:hover {
+#main-content button:hover {
   color: #ffffff;
   background-color: $maroon;
 }
 
 // Maroon background variants
 #main-content-wrapper-full-width .grid-wrapper-min-max.bg-maroon h2,
+#panel-numbers.bg-maroon h2,
 #panel-numbers.bg-maroon .flex-item.content h4 {
   color: $gold !important;
 }
@@ -240,14 +240,14 @@ button:hover {
 #main-content-wrapper-full-width section .grid-wrapper-min-max p strong a::after,
 #panel-image-text .grid-area.grid-area-content p a::after,
 #panel-image-text .grid-area.grid-area-content p strong a::after,
-button::after,
+#main-content button::after,
 .flex-item.content a.cta::after {
   content: "";
   display: inline-block;
   margin-top: 2px;
   width: 1.125rem;
   height: 0.5rem;
-  mask-image: url('/media/luc-template-2020/images/icon-arrow-right.svg');
+  mask-image: url('../images/icon-arrow-right.svg');
   mask-size: contain;
   mask-repeat: no-repeat;
   background-color: currentColor;
@@ -262,9 +262,7 @@ button#menu-button-mobile:after {
 @media only screen and (max-width: 600px) {
   .lead-panel-two-column-left-right #panel-image-text .content-image-text {
     padding: 2rem;
-    width: 100%;
     background: $copper-extra-light;
-    clip-path: none;
   }
 
   #panel-image-text .content-image-text {

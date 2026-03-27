@@ -50,22 +50,22 @@
 }
 
 #main-content-wrapper-full-width #panel-pagination:not(:has(+ .lead-panel-two-column-left-right)) #content-pagination-breadcrumbs {
-  padding: 2rem 4rem;
+  padding: 2rem max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2);
   width: 100%;
   background: $copper-extra-light;
 }
 
 #main-content-wrapper-full-width #panel-pagination #content-pagination-breadcrumbs a {
-  color: $maroon;
+  color: $maroon !important;
   text-transform: none;
 }
 
-#main-content-wrapper-full-width #panel-pagination #content-pagination-breadcrumbs a:last-of-type {
-  color: $luc-copper-dark;
+#main-content-wrapper-full-width #panel-pagination #content-pagination-breadcrumbs span:last-of-type a {
+  color: #58503B !important;
 }
 
-#main-content-wrapper-full-width #panel-pagination #content-pagination-breadcrumbs a:last-of-type:hover {
-  color: $maroon;
+#main-content-wrapper-full-width #panel-pagination #content-pagination-breadcrumbs span:last-of-type a:hover {
+  color: $maroon !important;
 }
 
 // ---- Container-80 Panel ----
@@ -76,11 +76,17 @@
 
 // ---- Blockquote Overlay ----
 #panel-image-overlay {
-  max-height: 70vh;
+  // max-height: 70vh;
   // Override framework overflow:hidden when using container-wrap layout
   &.container-wrap {
     overflow: visible;
   }
+}
+
+// ---- Constrained inline padding modifier ----
+.container-inline-pad {
+  padding-left: max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2);
+  padding-right: max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2);
 }
 
 // ---- Cards ----
@@ -109,7 +115,7 @@
 // ---- Media Queries ----
 @media only screen and (max-width: 600px) {
   #main-content-wrapper-full-width #panel-pagination #content-pagination-breadcrumbs {
-    padding: 2rem;
+    padding: 2rem max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2);
   }
 
   .grid-wrapper-min-max.one-column .grid-item.container.container-80 {

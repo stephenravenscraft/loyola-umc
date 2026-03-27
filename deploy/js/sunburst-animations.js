@@ -2,7 +2,6 @@
   'use strict';
 
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-    console.warn('GSAP or ScrollTrigger not loaded - sunburst animations disabled');
     return;
   }
 

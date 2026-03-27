@@ -1933,7 +1933,7 @@ button.modaal-close {
 /* full width - elevated pages */
 
 #main-content-wrapper-full-width #panel-pagination #content-pagination-breadcrumbs {
-  padding: 1rem 10%;
+  // padding: 1rem 10%;
 }
 
 /* image - inline-icon */
@@ -2185,7 +2185,6 @@ img.inline-icon {
       @media (min-width: 48rem) {
         display: grid;
         grid-template-columns: 1fr 1fr !important;
-        max-height: 500px;
         max-width: 120rem;
         margin-inline: auto;
       }
@@ -2196,7 +2195,7 @@ img.inline-icon {
 
         @media (min-width: 48rem) {
           grid-area: 1 / 1 / span 1 / span 1 !important;
-          padding: 5rem 4rem;
+          padding: 5rem max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2);
         }
       }
 
@@ -2240,6 +2239,11 @@ img.inline-icon {
           letter-spacing: 0.08px;
           margin-bottom: 1.5rem;
           width: 100%;
+        }
+
+        .buttons {
+          flex-direction: row;
+          align-items: flex-start;
         }
       }
     }
@@ -2341,7 +2345,7 @@ img.inline-icon {
       margin: 0;
     }
 
-    @media (min-width: 48rem) {
+    @media (min-width: 64rem) {
       position: absolute;
       margin-bottom: 0;
       max-width: unset;
@@ -2357,7 +2361,7 @@ img.inline-icon {
     margin: 0;
     background: rgba(0, 0, 0, 0.2);
 
-    @media (min-width: 48rem) {
+    @media (min-width: 64rem) {
       position: absolute;
       align-items: flex-end;
     }
@@ -2376,7 +2380,7 @@ img.inline-icon {
       background: linear-gradient(180deg, $maroon 66%, #890B34 100%);
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3rem), 0% 100%);
 
-      @media (min-width: 48rem) {
+      @media (min-width: 64rem) {
         max-width: 76%;
         padding: 3rem;
         padding-right: 7rem;
@@ -2712,11 +2716,15 @@ img.inline-icon {
 
 
 .container-wrap {
-  padding: clamp(2.5rem, 5vw, 5rem) max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2);
+  padding: clamp(2.5rem, 5vw, 5rem) max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2) 0;
   width: 100%;
   display: grid;
   grid-template-columns: 100%;
   gap: clamp(2.5rem, 5vw, 5rem);
+
+  + .container-wrap {
+    padding-top: 0;
+  }
 }
 
 .container-wrap.bg-maroon + .container-wrap.bg-maroon,
