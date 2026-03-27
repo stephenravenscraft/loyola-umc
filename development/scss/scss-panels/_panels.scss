@@ -49,6 +49,8 @@ $default-max-bp: 960px;
 .container-fluid.bg-gold { background: $gold; }
 .bg-patina,
 .container-fluid.bg-patina { background: $patina; }
+.bg-copper-extra-light,
+.container-fluid.bg-copper-extra-light { background: $copper-extra-light; }
 .bg-overlay,
 .container-fluid.bg-overlay { background: $bg-overlay; }
 .bg-none,
@@ -151,7 +153,7 @@ $default-max-bp: 960px;
   font-size: clamp(#{$font-step-2}, #{$font-step-2-25} + 3.5vw, #{$font-step-2-25});
   letter-spacing: .125rem;
   word-spacing: .125rem;
-  color: #ffffff;
+  color: $white;
   text-transform: uppercase;
 }
 
@@ -168,7 +170,7 @@ $default-max-bp: 960px;
 }
 
 .accent-bar .content-grid-wrapper {
-  border-top: solid .35rem #5a0722;
+  border-top: solid .35rem $maroon;
 }
 
 /* announcement */
@@ -2494,35 +2496,6 @@ img.inline-icon {
   background: none;
   z-index: 1;
 }
-
-
-
-/* backgrounds */
-
-.bg-gray-extra-light,
-.container-fluid.bg-gray-extra-light { background: $gray-extra-light; }
-.bg-gray-light,
-.container-fluid.bg-gray-light { background: $gray-light; }
-.bg-gray,
-.container-fluid.bg-gray { background: $gray; }
-.bg-gray-dark,
-.container-fluid.bg-gray-dark { background: $gray-dark; }
-.bg-terracotta-extra-light,
-.container-fluid.bg-terracotta-extra-light { background: $terracotta-extra-light; }
-.bg-maroon,
-.container-fluid.bg-maroon { background: $maroon; }
-.bg-brick,
-.container-fluid.bg-brick { background: $brick; }
-.bg-gold,
-.container-fluid.bg-gold { background: $gold; }
-.bg-patina,
-.container-fluid.bg-patina { background: $patina; }
-.bg-copper-extra-light,
-.container-fluid.bg-copper-extra-light { background: $copper-extra-light; }
-.bg-overlay,
-.container-fluid.bg-overlay { background: $bg-overlay; }
-.bg-none,
-.container-fluid.bg-none { background: none; }
 
 
 
