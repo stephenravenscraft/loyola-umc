@@ -104,7 +104,11 @@ $copper: lighten($copper, 0%);
 $copper-dark: darken($copper, 20%);
 $copper-extra-dark: darken($copper, 40%);
 $copper-light: lighten($copper, 20%);
+// $copper-extra-light: lighten($copper, 30%);
 $copper-extra-light: #f2efe5;
+
+
+
 
 
 
@@ -162,12 +166,16 @@ $luc-font-family-condensed-black: 'Antenna Condensed Black', 'Arial', sans-serif
 $luc-nav-font-size: $luc-baseline * 3.5; // 14px
 $luc-nav-font-weight: normal; // Antenna regular
 
+// Transitions
+// $luc-transition-fast: 150ms ease;
+// $luc-transition-normal: 250ms ease;
+// $luc-transition-slow: 500ms ease;
+
 // Focus outline (AA compliant)
 $luc-focus-color: $luc-maroon !default;
 $luc-focus-outline: $luc-baseline dotted $luc-focus-color !default;
 $luc-focus-offset: $luc-baseline !default;
 
-// Transitions
 $luc-transition: .4s ease;
 $luc-transition-fast: .2s ease;
 $luc-transition-normal: .3s ease;
@@ -194,6 +202,7 @@ $luc-wrap-sm: #{max(#{$luc-gutter}, (100% - 56.25rem) / 2)};
 $luc-wrap-lg: #{max(#{$luc-gutter}, (100% - 100rem) / 2)};
 $luc-wrap-xl: #{max(#{$luc-gutter}, (100% - 120rem) / 2)};
 
+// $luc-shadow-heavy: 0px 4px 30px 0px rgba(32, 16, 14, .4); // duplicate of $luc-shadow-lg
 $luc-shadow-lg: 0px 4px 30px 0px rgba(32, 16, 14, .4);
 $luc-shadow: 0px 4px 20px 0px rgba(32, 16, 14, .25);
 $luc-shadow-sm: 0px 2px 10px 0px rgba(32, 16, 14, .2);
