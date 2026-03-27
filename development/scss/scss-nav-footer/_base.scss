@@ -1,0 +1,9 @@
+:focus {
+  outline-width: $luc-focus-offset;
+  outline-style: dotted;
+  outline-color: $luc-focus-color;
+
+  &:not(:focus-visible) {
+    outline: 0;
+  }
+}

@@ -1,0 +1,102 @@
+// =============================================================================
+// Nav/Footer Local Variables
+// =============================================================================
+// Bundle-specific overrides and additions.
+// Leverages tokens from _custom-variables.scss where possible.
+// =============================================================================
+
+// global baseline
+$luc-baseline: 0.25rem;
+
+// Breakpoint for mobile/desktop switch
+$nav-breakpoint: 1190px;
+
+// Breakpoint for hiding utility audience links on search input focus
+$nav-breakpoint-hide-utility-audience: 1300px;
+
+// Header heights (from Figma specs)
+$luc-utility-height: $luc-baseline * 19; // 76px
+$luc-nav-height-mobile: $luc-baseline * 18; // 72px
+$luc-nav-height: $luc-baseline * 24; // 96px
+$luc-header-total-height: $luc-utility-height + $luc-nav-height;
+
+// Interior header
+$luc-interior-return-height: $luc-baseline * 9; // 36px
+$luc-interior-nav-height: $luc-baseline * 18; // 72px
+$luc-interior-subbrand-height: $luc-baseline * 23; // 92px
+$luc-interior-header-total-height: $luc-interior-nav-height + $luc-interior-subbrand-height;
+
+// Colors (aliases for clarity - using existing tokens)
+$luc-maroon: $maroon;
+$luc-gold: $gold;
+$luc-copper: #cfc39b;
+$luc-copper-light: #f2efe5;
+$luc-copper-dark: #988f72;
+$luc-copper-extra-dark: #58503B;
+$luc-white: #ffffff;
+$luc-black: #000000;
+$luc-gray: #888888;
+$luc-gray-lightest: #eeeeee;
+
+// Gray variants (local definition if not in global tokens)
+$gray-medium: lighten($gray, 10%) !default;
+
+// Footer
+$luc-footer-bg: $maroon;
+$luc-footer-text: $luc-white;
+$luc-footer-breakpoint: 780px;
+
+// Typography (using existing Loyola font families)
+$luc-font-family: 'Antenna', 'Arial', sans-serif;
+$luc-font-family-bold: 'Antenna Bold', 'Arial', sans-serif;
+$luc-font-family-condensed-light: 'Antenna Condensed Light', 'Arial', sans-serif;
+$luc-font-family-condensed-bold: 'Antenna Condensed Bold', 'Arial', sans-serif;
+$luc-font-family-condensed-black: 'Antenna Condensed Black', 'Arial', sans-serif;
+$luc-nav-font-size: $luc-baseline * 3.5; // 14px
+$luc-nav-font-weight: normal; // Antenna regular
+
+// Transitions
+$luc-transition-fast: 150ms ease;
+$luc-transition-normal: 250ms ease;
+$luc-transition-slow: 500ms ease;
+
+// Focus outline (AA compliant)
+$luc-focus-color: $luc-maroon !default;
+$luc-focus-outline: $luc-baseline dotted $luc-focus-color !default;
+$luc-focus-offset: $luc-baseline !default;
+
+$luc-transition: .4s ease;
+$luc-transition-fast: .2s ease;
+$luc-transition-slow: .6s ease;
+$luc-transition-bounce: .5s cubic-bezier(.5, .05, .2, 1.5);
+
+$luc-space-3xs: clamp(.25rem, .2rem + .25vw, .375rem);
+$luc-space-2xs: clamp(.5rem, .4rem + .5vw, .75rem);
+$luc-space-xs: clamp(.75rem, .6rem + .75vw, 1rem);
+$luc-space-s: clamp(1rem, .8rem + 1vw, 1.5rem);
+$luc-space-m: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+$luc-space-l: clamp(2rem, 1.6rem + 2vw, 3rem);
+$luc-space-xl: clamp(3rem, 2.4rem + 3vw, 4rem);
+$luc-space-2xl: clamp(4rem, 3.2rem + 4vw, 6rem);
+$luc-space-3xl: clamp(6rem, 4.8rem + 6vw, 8rem);
+$luc-space-l-xl: clamp(2rem, 1.2841rem + 3.1818vw, 3.75rem);
+
+$luc-gap: clamp(1rem, 4vw, 2rem);
+$luc-gutter: clamp(1.5rem, 4vw, 4rem);
+$luc-space: clamp(2.5rem, 4vw, 5rem);
+$luc-panel: clamp(2.5rem, 4vw, 5rem);
+$luc-wrap: #{max(#{$luc-gutter}, (100% - 90rem) / 2)};
+$luc-wrap-sm: #{max(#{$luc-gutter}, (100% - 56.25rem) / 2)};
+$luc-wrap-lg: #{max(#{$luc-gutter}, (100% - 100rem) / 2)};
+$luc-wrap-xl: #{max(#{$luc-gutter}, (100% - 120rem) / 2)};
+
+$luc-shadow-lg: 0px 4px 30px 0px rgba(32, 16, 14, .4);
+$luc-shadow: 0px 4px 20px 0px rgba(32, 16, 14, .25);
+$luc-shadow-sm: 0px 2px 10px 0px rgba(32, 16, 14, .2);
+$hero-min-height-pin: 500; // px viewport height, below this disable pin (zoom/small viewport)
+
+$luc-radius: .25rem;
+$luc-radius-s: .125rem;
+$luc-radius-m: .75rem;
+$luc-radius-l: 1.5rem;
+$luc-radius-full: 9999px;

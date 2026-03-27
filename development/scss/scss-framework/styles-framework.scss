@@ -1,28 +1,19 @@
 /* styles framework */
 
-//@import 'variables';
-//@import 'mixins';
 @import 'mixins/breakpoints';
 @import '../scss-typography/custom-variables';
-// @import 'variables';
 @import 'normalize';
 @import '../scss-typography/vertical-rhythm';
 @import 'social';
 @import 'framework';
 @import 'side-navigation';
 
-
 @import 'utility-nav';
 @import 'header';
 @import 'footer';
 
-// @import 'main-navigation';
 @import 'secondary-navigation';
 @import 'secondary-navigation-adjust';
-// @import 'navigation-multi-level-sliding';
-// @import 'navigation-multi-level-sliding-interior';
-// @import 'grid';
-// @import 'columns';
 @import 'navigation-pagination';
 @import 'padding';
 @import 'image-resize-focal-point-grid';
@@ -33,4 +24,3 @@
 @import 'page-layout-sections';
 
 @import 'utilities';
-

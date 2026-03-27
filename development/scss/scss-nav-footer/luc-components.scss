@@ -1,0 +1,44 @@
+// =============================================================================
+// LUC Components Bundle
+// =============================================================================
+// Self-contained CSS for 2026 component styles.
+// Separate from the nav/footer bundle for independent inclusion.
+//
+// This compiles to luc-components.css which is loaded on the live site.
+// Source files live in scss-panels/ — this file is the bundle entry point.
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Token Imports (from existing codebase)
+// -----------------------------------------------------------------------------
+@import '../scss-typography/custom-variables';
+@import '../scss-typography/antenna';
+@import 'mixins/breakpoints';
+
+// -----------------------------------------------------------------------------
+// Vertical Rhythm Imports (from existing codebase)
+// -----------------------------------------------------------------------------
+@import '../scss-typography/vertical-rhythm';
+
+// -----------------------------------------------------------------------------
+// Local Variables
+// -----------------------------------------------------------------------------
+@import 'variables';
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+@import 'typography';
+
+// -----------------------------------------------------------------------------
+// 2026 Components (from scss-panels/)
+// -----------------------------------------------------------------------------
+@import '../scss-panels/hero';
+@import '../scss-panels/routing-panel';
+@import '../scss-panels/stats';
+@import '../scss-panels/news-feature';
+@import '../scss-panels/events-listing';
+@import '../scss-panels/cta-panel';
+@import '../scss-panels/panel-burst';
+@import '../scss-panels/automodal';
+@import '../scss-panels/chat-bubble';

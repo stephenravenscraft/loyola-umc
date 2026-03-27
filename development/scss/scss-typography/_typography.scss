@@ -191,11 +191,6 @@ p strong, .standard-paragraph p strong, li strong, li a strong, ol strong, ol a 
 }
 
 p a, a.cta, li a, p a strong, li a strong, a.cta, strong a.cta {
-  // color: $maroon;
-  // text-decoration: none;
-  // &:hover, &:visited {
-  //   color: $brick;
-  // }
 }
 
 /* paragraphs */
@@ -260,7 +255,7 @@ li strong, li a strong, ol strong, ol a strong,
 p em, .standard-paragraph p em,
 li em, li em a, li a em, {
   font-size: inherit;
-  font-style: italic !important;
+  font-style: italic;
   margin: 0 .125rem 0 0;
 }
 
@@ -322,14 +317,7 @@ a {
 a {
   display: inline;
   font-family: inherit;
-  // font-weight: 700;
-  // color: $maroon;
   color: inherit;
-  // &:focus {
-  //   outline-style: solid;
-  //   outline-offset: -3px;
-  //   outline: 3px solid $gold;
-  // }
 
   &:hover {
     text-underline-offset: 3px;
@@ -343,9 +331,7 @@ table tr a {
 }
 
 p a {
-  // text-decoration: underline;
   font-size: inherit;
-  // font-weight: 700;
 }
 
 a.cta {
@@ -801,32 +787,6 @@ blockquote p cite:before {
   margin-bottom: calc(var(--baseline) * 1.25 * 1rem);
 }
 
-/* hightlights */
-/*
-p span.highlight.bg-info { background: lighten($gold,20%) }
-p span.highlight.bg-success { color: $white; background: lighten($patina,5%); }
-p span.highlight.bg-warning { color: $white; background: lighten($opus,5%); }
-p span.highlight.bg-danger { color: $white; background: $maroon; }
-*/
-// #main-section-wrapper {
-//   p a, a.cta, li a, p a strong, li a strong, a.cta, strong a.cta,
-//   p span.highlight.bg-info,
-//   p span.highlight.bg-success,
-//   p span.highlight.bg-warning,
-//   p span.highlight.bg-danger {
-//     color: $maroon;
-//     font-family: 'Open Sans', 'Arial', sans-serif;
-//     background-image: linear-gradient(120deg, $gray-extra-light 0%, $gray-extra-light 100%);
-//     background-repeat: no-repeat;
-//     background-size: 106% 0.1rem;
-//     background-position: -3% 103%;
-//     transition: all 0.25s ease-in;
-//     &:hover {
-//       color: $black;
-//       background-size: 100% 106%;
-//     }
-//   }
-// }
 #main-section-wrapper {
   .bg-maroon p a,
   .bg-maroon a.cta,
@@ -983,11 +943,6 @@ blockquote cite { line-height: 1.35; }
     }
   }
 }
-
-
-
-
-
 
 /* === 2026 OVERRIDES === */
 

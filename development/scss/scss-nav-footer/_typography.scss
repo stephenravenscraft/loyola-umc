@@ -1,0 +1,71 @@
+p {
+  font-family: $luc-font-family;
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.005rem;
+}
+
+h1,
+.h1 {
+  font-family: $luc-font-family-condensed-black;
+  font-size: clamp(3rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+h2,
+.h2 {
+  color: $luc-maroon;
+  font-family: $luc-font-family-condensed-black;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  line-height: 1.3;
+  letter-spacing: 0.005rem;
+}
+
+h3,
+.h3 {
+  color: $luc-maroon;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: clamp(1.5rem, 5vw, 1.875rem);
+  line-height: 1.3;
+  letter-spacing: 0.005rem;
+}
+
+h4,
+.h4 {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
+  line-height: 1.4;
+  letter-spacing: 0.005rem;
+}
+
+h5,
+.h5 {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: clamp(1.125rem, 5vw, 1.25rem);
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
+}
+
+h6,
+.h6 {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
+}
+
+.text-detail {
+  font-family: $luc-font-family;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
+}
+
+.text-small {
+  font-family: $luc-font-family;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
+}

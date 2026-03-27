@@ -5,6 +5,7 @@ pipelines:
     - step:
         script:
           - npm ci
+          - npx gulp build
         artifacts:
           - deploy/**
     - step:
