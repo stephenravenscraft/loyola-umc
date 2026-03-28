@@ -194,6 +194,29 @@
     position: relative;
     height: $luc-nav-height;
     padding: 0 ($luc-baseline * 8); // 32px
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: calc(100vh - #{$luc-nav-height});
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.60) 87%);
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility $luc-transition-fast 150ms, opacity $luc-transition-fast 150ms; // delay on close to prevent flash between menus
+    }
+
+    &:has(.luc-nav__toggle[aria-expanded='true']),
+    &:has(.luc-nav__menu-toggle[aria-expanded='true']) {
+      &::before {
+        opacity: 1;
+        visibility: visible;
+        transition: visibility $luc-transition-fast, opacity $luc-transition-fast; // no delay on open
+      }
+    }
   }
 }
 
@@ -768,7 +791,7 @@
 
     background: $luc-copper-light;
     border-radius: 0 0 0 ($luc-baseline * 6); // 1.5rem / 24px
-    box-shadow: 0 ($luc-baseline * 1.25) ($luc-baseline * 2.5) (-$luc-baseline) rgba(0, 0, 0, 0.25); // 0 5px 10px -4px
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.3);
     opacity: 0;
     width: calc(100% + #{$luc-baseline * 24}); // 6rem
     visibility: hidden;
@@ -819,6 +842,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 ($luc-baseline * 16); // 64px
+    align-items: start;
 
     & > li:has(.luc-mega-menu__link--overview) {
       display: none !important;
