@@ -1,8 +1,12 @@
+.swiper-content .swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
 .swiper-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0.5rem 0;
+  padding: 2.5rem 0.5rem 0;
 }
 
 .swiper-button-prev,
@@ -15,6 +19,7 @@
   border: 1px solid $maroon;
   border-radius: 4px;
   color: $white;
+  margin-block: 0.25rem;
   transition: all 0.3s ease;
 
   &::after {
@@ -22,18 +27,18 @@
     display: block;
     width: 1.125rem;
     height: 0.5rem;
-    background-color: $gold;
+    background-color: $gold !important;
     mask-image: url('../images/icon-arrow-right.svg');
     mask-size: contain;
     mask-repeat: no-repeat;
   }
 
   &:hover {
-    background-color: transparent;
+    background-color: transparent !important;
     border-color: $maroon;
     color: $maroon;
     &::after {
-      background-color: $maroon;
+      background-color: $maroon !important;
     }
   }
 
@@ -66,15 +71,17 @@
     color: $maroon;
 
     &::after {
-      background-color: $maroon;
+      background-color: $maroon !important;
     }
 
     &:hover {
       background-color: transparent;
       &::after {
-        background-color: $gold;
+        background-color: $gold !important;
       }
     }
+
+    outline-color: $gold !important;
   }
 
   .swiper-pagination {

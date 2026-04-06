@@ -104,7 +104,7 @@
 .content-image-text h1,
 .content-image-text h2,
 .content-image-text p {
-  width: 80%;
+  max-width: 72ch;
 }
 
 #panel-image-text .grid-area.grid-area-content h1,

@@ -58,6 +58,7 @@
         spaceBetween: gap / 2,
         watchOverflow: true,
         loop: loop,
+        speed: 600,
         a11y: false,
         keyboard: false,
         breakpoints: {},
