@@ -1,4 +1,7 @@
 //
+const fs = require('fs/promises');
+const { finished } = require('stream/promises');
+
 const browserSync = require('browser-sync').create();
 
 const gulp = require('gulp');
@@ -15,9 +18,14 @@ const uglify = require('gulp-uglify');
 const config = {
   devDir: './development',
   deployDir: './deploy',
+  lucComponentsDistZipTempDir: './deploy/.luc-components-dist-zip-tmp',
 };
 
 const { src, dest, series, parallel, watch } = require('gulp');
+
+function streamComplete(stream) {
+  return finished(stream);
+}
 
 // enables file inclusion
 function htmlInclude() {
@@ -131,6 +139,66 @@ function indexBuild(cb) {
     .pipe(gulp.dest(config.deployDir));
 }
 
+async function cleanLucComponentsDistZipTemp() {
+  await fs.rm(config.lucComponentsDistZipTempDir, { force: true, recursive: true });
+}
+
+async function stageLucComponentsDistZipFiles() {
+  const zipSources = [
+    streamComplete(
+      src([
+        './deploy/luc-2026-homepage.html',
+        './deploy/luc-2026-secondary.html',
+      ], {
+        allowEmpty: true,
+        base: './deploy',
+      })
+      .pipe(dest(config.lucComponentsDistZipTempDir))
+    ),
+    streamComplete(
+      src([
+        './deploy/css/antenna-template.css',
+        './deploy/css/styles-carnegie.css',
+        './deploy/css/styles-documentation.css',
+        './deploy/css/styles-framework.css',
+        './deploy/css/styles-grid.css',
+        './deploy/css/styles-panels-dev.css',
+        './deploy/css/styles-panels.css',
+        './deploy/css/styles-typography.css',
+        './deploy/css/css-alert/styles-alert.css',
+        './deploy/css/luc-components.css',
+        './deploy/css/luc-nav-footer.css',
+        './deploy/js/bundle.js',
+        './deploy/js/swiper-init.js',
+        './deploy/js/luc-nav-footer.js',
+        './deploy/images/**/*',
+        './deploy/fonts/**/*',
+      ], {
+        allowEmpty: true,
+        base: './deploy',
+        dot: true,
+      })
+      .pipe(dest(config.lucComponentsDistZipTempDir))
+    ),
+  ];
+
+  await Promise.all(zipSources);
+}
+
+async function zipLucComponentsDist() {
+  const zip = (await import('gulp-zip')).default;
+
+  await streamComplete(
+    src(config.lucComponentsDistZipTempDir + '/**/*', {
+      allowEmpty: true,
+      base: config.lucComponentsDistZipTempDir,
+      dot: true,
+    })
+    .pipe(zip('luc-components-dist.zip', { buffer: false }))
+    .pipe(dest(config.deployDir))
+  );
+}
+
 function browserSyncReload(cb) {
   browserSync.reload();
   cb();
@@ -161,6 +229,13 @@ exports.build = series(
   parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassNavFooter, sassComponents),
   referencePaths,
   indexBuild
+);
+
+exports.zipLucComponentsDist = series(
+  cleanLucComponentsDistZipTemp,
+  stageLucComponentsDistZipFiles,
+  zipLucComponentsDist,
+  cleanLucComponentsDistZipTemp
 );
 
 exports.indexBuild = indexBuild;
