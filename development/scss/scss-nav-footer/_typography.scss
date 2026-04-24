@@ -69,3 +69,14 @@ h6,
   line-height: 1.5;
   letter-spacing: 0.005rem;
 }
+
+
+/* Reading measure — NN/g 50–75 CPL */
+#main-content {
+  p {
+    max-width: 65ch;
+  }
+  .center p {
+    margin-inline: auto;
+  }
+}
