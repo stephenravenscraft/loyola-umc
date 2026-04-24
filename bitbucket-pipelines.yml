@@ -6,6 +6,7 @@ pipelines:
         script:
           - npm ci
           - npx gulp build
+          - npx gulp zipLucComponentsDist
         artifacts:
           - deploy/**
     - step:
