@@ -105,15 +105,6 @@ function sassComponents() {
     .pipe(gulp.dest(config.deployDir + '/css'));
 };
 
-function sassAdjustCarnegieGlobal() {
-    return gulp
-    .src(config.devDir + '/scss/scss-nav-footer/luc-adjust-carnegie-global.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.deployDir + '/css'));
-};
-
 function sassSubsites() {
     return gulp
     .src(config.devDir + '/scss/scss-nav-footer/luc-subsites.scss')
@@ -161,13 +152,13 @@ function watchFiles() {
     }
   });
   watch('./development/**/*.html', gulp.series('indexBuild', 'browserSyncReload'));
-  watch(config.devDir + '/scss/**/*.scss', gulp.series(parallel('sassFramework', 'sassGrid', 'sassTypography', 'sassPanels', 'sassPanelsDev', 'sassDocumentation', 'sassNavFooter', 'sassComponents', 'sassAdjustCarnegieGlobal', 'sassSubsites'), 'browserSyncReload'));
+  watch(config.devDir + '/scss/**/*.scss', gulp.series(parallel('sassFramework', 'sassGrid', 'sassTypography', 'sassPanels', 'sassPanelsDev', 'sassDocumentation', 'sassNavFooter', 'sassComponents', 'sassSubsites'), 'browserSyncReload'));
   watch(config.devDir + '/js/**/*.js', gulp.series('browserSyncReload'));
 };
 
 // Default task: build + watch + live reload
 exports.default = series(
-  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassNavFooter, sassComponents, sassAdjustCarnegieGlobal, sassSubsites),
+  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassNavFooter, sassComponents, sassSubsites),
   referencePaths,
   indexBuild,
   watchFiles,
@@ -176,7 +167,7 @@ exports.default = series(
 
 // CI build task: compile everything without starting a dev server
 exports.build = series(
-  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassNavFooter, sassComponents, sassAdjustCarnegieGlobal, sassSubsites),
+  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassNavFooter, sassComponents, sassSubsites),
   referencePaths,
   indexBuild
 );
@@ -191,7 +182,6 @@ exports.sassPanelsDev = sassPanelsDev;
 exports.sassDocumentation = sassDocumentation;
 exports.sassNavFooter = sassNavFooter;
 exports.sassComponents = sassComponents;
-exports.sassAdjustCarnegieGlobal = sassAdjustCarnegieGlobal;
 exports.sassSubsites = sassSubsites;
 exports.watchFiles = watchFiles;
 exports.browserSync = browserSync;
