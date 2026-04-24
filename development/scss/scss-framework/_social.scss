@@ -1,6 +1,10 @@
 /* SOCIAL ICON BAR */
 
-#social-icon-bar  {
+/* Hidden on all interior pages — the 2026 redesign no longer shows the
+   Carnegie social icon bar. Other rules below retained for any subsite
+   variants that still need the styling. */
+#social-icon-bar {
+  display: none;
   position: fixed;
   top: 45%;
   left: 0;
@@ -11,7 +15,6 @@
   transform: translateY(-40%);
   z-index: 1;
   @include tablet-portrait {
-    display: none;
     top: calc(100% - 100px);
     width: 100%;
   }
