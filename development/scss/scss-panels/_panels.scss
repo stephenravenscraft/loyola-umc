@@ -2169,7 +2169,7 @@ img.inline-icon {
     position: absolute;
     left: 0;
     right: 0;
-    padding: 0.5rem 4rem;
+    padding: 0.5rem max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2);
     max-width: 120rem;
     margin-inline: auto;
     z-index: 2;
