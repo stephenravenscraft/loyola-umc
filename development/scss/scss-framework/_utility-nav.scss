@@ -8,7 +8,6 @@
 .luc-utility {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: $luc-utility-height;
   padding: 0 ($luc-baseline * 8); // 32px
   background-color: $luc-maroon;
@@ -109,6 +108,7 @@
   gap: $luc-baseline * 6; // 24px
   visibility: visible;
   flex-shrink: 0;
+  margin-left: auto;
   transition: visibility $luc-transition-fast, opacity $luc-transition-fast;
   opacity: 1;
 }
