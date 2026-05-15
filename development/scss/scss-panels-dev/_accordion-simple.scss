@@ -1,26 +1,25 @@
 .accordion {
   margin: 0;
   padding: 0;
-  border: 2px solid hsl(0deg 0% 52%);
-  border-radius: 7px;
   width: 100%;
 }
 .accordion h3 {
-  margin: 0;
+  margin: .5rem 0 0 0;
   padding: 0;
+  background: $copper-extra-light;
 }
 .accordion:focus-within {
-  border-color: hsl(216deg 94% 43%);
+  border-color: $gray-dark;
 }
 .accordion:focus-within h3 {
-  background-color: hsl(0deg 0% 97%);
+  background-color: none;
 }
 .accordion > * + * {
-  border-top: 1px solid hsl(0deg 0% 52%);
+  border: none;
 }
 .accordion-trigger {
   background: none;
-  color: hsl(0deg 0% 13%);
+  color: $black;
   display: block;
   font-size: 1rem;
   font-weight: normal;
@@ -30,21 +29,23 @@
   text-align: left;
   width: 100%;
   outline: none;
+  transition: .3s;
 }
 .accordion-trigger:focus,
 .accordion-trigger:hover {
-  background: hsl(216deg 94% 94%);
+  background: $copper;
 }
 .accordion-trigger:focus {
   outline: 4px solid transparent;
 }
 .accordion > *:first-child .accordion-trigger,
 .accordion > *:first-child {
-  border-radius: 5px 5px 0 0;
+  margin: 0;
+  border-radius: 0;
 }
 .accordion > *:last-child .accordion-trigger,
 .accordion > *:last-child {
-  border-radius: 0 0 5px 5px;
+  border-radius: 0;
 }
 button {
   border-style: none;
@@ -54,17 +55,17 @@ button {
 }
 .accordion-title {
   display: block;
-  pointer-events: none;
-  border: transparent 2px solid;
-  border-radius: 5px;
   padding: 0.25em;
+  pointer-events: none;
+  border: solid .125rem transparent;
+  border-radius: .25rem;
   outline: none;
 }
 .accordion-trigger:focus .accordion-title {
-  border-color: hsl(216deg 94% 43%);
+  border-color: $maroon;
 }
 .accordion-icon {
-  border: solid currentcolor;
+  border: solid $maroon;
   border-width: 0 2px 2px 0;
   height: 0.5rem;
   pointer-events: none;
@@ -76,19 +77,23 @@ button {
 }
 .accordion-trigger:focus .accordion-icon,
 .accordion-trigger:hover .accordion-icon {
-  border-color: hsl(216deg 94% 43%);
+  border-color: $maroon;
 }
 .accordion-trigger[aria-expanded="true"] .accordion-icon {
   transform: translateY(-50%) rotate(-135deg);
+  bottom: 0;
 }
 .accordion-panel {
   margin: 0;
   padding: 1em 1.5em;
+  background: $copper-extra-light;
 }
 /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
 .accordion-panel[hidden] {
   display: none;
 }
+/* forms */
+/*
 fieldset {
   border: 0;
   margin: 0;
@@ -101,3 +106,4 @@ input {
   font-size: inherit;
   padding: 0.3em 0.5em;
 }
+  */
