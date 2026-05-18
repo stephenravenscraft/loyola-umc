@@ -39,6 +39,7 @@ button.minimalist-css-accordion__header {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.25rem;
   letter-spacing: -.05rem !important;
+  line-height: 2.25rem;
   text-transform: none;
   border-radius: 0 !important;
   border: none !important;
@@ -114,7 +115,7 @@ button.minimalist-css-accordion__header {
   font-weight: 600;
   &:hover {
     color: $white;
-    background: $gray !important;
+    background: darken($copper-dark, 25%) !important;
   }
 }
 
@@ -132,17 +133,18 @@ button.minimalist-css-accordion__header {
 #panel-table-accordion h4.table-accordion-header::after {
   float: right;
   display: inline-block;
-  margin: .3rem -1rem 0 0;
-  width: 1.125rem;
-  height: 1.125rem;
+  margin: 1rem 1rem;
+  width: 1rem;
+  height: .5rem;
   content: '';
-  background-image: url('/media/luc-template-2020/images/ui-arrow-dark-gray.png');
+  background-image: url('/images/icon-caret-down.svg');
   background-repeat: no-repeat;
   background-position: 100% 100%;
-  background-size: 80%;
+  background-size: 100%;
   background-color: rgba(0, 0, 0, 0);
   mask-image: none;
-  transform: rotate(-90deg);
+  transform: rotate(-180deg);
+  transform-origin: center center;
 }
 
 #panel-table-accordion h4.table-accordion-header::after {
@@ -152,9 +154,8 @@ button.minimalist-css-accordion__header {
 [aria-expanded="true"].minimalist-accordion__header::after,
 [aria-expanded="true"].minimalist-noanim-accordion__header::after,
 [aria-expanded="true"].minimalist-css-accordion__header::after {
-  margin: .4rem -1.25rem 0 0;
-  transform: rotate(90deg);
-  transform-origin: 50% 50%;
+  margin: 1rem 1rem;
+  transform: rotate(0deg);
   filter: invert(1);
 }
 
