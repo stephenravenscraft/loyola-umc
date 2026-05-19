@@ -3,8 +3,13 @@
 
 /* accordion */
 
-#panel-accordion {
+.panel-accordion {
   margin: 2rem auto;
+}
+
+.panel-accordion .container,
+.panel-accordion .grid-wrapper-min-max .grid-item {
+  overflow: visible;
 }
 
 /* just for example as nested accordion */
@@ -102,14 +107,20 @@ button.minimalist-css-accordion__header {
     background: $gray-extra-light;
   }
   &:focus {
-    outline: solid $maroon;
+    outline: .25rem dashed darken($patina, 5%);
+    outline-offset: .25rem;
     color: #ffffff;
   }
+  &:focus-visible,
+  &:focus-within {
+    outline: .25rem dashed darken($patina, 5%);
+    outline-offset: .25rem;
+}
 }
 
-#panel-accordion [aria-expanded=true].minimalist-accordion__header,
-#panel-accordion [aria-expanded=true].minimalist-noanim-accordion__header,
-#panel-accordion [aria-expanded=true].minimalist-css-accordion__header {
+.panel-accordion [aria-expanded=true].minimalist-accordion__header,
+.panel-accordion [aria-expanded=true].minimalist-noanim-accordion__header,
+.panel-accordion [aria-expanded=true].minimalist-css-accordion__header {
   color: $white !important;
   background: $maroon !important;
   font-weight: 600;
@@ -156,7 +167,7 @@ button.minimalist-css-accordion__header {
 [aria-expanded="true"].minimalist-css-accordion__header::after {
   margin: 1rem 1rem;
   transform: rotate(0deg);
-  filter: invert(1);
+  filter: brightness(0) invert(1);
 }
 
 /* accordion panel - content */
@@ -186,7 +197,7 @@ nav#secondary .minimalist-accordion__panel,
 }
 
 /* terracotta/copper background variant — accordion panels and hover buttons */
-#panel-accordion.bg-terracotta-extra-light .js-accordion__panel.minimalist-accordion__panel {
+.panel-accordion.bg-terracotta-extra-light .js-accordion__panel.minimalist-accordion__panel {
   background: #e4ddc8;
 }
 
@@ -261,8 +272,8 @@ nav#secondary [aria-hidden=true].minimalist-accordion__panel {
 
 /* Panel portrait images - need image-portrait-class */
 
-#panel-accordion .js-accordion__panel img.image-portrait,
-#panel-accordion .js-accordion__panel img.image-portrait[style] {
+.panel-accordion .js-accordion__panel img.image-portrait,
+.panel-accordion .js-accordion__panel img.image-portrait[style] {
   margin: 0 0 1rem;
   width: 16.875rem !important;
   max-width: 16.875rem !important;

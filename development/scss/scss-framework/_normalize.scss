@@ -159,6 +159,10 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+table, tbody, tfoot, thead, tr, th, td {
+  vertical-align: top;
+}
+
 //
 // Address styling not present in IE 8/9.
 //
