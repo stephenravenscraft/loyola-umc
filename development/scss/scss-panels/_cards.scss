@@ -26,6 +26,7 @@
 }
 
 #panel-text .flex-item h6,
+.luc-panel-text .flex-item h6,
 #panel-cards .flex-item h6 {
   margin-top: calc(var(--baseline) * 0.75 * 1rem);
 }
@@ -548,16 +549,19 @@
 
 /* cards - overlay */
 
-#panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max {
+#panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max,
+.luc-panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max {
   grid-gap: 3rem;
 }
 
-#panel-numbers.container-fluid.bg-overlay .container.container-50 .grid-wrapper-min-max {
+#panel-numbers.container-fluid.bg-overlay .container.container-50 .grid-wrapper-min-max,
+.luc-panel-numbers.container-fluid.bg-overlay .container.container-50 .grid-wrapper-min-max {
   margin: 0 auto;
   width: 70%;
 }
 
-#panel-numbers.container-fluid.bg-overlay {
+#panel-numbers.container-fluid.bg-overlay,
+.luc-panel-numbers.container-fluid.bg-overlay {
   background-color: $gray-dark;
   background-image: url('../images/images-resize/resize-cudahy-rainbow-1800-800.jpg');
   background-position: center;
@@ -565,28 +569,35 @@
   background-size: cover;
 }
 
-#panel-numbers.container-fluid.bg-overlay .container {
+#panel-numbers.container-fluid.bg-overlay .container,
+.luc-panel-numbers.container-fluid.bg-overlay .container {
   margin: 0;
   padding: 4rem 3rem;
   width: 100%;
   background-color: $bg-overlay-dark;
 }
 
-#panel-numbers.container-fluid.bg-overlay .container.padding-md {
+#panel-numbers.container-fluid.bg-overlay .container.padding-md,
+.luc-panel-numbers.container-fluid.bg-overlay .container.padding-md {
   padding: 10rem 3rem;
 }
 
-#panel-numbers.container-fluid.bg-overlay .container.padding-lg {
+#panel-numbers.container-fluid.bg-overlay .container.padding-lg,
+.luc-panel-numbers.container-fluid.bg-overlay .container.padding-lg {
   padding: 15rem 3rem;
 }
 
 #panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max.number .flex-item.content h4,
 #panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max.number .flex-item.content h5,
-#panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max.number .flex-item.content p {
+#panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max.number .flex-item.content p,
+.luc-panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max.number .flex-item.content h4,
+.luc-panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max.number .flex-item.content h5,
+.luc-panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max.number .flex-item.content p {
   color: $gray-extra-light;
 }
 
-#panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max.number .flex-item.content a.cta {
+#panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max.number .flex-item.content a.cta,
+.luc-panel-numbers.container-fluid.bg-overlay .grid-wrapper-min-max.number .flex-item.content a.cta {
   margin-bottom: 0;
   color: lighten($gold, 10%);
   background-image: none;

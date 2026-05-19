@@ -428,7 +428,8 @@
 }
 /* grid areas */
 /* image - text */
-#panel-image-text .grid-wrapper-grid-area {
+#panel-image-text .grid-wrapper-grid-area,
+.luc-panel-image-text .grid-wrapper-grid-area {
   .grid-area-image {
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
@@ -454,7 +455,8 @@
   }
   }
 }
-#panel-image-text .grid-wrapper-grid-area.toggle-grid-area {
+#panel-image-text .grid-wrapper-grid-area.toggle-grid-area,
+.luc-panel-image-text .grid-wrapper-grid-area.toggle-grid-area {
   .grid-area-image {
     -ms-grid-column: 3;
     -ms-grid-column-span: 2;

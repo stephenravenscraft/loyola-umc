@@ -149,6 +149,7 @@ async function stageLucComponentsDistZipFiles() {
       src([
         './deploy/luc-2026-homepage.html',
         './deploy/luc-2026-secondary.html',
+        './deploy/luc-2026-secondary-v2.html',
       ], {
         allowEmpty: true,
         base: './deploy',
