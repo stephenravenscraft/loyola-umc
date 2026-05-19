@@ -23,17 +23,12 @@
   margin-top: 1rem;
 }
 
-p.h4.minimalist-accordion__title,
-h4.minimalist-accordion__title,
-h4.minimalist-noanim-accordion__title,
-h4.minimalist-css-accordion__title,
-h3.minimalist-accordion__title,
-h3.minimalist-noanim-accordion__title,
-h3.minimalist-css-accordion__title {
-  margin: 0 !important;
+p.minimalist-accordion__title {
+  margin: 0 0 .5rem;
   padding: 0;
   width: 100%;
-  max-width: 100ch;
+  min-width: 100%;
+  max-width: 100%;
 }
 
 h4.js-accordion-no-panel,
@@ -41,7 +36,7 @@ button.minimalist-accordion__header,
 button.minimalist-noanim-accordion__header,
 button.minimalist-css-accordion__header {
   margin: 0;
-  padding: 1rem 2.5rem 1rem 1rem;
+  padding: 1rem 1rem;
 /* padding: .85rem 2rem 1rem 1rem; Sentence Case */
   color: $maroon;
   font-family: 'Antenna Condensed Bold', sans-serif;
@@ -108,12 +103,11 @@ button.minimalist-accordion__header,
 button.minimalist-noanim-accordion__header,
 button.minimalist-css-accordion__header {
   &:hover {
-    background: $gray-extra-light;
+    background: darken($copper-light,10%);
   }
   &:focus {
     outline: .25rem dashed darken($patina, 5%);
     outline-offset: .25rem;
-    color: #ffffff;
   }
   &:focus-visible,
   &:focus-within {
