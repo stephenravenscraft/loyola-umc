@@ -5,6 +5,7 @@
 
 .panel-accordion {
   margin: 2rem auto;
+  width: 100%;
 }
 
 .panel-accordion .container,
@@ -22,6 +23,7 @@
   margin-top: 1rem;
 }
 
+p.h4.minimalist-accordion__title,
 h4.minimalist-accordion__title,
 h4.minimalist-noanim-accordion__title,
 h4.minimalist-css-accordion__title,
@@ -31,6 +33,7 @@ h3.minimalist-css-accordion__title {
   margin: 0 !important;
   padding: 0;
   width: 100%;
+  max-width: 100ch;
 }
 
 h4.js-accordion-no-panel,
@@ -40,16 +43,17 @@ button.minimalist-css-accordion__header {
   margin: 0;
   padding: 1rem 2.5rem 1rem 1rem;
 /* padding: .85rem 2rem 1rem 1rem; Sentence Case */
-  color: $black !important;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.25rem;
-  letter-spacing: -.05rem !important;
+  color: $maroon;
+  font-family: 'Antenna Condensed Bold', sans-serif;
+  font-size: 1.125rem;
+  letter-spacing: -.025rem;
+  word-spacing: .125rem;
   line-height: 2.25rem;
   text-transform: none;
   border-radius: 0 !important;
   border: none !important;
-  border-bottom: solid 1px $gray !important;
   outline: none;
+  background: $copper-light;
   @include phone-portrait {
     font-size: 1.125rem;
   }

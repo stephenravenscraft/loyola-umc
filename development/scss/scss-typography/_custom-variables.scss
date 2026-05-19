@@ -2,8 +2,9 @@
 
 $maroon:        #5a0722;
 $brick:         #5a0722;
+$carnegie-gold: #fce7ba;
 $gold:			#eaaa00;
-$gold-premiere:	#cba052;
+$gold-premiere: #cba052;
 $patina:        #0096a0;
 $terracotta:    #b68967;
 $opus:			#f98e2b;
@@ -36,6 +37,13 @@ $brick-extra-dark: darken($brick, 40%);
 $brick-light: lighten($brick, 20%);
 $brick-extra-light: lighten($brick, 40%);
 
+/* CARNEGIE */
+$carnegie-gold: lighten($carnegie-gold, 0%);
+$carnegie-gold-dark: darken($carnegie-gold, 10%);
+$carnegie-gold-extra-dark: darken($carnegie-gold, 16%);
+$carnegie-gold-light: lighten($carnegie-gold, 5%);
+$carnegie-gold-extra-light: lighten($carnegie-gold, 8%);
+
 /* GOLD */
 $gold: lighten($gold, 0%);
 $gold-dark: darken($gold, 20%);
@@ -43,12 +51,12 @@ $gold-extra-dark: darken($gold, 40%);
 $gold-light: lighten($gold, 20%);
 $gold-extra-light: lighten($gold, 40%);
 
-/* GOLD - PREMIERE */
+/* GOLD PREMIERE */
 $gold-premiere: lighten($gold-premiere, 0%);
 $gold-premiere-dark: darken($gold-premiere, 20%);
 $gold-premiere-extra-dark: darken($gold-premiere, 40%);
-$gold-premiere-light: lighten($gold-premiere, 15%);
-$gold-premiere-extra-light: lighten($gold-premiere, 30%);
+$gold-premiere-light: lighten($gold-premiere, 20%);
+$gold-premiere-extra-light: lighten($gold-premiere, 40%);
 
 /* PATINA */
 $patina: lighten($patina, 0%);
@@ -104,15 +112,8 @@ $copper: lighten($copper, 0%);
 $copper-dark: darken($copper, 20%);
 $copper-extra-dark: darken($copper, 40%);
 $copper-light: lighten($copper, 20%);
-// $copper-extra-light: lighten($copper, 30%);
-$copper-extra-light: #f2efe5;
-
-
-
-
-
-
-
+$copper-extra-light: lighten($copper, 30%);
+// $copper-extra-light: #f2efe5;
 
 
 
