@@ -2660,31 +2660,23 @@ img.inline-icon {
   }
 
   .swiper-slide {
-    text-align: center;
     height: auto;
-    padding: 2.5rem 0;
 
     .stat-card {
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: space-between;
       height: 100%;
       padding: 0;
-
-      @media (min-width: 40rem) {
-        padding: 0 2.5rem;
-      }
     }
 
     .stat-number {
       color: $maroon;
-      text-align: center;
       font-family: $luc-font-family-condensed-black;
       font-size: 4rem;
       font-weight: 800;
       line-height: 1.1;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.25rem;
     }
 
     border-block: 1px solid $maroon;
@@ -2692,18 +2684,16 @@ img.inline-icon {
     @media (min-width: 40rem) {
       border-block: none;
 
-      &:not(:last-child) {
-        &::after {
-          content: "";
-          display: block;
-          width: 1px;
-          height: 100%;
-          background: $maroon;
-          position: absolute;
-          top: 0;
-          right: -1px;
-          z-index: 1;
-        }
+      &:not(:last-child)::after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 100%;
+        background: $maroon;
+        position: absolute;
+        top: 0;
+        right: -2.5rem;
+        z-index: 1;
       }
     }
   }

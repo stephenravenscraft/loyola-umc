@@ -55,7 +55,7 @@
 
       var config = {
         slidesPerView: mobile,
-        spaceBetween: gap / 2,
+        spaceBetween: gap,
         watchOverflow: true,
         loop: loop,
         speed: 600,
@@ -90,12 +90,12 @@
 
       config.breakpoints[640] = {
         slidesPerView: tablet,
-        spaceBetween: gap * 0.75
+        spaceBetween: gap,
       };
 
       config.breakpoints[1024] = {
         slidesPerView: desktop,
-        spaceBetween: gap
+        spaceBetween: gap,
       };
 
       new Swiper(swiperContent, config);
