@@ -2667,7 +2667,7 @@ img.inline-icon {
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
-      padding: 0;
+      padding: 2rem 0;
     }
 
     .stat-number {
@@ -2683,6 +2683,10 @@ img.inline-icon {
 
     @media (min-width: 40rem) {
       border-block: none;
+
+      .stat-card {
+        padding: 0;
+      }
 
       &:not(:last-child)::after {
         content: "";
