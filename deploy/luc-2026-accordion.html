@@ -346,190 +346,169 @@
       <div id="main-content-wrapper-full-width">
  
         <div class="padding-md bg-white"></div>
-          <!-- add accordion here -->
-          <section class="">
-            <div class="">
-              <div class="">
-                <div id="accordionGroup" class="accordion">
-                  <h3>
-                    <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
-                      <span class="accordion-title">
-                        Accordion One
-                        <span class="accordion-icon"></span>
-                      </span>
-                    </button>
-                  </h3>
-                  <div id="sect1" role="region" aria-labelledby="accordion1id" class="accordion-panel">
-                    <div>
-                      <h2>This is an h2 headline</h2>
-                      <h3>This is an h2 headline</h3>
-                      <h4>This is an h2 headline</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                  </div>
-                  <h3>
-                    <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect2" id="accordion2id">
-                      <span class="accordion-title">
-                        Accordion Two
-                        <span class="accordion-icon"></span>
-                      </span>
-                    </button>
-                  </h3>
-                  <div id="sect2" role="region" aria-labelledby="accordion2id" class="accordion-panel" hidden="">
-                    <div>
-                      <h2>This is an h2 headline</h2>
-                      <h3>This is an h2 headline</h3>
-                      <h4>This is an h2 headline</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                  </div>
-                  <h3>
-                    <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect3" id="accordion3id">
-                      <span class="accordion-title">
-                        Accordion Three
-                        <span class="accordion-icon"></span>
-                      </span>
-                    </button>
-                  </h3>
-                  <div id="sect3" role="region" aria-labelledby="accordion3id" class="accordion-panel" hidden="">
-                    <div>
-                      <h2>This is an h2 headline</h2>
-                      <h3>This is an h2 headline</h3>
-                      <h4>This is an h2 headline</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <!-- accordion -->
+<section class="panel-accordion container-fluid">
+  <div class="container">
+    <div class="grid-wrapper-min-max">
+      <div class="grid-item">
+        <h2>H2 headline for a standard panel</h2>
+        <h3>H3 headline for a standard panel</h3>
+        <div class="padding-xsm"></div>
+        <div class="js-accordion" data-accordion-prefix-classes="minimalist" data-accordion-cool-selectors="1" aria-multiselectable="true" data-accordion-multiselectable="none">
+          <div>
+            <p class="js-accordion__header">An accessible accordion lorem ipsum dolor</p>
+            <div class="js-accordion__panel">
+              <div class="standard-paragraph">
+                <!-- table - simple -->
+<section id="panel-table" class="container-fluid" data-tablesaw-mode="stack">
+	<div class="container">
+		<h5>
+			Table - <span style="font-family: 'Antenna Light', sans-serif;">With header categories</span>
+		</h5>
+		<div class="grid-wrapper-min-max one-column">
+			<div class="grid-item">
+				<table summary="Description here..." data-tablesaw-mode="stack">
+					<caption>
+				    Table caption, description, or qualifier here.
+				  </caption>
+					<tr>
+						<th>Header 01 this test is long to test the line height of a table header. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</th>
+						<th>Header 02</th>
+						<th>Header 03</th>
+						<th>Header 04</th>
+						<th>Header 05</th>
+					</tr>
+					<tr>
+						<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</td>
+						<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							<ul>
+								<li>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.</li>
+								<li>Lorem ipsum dolor sit amet consectetur adipiscing elit..</li>
+								<li>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</li>
+							</ul>
+						</td>
+						<td>Lorem ipsum dolor sit</td>
+						<td>Lorem ipsum dolor sit</td>
+						<td>Lorem ipsum dolor sit</td>
+					</tr>
+					<tr>
+						<td><img src="https://source.unsplash.com/150x150/?face"></td>
+						<td>Data 02</td>
+						<td>Data 03</td>
+						<td>Data 04</td>
+						<td>Data 05</td>
+					</tr>
+					<tr>
+						<td>Data 01</td>
+						<td>Data 02</td>
+						<td>Data 03</td>
+						<td>Data 04</td>
+						<td>Data 05</td>
+					</tr>
+					<tr>
+						<td>Data 01</td>
+						<td>Data 02</td>
+						<td>Data 03</td>
+						<td>Data 04</td>
+						<td>Data 05</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+
+                <img class="image-portrait" src="http://via.placeholder.com/1000x1350" alt="Alternate description goes here" title="Title goes here">
+            		<p>
+            			This is an intro paragraph body. Consectetur <a href="javascript:void(0);" title="link">link here</a> adipiscing elit. Curabitur nec <span class="highlight bg-info">info color</span> posuere odio. Phasellus odio lectus, ultrices non pretium <span class="highlight bg-success">success color</span> ac, mollis id elit. Fusce tempor tellus non felis tempus vestibulum. Donec molestie <span class="highlight bg-warning">warning color</span> purus sem. Suspendisse at placerat turpis. Duis luctus erat vel magna pharetra aliquet. Maecenas <span class="highlight bg-danger">danger color</span> tincidunt feugiat ultricies. Phasellus et dui risus. Vestibulum adipiscing, eros quis lobortis dictum.
+            		</p>
+            	</div>
             </div>
-          </section>
+            <!--
+            <p class="js-accordion-no-panel">An accessible accordion lorem ipsum dolor <a class="cta">CTA here</a></p>
+            <p class="js-accordion__header">An accessible accordion lorem ipsum dolor</p>
+            <div class="js-accordion__panel">
+              <div class="standard-paragraph">
+            		<p><span tabindex="0">
+            			This is an intro paragraph body. Consectetur <a href="javascript:void(0);" title="link">link here</a> adipiscing elit. Curabitur nec <span class="highlight bg-info">info color</span> posuere odio. Phasellus odio lectus, ultrices non pretium <span class="highlight bg-success">success color</span> ac, mollis id elit. Fusce tempor tellus non felis tempus vestibulum. Donec molestie <span class="highlight bg-warning">warning color</span> purus sem. Suspendisse at placerat turpis. Duis luctus erat vel magna pharetra aliquet. Maecenas <span class="highlight bg-danger">danger color</span> tincidunt feugiat ultricies. Phasellus et dui risus. Vestibulum adipiscing, eros quis lobortis dictum.
+            		</span></p>
+            	</div>
+            </div>
+            -->
+            <p class="js-accordion__header">An accessible accordion lorem ipsum dolor</p>
+            <div class="js-accordion__panel">
+              <div class="standard-paragraph">
+            		<p><span tabindex="0">
+            			This is an intro paragraph body. Consectetur <a href="javascript:void(0);" title="link">link here</a> adipiscing elit. Curabitur nec <span class="highlight bg-info">info color</span> posuere odio. Phasellus odio lectus, ultrices non pretium <span class="highlight bg-success">success color</span> ac, mollis id elit. Fusce tempor tellus non felis tempus vestibulum. Donec molestie <span class="highlight bg-warning">warning color</span> purus sem. Suspendisse at placerat turpis. Duis luctus erat vel magna pharetra aliquet. Maecenas <span class="highlight bg-danger">danger color</span> tincidunt feugiat ultricies. Phasellus et dui risus. Vestibulum adipiscing, eros quis lobortis dictum.
+            		</span></p>
+            	</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <style>
-
-          .accordion {
-            margin: 0;
-            padding: 0;
-            border: 2px solid hsl(0deg 0% 52%);
-            border-radius: 7px;
-            width: 100%;
-          }
-
-          .accordion h3 {
-            margin: 0;
-            padding: 0;
-          }
-
-          .accordion:focus-within {
-            border-color: hsl(216deg 94% 43%);
-          }
-
-          .accordion:focus-within h3 {
-            background-color: hsl(0deg 0% 97%);
-          }
-
-          .accordion > * + * {
-            border-top: 1px solid hsl(0deg 0% 52%);
-          }
-
-          .accordion-trigger {
-            background: none;
-            color: hsl(0deg 0% 13%);
-            display: block;
-            font-size: 1rem;
-            font-weight: normal;
-            margin: 0;
-            padding: 1em 1.5em;
-            position: relative;
-            text-align: left;
-            width: 100%;
-            outline: none;
-          }
-
-          .accordion-trigger:focus,
-          .accordion-trigger:hover {
-            background: hsl(216deg 94% 94%);
-          }
-
-          .accordion-trigger:focus {
-            outline: 4px solid transparent;
-          }
-
-          .accordion > *:first-child .accordion-trigger,
-          .accordion > *:first-child {
-            border-radius: 5px 5px 0 0;
-          }
-
-          .accordion > *:last-child .accordion-trigger,
-          .accordion > *:last-child {
-            border-radius: 0 0 5px 5px;
-          }
-
-          button {
-            border-style: none;
-          }
-
-          .accordion button::-moz-focus-inner {
-            border: 0;
-          }
-
-          .accordion-title {
-            display: block;
-            pointer-events: none;
-            border: transparent 2px solid;
-            border-radius: 5px;
-            padding: 0.25em;
-            outline: none;
-          }
-
-          .accordion-trigger:focus .accordion-title {
-            border-color: hsl(216deg 94% 43%);
-          }
-
-          .accordion-icon {
-            border: solid currentcolor;
-            border-width: 0 2px 2px 0;
-            height: 0.5rem;
-            pointer-events: none;
-            position: absolute;
-            right: 2em;
-            top: 50%;
-            transform: translateY(-60%) rotate(45deg);
-            width: 0.5rem;
-          }
-
-          .accordion-trigger:focus .accordion-icon,
-          .accordion-trigger:hover .accordion-icon {
-            border-color: hsl(216deg 94% 43%);
-          }
-
-          .accordion-trigger[aria-expanded="true"] .accordion-icon {
-            transform: translateY(-50%) rotate(-135deg);
-          }
-
-          .accordion-panel {
-            margin: 0;
-            padding: 1em 1.5em;
-          }
-
-          /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
-          .accordion-panel[hidden] {
-            display: none;
-          }
-
-          fieldset {
-            border: 0;
-            margin: 0;
-            padding: 0;
-          }
-
-          input {
-            border: 1px solid hsl(0deg 0% 42%);
-            border-radius: 0.3em;
-            display: block;
-            font-size: inherit;
-            padding: 0.3em 0.5em;
-          }
-          </style>
+        <!-- accordion proposed -->
+<section>
+  <div class="container-fluid">
+    <div class="container container-80">
+      <div class="grid-wrapper-min-max">
+        <div id="accordionGroup" class="accordion">
+          <h3>
+            <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
+              <span class="accordion-title">
+                Accordion One
+                <span class="accordion-icon"></span>
+              </span>
+            </button>
+          </h3>
+          <div id="sect1" role="region" aria-labelledby="accordion1id" class="accordion-panel">
+            <div>
+              <h2>This is an h2 headline</h2>
+              <h3>This is an h3 headline</h3>
+              <h4>This is an h4 headline</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
+          <h3>
+            <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect2" id="accordion2id">
+              <span class="accordion-title">
+                Accordion Two
+                <span class="accordion-icon"></span>
+              </span>
+            </button>
+          </h3>
+          <div id="sect2" role="region" aria-labelledby="accordion2id" class="accordion-panel" hidden="">
+            <div>
+              <h2>This is an h2 headline</h2>
+              <h3>This is an h3 headline</h3>
+              <h4>This is an h4 headline</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
+          <h3>
+            <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect3" id="accordion3id">
+              <span class="accordion-title">
+                Accordion Three
+                <span class="accordion-icon"></span>
+              </span>
+            </button>
+          </h3>
+          <div id="sect3" role="region" aria-labelledby="accordion3id" class="accordion-panel" hidden="">
+            <div>
+              <h2>This is an h2 headline</h2>
+              <h3>This is an h3 headline</h3>
+              <h4>This is an h4 headline</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
         <div class="padding-md bg-white"></div>
 
       </div><!-- /main-content-wrapper-full-width -->
