@@ -52,8 +52,16 @@ $luc-font-family-bold: 'Antenna Bold', 'Arial', sans-serif;
 $luc-font-family-condensed-light: 'Antenna Condensed Light', 'Arial', sans-serif;
 $luc-font-family-condensed-bold: 'Antenna Condensed Bold', 'Arial', sans-serif;
 $luc-font-family-condensed-black: 'Antenna Condensed Black', 'Arial', sans-serif;
-$luc-nav-font-size: $luc-baseline * 3.5; // 14px
 $luc-nav-font-weight: normal; // Antenna regular
+
+// Font Sizes
+$luc-nav-font-size-xs: $luc-baseline * 2.5; // 10px
+$luc-nav-font-size-s: $luc-baseline * 3; // 12px
+$luc-nav-font-size: $luc-baseline * 3.5; // 14px
+$luc-nav-font-size-l: $luc-baseline * 4; // 16px
+$luc-nav-font-size-xl: $luc-baseline * 4.5; // 18px
+$luc-nav-font-size-2xl: $luc-baseline * 9; // 36px
+$luc-nav-font-size-3xl: $luc-baseline * 13.5; // 54px
 
 // Transitions
 $luc-transition-fast: 150ms ease;

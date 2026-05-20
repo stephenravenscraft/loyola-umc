@@ -12,16 +12,12 @@ html { font-size: 100%; } /* matches browsers default */
 
 body {
   font-family: $luc-font-family;
-  font-size: 1rem;
+  font-size: $luc-nav-font-size-lg;
   line-height: 1.7;
   letter-spacing: 0.005rem;
   color: $black;
   background-color: none;
   overflow-wrap: break-word;
-}
-
-p, ul, ol {
-  color: lighten($gray-extra-dark,3%);
 }
 
 a {
@@ -190,10 +186,10 @@ p strong, .standard-paragraph p strong, li strong, li a strong, ol strong, ol a 
 #panel-table-accordion p,
 #panel-image-text .grid-area.grid-area-content p,
 .luc-panel-image-text .grid-area.grid-area-content p {
-  font-family: 'Antenna', 'Arial', sans-serif;
-  font-size: 1rem;
+  font-family: $luc-font-family;
+  font-size:  $luc-nav-font-size-lg;
   line-height: 1.7;
-  font-weight: 400;
+  font-weight: $luc-nav-font-weight;
   letter-spacing: 0.005rem;
   color: $black;
 }
@@ -286,6 +282,7 @@ li em, li em a, li a em, {
   margin: 0;
   margin-bottom: rvr(1.5);
   font-size: #{fluid(16px, 20px)};
+  font-size: $luc-nav-font-size-lg;
   line-height: #{fluid(26px, 34px)};
 }
 
@@ -1061,7 +1058,7 @@ blockquote cite { line-height: 1.35; }
   }
 }
 
-/* specicic application */
+/* specific application */
 
 #faculty-box {
   .center {

@@ -167,6 +167,12 @@ $luc-font-family-condensed-black: 'Antenna Condensed Black', 'Arial', sans-serif
 $luc-nav-font-size: $luc-baseline * 3.5; // 14px
 $luc-nav-font-weight: normal; // Antenna regular
 
+// Font Sizes
+$luc-nav-font-size-lg: $luc-baseline * 4; // 16px
+$luc-nav-font-size-xlg: $luc-baseline * 4.5; // 18px
+
+
+
 // Transitions
 // $luc-transition-fast: 150ms ease;
 // $luc-transition-normal: 250ms ease;

@@ -1,12 +1,18 @@
 p {
   font-family: $luc-font-family;
-  font-size: 1rem;
+  font-size: $luc-nav-font-size-l;
   line-height: 1.7;
   letter-spacing: 0.005rem;
 }
 
+.intro-paragraph p {
+  font-size: $luc-nav-font-size-xl;
+  line-height: 1.9;
+}
+
 h1,
 .h1 {
+  color: $black;
   font-family: $luc-font-family-condensed-black;
   font-size: clamp(3rem, 5vw, 4rem);
   line-height: 1.1;
@@ -68,6 +74,31 @@ h6,
   font-size: 0.875rem;
   line-height: 1.5;
   letter-spacing: 0.005rem;
+}
+
+footnote {
+  font-family: $luc-nav-font-size-xs;
+}
+
+blockquote, blockquote p {
+  display: block;
+  margin: 2em auto;
+  padding: 2em 0;
+  width: 80%;
+  font-family: $luc-font-family-condensed-bold;
+  font-weight: 700 !important;
+  font-size: clamp(#{$luc-nav-font-size-xl}, #{$luc-nav-font-size-2xl}, #{$luc-nav-font-size-3xl});
+  line-height: 1.5;
+  letter-spacing: -0.075rem;
+  text-align: center;
+  border-top: solid 1px $gray;
+  border-bottom: solid 1px $gray;
+  @include phone-portrait {
+    margin: 1em auto;
+    padding: 0;
+    width: 90%;
+    border: 0;
+  }
 }
 
 
