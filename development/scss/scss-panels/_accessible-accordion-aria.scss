@@ -1,11 +1,15 @@
 /* --------------- styles for accordion ----------------------- */
 
 
-/* accordion */
+/* accordion wrapper */
 
 .panel-accordion {
   margin: 2rem auto;
   width: 100%;
+  .container {
+    width: 100%;
+    overflow: visible;
+  }
 }
 
 .panel-accordion .container,
@@ -13,15 +17,13 @@
   overflow: visible;
 }
 
-/* just for example as nested accordion */
-[data-accordion-prefix-classes="minimalist-css"] {
-  margin-top: 1rem;
+/* accordion group */
+
+.js-accordion {
   width: 100%;
 }
 
-#js-accordion__panel .minimalist-accordion__panel [data-accordion-prefix-classes="minimalist-css"] {
-  margin-top: 1rem;
-}
+/* accordion elements */
 
 p.minimalist-accordion__title {
   margin: 0 0 .5rem;
@@ -31,24 +33,28 @@ p.minimalist-accordion__title {
   max-width: 100%;
 }
 
-h4.js-accordion-no-panel,
-button.minimalist-accordion__header,
-button.minimalist-noanim-accordion__header,
-button.minimalist-css-accordion__header {
+p button.minimalist-accordion__header,
+p button.minimalist-noanim-accordion__header,
+p button.minimalist-css-accordion__header {
+  display: block;
   margin: 0;
   padding: 1rem 1rem;
 /* padding: .85rem 2rem 1rem 1rem; Sentence Case */
+  width: 100%;
+  min-width: 100%;
   color: $maroon;
-  font-family: 'Antenna Condensed Bold', sans-serif;
-  font-size: 1.125rem;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: $luc-nav-font-size-xl;
   letter-spacing: -.025rem;
   word-spacing: .125rem;
   line-height: 2.25rem;
+  text-align: left;
   text-transform: none;
-  border-radius: 0 !important;
-  border: none !important;
+  border-radius: 0;
+  border: none;
   outline: none;
   background: $copper-light;
+  transition: .2s;
   span {
     display: inline-flex;
     margin: .25rem 0 0 0;
@@ -56,60 +62,35 @@ button.minimalist-css-accordion__header {
   @include phone-portrait {
     font-size: 1.125rem;
   }
-}
-
-h4.js-accordion-no-panel {
-  padding: 1.125rem 2rem 1rem 1rem !important;
-/*  padding: 1rem 2rem 1rem 1rem !important; Sentence Case */
-  text-transform: none;
-  a.cta {
-    display: inline;
-    margin: 0 0 0 .25rem;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    font-size: inherit;
-  }
-}
-
-h4.js-accordion-no-panel,
-.minimalist-accordion__header,
-.minimalist-noanim-accordion__header,
-.minimalist-css-accordion__header {
-  display: block;
-  margin: 0;
-  padding: .25em 0;
-  width: 100%;
-  min-width: 100%;
-  /** fix typo inputs **/
-  font-family: inherit;
-  font-size: 1.25rem;
-  font-weight: normal;
-  line-height: 1.5;
-  text-align: left;
-  border: 0;
-  background: none;
-  background-image: none;
-  cursor: pointer;
-  a.cta {
-    font-size: 85%;
-    font-weight: 800;
-  }
-  @include phone-portrait {
-    font-size: 1.125rem;
-  }
-}
-
-.minimalist-css-accordion__header {
-  font-size: 1.75em;
-}
-
-button.minimalist-accordion__header,
-button.minimalist-noanim-accordion__header,
-button.minimalist-css-accordion__header {
-  transition: .2s;
   &:hover {
-    background: darken($copper-light,10%);
-    box-shadow: 0 0 .25rem rgba(0,0,0,.25);
+    background: darken($copper-light, 10%);
+  }
+  &::before {
+    display: none;
+  }
+  /* state of accordion header - caret image */
+  &::after {
+    float: right;
+    display: inline-block;
+    margin: 1rem 1rem;
+    width: 1rem;
+    height: .5rem;
+    content: '';
+    background-image: url('/images/icon-caret-down.svg');
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    mask-image: none;
+    transform: rotate(-180deg);
+    transform-origin: center center;
+  }
+  &:hover {
+    &::after {
+      transform: rotate(-180deg);
+      background-color: rgba(0, 0, 0, 0);
+      /* filter: brightness(0) invert(1); */
+    }
   }
   &:focus {
     outline: .25rem dashed darken($patina, 5%);
@@ -119,18 +100,65 @@ button.minimalist-css-accordion__header {
   &:focus-within {
     outline: .25rem dashed darken($patina, 5%);
     outline-offset: .25rem;
-}
+  }
 }
 
+/* state of accordion header expanded - caret image */
 .panel-accordion [aria-expanded=true].minimalist-accordion__header,
 .panel-accordion [aria-expanded=true].minimalist-noanim-accordion__header,
 .panel-accordion [aria-expanded=true].minimalist-css-accordion__header {
-  color: $white !important;
-  background: $maroon !important;
+  color: $white;
+  background: $maroon;
   font-weight: 600;
   &:hover {
     color: $white;
-    background: darken($copper-dark, 25%) !important;
+    background: darken($copper-dark, 25%);
+  }
+  &:hover::after, &::after {
+    margin: 1rem 1rem;
+    transform: rotate(0deg);
+    filter: brightness(0) invert(1);
+  }
+}
+
+/* accordion without a panel - should this be retired */
+
+p.js-accordion-no-panel {
+  display: block;
+  margin: 0 0 .5rem !important;
+  padding: 1rem 1rem;
+/* padding: .85rem 2rem 1rem 1rem; Sentence Case */
+  width: 100%;
+  min-width: 100%;
+  color: $maroon;
+  font-family: $luc-font-family-condensed-bold !important;
+  font-size: $luc-nav-font-size-xl;
+  letter-spacing: -.025rem;
+  word-spacing: .125rem;
+  line-height: 2.25rem;
+  text-align: left;
+  text-transform: none;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  background: $copper-light;
+  transition: .2s;
+/*  padding: 1rem 2rem 1rem 1rem !important; Sentence Case */
+  text-transform: none;
+  &:hover {
+    background: darken($copper-light, 10%);
+  }
+  a.cta {
+    display: inline;
+    margin: 0 0 0 .5rem;
+    padding: 0;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 90%;
+  &::after {
+    display: inline-flex;
+    margin: 0 0 .5rem;
+  }
   }
 }
 
@@ -140,42 +168,7 @@ button.minimalist-css-accordion__header {
   outline: solid $gold;
 }
 
-/* state of accordion header - caret image */
-
-.minimalist-accordion__header::after,
-.minimalist-noanim-accordion__header::after,
-.minimalist-css-accordion__header::after,
-#panel-table-accordion h4.table-accordion-header::after {
-  float: right;
-  display: inline-block;
-  margin: 1rem 1rem;
-  width: 1rem;
-  height: .5rem;
-  content: '';
-  background-image: url('/images/icon-caret-down.svg');
-  background-repeat: no-repeat;
-  background-position: 100% 100%;
-  background-size: 100%;
-  background-color: rgba(0, 0, 0, 0);
-  mask-image: none;
-  transform: rotate(-180deg);
-  transform-origin: center center;
-}
-
-#panel-table-accordion h4.table-accordion-header::after {
-  background-image: none;
-}
-
-[aria-expanded="true"].minimalist-accordion__header::after,
-[aria-expanded="true"].minimalist-noanim-accordion__header::after,
-[aria-expanded="true"].minimalist-css-accordion__header::after {
-  margin: 1rem 1rem;
-  transform: rotate(0deg);
-  filter: brightness(0) invert(1);
-}
-
 /* accordion panel - content */
-
 
 nav#secondary .minimalist-accordion__panel,
 .minimalist-accordion__panel {
