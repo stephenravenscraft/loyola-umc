@@ -470,13 +470,13 @@ small { font-size: 0.7rem; }
 
 footnote, .footnote p {
   display: block;
-  margin: 1rem 0 0 0;
-  padding: .75rem 0 0 0;
+  margin: 0 0 (#{$luc-space-l-xl});
+  padding: 0;
   width: 100%;
+  font-size: clamp(#{$luc-nav-font-size-s}, #{$luc-nav-font-size}, #{$luc-nav-font-size});
   font-size: #{fluid(13px, 15px)};
   line-height: #{fluid(18px, 20px)};
   font-style: italic;
-  border-top: solid 1px $gray;
 }
 
 .footnote p strong {
