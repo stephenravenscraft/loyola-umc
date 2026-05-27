@@ -87,6 +87,29 @@ button.container-50,
   }
 }
 
+  // ==========================================================================
+  // ACCORDION BUTTON STATE
+  // ==========================================================================
+
+p.js-accordion-no-panel a.cta {
+  position: relative;
+  padding: .35rem .5rem .125rem;
+  color: $maroon;
+  &::before {
+    bottom: -2px;
+    border-top-left-radius: $luc-radius;
+    border-top-right-radius: $luc-radius;
+  }
+  &:hover {
+    color: $gold;
+  }
+  &:after {
+    position: relative;
+    bottom: .125rem;
+    margin: 0 0 0 .5rem;
+  }
+} 
+
 .luc-button,
 .button,
 button { 
