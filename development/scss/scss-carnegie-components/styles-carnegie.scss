@@ -1,7 +1,6 @@
 /* carnegie components */
 
-//@import 'variables';
 @import '../mixins/global-mixins';
-//@import '../scss-typography/custom-variables';
-//@import 'mixins/breakpoints';
-//@import 'carnegie-ctas';
+@import '../scss-typography/custom-variables';
+@import '../scss-nav-footer/variables';
+@import 'carnegie-ctas';
