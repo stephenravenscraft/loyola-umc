@@ -157,6 +157,15 @@ p {
   line-height: 1.9;
 }
 
+p.caption {
+  margin: 0;
+  font-family: $luc-font-family;
+  font-size: $luc-nav-font-size-s;
+  font-style: normal !important;
+  line-height: 1.7;
+  letter-spacing: 0.005rem;
+}
+
 h1,
 .h1 {
   color: $black;

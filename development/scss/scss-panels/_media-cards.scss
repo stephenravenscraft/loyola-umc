@@ -1,0 +1,71 @@
+/* media-cards */
+
+.panel-cards {
+    padding: 0;
+    .grid-item.card {
+        padding: 2rem;
+    }
+    span {
+        display: block;
+        width: 100%;
+    }
+    .category {
+        font-family: $luc-font-family;
+        font-size: $luc-nav-font-size;
+    }
+    .headline {
+        margin: 0 0 1rem;
+        font-family: $luc-font-family-condensed-bold;
+        font-size: $luc-nav-font-size-1xl;
+    }
+    .title {
+        margin: 0 0 1rem;
+        font-family: $luc-font-family;
+        font-size: $luc-nav-font-size-l;
+        font-style: italic;
+    }
+    .readout {
+        font-family: $luc-font-family;
+        line-height: $luc-line-height-loose;
+    }
+    .cta {
+        color: $maroon;
+        &:before {
+            background: $maroon;
+        }
+        &:after {
+            display: inline-flex;
+            margin: 0 0 0 1rem;
+        }
+    }
+    .image-wrapper {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        .image-wrapper-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            padding: $luc-space-m;
+            width: 100%;
+            height: 100%;
+            background: $bg-overlay-dark;
+            .category, .headline, .title, .readout {
+                color: $white;
+            }
+            .cta {
+                color: $gold;
+                &:before {
+                    background: $gold;
+                }
+                &:after {
+                    display: inline-flex;
+                    margin: 0 0 0 1rem;
+                }
+            }
+        }
+    }
+}
