@@ -58,8 +58,24 @@
             }
             .cta {
                 color: $gold;
+                background: transparent;
                 &:before {
                     background: $gold;
+                    &:hover {
+                        height: 100%;
+                        background: transparent;
+                    }
+                }
+                &:hover {
+                    background: transparent;
+                    color: $white;
+                    &:before {
+                        color: $white;
+                        background: $maroon;
+                    }
+                    &:after {
+                        background: $white;
+                    }
                 }
                 &:after {
                     display: inline-flex;
