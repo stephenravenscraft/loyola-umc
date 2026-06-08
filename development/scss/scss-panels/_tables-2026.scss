@@ -1,0 +1,67 @@
+/* tables */
+
+/* 1. Responsive Scroll Wrapper */
+.table-wrapper {
+    max-width: 100%;
+    border-radius: .5rem;
+    box-shadow: 0 .25rem .33rem -1px rgb(0 0 0 / 0.1);
+    overflow-x: auto;
+}
+
+/* 2. Base Table Layout */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Faster rendering and predictable widths */
+    font-family: $luc-font-family;
+    font-size: $luc-nav-font-size;
+    line-height: $luc-line-height-standard;
+}
+
+/* 3. Clean Padding and Structural Borders */
+th, td {
+    padding: $luc-space-xs;
+    text-align: left;
+    border-bottom: 1px solid $gray;
+}
+
+/* 4. High-Performance Sticky Header */
+thead th {
+    background-color: $luc-copper-extra-dark;
+    color: $luc-white;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid $copper-extra-light;
+    z-index: 10;
+}
+
+/* 5. Modern Zebra Striping with color-mix() */
+/* 6. Subtle Hover Interaction */
+tbody tr {
+    background: $copper-extra-light;
+    transition: background 0.3s ease;
+}
+tbody tr:hover {
+    background: darken($copper-extra-light, 5%);
+    transition: background 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+    background: darken($copper-extra-light, 10%);
+}
+
+tbody tr:nth-child(even):hover {
+    background: darken($copper-extra-light, 15%);
+}
+
+/* 7. Caption */
+
+table caption {
+    margin: #{$luc-space-s} #{$luc-space-xs};
+    font-family: $luc-font-family-bold;
+    font-size: $luc-nav-font-size-l;
+    text-align: left;
+}
+
+
