@@ -2149,7 +2149,7 @@ img.inline-icon {
    ============================================================================= */
 
 #panel-pagination:has(+ .lead-panel-two-column-left-right) {
-  background: $luc-copper-light;
+  background: $copper-extra-light;
 
   #content-pagination-breadcrumbs {
     padding: 0.5rem max(clamp(1rem, 5vw, 4rem), (100% - 90rem) / 2);
@@ -2360,7 +2360,7 @@ img.inline-icon {
         content: "";
         position: absolute;
         z-index: 2;
-        background: $luc-copper-light;
+        background: $copper-extra-light;
         top: 0;
         left: 0;
         width: 100%;
