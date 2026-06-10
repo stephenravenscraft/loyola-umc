@@ -46,29 +46,11 @@
 }
 
 .tab-panel {
-  background: $white;
-  padding: $luc-space-l;
+  background: #f2f2f2;
+  padding: 2em;
   img {
     margin: 0 0 2rem 0 !important;
     width: 100%;
-  }
-  h4 {
-    display: inline-block;
-    margin: 0;
-    margin-bottom: .5rem !important;
-    width: 100%;
-    font-size: 1.45rem !important;
-  }
-  p {
-    margin: .5rem 0 1rem;
-    font-size: 1.025rem !important;
-  }
-  .sans-serif p {
-    line-height: 1.45;
-    line-height: rvr(1.45);
-  }
-  a {
-    font-size: .85em !important;
   }
 }
 

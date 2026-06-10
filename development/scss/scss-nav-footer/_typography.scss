@@ -117,39 +117,49 @@ blockquote, blockquote p {
   }
 }
 
-span {
-    display: block;
-    width: 100%;
-}
-.category {
-    font-family: $luc-font-family;
-    font-size: $luc-nav-font-size;
-}
-.headline {
-    font-family: $luc-font-family-condensed-bold;
-    font-size: $luc-nav-font-size-1xl;
-}
-.title {
-    font-family: $luc-font-family;
-    font-size: $luc-nav-font-size-l;
-    font-style: italic;
-}
-.readout {
-    font-family: $luc-font-family;
-    line-height: $luc-line-height-loose;
-}
-.cta {
-    margin: 0;
-    color: $maroon;
-    text-transform: none;
-    &:hover {
-        color: $white;
+/* cards and tabs */
+
+  .cards,
+  .tab-panel {
+    .content-block {
+        display: block;
+        width: 100%;
+      p {
+        margin: 0;
+        margin-bottom: $luc-space-3xs;
+      }
+      .card-eyebrow {
+          font-family: $luc-font-family-condensed-bold;
+          font-size: $luc-nav-font-size;
+      }
+      .card-title {
+          font-family: $luc-font-family;
+          font-size: $luc-nav-font-size-l;
+          font-style: italic;
+      }
+      .card-headline {
+          font-family: $luc-font-family-condensed-bold !important;
+          font-size: $luc-nav-font-size-1xl;
+      }
+      .card-summary {
+          font-family: $luc-font-family;
+          font-size: $luc-nav-font-size-l;
+          line-height: $luc-line-height-loose;
+      }
+      .cta {
+          margin: 0;
+          color: $maroon;
+          text-transform: none;
+          &:hover {
+              color: $white;
+          }
+          &:before {
+              background: $maroon;
+          }
+          &:after {
+              display: inline-flex;
+              margin: 0 0 0 1rem;
+          }
+      }
     }
-    &:before {
-        background: $maroon;
-    }
-    &:after {
-        display: inline-flex;
-        margin: 0 0 0 1rem;
-    }
-}
+  }
