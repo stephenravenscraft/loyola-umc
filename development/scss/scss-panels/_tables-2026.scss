@@ -1,31 +1,59 @@
 /* tables */
 
-/* 1. Responsive Scroll Wrapper */
+/* Responsive scroll wrapper */
 .table-wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
     max-width: 100%;
-    border-radius: .5rem;
-    box-shadow: 0 .25rem .33rem -1px rgb(0 0 0 / 0.1);
+    height: auto;
     overflow-x: auto;
+    overflow-y: hidden;
 }
-
-/* 2. Base Table Layout */
+/*  Scrollable container */
+.table-wrapper-shadow {
+    height: 100%;
+    overflow-y: auto;
+/* Hide the default scrollbar if you want a clean look */
+    scrollbar-width: none; /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.table-wrapper-shadow::-webkit-scrollbar {
+    display: none;
+}
+/* Create the inset shadow effect using overlay pseudo-elements */
+.table-wrapper::before {
+  content: '';
+  position: absolute;
+  left: calc(100% - 2rem + 2px);
+  right: 0;
+  height: 100%;
+  width: 2rem;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent);
+  pointer-events: none; /* Allows clicks to pass through */
+  z-index: 10;
+}
+/* Base table layout */
 table {
     width: 100%;
+    min-width: 800px;
     border-collapse: collapse;
     table-layout: fixed; /* Faster rendering and predictable widths */
     font-family: $luc-font-family;
     font-size: $luc-nav-font-size;
     line-height: $luc-line-height-standard;
 }
-
-/* 3. Clean Padding and Structural Borders */
+/* Clean padding and structural borders */
 th, td {
     padding: $luc-space-xs;
     text-align: left;
     border-bottom: 1px solid $gray;
 }
-
-/* 4. High-Performance Sticky Header */
+/* First content in row */
+tr th {
+    font-family: $luc-font-family-bold;
+}
+/* High-performance sticky header */
 thead th {
     background-color: $luc-copper-extra-dark;
     color: $luc-white;
@@ -33,11 +61,14 @@ thead th {
     position: sticky;
     top: 0;
     border-bottom: 2px solid $copper-extra-light;
-    z-index: 10;
 }
-
-/* 5. Modern Zebra Striping with color-mix() */
-/* 6. Subtle Hover Interaction */
+/* Strong elements */
+table strong, tr th {
+  font-family: $luc-font-family-bold;
+  letter-spacing: 0.025rem;
+}
+/* Zebra striping */
+/* Subtle hover interaction */
 tbody tr {
     background: $copper-extra-light;
     transition: background 0.3s ease;
@@ -55,8 +86,7 @@ tbody tr:nth-child(even):hover {
     background: darken($copper-extra-light, 15%);
 }
 
-/* 7. Caption */
-
+/* Caption */
 table caption {
     margin: #{$luc-space-s} #{$luc-space-xs};
     font-family: $luc-font-family-bold;
