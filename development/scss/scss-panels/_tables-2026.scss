@@ -1,6 +1,8 @@
 /* tables */
 
-/* Responsive scroll wrapper */
+// ==========================================================================
+// WRAPPER
+// ==========================================================================
 .table-wrapper {
     position: relative;
     display: flex;
@@ -10,7 +12,15 @@
     overflow-x: auto;
     overflow-y: hidden;
 }
-/*  Scrollable container */
+.table-wrapper::before {
+    display: none;
+    @include phone-portrait {
+        display: block;
+    }
+}
+// ==========================================================================
+// SCROLLABLE CONTAINER
+// ==========================================================================
 .table-wrapper-shadow {
     height: 100%;
     overflow-y: auto;
@@ -33,7 +43,24 @@
   pointer-events: none; /* Allows clicks to pass through */
   z-index: 10;
 }
-/* Base table layout */
+.narrow-cell {
+    @include phone-portrait {
+        width: 9rem;
+        position: sticky;
+        left: 0;
+        color: $white;
+        background-color: $copper-dark; /* Prevents text underneath from overlapping visually */
+        z-index: 1; 
+    }
+}
+thead th:first-of-type {
+    @include phone-portrait {
+        background-color: darken($copper-extra-dark,10%);
+    }
+}
+// ==========================================================================
+// TABLE LAYOUT
+// ==========================================================================
 table {
     width: 100%;
     min-width: 800px;
@@ -55,7 +82,7 @@ tr th {
 }
 /* High-performance sticky header */
 thead th {
-    background-color: $luc-copper-extra-dark;
+    background-color: darken($luc-copper-extra-dark,1%);
     color: $luc-white;
     font-weight: 600;
     position: sticky;
@@ -85,7 +112,6 @@ tbody tr:nth-child(even) {
 tbody tr:nth-child(even):hover {
     background: darken($copper-extra-light, 15%);
 }
-
 /* Caption */
 table caption {
     margin: #{$luc-space-s} #{$luc-space-xs};
