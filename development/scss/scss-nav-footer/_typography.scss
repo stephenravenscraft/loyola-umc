@@ -117,6 +117,35 @@ blockquote, blockquote p {
   }
 }
 
+/* Major-third Typogrpaphic Hierarchy */
+    .major-third h1 {
+        font-size: $luc-nav-font-size-major-third-3xl;
+    }
+    .major-third h2 {
+        font-size: $luc-nav-font-size-major-third-2xl;
+    }
+    .major-third h3 {
+        font-size: $luc-nav-font-size-major-third-1xl;
+    }
+    .major-third h4 {
+        font-size: $luc-nav-font-size-major-third-xl;
+    }
+    .major-third h5 {
+        font-size: $luc-nav-font-size-major-third-l;
+    }
+    .major-third h6 {
+        font-size: $luc-nav-font-size-major-third;
+    }
+    .major-third p.large {
+        font-size: $luc-nav-font-size-major-third;
+    }
+    .major-third p {
+        font-size: $luc-nav-font-size-major-third-s;
+    }
+    .major-third p.small{
+        font-size: $luc-nav-font-size-major-third-xs;
+    }
+
 /* cards and tabs content modules */
 
   .cards,
@@ -163,30 +192,3 @@ blockquote, blockquote p {
       }
     }
   }
-
-h1 {
-  font-size: 3.85
-}
-
-h1 {
-  font-size: 3.815rem;
-
-h2 {
-  3.052rem
-}
-
-h3 {
-  2.441rem
-}
-
-h4 - 1.953rem
-
-h5 - 1.563rem
-
-h6 - 1.25rem
-
-p - 1rem
-
-small - 0.8rem
-
-0.64rem
