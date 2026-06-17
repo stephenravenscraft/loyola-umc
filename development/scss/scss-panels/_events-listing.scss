@@ -72,12 +72,14 @@
 		justify-content: center;
 		align-items: center;
 		gap: 0.625rem;
-		font-family: $luc-font-family-condensed-bold;
+		font-family: $luc-font-family;
 		font-size: $luc-baseline * 4;
 		line-height: 1.5;
-		color: $luc-copper-extra-dark;
-		border-radius: 0.125rem;
-		border: 1px solid $luc-copper-extra-dark;
+		color: $copper-extra-light;
+		border-radius: 0.25rem;
+		// border: 1px solid $luc-copper-extra-dark;
+		border: none;
+		background: $maroon;
 		width: fit-content;
 	}
 

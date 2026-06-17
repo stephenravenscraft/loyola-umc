@@ -1,0 +1,45 @@
+/* bg-maroon added - nested elements */
+
+.bg-maroon h1, .bg-maroon h2, .bg-maroon h3, .bg-maroon h4, .bg-maroon h5, .bg-maroon h6,
+#panel-numbers.bg-maroon .flex-item.content h4,
+.luc-panel-numbers.bg-maroon .flex-item.content h4 {
+  color: $gold;
+}
+
+#panel-numbers.bg-maroon .flex-item.content h5,
+.luc-panel-numbers.bg-maroon .flex-item.content h5 {
+  text-transform: none;
+}
+
+.bg-maroon p, .bg-maroon .flex-item.content p,
+.bg-maroon p em, .bg-maroon .flex-item.content p em, .bg-maroon p strong, .bg-maroon .flex-item.content p strong,
+.bg-brick h6, .bg-brick h5, .bg-brick h4, .bg-brick h3, .bg-brick h2, .bg-brick h1, .bg-brick p,
+.bg-gray h6, .bg-gray h5, .bg-gray h4, .bg-gray h3, .bg-gray h2, .bg-gray h1, .bg-gray p,
+.bg-gray-dark h6, .bg-gray-dark h5, .bg-gray-dark h4, .bg-gray-dark h3, .bg-gray-dark h2, .bg-gray-dark h1, .bg-gray-dark p,
+.bg-patina h6, .bg-patina h6, .bg-patina h6, .bg-patina h6, .bg-patina p,
+.bg-patina-dark h6, .bg-patina-dark h6, .bg-patina-dark h6, .bg-patina-dark h6, .bg-patina-dark p,
+.bg-overlay h6, .bg-overlay h6, .bg-overlay h6, .bg-overlay h6, .bg-overlay p  { color: $gray-extra-light; }
+
+.bg-maroon a.cta, .bg-brick a.cta, .bg-gray a.cta, .bg-gray-dark a.cta, .bg-patina a.cta, .bg-patina-dark a.cta, .bg-overlay a.cta  {
+  color: lighten($gold, 15%);
+  &:hover {
+    color: lighten($gold, 30%) !important;
+  }
+  &:visited {
+    color: $gold !important;
+  }
+}
+
+.bg-gray-extra-light h6, .bg-gray-extra-light h5, .bg-gray-extra-light h4,
+.bg-gray-extra-light h3, .bg-gray-extra-light p,
+.bg-gold h6, .bg-gold h5, .bg-gold h4, .bg-gold h3, .bg-gold p,
+.bg-terracotta-extra-light h6, .bg-terracotta-extra-light h5,
+.bg-terracotta-extra-light h4, .bg-terracotta-extra-light h3,
+.bg-terracotta-extra-light p { color: $black !important; }
+
+.bg-gold a.cta, .bg-terracotta-extra-light a.cta  {
+  color: $maroon;
+  &:hover {
+    color: lighten($maroon, 10%);
+  }
+}

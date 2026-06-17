@@ -85,15 +85,15 @@ $luc-transition-fast: 150ms ease;
 $luc-transition-normal: 250ms ease;
 $luc-transition-slow: 500ms ease;
 
-// Focus outline (AA compliant)
-$luc-focus-color: $luc-maroon !default;
-$luc-focus-outline: $luc-baseline dotted $luc-focus-color !default;
-$luc-focus-offset: $luc-baseline !default;
-
 $luc-transition: .4s ease;
 $luc-transition-fast: .2s ease;
 $luc-transition-slow: .6s ease;
 $luc-transition-bounce: .5s cubic-bezier(.5, .05, .2, 1.5);
+
+// Focus outline (AA compliant)
+$luc-focus-color: $luc-maroon !default;
+$luc-focus-outline: $luc-baseline dotted $luc-focus-color !default;
+$luc-focus-offset: $luc-baseline !default;
 
 $luc-space-3xs: clamp(.25rem, .2rem + .25vw, .375rem);
 $luc-space-2xs: clamp(.5rem, .4rem + .5vw, .75rem);

@@ -9,26 +9,28 @@
   // ==========================================================================
   // MODULE TYPOGRAPHY - GLOBAL
   // ==========================================================================
-    .headline, .subhead {
+    .headline, .subhead, a, a.cta {
         font-family: $luc-font-family-condensed-bold;
+    }
+    .title, .summary-paragraph {
+        font-family: $luc-font-family;
+    }
+    .eyebrow {
+        font-family: $luc-font-family-condensed-light;
+        font-size: $luc-nav-font-size-l;
     }
     .headline {
         font-size: $luc-nav-font-size-1xl;
     }
-    .subhead {
-        font-size: $luc-nav-font-size-xl;
-    }
-    .eyebrow {
-        font-size: $luc-nav-font-size;
-    }
     .title {
+        font-size: $luc-nav-font-size-l;
         font-style: italic;
     }
     .summary-paragraph {
         line-height: $luc-line-height-loose;
     }
     .subhead {
-        font-size: $luc-nav-font-size-xl; 
+        font-size: $luc-nav-font-size-1xl; 
     }
     a {
         text-transform: none;
@@ -41,6 +43,10 @@
     margin: 0 0 -2rem;
     padding: 0;
     z-index: -1;
+        img {
+            width: 100%;
+            height: auto;
+        }
        .image-wrapper-overlay {
             position: absolute;
             top: 0;
@@ -79,7 +85,7 @@
         }
     }
 // ==========================================================================
-// CARD PANEL AND CONTENT
+// CARD CONTENT PANEL AND CONTENT
 // ==========================================================================
 
     /* PRIMARY CONTENT */

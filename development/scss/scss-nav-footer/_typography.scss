@@ -1,3 +1,11 @@
+hr {
+  display: block;
+  margin: 1.5rem 0;
+  border-bottom: 1px solid darken($copper, 5%);
+  width: 100%;
+  height: 0;
+}
+
 p {
   font-family: $luc-font-family;
   font-size: $luc-nav-font-size-l;
@@ -74,6 +82,7 @@ h6,
   line-height: 1.5;
   letter-spacing: 0.005rem;
 }
+/* 14 */
 
 .text-small {
   font-family: $luc-font-family;
@@ -81,9 +90,18 @@ h6,
   line-height: 1.5;
   letter-spacing: 0.005rem;
 }
+/* 14 */
 
 footnote {
-  font-family: $luc-nav-font-size-xs;
+  font-family: $luc-font-family;
+  font-size: $luc-nav-font-size;
+}
+/* 13 */
+
+p a, a.cta, li a, p a strong, li a strong, a.cta, strong a.cta {
+  font-family: $luc-font-family;
+  font-size: inherit;
+  color: $maroon;
 }
 
 blockquote, blockquote p {
@@ -93,7 +111,7 @@ blockquote, blockquote p {
   width: 80%;
   font-family: $luc-font-family-condensed-bold;
   font-weight: 700 !important;
-  font-size: clamp(#{$luc-nav-font-size-xl}, #{$luc-nav-font-size-2xl}, #{$luc-nav-font-size-3xl});
+  font-size: clamp(#{$luc-nav-font-size-1xl}, #{$luc-nav-font-size-1xl}, #{$luc-nav-font-size-3xl});
   line-height: 1.5;
   letter-spacing: -0.075rem;
   text-align: center;
@@ -104,6 +122,17 @@ blockquote, blockquote p {
     padding: 0;
     width: 90%;
     border: 0;
+  }
+}
+
+cite {
+  display: block;
+  margin-top: $luc-space-xs;
+  font-family: $luc-font-family;
+  font-size: $luc-nav-font-size;
+  &:before {
+    content: "\2013";
+    margin-right: $luc-space-3xs;
   }
 }
 
@@ -118,77 +147,30 @@ blockquote, blockquote p {
 }
 
 /* Major-third Typogrpaphic Hierarchy */
-    .major-third h1 {
-        font-size: $luc-nav-font-size-major-third-3xl;
-    }
-    .major-third h2 {
-        font-size: $luc-nav-font-size-major-third-2xl;
-    }
-    .major-third h3 {
-        font-size: $luc-nav-font-size-major-third-1xl;
-    }
-    .major-third h4 {
-        font-size: $luc-nav-font-size-major-third-xl;
-    }
-    .major-third h5 {
-        font-size: $luc-nav-font-size-major-third-l;
-    }
-    .major-third h6 {
-        font-size: $luc-nav-font-size-major-third;
-    }
-    .major-third p.large {
-        font-size: $luc-nav-font-size-major-third;
-    }
-    .major-third p {
-        font-size: $luc-nav-font-size-major-third-s;
-    }
-    .major-third p.small{
-        font-size: $luc-nav-font-size-major-third-xs;
-    }
-
-/* cards and tabs content modules */
-
-  .cards,
-  .tab-panel {
-    .content-module {
-        display: block;
-        width: 100%;
-      p {
-        margin: 0;
-        margin-bottom: $luc-space-3xs;
-      }
-      .card-eyebrow {
-          font-family: $luc-font-family-condensed-bold;
-          font-size: $luc-nav-font-size;
-      }
-      .card-title {
-          font-family: $luc-font-family;
-          font-size: $luc-nav-font-size-l;
-          font-style: italic;
-      }
-      .card-headline {
-          font-family: $luc-font-family-condensed-bold !important;
-          font-size: $luc-nav-font-size-1xl;
-      }
-      .card-summary {
-          font-family: $luc-font-family;
-          font-size: $luc-nav-font-size-l;
-          line-height: $luc-line-height-loose;
-      }
-      .cta {
-          margin: 0;
-          color: $maroon;
-          text-transform: none;
-          &:hover {
-              color: $white;
-          }
-          &:before {
-              background: $maroon;
-          }
-          &:after {
-              display: inline-flex;
-              margin: 0 0 0 1rem;
-          }
-      }
-    }
-  }
+.major-third h1 {
+    font-size: $luc-nav-font-size-major-third-3xl;
+}
+.major-third h2 {
+    font-size: $luc-nav-font-size-major-third-2xl;
+}
+.major-third h3 {
+    font-size: $luc-nav-font-size-major-third-1xl;
+}
+.major-third h4 {
+    font-size: $luc-nav-font-size-major-third-xl;
+}
+.major-third h5 {
+    font-size: $luc-nav-font-size-major-third-l;
+}
+.major-third h6 {
+    font-size: $luc-nav-font-size-major-third;
+}
+.paragraph-large {
+    font-size: $luc-nav-font-size-major-third;
+}
+.major-third p {
+    font-size: $luc-nav-font-size-major-third-s;
+}
+.paragraph-small {
+    font-size: $luc-nav-font-size-major-third-xs;
+}
