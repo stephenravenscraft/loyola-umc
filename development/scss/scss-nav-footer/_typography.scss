@@ -9,7 +9,7 @@ hr {
 p {
   font-family: $luc-font-family;
   font-size: $luc-nav-font-size-l;
-  line-height: 1.7;
+  line-height: $luc-line-height-standard;
   letter-spacing: 0.005rem;
 }
 
@@ -104,6 +104,16 @@ p a, a.cta, li a, p a strong, li a strong, a.cta, strong a.cta {
   color: $maroon;
 }
 
+p strong, li strong, a strong,
+p a strong, li a strong, a.cta, strong a.cta {
+  font-family: $luc-font-family-bold;
+}
+
+li {
+  line-height: $luc-line-height-standard;
+  margin: 0 0 ($luc-space-2xs) 0;
+}
+
 blockquote, blockquote p {
   display: block;
   margin: 2em auto;
@@ -113,10 +123,9 @@ blockquote, blockquote p {
   font-weight: 700 !important;
   font-size: clamp(#{$luc-nav-font-size-1xl}, #{$luc-nav-font-size-1xl}, #{$luc-nav-font-size-3xl});
   line-height: 1.5;
-  letter-spacing: -0.075rem;
+  letter-spacing: -.005rem;
+  word-spacing: .075rem;
   text-align: center;
-  border-top: solid 1px $gray;
-  border-bottom: solid 1px $gray;
   @include phone-portrait {
     margin: 1em auto;
     padding: 0;
@@ -129,7 +138,7 @@ cite {
   display: block;
   margin-top: $luc-space-xs;
   font-family: $luc-font-family;
-  font-size: $luc-nav-font-size;
+  font-size: $luc-nav-font-size-l;
   &:before {
     content: "\2013";
     margin-right: $luc-space-3xs;
