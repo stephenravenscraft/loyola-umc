@@ -1,0 +1,115 @@
+/* video embed */
+
+#panel-video-embed {
+  position: relative;
+  background: $gray-light;
+  overflow: hidden;
+  .grid-wrapper-min-max {
+    position: relative;
+    margin: 3rem auto;
+    padding: 0;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 2rem;
+  }
+  .grid-item {
+    margin: 0;
+    z-index: 1;
+  }
+  .content-image-overlay {
+    padding: 0;
+    background: $bg-overlay;
+    .container {
+      height: 100%;
+    }
+  }
+  .background-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    img {
+      margin: 0;
+      padding: 0;
+      object-fit: cover;
+      -webkit-filter: blur(.75rem) grayscale(80%);
+      -moz-filter: blur(.75rem) grayscale(80%);
+      -o-filter: blur(.75rem) grayscale(80%);
+      -ms-filter: blur(.75rem) grayscale(80%);
+      filter: blur(.75rem) grayscale(80%);
+    }
+  }
+}
+
+/* background image - display none */
+#panel-video-embed.hide-background-image {
+  .content-image-overlay,
+  .background-image {
+    display: none;
+  }
+}
+
+#panel-video-embed .content-caption {
+  display: block;
+  padding: 2rem;
+  background: $gray-extra-light;
+  height: 100%;
+    @include tablet-portrait {
+      padding: 1.5rem;
+    }
+  h4 {
+    margin-top: 0;
+    margin-bottom: rvr(.5);
+    font-size: clamp(#{$font-step-1-5}, #{$font-step-1-5} + 3.5vw, #{$font-step-1-5});
+    line-height: clamp(#{$line-step-1-75}, #{$line-step-1-75} + 3.5vw, #{$line-step-1-75});
+  }
+  h4, p, p strong, p em, p em strong {
+    color: $black;
+  }
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.135rem;
+  }
+  a, a.cta {
+    margin-bottom: .25rem;
+    font-size: clamp(#{$font-step-095}, #{$font-step-095} + 3.5vw, #{$font-step-095});
+    color: $maroon;
+    &:hover {
+      color: lighten($gold,10%);
+    }
+  }
+}
+
+#panel-video-embed.hide-background-image.bg-maroon .content-caption {
+  background: $maroon;
+  h4, p, p strong, p em, p em strong {
+    color: $white;
+  }
+  a, a.cta {
+    color: $gold;
+    &:hover {
+      color: lighten($gold,10%);
+    }
+  }
+}
+
+.video-wrapper {
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.video-wrapper iframe {
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 0;
+   height: 100%;
+   width: 100% !important;
+   min-width: 100% !important;
+}

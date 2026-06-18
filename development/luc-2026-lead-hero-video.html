@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    @@include('./partials/framework/luc-head.html')
+    <!-- inject:css -->
+    <!-- endinject -->
+    <link rel="stylesheet" href="css/luc-components.css">
+    <link rel="stylesheet" href="css/luc-nav-footer.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- ============================================
+     HOMEPAGE HEADER
+     ============================================ -->
+    @@include('./partials/panels/proposed/luc-homepage-header.html')
+
+    <!-- ============================================
+     PAGE CONTENT
+     ============================================  -->
+    <main id="main-content" class="second-level-pages">
+      <div id="main-content-wrapper-full-width">
+ 
+        <div class="padding-lg bg-white"></div>
+        <div class="container container-100">
+          @@include('./partials/nav-footer/luc-hero.html')
+        </div>
+        <div class="padding-lg bg-white"></div>
+
+      </div><!-- /main-content-wrapper-full-width -->
+    </main>
+
+    <!-- ============================================
+     GLOBAL FOOTER
+     ============================================ -->
+    @@include('./partials/panels/proposed/luc-global-footer.html')
+    <!-- inject:js -->
+    <!-- endinject -->
+    <script src="js/swiper-init.js"></script>
+
+    <script>
+      window.Userback = window.Userback || {};
+      Userback.access_token = "P-iHJCvoXht7OgMPrd35rCVwF1F";
+      (function (d) {
+        var s = d.createElement("script");
+        s.async = true;
+        s.src = "https://static.userback.io/widget/v1.js";
+        (d.head || d.body).appendChild(s);
+      })(document);
+    </script>
+
+    <script
+      id="IS_CV_PUBLIC_HOOK"
+      src="https://luc-ws.iuc.intrasee.com/luc/IS_CV_PUBLIC_HOOK.js"
+    ></script>
+  </body>
+</html>

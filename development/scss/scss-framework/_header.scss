@@ -256,6 +256,21 @@
   @media (min-width: $nav-breakpoint) {
     display: none;
   }
+
+  // 7A. Fixes Navigation Menu and Search icon display
+  
+  button {
+    &::before {
+      display: none;
+      background: none;
+      height: 0;
+    }
+    &::after {
+      height: 0;
+      mask-image: none;
+      background: transparent;
+    }
+  }
 }
 
 // =============================================================================
@@ -279,6 +294,7 @@
     font-family: 'Font Awesome 6 Pro';
     font-size: 1.83769rem;
     font-weight: 600;
+    line-height: 0;
     color: $luc-white;
     transition: color $luc-transition-fast;
   }
@@ -335,8 +351,10 @@
     display: block;
     font-size: 1.83769rem;
     font-weight: 600;
+    line-height: 0;
     color: $luc-white;
     transition: color $luc-transition-fast;
+    mask-image: none;
   }
 
   &[aria-expanded='true'] {

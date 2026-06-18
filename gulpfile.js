@@ -88,6 +88,15 @@ function sassDocumentation() {
     .pipe(gulp.dest(config.deployDir + '/css'));
 };
 
+function sassCarnegieComponents() {
+    return gulp
+    .src(config.devDir + '/scss/scss-carnegie-components/**/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(config.deployDir + '/css'));
+};
+
 // -----------------------------------------------------------------------------
 // Nav/Footer and Components bundles
 // These compile to the standalone CSS files loaded on the live site:
@@ -212,13 +221,13 @@ function watchFiles() {
     }
   });
   watch('./development/**/*.html', gulp.series('indexBuild', 'browserSyncReload'));
-  watch(config.devDir + '/scss/**/*.scss', gulp.series(parallel('sassFramework', 'sassGrid', 'sassTypography', 'sassPanels', 'sassPanelsDev', 'sassDocumentation', 'sassNavFooter', 'sassComponents'), 'browserSyncReload'));
+  watch(config.devDir + '/scss/**/*.scss', gulp.series(parallel('sassFramework', 'sassGrid', 'sassTypography', 'sassPanels', 'sassPanelsDev', 'sassDocumentation', 'sassCarnegieComponents', 'sassNavFooter', 'sassComponents'), 'browserSyncReload'));
   watch(config.devDir + '/js/**/*.js', gulp.series('browserSyncReload'));
 };
 
 // Default task: build + watch + live reload
 exports.default = series(
-  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassNavFooter, sassComponents),
+  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassCarnegieComponents, sassNavFooter, sassComponents),
   referencePaths,
   indexBuild,
   watchFiles,
@@ -227,7 +236,7 @@ exports.default = series(
 
 // CI build task: compile everything without starting a dev server
 exports.build = series(
-  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassNavFooter, sassComponents),
+  parallel(sassFramework, sassGrid, sassTypography, sassPanels, sassPanelsDev, sassDocumentation, sassCarnegieComponents, sassNavFooter, sassComponents),
   referencePaths,
   indexBuild
 );
@@ -247,6 +256,7 @@ exports.sassTypography = sassTypography;
 exports.sassPanels = sassPanels;
 exports.sassPanelsDev = sassPanelsDev;
 exports.sassDocumentation = sassDocumentation;
+exports.sassCarnegieComponents = sassCarnegieComponents;
 exports.sassNavFooter = sassNavFooter;
 exports.sassComponents = sassComponents;
 exports.watchFiles = watchFiles;

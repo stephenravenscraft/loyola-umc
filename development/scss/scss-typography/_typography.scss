@@ -12,16 +12,12 @@ html { font-size: 100%; } /* matches browsers default */
 
 body {
   font-family: $luc-font-family;
-  font-size: 1rem;
+  font-size: $luc-nav-font-size-l;
   line-height: 1.7;
   letter-spacing: 0.005rem;
   color: $black;
   background-color: none;
   overflow-wrap: break-word;
-}
-
-p, ul, ol {
-  color: lighten($gray-extra-dark,3%);
 }
 
 a {
@@ -64,13 +60,16 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 1rem;
   margin-bottom: rvr(1);
   width: 100%;
-  font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
+  font-family: $luc-font-family-condensed-bold;
   font-weight: 400;
   letter-spacing: -.02rem;
   word-spacing: .125rem;
   a {
     cursor: pointer;
   }
+}
+h1, h2 {
+  font-family: $luc-font-family-condensed-black;
 }
 
 /* universal font-sizes */
@@ -115,7 +114,6 @@ h1 {
 h2 {
   margin-bottom: 1rem;
   margin-bottom: rvr(1);
-  text-transform: none;
 }
 
 h3 {
@@ -129,7 +127,6 @@ h3 {
 h5, details summary {
   margin-bottom: rvr(.35);
   letter-spacing: 0rem;
-  text-transform: uppercase;
 }
 
 h5 span[style] {
@@ -147,6 +144,84 @@ h6 {
 h6.category-bold {
   font-family: 'Antenna Condensed Bold', 'Arial', sans-serif;
 }
+
+p {
+  font-family: $luc-font-family;
+  font-size: $luc-nav-font-size-l;
+  line-height: 1.7;
+  letter-spacing: 0.005rem;
+}
+
+.intro-paragraph p {
+  font-size: $luc-nav-font-size-xl;
+  line-height: 1.9;
+}
+
+p.caption {
+  margin: 0;
+  font-family: $luc-font-family;
+  font-size: $luc-nav-font-size-s;
+  font-style: normal !important;
+  line-height: 1.7;
+  letter-spacing: 0.005rem;
+}
+
+h1,
+.h1 {
+  color: $black;
+  font-family: $luc-font-family-condensed-black;
+  font-size: clamp(3rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+/* 54 - current template size */
+
+h2,
+.h2 {
+  color: $luc-maroon;
+  font-family: $luc-font-family-condensed-black;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  line-height: 1.3;
+  letter-spacing: 0.005rem;
+}
+/* 42 - current template size */
+
+h3,
+.h3 {
+  color: $luc-maroon;
+  font-family: $luc-font-family-condensed-bold;
+  font-size: clamp(1.5rem, 5vw, 1.875rem);
+  line-height: 1.3;
+  letter-spacing: 0.005rem;
+}
+/* 30 - current template size */
+
+h4,
+.h4 {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
+  line-height: 1.4;
+  letter-spacing: 0.005rem;
+}
+/* 20 - current template size */
+
+h5,
+.h5 {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: clamp(1.125rem, 5vw, 1.25rem);
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
+}
+/* 20 */
+
+h6,
+.h6 {
+  font-family: $luc-font-family-condensed-bold;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.005rem;
+}
+/* 16 */
 
 /* section label */
 
@@ -190,10 +265,10 @@ p strong, .standard-paragraph p strong, li strong, li a strong, ol strong, ol a 
 #panel-table-accordion p,
 #panel-image-text .grid-area.grid-area-content p,
 .luc-panel-image-text .grid-area.grid-area-content p {
-  font-family: 'Antenna', 'Arial', sans-serif;
-  font-size: 1rem;
+  font-family: $luc-font-family;
+  font-size:  $luc-nav-font-size-l;
   line-height: 1.7;
-  font-weight: 400;
+  font-weight: $luc-nav-font-weight;
   letter-spacing: 0.005rem;
   color: $black;
 }
@@ -286,6 +361,7 @@ li em, li em a, li a em, {
   margin: 0;
   margin-bottom: rvr(1.5);
   font-size: #{fluid(16px, 20px)};
+  font-size: $luc-nav-font-size-l;
   line-height: #{fluid(26px, 34px)};
 }
 
@@ -473,13 +549,13 @@ small { font-size: 0.7rem; }
 
 footnote, .footnote p {
   display: block;
-  margin: 1rem 0 0 0;
-  padding: .75rem 0 0 0;
+  margin: 0 0 (#{$luc-space-l-xl});
+  padding: 0;
   width: 100%;
+  font-size: clamp(#{$luc-nav-font-size-s}, #{$luc-nav-font-size}, #{$luc-nav-font-size});
   font-size: #{fluid(13px, 15px)};
   line-height: #{fluid(18px, 20px)};
   font-style: italic;
-  border-top: solid 1px $gray;
 }
 
 .footnote p strong {
@@ -705,10 +781,10 @@ blockquote, blockquote p {
   margin: 2em auto;
   padding: 2em 0;
   width: 80%;
-  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-family: $luc-font-family-condensed-bold !important;
   font-weight: 700 !important;
-  font-size: #{fluid(18px, 24px)};
-  line-height: #{fluid(36px, 40px)};
+  font-size: clamp(#{$luc-nav-font-size-xl}, #{$luc-nav-font-size-2xl}, #{$luc-nav-font-size-3xl});
+  line-height: 1.5;
   letter-spacing: -0.075rem;
   text-align: center;
   border-top: solid 1px $gray;
@@ -743,9 +819,9 @@ blockquote p cite {
   margin: 1em auto;
   padding: 0;
   width: 100%;
-  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-family: $luc-font-family;
   font-weight: 400;
-  font-size: #{fluid(12px, 16px)};
+  font-size: clamp(#{$luc-nav-font-size}, #{$luc-nav-font-size-l}, #{$luc-nav-font-size-xl});
   line-height: #{fluid(16px, 20px)};
   letter-spacing: -.0125em;
   text-align: center;
@@ -1061,7 +1137,7 @@ blockquote cite { line-height: 1.35; }
   }
 }
 
-/* specicic application */
+/* specific application */
 
 #faculty-box {
   .center {

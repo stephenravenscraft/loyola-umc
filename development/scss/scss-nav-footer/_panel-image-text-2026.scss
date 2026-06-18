@@ -1,0 +1,202 @@
+/* image - text */
+#panel-image-text .grid-wrapper-grid-area,
+.luc-panel-image-text .grid-wrapper-grid-area {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr !important;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr !important;
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  -ms-grid-rows: auto;
+  grid-auto-rows: auto;
+  grid-row-gap: 0;
+  width: 100%;
+  grid-gap: 0;
+  .grid-area {
+  position: relative;
+  }
+  img {
+    margin: 0 !important;
+  }
+}
+.grid-area-image {
+grid-area: 1 / 1 / span 1 / span 2;
+@include tablet-portrait {
+  grid-area: 1 / 1 / span 1 / span 4;
+}
+}
+.grid-area-content {
+grid-area: 1 / 3 / span 1 / span 2;
+@include tablet-portrait {
+  grid-area: 2 / 1 / span 1 / span 4;
+}
+}
+
+#panel-image-text .grid-wrapper-grid-area.toggle-grid-area,
+.luc-panel-image-text .grid-wrapper-grid-area.toggle-grid-area {
+  .grid-area-image {
+  grid-area: 1 / 3 / span 1 / span 2;
+  @include tablet-portrait {
+    grid-area: 1 / 1 / span 1 / span 4;
+  }
+  }
+  .grid-area-content {
+  grid-area: 1 / 1 / span 1 / span 2;
+  @include tablet-portrait {
+    grid-area: 2 / 1 / span 1 / span 4;
+  }
+  }
+}
+
+#panel-image-text img,
+.luc-panel-image-text img {
+  margin: 0;
+}
+
+#panel-image-text,
+.luc-panel-image-text {
+  .grid-wrapper-grid-area {
+    grid-gap: 0;
+    .grid-area {
+      margin: 0;
+      @include phone-portrait {
+        margin: 0 !important;
+      }
+    }
+  }
+  .content-image-text-image {
+    padding-top: 0;
+    height: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    contain: none;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      contain: none;
+    }
+  }
+  .content-image-text {
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    contain: none;
+    h6, p, p em, p strong {
+      color: $black !important;
+    }
+  }
+  .grid-area.grid-area-content h1,
+  .grid-area.grid-area-content h2 {
+    color: $maroon;
+  }
+  .content-image-text h1,
+  .content-image-text h2,
+  .content-image-text p {
+    max-width: 72ch;
+  }
+  .grid-area.grid-area-content a:has(p) {
+    display: flex;
+    width: auto;
+  }
+  p {
+    font-family: 'Antenna', 'Arial', sans-serif;
+    font-size: clamp(#{$font-step-1-25}, #{$font-step-1-25} + 3.5vw, #{$font-step-1-25});
+  }
+}
+
+/* lead variant and bg-white — padded centered content card */
+.lead-panel-two-column-left-right #panel-image-text .content-image-text,
+.lead-panel-two-column-left-right .luc-panel-image-text .content-image-text,
+#panel-image-text.bg-white .content-image-text,
+.luc-panel-image-text.bg-white .content-image-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lead-panel-two-column-left-right #panel-image-text .content-image-text,
+.lead-panel-two-column-left-right .luc-panel-image-text .content-image-text {
+  background: $copper-extra-light;
+}
+
+@media only screen and (max-width: 600px) {
+  .lead-panel-two-column-left-right #panel-image-text .content-image-text,
+  .lead-panel-two-column-left-right .luc-panel-image-text .content-image-text,
+  #panel-image-text .content-image-text,
+  .luc-panel-image-text .content-image-text {
+    padding: 2rem;
+  }
+}
+
+#panel-image-text.bg-maroon,
+.luc-panel-image-text.bg-maroon,
+#panel-image-text.bg-gray,
+.luc-panel-image-text.bg-gray,
+#panel-image-text.bg-gray-dark,
+.luc-panel-image-text.bg-gray-dark,
+#panel-image-text.bg-patina,
+.luc-panel-image-text.bg-patina,
+#panel-image-text.bg-patina-dark,
+.luc-panel-image-text.bg-patina-dark {
+  .content-image-text {
+    h6, h4, p, p em, p strong, li, li strong {
+      color: $gray-extra-light !important;
+    }
+  }
+}
+
+#panel-image-text.bg-maroon .content-image-text,
+.luc-panel-image-text.bg-maroon .content-image-text {
+  background: $maroon !important;
+}
+#panel-image-text.bg-white .content-image-text,
+.luc-panel-image-text.bg-white .content-image-text {
+  background: $white !important;
+}
+#panel-image-text.bg-gray-extra-light .content-image-text,
+.luc-panel-image-text.bg-gray-extra-light .content-image-text {
+  background: $gray-extra-light !important;
+}
+#panel-image-text.bg-gray-light .content-image-text,
+.luc-panel-image-text.bg-gray-light .content-image-text {
+  background: $gray-light !important;
+}
+#panel-image-text.bg-gray .content-image-text,
+.luc-panel-image-text.bg-gray .content-image-text {
+  background: $gray !important;
+}
+#panel-image-text.bg-gray-dark .content-image-text,
+.luc-panel-image-text.bg-gray-dark .content-image-text {
+  background: $gray-dark !important;
+}
+#panel-image-text.bg-patina .content-image-text,
+.luc-panel-image-text.bg-patina .content-image-text {
+  background: $patina !important;
+}
+#panel-image-text.bg-patina-dark .content-image-text,
+.luc-panel-image-text.bg-patina-dark .content-image-text {
+  background: $patina-dark !important;
+}
+
+#panel-image-text .content-image-text-image img::before,
+.luc-panel-image-text .content-image-text-image img::before {
+  height: 100%;
+}
+#panel-image-text .content-image-text-image.show-full-image,
+.luc-panel-image-text .content-image-text-image.show-full-image {
+  background-image: none !important;
+  padding-top: 0;
+  img {
+    display: block !important;
+  }
+}

@@ -93,7 +93,7 @@ $default-max-bp: 960px;
 .bg-gold h6, .bg-gold h5, .bg-gold h4, .bg-gold h3, .bg-gold p,
 .bg-terracotta-extra-light h6, .bg-terracotta-extra-light h5,
 .bg-terracotta-extra-light h4, .bg-terracotta-extra-light h3,
-.bg-terracotta-extra-light p { color: $maroon !important; }
+.bg-terracotta-extra-light p { color: $black !important; }
 
 .bg-gold a.cta, .bg-terracotta-extra-light a.cta  {
   color: $maroon;
@@ -322,9 +322,10 @@ hr {
 }
 
 /* table */
-
+/*
 tr:nth-child(even) { background: $white; }
 tr:nth-child(odd) { background: $gray-extra-light; }
+*/
 
 /* image */
 
@@ -1979,8 +1980,8 @@ button.modaal-close {
       padding: 0;
       font-family: 'Antenna', sans-serif;
       font-size: clamp(#{$font-step-085}, #{$font-step-085} + 3.5vw, #{$font-step-085});
-      color: $gray;
-      text-transform: uppercase;
+      color: darken($gray-extra-dark, 5%);
+      text-transform: none;
       border: none;
       background: none;
       &:last-of-type {
@@ -2443,7 +2444,6 @@ img.inline-icon {
     }
 
     blockquote {
-      @extend .h3;
       border: none;
       padding-left: 0;
       color: $white;

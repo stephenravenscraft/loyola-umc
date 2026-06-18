@@ -53,23 +53,48 @@ $luc-font-family-bold: 'Antenna Bold', 'Arial', sans-serif;
 $luc-font-family-condensed-light: 'Antenna Condensed Light', 'Arial', sans-serif;
 $luc-font-family-condensed-bold: 'Antenna Condensed Bold', 'Arial', sans-serif;
 $luc-font-family-condensed-black: 'Antenna Condensed Black', 'Arial', sans-serif;
-$luc-nav-font-size: $luc-baseline * 3.5; // 14px
 $luc-nav-font-weight: normal; // Antenna regular
+
+// Font Sizes - Carnegie
+$luc-nav-font-size-xs: $luc-baseline * 2.5; // 10px
+$luc-nav-font-size-s: $luc-baseline * 3; // 12px
+$luc-nav-font-size: $luc-baseline * 3.5; // 14px
+$luc-nav-font-size-l: $luc-baseline * 4; // 16px
+$luc-nav-font-size-xl: $luc-baseline * 4.5; // 18px
+$luc-nav-font-size-1xl: $luc-baseline * 6; // 25px
+$luc-nav-font-size-2xl: $luc-baseline * 9; // 36px
+$luc-nav-font-size-3xl: $luc-baseline * 13.5; // 54px
+
+// Font Sizes - Major Third
+$luc-nav-font-size-major-third-xs: $luc-baseline * 3.25; // 10px
+$luc-nav-font-size-major-third-s: $luc-baseline * 3.75; // 12px
+$luc-nav-font-size-major-third: $luc-baseline * 5; // 14px
+$luc-nav-font-size-major-third-l: $luc-baseline * 6.252; // 16px
+$luc-nav-font-size-major-third-xl: $luc-baseline * 7.812; // 18px
+$luc-nav-font-size-major-third-1xl: $luc-baseline * 9.76; // 25px
+$luc-nav-font-size-major-third-2xl: $luc-baseline * 12.21; // 36px
+$luc-nav-font-size-major-third-3xl: $luc-baseline * 15.26; // 54px
+
+// Line Heights
+$luc-line-height-tight: 1.25;
+$luc-line-height-standard: 1.45;
+$luc-line-height-loose: 1.65;
+$luc-line-height-open: 2.65;
 
 // Transitions
 $luc-transition-fast: 150ms ease;
 $luc-transition-normal: 250ms ease;
 $luc-transition-slow: 500ms ease;
 
-// Focus outline (AA compliant)
-$luc-focus-color: $luc-maroon !default;
-$luc-focus-outline: $luc-baseline dotted $luc-focus-color !default;
-$luc-focus-offset: $luc-baseline !default;
-
 $luc-transition: .4s ease;
 $luc-transition-fast: .2s ease;
 $luc-transition-slow: .6s ease;
 $luc-transition-bounce: .5s cubic-bezier(.5, .05, .2, 1.5);
+
+// Focus outline (AA compliant)
+$luc-focus-color: $luc-maroon !default;
+$luc-focus-outline: $luc-baseline dotted $luc-focus-color !default;
+$luc-focus-offset: $luc-baseline !default;
 
 $luc-space-3xs: clamp(.25rem, .2rem + .25vw, .375rem);
 $luc-space-2xs: clamp(.5rem, .4rem + .5vw, .75rem);

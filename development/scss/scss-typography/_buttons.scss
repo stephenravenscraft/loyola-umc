@@ -6,6 +6,7 @@
 // Merged from nav-footer design with typography width/container rules
 // =============================================================================
 
+button,
 .luc-button,
 .button,
 button.button,
@@ -49,7 +50,7 @@ button.container-50,
   // Arrow icon using mask
   &::after {
     content: '';
-    display: block;
+    display: inline-block;
     width: $luc-baseline * 4.5; // 1.125rem / 18px
     height: $luc-baseline * 2; // 0.5rem / 8px
     mask-image: url('../images/icon-arrow-right.svg');
@@ -85,6 +86,29 @@ button.container-50,
     pointer-events: none;
   }
 }
+
+  // ==========================================================================
+  // ACCORDION BUTTON STATE
+  // ==========================================================================
+
+p.js-accordion-no-panel a.cta {
+  position: relative;
+  padding: .35rem .5rem .125rem;
+  color: $maroon;
+  &::before {
+    bottom: -2px;
+    border-top-left-radius: $luc-radius;
+    border-top-right-radius: $luc-radius;
+  }
+  &:hover {
+    color: $gold;
+  }
+  &:after {
+    position: relative;
+    bottom: .125rem;
+    margin: 0 0 0 .5rem;
+  }
+} 
 
 .luc-button,
 .button,

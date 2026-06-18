@@ -199,7 +199,7 @@ a.skip-main:focus, a.skip-main:active {
 .container.container-50 {
   width: 50%;
   @include tablet-portrait {
-    width: 80%;
+    width: 100%;
   }
 }
 
